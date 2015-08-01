@@ -45,3 +45,10 @@ end
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+# For Login Registration
+gem 'devise'
+# For the authorization
+gem 'cancancan'
+# For the roles
+gem 'rolify'

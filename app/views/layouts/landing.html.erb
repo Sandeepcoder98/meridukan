@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>MeriDukan</title>
+  <title>Meri Dukan</title>
   <!-- Custom Fonts -->
+  <%= stylesheet_link_tag 'landing', media: 'all', 'data-turbolinks-track' => true %>
   <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
@@ -35,15 +35,24 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                  <% if !user_signed_in? %>
                     <li>
-                        <a class="page-scroll" href="#about">Sign up</a>
+                        <a class="page-scroll" href="<%= signup_path %>">Sign up</a>
                     </li>
+                  <% end %>
                     <li>
                         <a class="page-scroll" href="#download">How it works</a>
                     </li>
+
+                  <% if !user_signed_in? %>
                     <li>
-                        <a class="page-scroll" href="#contact">Log in</a>
+                        <a class="page-scroll" href="<%=social_path%>">Log in</a>
                     </li>
+                  <% else %>
+                    <li>
+                        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                    </li>
+                <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

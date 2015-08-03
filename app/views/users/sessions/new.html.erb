@@ -1,0 +1,19 @@
+<!--<.........................login form.........................>-->
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"login active"}) do |f| %>
+  <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
+  <div class="login-box">
+    <label>Email Address</label>
+     <%= f.text_field :email  %>
+    <label>Password</label>
+     <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <div class="bottom">
+    <%= f.submit "Login" %>
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6"><a href="<%=new_password_path(resource_name)%>" rel="forgot_password" class="pull-right">Forgot password?</a></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+<% end %>

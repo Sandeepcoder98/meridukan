@@ -1,12 +1,23 @@
 Rails.application.routes.draw do
+
   devise_for :users
-  get 'home/index'
+
+  get 'signup' => "social#signup"
+  get 'social' => "social#main"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
- root 'home#index'
+
+
+  resource :home
+  resource :dashboard
+  authenticated :user do
+    root :to => "dashboard#index", as: :authenticated_root
+  end
+  root :to => "home#index"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

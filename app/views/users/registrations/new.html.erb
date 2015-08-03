@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
   <div class="login-box">
     <label class="<%="#{"error-color" if resource.errors["email"].present?}"%>">Email Address</label>
-    <%= f.text_field :email, :class=>"#{"error-field" if resource.errors["email"]}" %>
+    <%= f.text_field :email, :class=>"#{"error-field" if resource.errors["email"].present?}" %>
     <label class="<%="#{"error-color" if resource.errors["password"].present?}"%>">Password</label>
     <%= f.password_field :password, autocomplete: "off", class:"#{"error-field" if resource.errors["password"].present?}" %>
     <label class="<%="#{"error-color" if resource.errors["password_confirmation"].present?}"%>">Password Confirmation</label>

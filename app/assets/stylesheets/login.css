@@ -91,7 +91,7 @@ form.forgot_password {
 	border-radius: 4px;
 }
 .form_wrapper input[type="text"]:focus, .form_wrapper input[type="password"]:focus {
-	border:1px solid #46C0D9 !important;
+	outline: 2px solid #46C0D9 !important;
 }
 .form_wrapper .bottom {
 	clear:both;

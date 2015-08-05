@@ -2,8 +2,8 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:"login active"}) do |f| %>
   <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
   <div class="login-box">
-    <label>Email Address</label>
-     <%= f.text_field :email  %>
+    <label>Mobile</label>
+     <%= f.text_field :mobile  %>
     <label>Password</label>
      <%= f.password_field :password, autocomplete: "off" %>
   </div>

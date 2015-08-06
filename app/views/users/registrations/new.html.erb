@@ -3,9 +3,8 @@
   <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
   <%= devise_error_messages! %>
   <div class="login-box">
-    <label class="<%="#{"error-color" if resource.errors["mobile"].present?}"%>">
-    Mobile</label>
-    <%= f.text_field :mobile, :class=>"#{"error-field" if resource.errors["mobile"].present?}" %>
+    <label class="<%="#{"error-color" if resource.errors["mobile"].present?}"%>">Mobile (+91)</label>
+    <%= f.text_field :mobile, :class=>"#{"error-field" if resource.errors["mobile"].present?}", :placeholder=>"8871195825" %>
   </div>
   <div class="bottom">
     <%= f.submit "Create account" %>

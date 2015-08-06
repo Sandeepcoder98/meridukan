@@ -52,3 +52,4 @@ gem 'devise'
 gem 'cancancan'
 # For the roles
 gem 'rolify'
+gem 'twilio-ruby', '~> 4.2.1'

@@ -17,6 +17,17 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
+  	send_message(params[:user][:password], params[:user][:mobile])
+  	flash[:success] = "We have send your password on "+params[:user][:mobile]
     new_user_session_path
+  end
+
+  def send_message(password,mobile)
+  	mobile="+91#{mobile}"
+  	message = TwilioClient.account.messages.create({
+		:from => '+17548884078', 
+		:to => mobile, 
+		:body => password,  
+	}) rescue false
   end
 end

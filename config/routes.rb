@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
-
+  
+  get 'verify-otp' => "social#verify_otp"
   get 'signup' => "social#signup"
   get 'social' => "social#main"
+
+  resource :social, controller:"social" do
+    collection do
+      post 'verified_otp'
+      put 'resend_otp'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

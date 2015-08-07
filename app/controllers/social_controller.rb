@@ -15,7 +15,7 @@ class SocialController < ApplicationController
 		if user.valid_password?(params[:otp])
 			sign_in_and_redirect(user)
 		else
-			flash[:alert]="You have entered wrong otp information"
+			flash[:alert]="You have entered wrong OTP information"
 			redirect_to :back
 		end
     end
@@ -26,7 +26,7 @@ class SocialController < ApplicationController
 			user = User.find_by_mobile(session[:mobile])
 			user.update_new_password_and_send_otp
 		end
-		flash[:success]="We have resend your otp at "+session[:mobile]
+		flash[:success]="We have resend your OTP at "+session[:mobile]
 		redirect_to :back
     end
 end

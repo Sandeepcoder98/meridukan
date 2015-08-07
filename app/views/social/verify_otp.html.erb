@@ -1,5 +1,7 @@
 <%= form_tag verified_otp_social_path, class:"active" do %>
   <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
+  <%= flash_messages %>
+
   <div class="login-box">
     <label>Enter the received OTP</label>
     <%= text_field_tag :otp %>

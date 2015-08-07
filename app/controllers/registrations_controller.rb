@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
   	User.send_otp(params[:user][:password], params[:user][:mobile])
     session[:mobile]=params[:user][:mobile]
-  	flash[:success] = "We have send your otp / password at "+params[:user][:mobile]
+  	flash[:success] = "We have send your OTP / password at "+params[:user][:mobile]
     verify_otp_path
   end
 end

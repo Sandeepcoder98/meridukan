@@ -1,0 +1,157 @@
+<%set_resource_through_template%>
+<%= form_for(@resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,:role=>"form" }) do |f| %>
+           <%= devise_error_messages! %>                  
+    <div class= "registration-form">
+    <fieldset>
+      <div class="form-top">
+        <div class="form-top-left">
+          <h3>Step 1 / 3</h3>
+            <p>Tell us who you are:</p>
+        </div>
+        <div class="form-top-right">
+          <i class="fa fa-user"></i>
+        </div>
+      </div>
+      <div class="form-bottom">
+        <div class="form-group">
+           <%= f.text_field :first_name,
+                :placeholder=> "First name...",
+                class: "form-first-name form-control",
+                id: "form-first-name"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :last_name,
+                placeholder: "Last name...",
+                class: "form-last-name form-control",
+                id: "form-last-name"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :email,
+                placeholder: "Email...",
+                class: "form-email form-control",
+                id: "form-about-yourself"%>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_field :mobile,
+                placeholder: "Mobile",
+                class: "form-about-yourself form-control",
+                id: "form-about-yourself"%>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :phone,
+                placeholder: "Phone No.",
+                class: "form-about-yourself form-control",
+                id: "form-about-yourself"%>
+        </div>
+        <button type="button" class="btn btn-next">Next</button>
+    </div>
+  </fieldset>
+                          
+  <fieldset>
+    <div class="form-top">
+      <div class="form-top-left">
+        <h3>Step 2 / 3</h3>
+        <p>Set up your address:</p>
+      </div>
+      <div class="form-top-right">
+        <i class="fa fa-key"></i>
+      </div>
+    </div>
+    <div class="form-bottom">
+      
+      <div class="form-group">
+          <%= f.text_field :address,
+                placeholder: "Address",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :country,
+                placeholder: "Country",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :state,
+                placeholder: "State",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :city,
+                placeholder: "City",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+      
+      <button type="button" class="btn btn-previous">Previous</button>
+      <%if current_user.has_role? "seller"%>
+        <button type="button" class="btn btn-next">Next</button>
+        <%else%>
+          <%= f.submit "Sign me up!",class: "btn signup"%>
+        <%end%>
+    </div>
+  </fieldset>
+
+  <%if current_user.has_role? "seller"%>                        
+  <fieldset>
+    <div class="form-top">
+      <div class="form-top-left">
+        <h3>Step 3 / 3</h3>
+        <p>Shop details:</p>
+      </div>
+      <div class="form-top-right">
+        <i class="fa fa-usd"></i>
+      </div>
+    </div>
+
+    <%= f.fields_for :stores do |store_f| %>
+    <div class="form-bottom">
+        
+        <div class="form-group">
+          <%= store_f.text_field :name,
+                placeholder: "Shop Name...",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+
+        <div class="form-group">
+          <%= store_f.text_field :address,
+                placeholder: "Shop Address...",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+
+        <div class="form-group">
+          <%= store_f.text_field :country,
+                placeholder: "Shop Country",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+
+        <div class="form-group">
+          <%= store_f.text_field :state,
+                placeholder: "Shop State",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+
+        <div class="form-group">
+          <%= store_f.text_field :city,
+                placeholder: "Shop City",
+                class: "form-address form-control",
+                id: "form-address"%>
+        </div>
+        <%end%>
+      <button type="button" class="btn btn-previous">Previous</button>
+      <%= f.submit "Sign me up!",class: "btn signup"%>
+    </div>
+  </fieldset>
+  <%end%>
+  </div>
+<%end%>
+
+

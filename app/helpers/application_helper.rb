@@ -24,4 +24,9 @@ module ApplicationHelper
     end
     nil
   end
+
+  def set_resource_through_template
+    @resource = current_user
+    @resource.stores.build unless @resource.stores.any?    
+  end
 end

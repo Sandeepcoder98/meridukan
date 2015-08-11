@@ -13,3 +13,25 @@
  *= require bootstrap_and_overrides
  *= require_self
  */
+
+.signup{
+	background: none repeat scroll 0 0 #19b9e7;
+    border: 0 none;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    text-shadow: none;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+}
+.signup:hover{
+	color: #fff;
+	opacity:0.6;
+}

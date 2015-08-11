@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   rolify
+  has_many :stores
+  accepts_nested_attributes_for :stores, :reject_if => :all_blank
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,5 +35,8 @@ class User < ActiveRecord::Base
     self.password=password
     self.save
   end
-      
+
+  def add_user_role(role)
+    self.add_role(role)
+  end
 end

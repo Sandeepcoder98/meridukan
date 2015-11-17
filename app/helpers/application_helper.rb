@@ -1,4 +1,7 @@
+include Carmen
+
 module ApplicationHelper
+
   def resource_name
     :user
   end
@@ -28,5 +31,10 @@ module ApplicationHelper
   def set_resource_through_template
     @resource = current_user
     @resource.stores.build unless @resource.stores.any?    
+  end
+
+  def get_states
+    ind = Country.named('India')
+    ind.subregions.select{|t| t.type=="state"}.map(&:name)
   end
 end

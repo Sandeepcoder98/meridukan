@@ -1,7 +1,7 @@
 <%= form_tag verified_otp_social_path, class:"active" do %>
   <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
   <%= flash_messages %>
-
+  <%= hidden_field_tag :ip_address%>
   <div class="login-box">
     <label>Enter the received OTP</label>
     <%= text_field_tag :otp %>
@@ -16,3 +16,11 @@
     <div class="clear"></div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $.get("http://ipinfo.io", function(response) {
+            $("#ip_address").val(response.ip);
+        }, "jsonp");
+    })
+</script>

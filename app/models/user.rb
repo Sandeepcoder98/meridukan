@@ -39,4 +39,12 @@ class User < ActiveRecord::Base
   def add_user_role(role)
     self.add_role(role)
   end
+
+  def set_user_info(user_info,address)
+    self.city = user_info["city"] if self.city.blank?
+    self.state = user_info["regionName"] if self.state.blank?
+    self.pin_code = user_info["zip"] if self.pin_code.blank?
+    self.address = address if self.address.blank?
+    self.save
+  end
 end

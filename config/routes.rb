@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords" }
+  devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords",:sessions=>"sessions" }
   
   get 'verify-otp' => "social#verify_otp"
   get 'signup' => "social#signup"

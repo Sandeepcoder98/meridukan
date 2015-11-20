@@ -1,0 +1,2 @@
+ip_config: http://ip-api.com/json/
+google_api: https://maps.googleapis.com/maps/api/geocode/json?address=

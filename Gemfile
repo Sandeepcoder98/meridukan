@@ -54,4 +54,3 @@ gem 'cancancan'
 gem 'rolify'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'carmen'
-

@@ -2,7 +2,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name,:role=>params[:role]), html:{class:"login active"}) do |f| %>
   <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
   <%= flash_messages %>
-
+  <%= hidden_field_tag :ip_address%>
   <div class="login-box">
     <label>Mobile</label>
      <%= f.text_field :mobile  %>
@@ -19,3 +19,11 @@
     <div class="clear"></div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $.get("http://ipinfo.io", function(response) {
+            $("#ip_address").val(response.ip);
+        }, "jsonp");
+    })
+</script>

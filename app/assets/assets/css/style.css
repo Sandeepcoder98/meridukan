@@ -235,3 +235,6 @@ only screen and (                min-resolution: 2dppx) {
     }
 	
 }
+.form-group input,textarea,select{
+	color: black !important;
+}

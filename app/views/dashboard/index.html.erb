@@ -4,3 +4,11 @@
 <%if current_user.email.blank?%>
 	<%= render :template=>"users/registrations/set_user_info",:layout=>"layouts/get_user"%>
 <%end%>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+        $.get("http://ipinfo.io", function(response) {
+            $("#ip_address").val(response.ip);
+        }, "jsonp");
+    })
+</script>

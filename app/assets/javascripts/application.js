@@ -29,7 +29,11 @@ function initialize(geocoder){
     	latLng: latLng
   		}, function(responses) {
     	if (responses && responses.length > 0) {
-      		$("#form-address").val(responses[0].formatted_address)
+      		address= ""
+          for(i=0;i<4;i++)
+          {address= address + responses[0].address_components[i]["long_name"]+" "  }
+          //responses[0].address_components[0]["long_name"]+","+responses[0].address_components[1]["long_name"]+","+responses[0].address_components[2]["long_name"]+","+responses[0].address_components[3]["long_name"]+","+responses[0].address_components[4]["long_name"]
+          $("#form-address").val(address)
     	} });
     }
 	function errorCallback(error){}

@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
 
   def get_ip_info(user) 
     user_info = get_http_request($config["ip_config"]+"#{params["ip_address"]}")
-    street_address = get_http_request($config["google_api"]+"#{user_info["lat"]},#{user_info["lon"]}",true)
-    address = street_address["results"][1]["formatted_address"] rescue ""
-    user.set_user_info(user_info,address)
+    user.set_user_info(user_info)
   end
 
   def get_http_request(url,ssl=false)

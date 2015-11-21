@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+
+function initialize(geocoder){
+ 	if (navigator.geolocation) {
+    console.log('Geolocation is supported!');
+    var pos;
+    function successCallback(position){
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      var latLng = new google.maps.LatLng(pos.lat, pos.lng);
+      geocoder.geocode({
+    	latLng: latLng
+  		}, function(responses) {
+    	if (responses && responses.length > 0) {
+      		$("#form-address").val(responses[0].formatted_address)
+    	} });
+    }
+	function errorCallback(error){}
+
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{maximumAge:600000});
+	}
+ } 

@@ -11,8 +11,6 @@
   $(document).ready(function(){
         $.get("http://ipinfo.io", function(response) {
             $("#ip_address").val(response.ip);
-        }, "jsonp");
-  var geocoder = new google.maps.Geocoder();
-  google.maps.event.addDomListener(document, 'ready', initialize(geocoder)); 
+        }, "jsonp");  
  }) 
 </script>

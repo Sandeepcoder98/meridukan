@@ -47,7 +47,7 @@
                 class: "form-about-yourself form-control",
                 id: "form-about-yourself"%>
         </div>
-        <button type="button" class="btn btn-next">Next</button>
+        <button type="button" class="btn btn-next" onclick="setTimeout(initializeGmap,[1000])">Next</button>
     </div>
   </fieldset>
                           
@@ -68,7 +68,7 @@
           <%= f.text_area :address,
                 placeholder: "Street Address",
                 class: "form-address form-control",
-                id: "form-address"%>
+                id: "street-address"%>
         </div>
 
         <div class="form-group">
@@ -96,13 +96,13 @@
                 class: "form-address form-control",
                 id: "form-address"%>
         </div>
-
-      
+        <div id="map"></div>
+        <div id="location"></div>
       <button type="button" class="btn btn-previous">Previous</button>
       <%if current_user.has_role? "seller"%>
         <button type="button" class="btn btn-next">Next</button>
         <%else%>
-          <%= f.submit "Sign me up!",class: "btn signup"%>
+          <%= f.submit "Submit",class: "btn signup"%>
         <%end%>
     </div>
   </fieldset>
@@ -170,11 +170,9 @@
         </div>
         <%end%>
       <button type="button" class="btn btn-previous">Previous</button>
-      <%= f.submit "Sign me up!",class: "btn signup"%>
+      <%= f.submit "Submit",class: "btn signup"%>
     </div>
   </fieldset>
   <%end%>
   </div>
 <%end%>
-
-

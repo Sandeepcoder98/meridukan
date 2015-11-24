@@ -14,30 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-
-function initialize(geocoder){
- 	if (navigator.geolocation) {
-    console.log('Geolocation is supported!');
-    var pos;
-    function successCallback(position){
-      pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      }
-      var latLng = new google.maps.LatLng(pos.lat, pos.lng);
-      geocoder.geocode({
-    	latLng: latLng
-  		}, function(responses) {
-    	if (responses && responses.length > 0) {
-      		address= ""
-          for(i=0;i<4;i++)
-          {address= address + responses[0].address_components[i]["long_name"]+" "  }
-          //responses[0].address_components[0]["long_name"]+","+responses[0].address_components[1]["long_name"]+","+responses[0].address_components[2]["long_name"]+","+responses[0].address_components[3]["long_name"]+","+responses[0].address_components[4]["long_name"]
-          $("#form-address").val(address)
-    	} });
-    }
-	function errorCallback(error){}
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{maximumAge:600000});
-	}
- } 
+//= require map.js
+//= require common_js.js

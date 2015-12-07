@@ -1,0 +1,16 @@
+iframe.wysihtml5-sandbox {
+    width: 50% !important;
+}
+
+textarea{
+	width:50% !important;
+}
+
+#product_title{
+	font-size: 30px;
+}
+
+.product-container{
+	margin-left: 86px;
+    width: 70%;
+}

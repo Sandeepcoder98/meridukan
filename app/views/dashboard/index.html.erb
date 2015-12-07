@@ -1,11 +1,94 @@
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete,class: "pull-right" %>
-
-<!-- Need to change-->
-<%if current_user.email.blank?%>
+<%unless verify_user_details?%>
 	<%= render :template=>"users/registrations/set_user_info",:layout=>"layouts/get_user"%>
 <%end%>
+
+<div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Trends
+                    <small>Based on your views</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Projects Row -->
+	        <div class="row">
+	        	<%Product.all.each do|product|%>
+		            <div class="col-md-3 portfolio-item">
+		                <%= link_to product_path(product.id) do%>
+		                		<%= image_tag asset_path(product.galleries.first.photo.url),:class=>"img-responsive"%>
+		               	<%end%>
+		                <h4><%= product.title%></h4>
+		            </div>
+	          <%end%>
+	            <div class="col-md-3 portfolio-item">
+	                <a href="#">
+	                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+	                </a>
+	            </div>
+	            <div class="col-md-3 portfolio-item">
+	                <a href="#">
+	                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+	                </a>
+	            </div>
+
+	            <div class="col-md-3 portfolio-item">
+	                <a href="#">
+	                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+	                </a>
+	            </div>
+	        </div>
+        <!-- /.row -->       
+
+        <hr>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
 
 <script type="text/javascript">
   $(document).ready(function(){
@@ -14,3 +97,7 @@
         }, "jsonp");  
  }) 
 </script>
+
+<style type="text/css">
+	/* CSSTerm.com Simple Horizontal DropDown CSS menu */
+</style>

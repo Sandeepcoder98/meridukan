@@ -1,0 +1,28 @@
+<h3>Scope & Pricing</h3>
+
+<hr/>
+<%= form_tag "#",:id => 'pricing_form'%>
+<div class="table-responsive ">
+<%= hidden_field_tag 'product_id',@product.id%>
+<table class="table table-bordered" style="width: 40%;">
+	<tr>
+		<th>Products in Stock</th>
+		<td><%= number_field_tag "stock_quantity",(@product.pricing.stock_quantity rescue "")%></td>	
+	</tr>
+	<tr>
+		<th>MRP per unit</th>
+		<td><%= text_field_tag "mrp_per_unit",(@product.pricing.mrp_per_unit rescue "")%></td>	
+	</tr>
+	<tr>
+		<th>Offer on MRP</th>
+		<td><%= text_field_tag "offer_on_mrp",(@product.pricing.offer_on_mrp rescue "")%>
+		</td>	
+	</tr>
+	<tr>
+		<th>Net Price</th>
+		<td><%= text_field_tag "net_mrp",calculate_net_mrp(@product),:disabled=>true%>
+		</td>	
+	</tr>
+</table>
+</div>
+<%= button_tag "Save",:class=>"btn btn-success",:id=>"pricing"%>

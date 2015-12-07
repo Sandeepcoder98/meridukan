@@ -11,10 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120081809) do
+ActiveRecord::Schema.define(version: 20151127114209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "product_id"
+  end
+
+  create_table "pricings", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "stock_quantity"
+    t.float    "mrp_per_unit"
+    t.float    "offer_on_mrp"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.text     "title"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "delivery_time"
+    t.integer  "category_id"
+    t.integer  "store_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +76,14 @@ ActiveRecord::Schema.define(version: 20151120081809) do
     t.string   "landmark"
     t.decimal  "lat",        precision: 10, scale: 6
     t.decimal  "lng",        precision: 10, scale: 6
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "parent_id"
   end
 
   create_table "users", force: :cascade do |t|

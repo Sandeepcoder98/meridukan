@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   rolify
   has_many :stores
+  has_many :products,:through=> :stores
   accepts_nested_attributes_for :stores, :reject_if => :all_blank
   
   # Include default devise modules. Others available are:
@@ -45,5 +46,17 @@ class User < ActiveRecord::Base
     self.state = user_info["regionName"] if self.state.blank?
     self.pin_code = user_info["zip"] if self.pin_code.blank?
     self.save
+  end
+
+  def seller?
+    self.has_role? :seller    
+  end
+
+  def buyer?
+    self.has_role? :buyer
+  end
+
+  def check_user_access?
+    ((self.seller? && self.stores.first.products.empty?)? true : false)
   end
 end

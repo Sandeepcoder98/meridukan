@@ -1,6 +1,7 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 <%set_resource_through_template%>
 <%= form_for(@resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,:role=>"form" }) do |f| %>
-           <%= devise_error_messages! %>                  
+           <%= devise_error_messages! rescue ""%>                  
     <div class= "registration-form">
     <fieldset>
       <div class="form-top">
@@ -29,23 +30,20 @@
         </div>
 
         <div class="form-group">
-          <%= f.text_field :email,
+          <%= f.email_field :email,
                 placeholder: "Email...",
-                class: "form-email form-control",
-                id: "form-about-yourself"%>
+                class: "form-email form-control"%>
         </div>
 
         <div class="form-group">
           <%= f.text_field :mobile,
                 placeholder: "Mobile",
-                class: "form-about-yourself form-control",
-                id: "form-about-yourself"%>
+                class: "form-about-yourself form-control",:disabled=>true%>
         </div>
         <div class="form-group">
-          <%= f.text_field :phone,
+          <%= f.phone_field :phone,
                 placeholder: "Phone No.",
-                class: "form-about-yourself form-control",
-                id: "form-about-yourself"%>
+                class: "form-about-yourself form-control"%>
         </div>
         <button type="button" class="btn btn-next" onclick="setTimeout(initializeGmap,[1000])">Next</button>
     </div>
@@ -126,14 +124,14 @@
           <%= store_f.text_field :name,
                 placeholder: "Store's Name...",
                 class: "form-address form-control",
-                id: "form-address"%>
+                id: "form-address",:required=>true%>
         </div>
 
         <div class="form-group">
           <%= store_f.text_field :address,
                 placeholder: "Street Address",
                 class: "form-address form-control",
-                id: "form-address"%>
+                id: "form-address",:required=>true%>
         </div>
 
         <div class="form-group">
@@ -149,7 +147,7 @@
         </div>
 
         <div class="form-group">
-          <%= store_f.text_field :city,
+          <%= store_f.text_field :city,:value=>"Indore",
                 placeholder: "City",
                 class: "form-address form-control",
                 id: "form-address"%>
@@ -164,7 +162,7 @@
 
         <div class="form-group">
           <%= store_f.number_field :pin_code,
-                placeholder: "Pincode",
+                placeholder: "Pincode",:value=>"452001",
                 class: "form-address form-control",
                 id: "form-address"%>
         </div>

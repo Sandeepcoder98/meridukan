@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require bootstrap-wysihtml5
+ *= require common_css.css
  *= require_self
  */
 

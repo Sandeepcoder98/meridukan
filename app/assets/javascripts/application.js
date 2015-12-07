@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require map.js
 //= require common_js.js
+//= require bootstrap-wysihtml5

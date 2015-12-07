@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Products</h1>
+<%= link_to 'Add a new Product', new_product_path,:class=>"btn btn-info pull-right" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td></td>
+        <td><%= image_tag asset_path(product.galleries.first.photo.url), size: "50x50" %></td>
+
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= link_to product do %><i class="fa fa-pencil-square-o"></i>
+        <%end%></td>
+        <td><%= link_to product, method: :delete, data: { confirm: 'Are you sure?' } do%>
+          <i class="fa fa-trash-o"></i>
+        <%end%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+

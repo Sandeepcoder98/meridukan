@@ -1,0 +1,63 @@
+<section class="product-container">
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="col-md-12 form-margin-top">
+    <%= f.label(:title).upcase.html_safe %>
+    <%= f.text_area :title,:class=>'form-control',size: "1x1" ,:maxlength=>"80"%> max 80 characters
+  </div>
+  </div>
+  <div class="row">
+
+  <div class="col-md-12 form-margin-top">
+    <%= f.label(:description).upcase.html_safe %>
+    <%= f.text_area :description,:class=>'wysihtml5 form-control',size: "5x10",:maxlength=>"1200" %>max 1200 characters
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-md-12 form-margin-top">
+    <%= f.label(:category).upcase.html_safe %>
+    <%= f.select :category_id,options_for_select(get_parent_category), :include_blank=> "-- SELECT --"%>
+    <%= select_tag :child_category,options_for_select(get_child_category),:prompt=>"-- SELECT SUB CATEGORY --"%>
+    <%= select_tag :child_sub_category,options_for_select(get_child_category),:prompt=>"-- SELECT SUB CATEGORY --"%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 form-margin-top">
+    <b>Gallery</b>
+      <%= f.fields_for :galleries do |photo_f| %>
+        <%= photo_f.file_field :photo%>
+      <%end%>
+  </div>
+  </div>
+  <div class="row">
+  <div class="field col-md-2 form-margin-top">
+    <%= f.label(:delivery_time).upcase.html_safe %><br/>
+    Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control delivery-margin" %> <span class="deliver-text">to deliver</span> 
+  </div>
+  </div>
+  <div class="field actions col-md-12 form-margin-top">
+    <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+  </div>
+<% end %>
+</section>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5({'toolbar': {'blockquote': false, 'font-styles': true,'lists': false,'link': false,'image': false}});
+    });    
+  })
+  $("#child_category").chained("#product_category_id");
+  $("#child_sub_category").chained("#child_category");
+
+</script>

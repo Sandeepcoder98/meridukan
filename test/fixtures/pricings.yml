@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 1
+  stock_quantity: 1
+  mrp_per_unit: 1.5
+  offer_on_mrp: 1.5
+
+two:
+  product_id: 1
+  stock_quantity: 1
+  mrp_per_unit: 1.5
+  offer_on_mrp: 1.5

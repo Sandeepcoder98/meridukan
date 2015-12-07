@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :products 
+
+  resources :pricings do
+    post :get_pricing,:on=>:collection
+  end
+
   devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords",:sessions=>"sessions" }
   
   get 'verify-otp' => "social#verify_otp"
@@ -11,6 +17,10 @@ Rails.application.routes.draw do
       post 'verified_otp'
       put 'resend_otp'
     end
+  end
+
+  devise_scope :user do
+    get 'set_user_info'=> "registrations#set_user_info"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

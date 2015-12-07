@@ -3,4 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+RailsERD.options.filetype = :dot
 Rails.application.load_tasks
+

@@ -7,4 +7,6 @@ class Product < ActiveRecord::Base
 	accepts_nested_attributes_for :galleries, :reject_if => :all_blank
 	has_one :pricing
 	acts_as_taggable_on :name
+
+	validates :title,:description,:delivery_time,:category_id,:galleries,:presence=>true
 end

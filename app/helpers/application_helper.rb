@@ -33,8 +33,20 @@ module ApplicationHelper
     @resource.build_store unless @resource.stores.any?    
   end
 
+  def buyer?
+    current_user.has_role? :buyer
+  end
+
   def get_states
     ind = Country.named('India')
     ind.subregions.select{|t| t.type=="state"}.map(&:name)
+  end
+
+  def set_image(product)
+    if (product.galleries.first.photo.url.include? "missing")
+      asset_path("bg_cover")      
+    else
+      product.galleries.first.photo.url 
+    end
   end
 end

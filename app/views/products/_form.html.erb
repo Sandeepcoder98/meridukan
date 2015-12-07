@@ -35,7 +35,10 @@
   <div class="col-md-12 form-margin-top">
     <b>Gallery</b>
       <%= f.fields_for :galleries do |photo_f| %>
-        <%= photo_f.file_field :photo%>
+        <%= link_to "#",:id=>:bg_cover do%>
+          <%= image_tag set_image(@product)%>
+        <%end%>
+        <%= photo_f.file_field :photo,:class=>"hide bg_cover_field",:onchange=>"readURL(this);"%>
       <%end%>
   </div>
   </div>

@@ -6,12 +6,11 @@ class PricingsController < ApplicationController
 			@pricing = @product.pricing
 			@pricing.update_attributes(pricing_params)
 		end
-
 		respond_to do |format|
 	       if @pricing.save
 	       	format.json {render json: {notice: "Pricing saved successfully"}}	              
 	       else
-	        format.json {render json: {errors: @pricing.errors}}  
+	        format.json {render json: {errors: @pricing.errors.full_messages.as_json}}  
 	       end 
     	end  
 	end

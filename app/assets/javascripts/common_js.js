@@ -17,7 +17,9 @@ $(document).ready(function(){
 			data: form_data,
 				success: function(data) {
 					 if(data.hasOwnProperty('errors')){
-							$("#notice").html(data["errors"])         
+							jQuery.each(data["errors"], function(index, value) {
+ 								$("#notice").html(value) 
+   							});							        
 						}
 						else{
 							calculate_offer($('#mrp_per_unit').val(),$('#offer_on_mrp').val()/100)	
@@ -27,7 +29,7 @@ $(document).ready(function(){
 				}
 		});
 	});
-	$("#mrp_per_unit,#offer_on_mrp").on('change',function(){
+	$("#mrp_per_unit,#offer_on_mrp").on('update',function(){
 			var mrp = $("#mrp_per_unit").val()
 			var offer_price = $("#offer_on_mrp").val() 
 			if((mrp>0) && (offer_price>0)){		    	
@@ -40,20 +42,9 @@ $(document).ready(function(){
 		})
 	
 	var calculate_offer = function (mrp,offer_price) {
-		$("#net_mrp").val(mrp-(mrp *(offer_price/100)))
+		$("#net_mrp").val(mrp-offer_price)
 	}
 
-	$("#mrp_per_unit,#offer_on_mrp").on('change',function(){
-			var mrp = $("#mrp_per_unit").val()
-			var offer_price = $("#offer_on_mrp").val() 
-			if((mrp>0) && (offer_price>0)){		    	
-				calculate_offer(mrp,offer_price)		    	
-			}
-			else
-			{
-				alert("Invalid Offer price or MRP")
-			}    
-		}) 
 	$("#bg_cover").on('click',function(){
 		$(".bg_cover_field").trigger('click')
 	})

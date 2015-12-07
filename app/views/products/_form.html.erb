@@ -28,7 +28,7 @@
     <%= f.label(:category).upcase.html_safe %>
     <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""])%>
     <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""])%>
-    <%= f.select :child_sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""])%>
+    <%= f.select :child_sub_category_id,get_sub_child_category.unshift(['-- Select Sub Category --',""])%>
   </div>
 </div>
 <div class="row">

@@ -8,11 +8,19 @@ module ProductsHelper
 	end
 
 	def get_child_category
-		SubCategory.all.map{|category| [category.title,category.id,:class=>get_id(category.parent_id,category.category_id) ]}
+		SubCategory.all.where(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.category_id ]}
+	end
+
+	def get_sub_child_category
+		SubCategory.all.where.not(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.parent_id]}
 	end
 
 	def get_id(parent,category)
-		parent ||=category
+		if category.parent_id.blank?
+			category.category_id
+		else
+			category.parent_id
+		end
 	end
 
 	def calculate_net_mrp(product)

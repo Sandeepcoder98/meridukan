@@ -13,6 +13,7 @@
  *= require bootstrap_and_overrides
  *= require bootstrap-wysihtml5
  *= require common_css.css
+ *= require bootstrap-tagsinput
  *= require_self
  */
 

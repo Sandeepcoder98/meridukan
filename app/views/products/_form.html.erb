@@ -33,7 +33,7 @@
 </div>
 <div class="row">
   <div class="col-md-12 form-margin-top">
-    <b>Gallery</b>
+      <%= f.label(:gallery).upcase.html_safe%><br/>
       <%= f.fields_for :galleries do |photo_f| %>
         <%= link_to "#",:id=>:bg_cover do%>
           <%= image_tag set_image(@product)%>
@@ -47,6 +47,13 @@
     <%= f.label(:delivery_time).upcase.html_safe %><br/>
     Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control delivery-margin" %> <span class="deliver-text">to deliver</span> 
   </div>
+  </div>
+
+  <div class="row">
+    <div class="field col-md-8 form-margin-top">
+      <b>Tags (separated by commas)</b><br/>
+      <%= f.text_field :tag_list,'data-role'=>'tagsinput'%>
+    </div>
   </div>
   <div class="field actions col-md-12 form-margin-top">
     <%= f.button "Save & Continue",:class=>"btn btn-success" %>

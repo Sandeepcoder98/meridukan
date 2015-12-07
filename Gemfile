@@ -58,4 +58,7 @@ gem 'carmen'
 gem 'bootstrap-wysihtml5-rails'
 gem "paperclip"
 gem "rails-erd"
+gem 'acts-as-taggable-on'
+gem 'bootstrap-tagsinput-rails'
+
 #gem 's3_direct_upload'

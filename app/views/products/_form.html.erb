@@ -26,9 +26,9 @@
   <div class="row">
   <div class="col-md-12 form-margin-top">
     <%= f.label(:category).upcase.html_safe %>
-    <%= f.select :category_id,options_for_select(get_parent_category), :include_blank=> "-- SELECT --"%>
-    <%= select_tag :child_category,options_for_select(get_child_category),:prompt=>"-- SELECT SUB CATEGORY --"%>
-    <%= select_tag :child_sub_category,options_for_select(get_child_category),:prompt=>"-- SELECT SUB CATEGORY --"%>
+    <%= f.select :category_id,options_for_select(get_parent_category), prompt: '-- Select Category --'%>
+    <%= f.select :sub_category_id,options_for_select(get_child_category), prompt: '-- Select Sub Category --'%>
+    <%= f.select :child_sub_category_id,options_for_select(get_child_category), prompt: '-- Select Sub Category --'%>
   </div>
 </div>
 <div class="row">
@@ -55,9 +55,8 @@
 
     $('.wysihtml5').each(function(i, elem) {
       $(elem).wysihtml5({'toolbar': {'blockquote': false, 'font-styles': true,'lists': false,'link': false,'image': false}});
-    });    
+    }); 
   })
-  $("#child_category").chained("#product_category_id");
-  $("#child_sub_category").chained("#child_category");
-
+  $("#product_sub_category_id").chained("#product_category_id");
+  $("#product_child_sub_category_id").chained("#product_sub_category_id");
 </script>

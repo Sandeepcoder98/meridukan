@@ -8,7 +8,11 @@ module ProductsHelper
 	end
 
 	def get_child_category
-		SubCategory.all.map{|category| [category.title,category.id,:class=>category.parent_id ]}
+		SubCategory.all.map{|category| [category.title,category.id,:class=>get_id(category.parent_id,category.category_id) ]}
+	end
+
+	def get_id(parent,category)
+		parent ||=category
 	end
 
 	def calculate_net_mrp(product)

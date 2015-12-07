@@ -26,9 +26,9 @@
   <div class="row">
   <div class="col-md-12 form-margin-top">
     <%= f.label(:category).upcase.html_safe %>
-    <%= f.select :category_id,options_for_select(get_parent_category), prompt: '-- Select Category --'%>
-    <%= f.select :sub_category_id,options_for_select(get_child_category), prompt: '-- Select Sub Category --'%>
-    <%= f.select :child_sub_category_id,options_for_select(get_child_category), prompt: '-- Select Sub Category --'%>
+    <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""])%>
+    <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""])%>
+    <%= f.select :child_sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""])%>
   </div>
 </div>
 <div class="row">
@@ -47,6 +47,7 @@
   </div>
   <div class="field actions col-md-12 form-margin-top">
     <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+    <%= link_to 'Back', products_path,:class=>"btn btn-warning" %>
   </div>
 <% end %>
 </section>

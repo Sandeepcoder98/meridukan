@@ -37,6 +37,10 @@ module ApplicationHelper
     current_user.has_role? :buyer
   end
 
+  def admin?
+    current_user.has_role? :admin
+  end
+
   def get_states
     ind = Country.named('India')
     ind.subregions.select{|t| t.type=="state"}.map(&:name)

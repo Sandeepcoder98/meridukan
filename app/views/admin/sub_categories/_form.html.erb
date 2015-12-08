@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+      <div class="col-md-12 form-margin-top">
+        <%= label_tag(:parent_category).upcase.html_safe %>
+        <%= f.select :category_id,options_for_select(get_parent_category,@admin_category.id)%>
+      </div>
+
+    <%unless @admin_sub_category.parent_id.blank?%>
+        <div class="col-md-12 form-margin-top">
+          <%= label_tag(:parent_sub_category).upcase.html_safe %>
+          <%= f.select :parent_id,options_for_select(set_child_category(@admin_sub_category.parent_id,@admin_category.id),@admin_sub_category.parent_id)%>
+        </div>
+    <%end%>
     <div class="row">
       <div class="col-md-12 form-margin-top">
         <%= f.label(:title).upcase.html_safe %>

@@ -1,7 +1,6 @@
 <div class="drop">
 <ul class="drop_menu inline_categories">
-
-<%Category.all.each do |category|%>
+<%user_category.each do |category|%>
 	<li><a href='#'><%= category.title%></a>
 		<ul>
 		<%SubCategory.where(:parent_id=>nil,:category_id=>category.id).each do |sub_category|%>

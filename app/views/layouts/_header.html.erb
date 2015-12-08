@@ -15,7 +15,9 @@
         		<ul class="dropdown-menu">
           		<li></li>
               <li><a href="#">Profile</a></li>
-              <%if buyer?%>
+              <%if admin?%>
+                <%= render "layouts/admin_options"%>
+              <%elsif buyer?%>
                 <%= render "layouts/buyer_options"%>
               <%else%>
                 <%= render "layouts/seller_options"%>

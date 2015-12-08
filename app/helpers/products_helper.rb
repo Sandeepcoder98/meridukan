@@ -8,11 +8,11 @@ module ProductsHelper
 	end
 
 	def get_child_category
-		SubCategory.all.where(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.category_id ]}
+		SubCategory.where(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.category_id ]}
 	end
 
 	def get_sub_child_category
-		SubCategory.all.where.not(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.parent_id]}
+		SubCategory.where.not(:parent_id=>nil).map{|category| [category.title,category.id,:class=>category.parent_id]}
 	end
 
 	def get_id(parent,category)
@@ -30,6 +30,10 @@ module ProductsHelper
 
 	def offer_type
 		[["Buy & Get","buy_get"],["Gift","gift"],[" Off on total purchase","total"] ]
+	end
+
+	def set_child_category(parent,category)
+		SubCategory.where(:parent_id=>nil,:category_id=>category).map{|category| [category.title,category.id]} unless parent.blank?
 	end
 
 end

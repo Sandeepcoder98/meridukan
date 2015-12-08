@@ -71,7 +71,7 @@ textarea{
 }
 .drop_menu li { display: inline-block; }
 .drop_menu li a {
-    padding:9px 17px;
+    padding:9px 8px;
     display:block;
     color:#fff;
     text-decoration:none;

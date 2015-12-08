@@ -1,0 +1,23 @@
+<%= form_for [:admin,@admin_category] do |f| %>
+  <% if @admin_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_category.errors.count, "error") %> prohibited this admin_category from being saved:</h2>
+
+      <ul>
+      <% @admin_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+      <div class="col-md-12 form-margin-top">
+        <%= f.label(:title).upcase.html_safe %>
+        <%= f.text_field :title,:class=>'form-control',required: true%>
+      </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

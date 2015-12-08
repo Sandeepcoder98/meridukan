@@ -1,55 +1,31 @@
 <nav class="navbar navbar-inverse navbar-fixed-top header-color" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand navbar-title" href="#">Meri Dookan</a>
-            </div>
-            <form class="navbar-form navbar-left" role="search">
-        			<div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search">
-			        </div>
-     				</form>
-     				<ul class="nav navbar-nav navbar-right">
-        			<li class="dropdown">
-          		<a href="#" class="dropdown-toggle color-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name%> <span class="caret"></span></a>
-          		<ul class="dropdown-menu">
-            		<li></li>
-                <li><a href="#">Profile</a></li>
-                <%if buyer?%>
-                  <%= render "layouts/buyer_options"%>
-                <%else%>
-                  <%= render "layouts/seller_options"%>
-                <%end%>	            
-		            <li role="separator" class="divider"></li>
-		            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
-          		</ul>
-        			</li>
-      			</ul>
-     				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav pull-right">
-                                        
-                </ul>
-            </div>
+  <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <a class="navbar-brand navbar-title" href="#">Meri Dookan</a>
+      </div>
+      <form class="navbar-form navbar-left" role="search">
+  			<div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
         </div>
-</nav>
-
-<div class="drop">
-<ul class="drop_menu inline_categories">
-<%Category.all.each do |category|%>
-	<li><a href='#'><%= category.title%></a>
-		<ul>
-		<%SubCategory.where(:parent_id=>nil,:category_id=>category.id).each do |sub_category|%>
-			<li><a href='#'><%= sub_category.title%></a>
-				<ul>
-					<%sub_category.child_categories.each do |sub_child_category|%>
-          				<li><a href="#"><%= sub_child_category.title%></a></li>
-          			<%end%>
+			</form>
+				<ul class="nav navbar-nav navbar-right">
+    			<li class="dropdown">
+      		  <a href="#" class="dropdown-toggle color-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name%> <span class="caret"></span></a>
+        		<ul class="dropdown-menu">
+          		<li></li>
+              <li><a href="#">Profile</a></li>
+              <%if buyer?%>
+                <%= render "layouts/buyer_options"%>
+              <%else%>
+                <%= render "layouts/seller_options"%>
+              <%end%>	            
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
         		</ul>
-        	
-			</li>
-		<%end%>
-		</ul>
-	</li>
-<%end%>
-</ul>
-</div>
+    			</li>
+			</ul>
+  </div>
+</nav>
+<%= render "layouts/users_categories"%>
+

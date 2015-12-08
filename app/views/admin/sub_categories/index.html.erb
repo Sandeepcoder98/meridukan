@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Sub Categories</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sub Categories</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_sub_categories.each do |admin_sub_category| %>
+      <tr>
+        <td><%= admin_sub_category.title%></td>
+        <td><%= link_to 'Show', admin_category_sub_category_path(params["category_id"],admin_sub_category) %></td>
+        <td><%= link_to 'Edit', edit_admin_category_sub_category_path(params["category_id"],admin_sub_category) %></td>
+        <td><%= link_to 'Destroy', admin_category_sub_category_path(params["category_id"],admin_sub_category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sub category', new_admin_category_sub_category_path(params["category_id"]) %>

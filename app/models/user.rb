@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   rolify
-  has_many :stores
+  has_many :stores,:dependent=> :destroy
   has_many :products,:through=> :stores
   accepts_nested_attributes_for :stores, :reject_if => :all_blank
   

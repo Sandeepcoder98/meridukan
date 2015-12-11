@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :products 
+  concern :resourcable do
+    resources :products 
+  end
+
   resources :pricings do
     post :get_pricing,:on=>:collection
   end
+  concerns :resourcable
 
   devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords",:sessions=>"sessions" }
   get 'verify-otp' => "social#verify_otp"
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
       resources :categories do
        resources :sub_categories 
       end
+      concerns :resourcable
     end
     get '/admin'=> "admin/dashboards#index"
   end

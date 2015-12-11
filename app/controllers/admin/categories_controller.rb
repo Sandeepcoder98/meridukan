@@ -42,7 +42,7 @@ class Admin::CategoriesController < ApplicationController
   # PATCH/PUT /admin/categories/1.json
   def update
     respond_to do |format|
-      if @admin_category.update(admin_category_params)
+      if @admin_category.update_attributes(admin_category_params)
         format.html { redirect_to admin_category_path(@admin_category), notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_category }
       else
@@ -70,6 +70,6 @@ class Admin::CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_category_params
-      params.require(:category).permit(:title)
+      params.require(:category).permit(:title,:publish)
     end
 end

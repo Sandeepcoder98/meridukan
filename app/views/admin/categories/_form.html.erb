@@ -15,6 +15,10 @@
         <%= f.label(:title).upcase.html_safe %>
         <%= f.text_field :title,:class=>'form-control',required: true%>
       </div>
+      <div class="col-md-12 form-margin-top">
+        <%= f.label(:publish).upcase.html_safe %>
+        <%= f.check_box :publish%>
+      </div>
   </div>
 
   <div class="actions">

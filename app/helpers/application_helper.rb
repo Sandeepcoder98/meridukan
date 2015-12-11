@@ -30,7 +30,7 @@ module ApplicationHelper
 
   def set_resource_through_template
     @resource = current_user
-    @resource.build_store unless @resource.stores.any?    
+    @resource.stores.build unless @resource.stores.any?    
   end
 
   def buyer?

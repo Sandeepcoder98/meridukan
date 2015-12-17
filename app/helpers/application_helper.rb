@@ -15,7 +15,7 @@ module ApplicationHelper
   end
 
   def bootstrap_class_for flash_type
-    { success: "alert-success", error: "alert-error", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
+    { success: "success", error: "error", alert: "warning", notice: "info" }[flash_type.to_sym] || flash_type.to_s
   end
 
   def flash_messages(opts = {})
@@ -30,7 +30,7 @@ module ApplicationHelper
 
   def set_resource_through_template
     @resource = current_user
-    @resource.stores.build unless @resource.stores.any?    
+    @resource.build_store unless !@resource.store.blank?    
   end
 
   def buyer?

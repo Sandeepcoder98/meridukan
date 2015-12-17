@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208125006) do
+ActiveRecord::Schema.define(version: 20151216133035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20151208125006) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "product_shipping_details", force: :cascade do |t|
+    t.boolean  "free_delivery"
+    t.integer  "free_kilometers"
+    t.float    "charge_per_kilometer"
+    t.integer  "product_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "product_shipping_details", ["product_id"], name: "index_product_shipping_details_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.text     "title"
@@ -135,7 +146,6 @@ ActiveRecord::Schema.define(version: 20151208125006) do
     t.string   "country"
     t.string   "state"
     t.string   "phone"
-    t.integer  "store_id"
     t.integer  "pin_code"
   end
 
@@ -149,4 +159,5 @@ ActiveRecord::Schema.define(version: 20151208125006) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "product_shipping_details", "products"
 end

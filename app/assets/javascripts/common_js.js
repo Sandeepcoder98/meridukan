@@ -3,36 +3,14 @@ function initializeGmap() {
 	google.maps.event.addDomListener(document, 'ready', initialize(geocoder)); 
 }
 $(document).ready(function(){
-	$("#pricing").on("click", function() { 
-		form_data = new FormData();
-			form_data.append('pricing[stock_quantity]', $('#stock_quantity').val());
-			form_data.append('pricing[mrp_per_unit]', $('#mrp_per_unit').val());
-			form_data.append('pricing[offer_on_mrp]', $('#offer_on_mrp').val());
-			form_data.append('pricing[product_id]', $('#product_id').val());
-			$.ajax({
-			url:  "/pricings/get_pricing", 
-			type: "POST",
-			processData: false,
-			contentType: false,
-			data: form_data,
-				success: function(data) {
-					 if(data.hasOwnProperty('errors')){
-							jQuery.each(data["errors"], function(index, value) {
- 								$("#notice").html(value) 
-   							});							        
-						}
-						else{
-							calculate_offer($('#mrp_per_unit').val(),$('#offer_on_mrp').val()/100)	
-							$("#notice").html("")
-							$("#notice").html(data["notice"])      
-						}                    
-				}
-		});
-	});
-	$("#mrp_per_unit,#offer_on_mrp").on('update',function(){
-			var mrp = $("#mrp_per_unit").val()
-			var offer_price = $("#offer_on_mrp").val() 
-			if((mrp>0) && (offer_price>0)){		    	
+
+	$("#product_pricing_attributes_mrp_per_unit,#product_pricing_attributes_offer_on_mrp").on('keyup',function(){
+			var mrp = $("#product_pricing_attributes_mrp_per_unit").val()
+			var offer_price = $("#product_pricing_attributes_offer_on_mrp").val() 
+			if(!offer_price){
+				offer_price=0
+			}
+			if((mrp>0) && (offer_price=>0)){		    	
 				calculate_offer(mrp,offer_price)		    	
 			}
 			else
@@ -42,12 +20,20 @@ $(document).ready(function(){
 		})
 	
 	var calculate_offer = function (mrp,offer_price) {
-		$("#net_mrp").val(mrp-offer_price)
+		value = Math.round((mrp-offer_price) * 100) / 100
+		$("#net_mrp").val(value)
 	}
 
 	$("#bg_cover").on('click',function(){
 		$(".bg_cover_field").trigger('click')
 	})
+
+	$("body").on("change",".check-delivery-event", function(){
+		$(".check-delivery").val("").attr("readonly",$(this).prop("checked"))
+	})
+
+	$("#product_sub_category_id").chained("#product_category_id");
+  	$("#product_child_sub_category_id").chained("#product_sub_category_id");
 });
 
 function readURL(input) {
@@ -57,8 +43,7 @@ function readURL(input) {
     reader.onload = function (e) {
       $('#bg_cover img')
         .attr('src', e.target.result)
-        .width(248)
-        .height(291);
+        .width(200);
     };
 
     reader.readAsDataURL(input.files[0]);

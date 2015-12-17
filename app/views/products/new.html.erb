@@ -1,9 +1,26 @@
-<div class="row">
-        <h2>Create Your Product</h2>
-        <div class="btn-group btn-breadcrumb set-margin">
-            <span class="btn btn-success">Create Product</span>
-            <span class="btn btn-default">Pricing</span>
-            <span class="btn btn-default">Additional Offers</span>
-        </div>
+<div class="container">
+	<div class="stepwizard">
+	    <div class="stepwizard-row setup-panel">
+	        <div class="stepwizard-step">
+	            <%= link_to "1", "#", class:"btn btn-success btn-circle" %>
+	            <p>Product Overview</p> 
+	        </div>
+	        <div class="stepwizard-step">
+	            <%= link_to "2", "#", class:"btn btn-default btn-circle", disabled: true %>
+	            <p>Scope & Pricing</p> 
+	        </div>
+	        <div class="stepwizard-step">
+	            <%= link_to "3", "#", class:"btn btn-default btn-circle", disabled: true %>
+	            <p>Shiping Details</p> 
+	        </div>
+	        <div class="stepwizard-step">
+	            <%= link_to "4", "#", class:"btn btn-default btn-circle", disabled: true %>
+	            <p>Additional Offers</p> 
+	        </div>
+	    </div>
 	</div>
-<%= render 'form' %>
+	<div class="tab-content">
+	  <p id="notice"></p>
+	  <%= render 'form' %>
+	</div>
+</div>

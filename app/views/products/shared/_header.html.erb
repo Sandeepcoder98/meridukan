@@ -1,0 +1,29 @@
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <%= link_to "1", edit_product_path(@product), class:"btn #{product_active_tab(@overview_tab)} btn-circle" %>
+            <p>Product Overview</p> 
+        </div>
+        <div class="stepwizard-step">
+            <%= link_to "2", pricing_product_path(@product), class:"btn #{product_active_tab(@pricing_tab)} btn-circle" %>
+            <p>Scope & Pricing</p> 
+        </div>
+        <div class="stepwizard-step">
+            <%= link_to "3", shipping_details_product_path(@product), class:"btn #{product_active_tab(@shipping_tab)} btn-circle" %>
+            <p>Shiping Details</p> 
+        </div>
+        <div class="stepwizard-step">
+            <%= link_to "4", publish_product_path(@product), class:"btn #{product_active_tab(@additional_offer_tab)} btn-circle" %>
+            <p>Additional Offers</p> 
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

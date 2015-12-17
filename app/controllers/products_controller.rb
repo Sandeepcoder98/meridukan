@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish]
   
   # GET /products
   # GET /products.json
@@ -7,9 +7,14 @@ class ProductsController < ApplicationController
     @products = current_user.products
   end
 
-  # GET /products/1
-  # GET /products/1.json
-  def show
+  def show    
+    @products = current_user.products
+  end
+
+  def edit    
+  end
+  
+  def edit    
   end
 
   # GET /products/new
@@ -18,18 +23,25 @@ class ProductsController < ApplicationController
     @product.galleries.build
   end
 
-  # GET /products/1/edit
-  def edit
-    @product.galleries
+  def pricing
+    @product.build_pricing if  @product.pricing.nil?
+  end
+
+  def shipping_details
+    @product.build_product_shipping_detail if  @product.product_shipping_detail.nil?
+  end
+
+  def publish
   end
 
   # POST /products
   # POST /products.json
   def create
-    @product = current_user.stores.first.products.build(product_params)
+    @product = current_user.store.products.build(product_params)
     respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+      if @product.save 
+        next_tab = Tabs.next_product_tab(params["referrer_action"])
+        format.html { redirect_to send("#{next_tab}_product_path", @product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -43,10 +55,11 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update_attributes(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        next_tab = Tabs.next_product_tab(params["referrer_action"])
+        format.html { redirect_to send("#{next_tab}_product_path", @product), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
-        format.html { render :edit }
+        format.html { render params[:referrer_action] }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +83,11 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,galleries_attributes:[:id,:photo])
+      params.require(:product).permit(
+          :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,
+          galleries_attributes:[:id,:photo], 
+          product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp]
+        )
     end
 end

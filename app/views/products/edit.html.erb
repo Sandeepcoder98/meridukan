@@ -1,6 +1,7 @@
-<h1>Editing Product</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="container">
+  <%= render 'products/shared/header', :@overview_tab=>"btn-success" %>
+  <div class="tab-content">
+    <p id="notice"></p>
+    <%= render 'form' %>
+  </div>
+</div>

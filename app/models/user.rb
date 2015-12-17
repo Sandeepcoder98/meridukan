@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   rolify
-  has_many :stores
-  has_many :products,:through=> :stores
-  accepts_nested_attributes_for :stores, :reject_if => :all_blank
+  has_one :store
+  has_many :products,:through=> :store
+  accepts_nested_attributes_for :store, :reject_if => :all_blank
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -57,6 +57,6 @@ class User < ActiveRecord::Base
   end
 
   def check_user_access?
-    ((self.seller? && self.stores.first.products.empty?)? true : false)
+    ((self.seller? && self.store.products.empty?)? true : false)
   end
 end

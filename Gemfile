@@ -60,5 +60,6 @@ gem "paperclip"
 gem "rails-erd"
 gem 'acts-as-taggable-on'
 gem 'bootstrap-tagsinput-rails'
+gem 'jquery-turbolinks'
 
 #gem 's3_direct_upload'

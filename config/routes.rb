@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   concern :resourcable do
-    resources :products 
+    resources :products do
+      member do
+        get :pricing
+        get :shipping_details
+        get :publish
+      end
+    end
   end
 
   resources :pricings do
@@ -27,6 +33,7 @@ Rails.application.routes.draw do
 
   resource :home
   resource :dashboard
+  resource :search
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root
   end

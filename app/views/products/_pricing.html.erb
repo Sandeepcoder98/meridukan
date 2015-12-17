@@ -1,27 +1,46 @@
-<h3>Scope & Pricing</h3>
-
-<hr/>
-<div class="table-responsive ">
-<%= hidden_field_tag 'product_id',@product.id%>
-<table class="table table-bordered" style="width: 40%;">
-	<tr>
-		<th>Products in Stock</th>
-		<td><%= number_field_tag "stock_quantity",(@product.pricing.stock_quantity rescue "")%></td>	
-	</tr>
-	<tr>
-		<th>MRP per unit</th>
-		<td><%= text_field_tag "mrp_per_unit",(@product.pricing.mrp_per_unit rescue "")%></td>	
-	</tr>
-	<tr>
-		<th>Offer on MRP</th>
-		<td><%= text_field_tag "offer_on_mrp",(@product.pricing.offer_on_mrp rescue "")%>
-		</td>	
-	</tr>
-	<tr>
-		<th>Net Price</th>
-		<td><%= text_field_tag "net_mrp",calculate_net_mrp(@product),:disabled=>true%>
-		</td>	
-	</tr>
-</table>
-</div>
-<%= button_tag "Save",:class=>"btn btn-success",:id=>"pricing"%>
+<section class="product-container">
+  <h3>Scope & Pricing</h3>
+  <hr/>
+  <%= form_for(@product) do |f| %>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+        <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+     <%= f.fields_for :pricing do |ff| %>
+    <div class="table-responsive ">
+    <table class="table table-bordered" style="width: 40%;">
+      <tr>
+        <th>Products in Stock</th>
+        <td><%= ff.number_field :stock_quantity, min: 0 %></td> 
+      </tr>
+      <tr>
+        <th>MRP per unit</th>
+        <td><%= ff.text_field :mrp_per_unit %></td> 
+      </tr>
+      <tr>
+        <th>Offer on MRP</th>
+        <td><%= ff.text_field :offer_on_mrp %>
+        </td> 
+      </tr>
+      <tr>
+        <th>Net Price</th>
+        <td><%= text_field_tag :net_mrp, calculate_net_mrp(ff.object),:disabled=>true%>
+        </td> 
+      </tr>
+    </table>
+    </div>
+    <%end%>
+      <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
+      <div class="row">
+        <div class="col-md-4 form-margin-top">
+          <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+        </div>
+      </div>
+  <%end%>
+</section>

@@ -23,9 +23,9 @@ module ProductsHelper
 		end
 	end
 
-	def calculate_net_mrp(product)
-		net_mrp = product.pricing.mrp_per_unit-product.pricing.offer_on_mrp rescue 0
-		(net_mrp>0 ? net_mrp : 0) 
+	def calculate_net_mrp(pricing)
+		net_mrp = pricing.mrp_per_unit.to_f-pricing.offer_on_mrp.to_f rescue 0
+		(net_mrp>0 ? net_mrp : 0).round(2) 
 	end
 
 	def offer_type
@@ -36,4 +36,8 @@ module ProductsHelper
 		SubCategory.where(:parent_id=>nil,:category_id=>category).map{|category| [category.title,category.id]} unless parent.blank?
 	end
 
+	# Method for prouct header active tab
+	def product_active_tab(tab)
+		tab.blank? ? "btn-default" : "btn-success"
+	end
 end

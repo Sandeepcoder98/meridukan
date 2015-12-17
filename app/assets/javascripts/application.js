@@ -11,10 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
-//= require map.js
-//= require common_js.js
+//= require map
+//= require common_js
 //= require bootstrap-wysihtml5
 //= require bootstrap-tagsinput
+//= require jquery.chained.min
+//= require turbolinks
+

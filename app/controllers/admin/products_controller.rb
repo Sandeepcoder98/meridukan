@@ -15,6 +15,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/new
   def new
     @admin_product = Product.new
+    @admin_product.galleries.build    
   end
 
   # GET /admin/products/1/edit
@@ -24,13 +25,13 @@ class Admin::ProductsController < ApplicationController
   # POST /admin/products
   # POST /admin/products.json
   def create
-    @admin_product = Product.new(admin_product_params)
+    @product = current_user.store.products.build(admin_product_params)
 
     respond_to do |format|
       if @admin_product.save
-        format.html { redirect_to @admin_product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_product_path, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @admin_product }
-      else
+      else        
         format.html { render :new }
         format.json { render json: @admin_product.errors, status: :unprocessable_entity }
       end
@@ -69,6 +70,11 @@ class Admin::ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_product_params
-      params[:admin_product]
+      params.require(:product).permit(
+          :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,
+          galleries_attributes:[:id,:photo], 
+          product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp]
+        )
     end
 end

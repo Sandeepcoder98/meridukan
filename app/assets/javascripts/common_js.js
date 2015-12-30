@@ -34,6 +34,22 @@ $(document).ready(function(){
 
 	$("#product_sub_category_id").chained("#product_category_id");
   	$("#product_child_sub_category_id").chained("#product_sub_category_id");
+  	
+  	$("#product_additional_offers_attributes_0_offer_type").on("change",function(){
+  		selected_value = $(this).val();
+  		if(selected_value=="price")	{
+  			$("#price_offer").removeClass("hidden")
+  			$("#product_offer").addClass("hidden")
+  			return
+  		}
+  		else if(selected_value=="product"){
+  			$("#price_offer").addClass("hidden")
+  			$("#product_offer").removeClass("hidden")
+  			return
+  		}
+  		$("#product_offer").addClass("hidden")
+  		$("#price_offer").addClass("hidden")
+  	})
 });
 
 function readURL(input) {

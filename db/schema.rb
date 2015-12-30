@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216133035) do
+ActiveRecord::Schema.define(version: 20151222125646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_offers", force: :cascade do |t|
+    t.string   "offer_type"
+    t.integer  "offer_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admin_dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,6 +47,14 @@ ActiveRecord::Schema.define(version: 20151216133035) do
     t.integer  "product_id"
   end
 
+  create_table "price_offers", force: :cascade do |t|
+    t.decimal  "percent"
+    t.decimal  "amount"
+    t.string   "gift"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pricings", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "stock_quantity"
@@ -46,6 +62,14 @@ ActiveRecord::Schema.define(version: 20151216133035) do
     t.float    "offer_on_mrp"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "product_offers", force: :cascade do |t|
+    t.integer  "buy"
+    t.integer  "get"
+    t.string   "gift"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_shipping_details", force: :cascade do |t|

@@ -32,6 +32,10 @@ class ProductsController < ApplicationController
   end
 
   def publish
+    @product.build_additional_offer if @product.additional_offer.blank?
+    debugger
+    @product.build_product_offer if @product.product_offer.blank?
+    @product.build_price_offer if @product.price_offer.blank?
   end
 
   # POST /products
@@ -53,6 +57,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    debugger
     respond_to do |format|
       if @product.update_attributes(product_params)
         next_tab = Tabs.next_product_tab(params["referrer_action"])
@@ -87,7 +92,6 @@ class ProductsController < ApplicationController
           :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,
           galleries_attributes:[:id,:photo], 
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
-          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp]
-        )
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offers_attributes:[:offer_type,:offer_id,:product_id],price_offer_attributes:[:amount,:percent,:gift],product_offer_attributes:[:buy,:get,:gift])
     end
 end

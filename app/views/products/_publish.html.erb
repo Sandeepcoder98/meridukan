@@ -1,4 +1,57 @@
 <section class="product-container">
-  <h3>Publish Product</h3>
+  <h3>Additional Offers</h3>
   <hr/>
+  <%= form_for(@product) do |f| %>
+  <div class="row">    
+	  <%= f.fields_for :additional_offer do|ff|%>
+    <div class="col-md-12">
+	    <%= ff.select :offer_type, options_for_select(set_offers_option),:prompt=>"Select Offer Type"%>
+    </div>
+  </div>
+      <div class="row">
+        <%= ff.fields_for :product_offer do|fff|%>
+        <div id="product_offer" class="hidden">
+          <div class="col-md-4 form-margin-top">
+            <%= fff.label :buy%>
+            <%= fff.text_field :buy%>
+          </div>
+          <div class="col-md-4 form-margin-top">
+            <%= fff.label :get%>
+            <%= fff.text_field :get%> Free
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= fff.label "Add a gift" %>          
+            <%= fff.text_area :gift,:class=>"form-control"%>
+          </div>
+        </div>
+        <%end%>
+
+        <%= ff.fields_for :price_offer do|fff|%>
+        <div id="price_offer" class="hidden">
+          <div class="col-md-5 form-margin-top">
+            <%= fff.label :percent%>
+            <%= fff.text_field :percent%>%
+          </div>
+          <div class="col-md-4 form-margin-top">
+            <%= fff.label :amount%>
+            <%= fff.text_field :amount%>
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= fff.label "Add a gift" %>          
+            <%= fff.text_area :gift,:class=>"form-control"%>
+          </div>
+        </div>
+        <%end%>
+      </div>      
+	<%end%>
+	  
+
+    <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
+      <div class="row">
+        <div class="col-md-4 form-margin-top">
+          <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+        </div>
+      </div>
+  <%end%>
+
 </section>

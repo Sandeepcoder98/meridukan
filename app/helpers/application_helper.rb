@@ -53,4 +53,8 @@ module ApplicationHelper
       product.galleries.first.photo.url 
     end
   end
+
+  def set_offers_option
+    [["Offer on product","product_offer"],["Offer on price","price_offer"]]
+  end
 end

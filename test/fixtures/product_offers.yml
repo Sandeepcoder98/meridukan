@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buy: 1
+  get: 1
+  gift: MyString
+
+two:
+  buy: 1
+  get: 1
+  gift: MyString

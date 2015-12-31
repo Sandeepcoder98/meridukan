@@ -35,14 +35,14 @@ $(document).ready(function(){
 	$("#product_sub_category_id").chained("#product_category_id");
   	$("#product_child_sub_category_id").chained("#product_sub_category_id");
   	
-  	$("#product_additional_offers_attributes_0_offer_type").on("change",function(){
+  	$("#product_additional_offer_attributes_offer_type").on("change",function(){
   		selected_value = $(this).val();
-  		if(selected_value=="price")	{
+  		if(selected_value=="price_offer")	{
   			$("#price_offer").removeClass("hidden")
   			$("#product_offer").addClass("hidden")
   			return
   		}
-  		else if(selected_value=="product"){
+  		else if(selected_value=="product_offer"){
   			$("#price_offer").addClass("hidden")
   			$("#product_offer").removeClass("hidden")
   			return

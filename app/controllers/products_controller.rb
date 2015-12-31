@@ -32,10 +32,10 @@ class ProductsController < ApplicationController
   end
 
   def publish
+    debugger 
     @product.build_additional_offer if @product.additional_offer.blank?
-    debugger
-    @product.build_product_offer if @product.product_offer.blank?
-    @product.build_price_offer if @product.price_offer.blank?
+    # @product.build_product_offer if @product.product_offer.blank?
+    # @product.build_price_offer if @product.price_offer.blank?
   end
 
   # POST /products
@@ -57,7 +57,6 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    debugger
     respond_to do |format|
       if @product.update_attributes(product_params)
         next_tab = Tabs.next_product_tab(params["referrer_action"])

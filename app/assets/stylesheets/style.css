@@ -4458,10 +4458,10 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	opacity: 0.8;
 }
 .box-category .subDropdown.plus {
-	background-image: url("../assets/plus.png");
+	background-image: url(../assets/plus.png);
 }
 .box-category .subDropdown.minus {
-	background-image: url("../assets/minus.png");
+	background-image: url(../assets/minus.png);
 }
 .box-category ul li a {
 	padding: 8px 0px;
@@ -7893,7 +7893,7 @@ button.button span span {
 	background-size: cover;
 }
 .parallax-2 {
-	background-image: url("../assets/menupopup.png");
+	background-image: url(../assets/menupopup.png);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	background-repeat:repeat;

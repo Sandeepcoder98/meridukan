@@ -1,0 +1,64 @@
+<section class="product-container">
+  <h3>Additional Offers</h3>
+  <hr/>
+  <div class="col-md-12">
+      <%= select_tag :offer_type, options_for_select(set_offers_option),:prompt=>"Select Offer Type"%>
+    </div>
+  <%= form_for(@product) do |f| %>
+    <div class="row">
+      <%= f.fields_for :product_offer do|ff|%>
+        <div id="product_offer" class="hidden">
+          <div class="col-md-4 form-margin-top">
+            <%= ff.label :buy%>
+            <%= ff.text_field :buy%>
+          </div>
+          <div class="col-md-4 form-margin-top">
+            <%= ff.label :get%>
+            <%= ff.text_field :get%> Free
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= ff.label "Add a gift" %>          
+            <%= ff.text_area :gift,:class=>"form-control"%>
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= ff.fields_for :additional_offers do|fff|%>
+              <%= fff.hidden_field :product_id ,:value=>"#{@product.id}" %>          
+              <%#= ff.text_area :gift,:class=>"form-control"%>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+      <%= f.fields_for :price_offer do|ff|%>
+        <div id="price_offer" class="hidden">
+          <div class="col-md-5 form-margin-top">
+            <%= ff.label :percent%>
+            <%= ff.text_field :percent%>%
+          </div>
+          <div class="col-md-4 form-margin-top">
+            <%= ff.label :amount%>
+            <%= ff.text_field :amount%>
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= ff.label "Add a gift" %>          
+            <%= ff.text_area :gift,:class=>"form-control"%>
+          </div>
+          <div class="col-md-12 form-margin-top">
+            <%= ff.fields_for :additional_offers do|fff|%>
+              <%= fff.hidden_field :product_id ,:value=>"#{@product.id}" %>          
+              <%#= ff.text_area :gift,:class=>"form-control"%>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+      <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
+      <div class="col-md-4 form-margin-top">
+        <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+      </div>
+    </div> 
+  <% end %>
+</section>
+
+
+
+
+	

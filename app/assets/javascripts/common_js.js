@@ -28,14 +28,14 @@ $(document).ready(function(){
 		$(".bg_cover_field").trigger('click')
 	})
 
-	$("body").on("change",".check-delivery-event", function(){
-		$(".check-delivery").val("").attr("readonly",$(this).prop("checked"))
-	})
+	// $("body").on("change",".check-delivery-event", function(){
+	// 	$(".check-delivery").val("").attr("readonly",$(this).prop("checked"))
+	// })
 
 	$("#product_sub_category_id").chained("#product_category_id");
   	$("#product_child_sub_category_id").chained("#product_sub_category_id");
   	
-  	$("#product_additional_offer_attributes_offer_type").on("change",function(){
+  	$("#offer_type").on("change",function(){
   		selected_value = $(this).val();
   		if(selected_value=="price_offer")	{
   			$("#price_offer").removeClass("hidden")

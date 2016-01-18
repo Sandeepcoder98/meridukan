@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'reports/index'
+
   concern :resourcable do
     resources :products do
       member do
         get :pricing
         get :shipping_details
-        get :publish
+        match :publish , via: [:get, :patch]
+        match :additional_offers , via: [:get, :patch]
+        get :approve
       end
     end
   end

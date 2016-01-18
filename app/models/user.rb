@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
 
   def self.generated_password
-    generated_password = Devise.friendly_token.first(8)
+    generated_password = "12345678"
   end
   
   def update_new_password_and_send_otp

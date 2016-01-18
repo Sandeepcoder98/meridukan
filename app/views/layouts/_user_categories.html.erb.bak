@@ -1,0 +1,29 @@
+<div class="nav-inner">
+	<ul id="nav" class="hidden-xs">
+		<%user_category.each do |category|%>
+			<li class="mega-menu"><a href='#'  class="level-top"><span><%= category.title%></span></a>
+				<ul>
+					<%SubCategory.where(:parent_id=>nil,:category_id=>category.id).each do |sub_category|%>
+						<div style="left: 0px; display: none;" class="level0-wrapper dropdown-6col">
+							<div class="container">
+		            <div class="level0-wrapper2">
+		              <div class="nav-block nav-block-center">
+		              	<ul class="level0">
+											<li  class="level1 nav-6-1 parent item">	<a href='#'><span><%= sub_category.title%></span></a>
+												<ul class="level1">
+													<%sub_category.child_categories.each do |sub_child_category|%>
+		        								<li class="level2 nav-6-1-1"><a href="#"><%= sub_child_category.title%></a></li>
+		        							<%end%>
+		      							</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>						
+					<%end%>
+				</ul>
+			</li>
+		<%end%>
+	</ul>
+</div>

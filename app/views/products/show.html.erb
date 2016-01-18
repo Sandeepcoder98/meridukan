@@ -1,34 +1,25 @@
 <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-3">
-                <p class="lead">Products</p>
-                <div class="list-group">
-                  <% @products.each do |product| %>
-                    <%= link_to product.title, product, class: "list-group-item #{'active' if @product.id == product.id}" %>
-                  <% end %>
-                </div>
-            </div>
-            <div class="col-md-9">
-
-                <div class="thumbnail">
-                  <%= link_to edit_product_path(@product) do %>
-                    <i class="fa fa-pencil-square-o"></i>
-                  <%end if @product.store.user_id==current_user.id%>
-                    <%= image_tag @product.galleries.first.photo.url, class: "img-responsive" %>
-                    <div class="caption-full">
-                        <h4 class="pull-right"><%=@product.net_mrp%></h4>
-                        <h4>  
-                          <%= link_to @product.title, @product %>
-                        </h4>
-                        <p><%=@product.description%></p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Products</p>
+      <div class="list-group">
+        <% @products.each do |product| %>
+          <%= link_to product.title, product, class: "list-group-item #{'active' if @product.id == product.id}" %>
+        <% end %>
+      </div>
     </div>
-  <tr>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <%= link_to edit_product_path(@product) do %>
+          <i class="fa fa-pencil-square-o"></i>
+        <%end if @product.store.user_id==current_user.id%>
+        <%= image_tag @product.galleries.first.photo.url, class: "img-responsive" %>
+        <div class="caption-full">
+          <h4 class="pull-right"><%=@product.net_mrp%></h4>
+          <h4><%= link_to @product.title, @product %></h4>
+          <p><%=@product.description%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

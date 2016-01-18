@@ -1,22 +1,48 @@
-<%= form_tag verified_otp_social_path, class:"active" do %>
-  <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
-  <%= flash_messages %>
-  <%= hidden_field_tag :ip_address%>
-  <div class="login-box">
-    <label>Enter the received OTP</label>
-    <%= text_field_tag :otp %>
-  </div>
-  <div class="bottom">
-    <%= submit_tag "Verify OTP" %>
-    <div class="row">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6"><a data-method="put" href="<%=resend_otp_social_path%>" rel="" class="pull-right">Wants to resend OTP ?</a></div>
+<section class="login-back">
+  <div id="animate-area"></div>
+  <div class="container-fluid">
+    <div class="buyers-left">
+      <img src="../assets/Login-buyes-step.png" >
     </div>
-    <div class="clear"></div>
+    <div class="col-md-4 col-md-push-8">
+      <div class="buyers-login-right">
+        <div>
+          <center>
+            <a href="/">
+              <img src="../assets/meridookan-big.png" width="144" height="86">
+            </a>
+          </center>
+        </div>
+        <div class="login-wrapper">
+          <div class="content">
+            <div id="form_wrapper" class="form_wrapper"> 
+              <%= form_tag verified_otp_social_path, class:"active" do %>
+                <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
+                <%= flash_messages %>
+                <%= hidden_field_tag :ip_address%>
+                <div class="login-box">
+                  <label>Enter the received OTP</label>
+                  <%= text_field_tag :otp %>
+                </div>
+                <div class="bottom">
+                  <%= submit_tag "Verify OTP" %>
+                  <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6"><a data-method="put" href="<%=resend_otp_social_path%>" rel="" class="pull-right">Wants to resend OTP ?</a></div>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              <% end %>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
+  <div id="animate-area2"></div>
+</section>
 <script type="text/javascript">
   $(document).ready(function(){
         $.get("http://ipinfo.io", function(response) {

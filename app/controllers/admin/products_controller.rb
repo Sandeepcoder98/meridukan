@@ -1,10 +1,10 @@
 class Admin::ProductsController < ApplicationController
-  before_action :set_admin_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_product, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @admin_products = Product.all
+    @admin_products = Product.where(:approve=> true)
   end
 
   # GET /admin/products/1
@@ -58,6 +58,14 @@ class Admin::ProductsController < ApplicationController
     @admin_product.destroy
     respond_to do |format|
       format.html { redirect_to admin_products_url, notice: 'Product was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def approve
+    (@admin_product.approve == true ? @admin_product.update(:approve=> false) : @admin_product.update(:approve=> true))
+    respond_to do |format|
+      format.html { redirect_to admin_products_url}
       format.json { head :no_content }
     end
   end

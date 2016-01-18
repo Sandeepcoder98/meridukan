@@ -12,10 +12,17 @@ textarea{
 
 .product-container{
 	margin-left: 86px;
-    width: 70%;
+    width: 90%;
 }
-
-
+#product_category_id{
+  width: 200px;
+}
+#product_sub_category_id{
+  width: 200px;
+}
+#product_child_sub_category_id{
+  width: 200px;
+}
 .stepwizard-step p {
     margin-top: 10px;
 }
@@ -62,4 +69,8 @@ textarea{
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
+}
+
+.form-margin-top .btn-warning{
+  background: #DF1F28;
 }

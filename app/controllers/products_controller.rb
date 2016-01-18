@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab]
+
+  before_filter :check_path_tab, only: [:show,:edit]
   
   # GET /products
   # GET /products.json
@@ -13,9 +15,6 @@ class ProductsController < ApplicationController
 
   def edit    
   end
-  
-  def edit    
-  end
 
   # GET /products/new
   def new
@@ -27,15 +26,25 @@ class ProductsController < ApplicationController
     @product.build_pricing if  @product.pricing.nil?
   end
 
+  def additional_offers
+    product = @product.build_product_offer if @product.product_offer.blank?
+    @product.build_price_offer if @product.price_offer.blank?
+    # @product.build_additional_offer(product) if @product.additional_offer.blank?
+  end 
+
   def shipping_details
     @product.build_product_shipping_detail if  @product.product_shipping_detail.nil?
   end
-
   def publish
-    debugger 
-    @product.build_additional_offer if @product.additional_offer.blank?
-    # @product.build_product_offer if @product.product_offer.blank?
-    # @product.build_price_offer if @product.price_offer.blank?
+    # @product.update_attributes(status: true)
+  end
+
+  def check_path_tab
+    if @product.status == false
+      current_tab = @product.step_path
+      next_tab = Tabs.next_product_tab(current_tab)
+      redirect_to send("#{next_tab}_product_path", @product)
+    end
   end
 
   # POST /products
@@ -43,7 +52,8 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.store.products.build(product_params)
     respond_to do |format|
-      if @product.save 
+      if @product.save
+        @product.update_attributes(step_path: params[:referrer_action])
         next_tab = Tabs.next_product_tab(params["referrer_action"])
         format.html { redirect_to send("#{next_tab}_product_path", @product), notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
@@ -59,6 +69,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update_attributes(product_params)
+        @product.update_attributes(:step_path=> params["referrer_action"])
         next_tab = Tabs.next_product_tab(params["referrer_action"])
         format.html { redirect_to send("#{next_tab}_product_path", @product), notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
@@ -88,7 +99,7 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(
-          :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,
+          :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,:status,:approve,:step_path,
           galleries_attributes:[:id,:photo], 
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
           pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offers_attributes:[:offer_type,:offer_id,:product_id],price_offer_attributes:[:amount,:percent,:gift],product_offer_attributes:[:buy,:get,:gift])

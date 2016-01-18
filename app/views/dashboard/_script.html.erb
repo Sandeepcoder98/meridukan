@@ -1,0 +1,91 @@
+<script type="text/javascript">
+  eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('$(J(){$(\'#I-K\').6({d:\'0\',0:[v,s],e:7,p:q});$(\'#L\').6({d:\'0\',0:[v,H]});$(\'#N-h\').6({d:\'0\',0:[s,G]});$(\'#B\').6({g:7,m:[\'<i c="b-l-a-8"></i>\',\'<i c=" b-o-a-8"></i>\'],f:[[C,5],[n,4],[z,3],[y,2],[x,1]]});$(\'#t-D\').6({k:9,m:[\'<i c="b-l-a-8"></i>\',\'<i c=" b-o-a-8"></i>\'],g:7,j:9});$(\'#t-E\').6({k:9,d:\'0\',0:[M,O],m:[\'<i c="b-l-a-8"></i>\',\'<i c=" b-o-a-8"></i>\'],g:7,j:9});$(\'#u-h\').6({d:\'0\',0:[w,r]});$(\'#u-h-Q\').6({A:5,d:\'0\',0:[w,r],p:q,e:7,k:9});$(\'#W\').6({A:1,f:[[F,1]],e:7});$(\'#V\').6({f:[[X,1],[R,2],[n,3],[S,4],[Y,5]],P:7,j:9});$(\'#T\').6({U:[[n,4],[z,3],[y,2],[x,1]]})});',61,61,'itemWidthRange||||||utilCarousel|true|big|false|open|icon|class|responsiveMode|autoPlay|breakPoints|navigation|showcase||rewind|pagination|left|navigationText|1200|right|interval|3000|210|300|normal|logo|260|200|480|768|992|showItems|navtopbox|1900|imglist|imglist2|1920|360|320|features|function|carousel|simpleImg|100|team|130|mouseWheel|gray|900|1500|portfolio|breakPosints|fullwidth|testimonial|600|1800'.split('|'),0,{}))
+
+  $(document).ready(function(){
+    $('#rev_slider_4').show().revolution({
+      dottedOverlay: 'none',
+      delay: 5000,
+      startwidth: 1920,
+      startheight: 650,
+
+      hideThumbs: 200,
+      thumbWidth: 200,
+      thumbHeight: 50,
+      thumbAmount: 2,
+
+      navigationType: 'thumb',
+      navigationArrows: 'solo',
+      navigationStyle: 'round',
+
+      touchenabled: 'on',
+      onHoverStop: 'on',
+
+      swipe_velocity: 0.7,
+      swipe_min_touches: 1,
+      swipe_max_touches: 1,
+      drag_block_vertical: false,
+
+      spinner: 'spinner0',
+      keyboardNavigation: 'off',
+
+      navigationHAlign: 'center',
+      navigationVAlign: 'bottom',
+      navigationHOffset: 0,
+      navigationVOffset: 20,
+
+      soloArrowLeftHalign: 'left',
+      soloArrowLeftValign: 'center',
+      soloArrowLeftHOffset: 20,
+      soloArrowLeftVOffset: 0,
+
+      soloArrowRightHalign: 'right',
+      soloArrowRightValign: 'center',
+      soloArrowRightHOffset: 20,
+      soloArrowRightVOffset: 0,
+
+      shadow: 0,
+      fullWidth: 'on',
+      fullScreen: 'off',
+
+      stopLoop: 'off',
+      stopAfterLoops: -1,
+      stopAtSlide: -1,
+
+      shuffle: 'off',
+
+      autoHeight: 'off',
+      forceFullWidth: 'on',
+      fullScreenAlignForce: 'off',
+      minFullScreenHeight: 0,
+      hideNavDelayOnMobile: 1500,
+
+      hideThumbsOnMobile: 'off',
+      hideBulletsOnMobile: 'off',
+      hideArrowsOnMobile: 'off',
+      hideThumbsUnderResolution: 0,
+
+      hideSliderAtLimit: 0,
+      hideCaptionAtLimit: 0,
+      hideAllCaptionAtLilmit: 0,
+      startWithSlide: 0,
+      fullScreenOffsetContainer: ''
+    });
+  });
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 3000
+    })
+  });
+  $(window).load(function(){
+    $('.product_box').ZalkiHoverImg();
+  });
+  $(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+        e.preventDefault();
+        var param = $(this).attr("href").replace("#","");
+        var concept = $(this).text();
+        $('.search-panel span#search_concept').text(concept);
+        $('.input-group #search_param').val(param);
+    });
+  });
+</script>

@@ -1,20 +1,86 @@
-<div class="drop">
-<ul class="drop_menu inline_categories">
-<%user_category.each do |category|%>
-	<li><a href='#'><%= category.title%></a>
-		<ul>
-		<%SubCategory.where(:parent_id=>nil,:category_id=>category.id).each do |sub_category|%>
-			<li><a href='#'><%= sub_category.title%></a>
-				<ul>
-					<%sub_category.child_categories.each do |sub_child_category|%>
-          				<li><a href="#"><%= sub_child_category.title%></a></li>
-          			<%end%>
-        		</ul>
-        	
-			</li>
-		<%end%>
-		</ul>
-	</li>
-<%end%>
-</ul>
+<div class="nav-inner">
+  <ul id="nav" class="hidden-xs">
+    <li class="level0 parent drop-menu active"><a href="index2.html"><span>Home</span></a> </li>
+    <li class="mega-menu"><a href="#" class="level-top"><span>Food & Daily Needs</span></a>
+      <div style="left: 0px; display: none;" class="level0-wrapper dropdown-6col">
+        <div class="container">
+          <div class="level0-wrapper2">
+            <div class="nav-block nav-block-center">
+            	<ul class="level0">
+                	<li class="level1 nav-6-1 parent item">
+                		<a href="#" class=""><span>Grocery Box</span></a>
+                      <ul class="level1">
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Dals</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Dry Fruits</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Oils & Ghee</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Floors</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Masalas</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Buity Products</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Suger & Rise</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Choclets</span></a></li>
+                        <li class="level2 nav-6-1-1"><a href="#"><span>Other</span></a></li>
+                    	</ul>
+                	</li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Restorants & Dhabas Box</span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>5 Star</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>3 Star</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Normal</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Dhaba</span></a></li>
+                  </ul>
+                </li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Wine & Leker Box</span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Red Wine</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>While Wine</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Bears</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Local Wine</span></a></li>
+                  </ul>
+                </li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Medicine Box</span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Tablets</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Syrups</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Injections</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Helthy Drinks</span></a></li>
+                     <li class="level2 nav-6-1-1"><a href="#"><span>Equipments</span></a></li>
+                      <li class="level2 nav-6-1-1"><a href="#"><span>Powder</span></a></li>
+                  </ul>
+                </li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Gifts Box</span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Birthday Gifts</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Marriage Gifts</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Aniversory Gifts</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Velentine Gifts</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Christmus Gifts</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Diwali Gifts </span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Rakhi Gifts</span></a></li>
+                  </ul>
+                </li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Vegitables & Fruits </span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Hard Vegitables</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Green Vegitables</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Fruits</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Others</span></a></li>
+                  </ul>
+                </li>
+                <li class="level1 nav-6-1 parent item"><a href="#"><span>Snacks & Tea </span></a>
+                  <ul class="level1">
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Indian</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>South Indian</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Chinese</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Tea shops</span></a></li>
+                    <li class="level2 nav-6-1-1"><a href="#"><span>Others</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+   
+  </ul>
 </div>

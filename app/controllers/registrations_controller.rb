@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def set_user_info
     get_ip_info(current_user)
-    render :layout=>"layouts/get_user"
+    render :layout=>"layouts/application"
   end
 
   protected

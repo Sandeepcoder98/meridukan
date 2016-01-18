@@ -18,7 +18,7 @@
         <div class="col-md-4 form-margin-top">
           <%= ff.label :free_delivery do %>
              Free Delivery
-            <%= ff.check_box :free_delivery, class: "check-delivery-event"%>
+            <%= ff.check_box :free_delivery, :checked=> true, class: "check-delivery-event"%>
           <% end %>
         </div>
       </div>
@@ -38,7 +38,7 @@
     <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
       <div class="row">
         <div class="col-md-4 form-margin-top">
-          <%= f.button "Save & Continue",:class=>"btn btn-success" %>
+          <%= f.button "Publish",:class=>"btn btn-success" %>
         </div>
       </div>
   <%end%>

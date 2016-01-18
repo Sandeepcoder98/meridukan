@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Products</p>
+      <div class="list-group">
+          <p class="list-group-item"><%= @admin_product.title %></p><br />
+          <p><%= @admin_product.approve == false ? (link_to "Approve" , approve_admin_product_path(@admin_product), :class=>"btn btn-default") : (link_to "Deny" , approve_admin_product_path(@admin_product),:class=>"btn btn-success") %></p>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <%= image_tag @admin_product.galleries.first.photo.url, class: "img-responsive" %>
+        <div class="caption-full">
+          <h4 class="pull-right"><%=@admin_product.net_mrp%></h4>
+          <h4><%= @admin_product.title%></h4>
+          <p><%=@admin_product.description%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%= link_to 'Edit', edit_admin_product_path(@admin_product) %> |
 <%= link_to 'Back', admin_products_path %>

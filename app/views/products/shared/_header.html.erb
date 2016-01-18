@@ -9,13 +9,18 @@
             <p>Scope & Pricing</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "3", shipping_details_product_path(@product), class:"btn #{product_active_tab(@shipping_tab)} btn-circle" %>
+            <%= link_to "3", additional_offers_product_path(@product), class:"btn #{product_active_tab(@additional_offer_tab)} btn-circle" %>
+            <p>Additional Offers</p> 
+        </div>
+        <div class="stepwizard-step">
+            <%= link_to "4", shipping_details_product_path(@product), class:"btn #{product_active_tab(@shipping_tab)} btn-circle" %>
             <p>Shiping Details</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "4", publish_product_path(@product), class:"btn #{product_active_tab(@additional_offer_tab)} btn-circle" %>
-            <p>Additional Offers</p> 
+            <%= link_to "5", publish_product_path(@product), class:"btn #{product_active_tab(@publish_tab)} btn-circle" %>
+            <p>Publish</p> 
         </div>
+        
     </div>
 </div>
 

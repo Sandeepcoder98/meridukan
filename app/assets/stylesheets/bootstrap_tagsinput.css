@@ -1,0 +1,11 @@
+.bootstrap-tagsinput > input {
+    border: 0 ;
+}
+.bootstrap-tagsinput > input:focus {
+    border: 0 ;
+    box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+	background: #DF1F28;
+	padding: 7px;
+}

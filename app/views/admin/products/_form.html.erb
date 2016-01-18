@@ -1,18 +1,20 @@
-<%@product = @admin_product%>
-<%= form_for [:admin,@admin_product] do |f| %>
-  <% if @admin_product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_product.errors.count, "error") %> prohibited this admin_product from being saved:</h2>
+<div class="container">
+  <%@product = @admin_product%>
+  <%= form_for [:admin,@admin_product] do |f| %>
+    <% if @admin_product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin_product.errors.count, "error") %> prohibited this admin_product from being saved:</h2>
 
-      <ul>
-      <% @admin_product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @admin_product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= render :partial=> 'products/sub_form', :locals=>{:f=>f}%>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-  <%= render :partial=> 'products/sub_form', :locals=>{:f=>f}%>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

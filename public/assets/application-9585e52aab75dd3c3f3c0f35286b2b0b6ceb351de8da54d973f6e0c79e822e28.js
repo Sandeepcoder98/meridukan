@@ -13497,20 +13497,7 @@ function initializeGmap() {
 }
 $(document).ready(function(){
 
-	$("#product_pricing_attributes_mrp_per_unit,#product_pricing_attributes_offer_on_mrp").on('keyup',function(){
-			var mrp = $("#product_pricing_attributes_mrp_per_unit").val()
-			var offer_price = $("#product_pricing_attributes_offer_on_mrp").val() 
-			if(!offer_price){
-				offer_price=0
-			}
-			if((mrp>0) && (offer_price=>0)){		    	
-				calculate_offer(mrp,offer_price)		    	
-			}
-			else
-			{
-				alert("Invalid Offer price or MRP")
-			}    
-		})
+	
 	
 	var calculate_offer = function (mrp,offer_price) {
 		value = Math.round((mrp-offer_price) * 100) / 100

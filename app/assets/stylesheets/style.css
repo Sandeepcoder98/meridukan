@@ -178,7 +178,7 @@ ul.lang {
 ul.lang li {
 	float: left;
 	display: inline;
-	margin: 0px 8px 0 0px
+	margin: 0px 8px 0 0px;
 }
 ul.lang li span {
 	text-indent: -10000px;
@@ -200,7 +200,7 @@ ul.currencies_list {
 ul.currencies_list li {
 	float: left;
 	display: inline;
-	margin: 0 0px 0 8px
+	margin: 0 0px 0 8px;
 }
 ul.currencies_list li a {
 	color: #333;
@@ -301,7 +301,7 @@ ul.currencies_list li a:hover {
 	text-transform: none;
 }
 .top-cart-content .product-name a:hover {
-	color: #df2028
+	color: #df2028;
 }
 .top-cart-contain .block-subtitle .price {
 	color: #df2028;
@@ -523,7 +523,7 @@ ul#cart-sidebar {
 	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 }
 .mini-cart .actions .btn-checkout:hover {
-	background: #df2028
+	background: #df2028;
 }
 .mini-cart .actions .btn-checkout:before {
 	content: "\f00c";
@@ -560,7 +560,7 @@ nav {
 	color: #333
 }
 .nav {
-	margin: 0px auto 0
+	margin: 0px auto 0;
 }
 #nav > li:hover > a, .vertnav-top li > a:hover {
 	color: #df2028;
@@ -572,7 +572,7 @@ nav {
 	color: #df2028;
 }
 .cms-index-index #nav #nav-home > a, #nav > li.active > a, .vertnav-top li.current > a:hover {
- color: #df2028!;
+ 	color: #df2028;
 	padding-top: 17px;
 	padding-bottom: 34px;
 }
@@ -3385,7 +3385,6 @@ button.button.submit:before {
 }
 ul.products-grid {
 	padding: 0;
-margin:
 }
 .products-grid .first {
 	padding-left: 0!important;
@@ -9361,8 +9360,8 @@ ul.lang li {
 	margin: auto;
 	padding: 5px 15px;
 }
- .product-img-box. col-xs-12 {
-width:300px;
+.product-img-box .col-xs-12 {
+	width:300px;
 }
 .product-next-prev {
 	display: none;

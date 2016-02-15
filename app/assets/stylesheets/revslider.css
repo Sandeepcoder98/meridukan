@@ -422,18 +422,19 @@ tp-bullets.simplebullets.square .bullet.last {
 	display:none;
 	cursor: pointer;
 	position: relative;
-	background: rgba(0, 0, 0, 0.6) url(assets/left-a.png) no-repeat 20px 6px;
+	background: rgba(0, 0, 0, 0.6) url(../assets/left-a.png) no-repeat 20px 6px;
 	width: 60px;
 	height: 60px;
 	left: 20px !important; border-radius:60px;opacity:0;
 }
 #magik-slideshow:hover .tp-leftarrow.default {opacity:0.9;transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 }
-#magik-slideshow .tp-rightarrow.default { opacity:0;
-z-index: 99;
+#magik-slideshow .tp-rightarrow.default { 
+	opacity:0;
+	z-index: 99;
 	cursor: pointer;
 	position: relative;
-	background: rgba(0, 0, 0, 0.6) url(assets/right-a.png) no-repeat 20px 6px;
+	background: rgba(0, 0, 0, 0.6) url(../assets/right-a.png) no-repeat 20px 6px;
 	width: 60px;
 	height: 60px;
 	right: 20px !important;border-radius:50px;

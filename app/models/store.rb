@@ -1,4 +1,11 @@
 class Store < ActiveRecord::Base
-	belongs_to :user
-	has_many :products
+  after_save :update_lat_long
+  belongs_to :user
+  has_many :products
+  
+  include LatLng
+
+  def full_address
+    "#{landmark}, #{address}, #{city}, #{state}, #{pin_code}"
+  end
 end

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   rolify
+  after_save :update_lat_long
   has_one :store
   has_many :products,:through=> :store
   accepts_nested_attributes_for :store, :reject_if => :all_blank
@@ -11,6 +12,8 @@ class User < ActiveRecord::Base
   validates_presence_of   :mobile
   validates_uniqueness_of :mobile
   validates     :mobile, numericality: { only_integer: true }
+
+  include LatLng
 
   def email_required?
   	false
@@ -58,5 +61,9 @@ class User < ActiveRecord::Base
 
   def check_user_access?
     ((self.seller? && self.store.products.empty?)? true : false)
+  end
+
+  def full_address
+    "#{address}, #{city}, #{state}, #{pin_code}"
   end
 end

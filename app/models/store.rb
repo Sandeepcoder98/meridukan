@@ -6,6 +6,6 @@ class Store < ActiveRecord::Base
   include LatLng
 
   def full_address
-    "#{landmark}, #{address}, #{city}, #{state}, #{pin_code}"
+    "#{name}, #{address}, #{city}, #{state}, #{pin_code}"
   end
 end

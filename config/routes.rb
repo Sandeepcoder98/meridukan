@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   devise_scope :user do
-    get 'set_user_info'=> "registrations#set_user_info"
+    get 'update_information'=> "registrations#update_information"
   end
 
   resource :home

@@ -7,13 +7,9 @@ class Ability
       can :manage, :all
     end
     if user.has_role? :seller
-        debugger 
-      can :read, :all
-      can :create, :all
+      can :manage, Product
     end
     if user.has_role? :buyer
-      can :read, :all
-      cannot :create ,:all
     end
   end
 end

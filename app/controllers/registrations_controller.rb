@@ -11,13 +11,12 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.update(account_update_params)
         format.html { redirect_to after_update_path(resource), notice: 'Profile was successfully updated.' }
       else
-        format.html { render :set_user_info }
+        format.html { render :update_information }
       end
     end    
   end
 
-  def set_user_info
-    get_ip_info(current_user)
+  def update_information
     render :layout=>"layouts/application"
   end
 

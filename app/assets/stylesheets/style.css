@@ -67,6 +67,9 @@ ul, ol {
     margin-bottom:30px;
     line-height:50px;
 }
+#form-steps{
+	margin-top:0;
+}
 .buyer-login{
     background-image:url(/assets/red-242.png);
     background-repeat:no-repeat;
@@ -77,6 +80,12 @@ ul, ol {
     height:50px;
     margin-bottom:30px;
     line-height:50px;
+}
+.product-box-main{
+	overflow-y:auto;
+	background-color:#F3F3F3;
+	margin: 0 5px;
+	padding:5px;
 }
 /*------------ end new css------------------*/
 .main-col {
@@ -1976,7 +1985,7 @@ margin-right: 10px;
 }
 .product-view .product-shop {
 	margin-top: 0;
-	z-index: -9;
+	z-index: 1;
 }
 .product-additional {
 	display: inline-block;
@@ -2028,8 +2037,8 @@ margin-right: 10px;
 	border-bottom: 1px solid #ddd;
 }
 .product-view .product-name h1 {
-	font-size: 30px;
-	margin: 0 65px 2px 0;
+	font-size: 18px;
+	margin: 0;
 	text-align: left;
 	line-height: normal;
 	padding-bottom: 12px;
@@ -2218,6 +2227,7 @@ margin-right: 10px;
 	margin: 15px auto 15px;
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
+	overflow-y:auto;
 }
 .product-view .product-shop .ratings .rating-links {
 	margin-bottom: 12px;
@@ -2234,7 +2244,7 @@ margin-right: 10px;
 	border-radius: 0px;
 	color: #fff;
 	padding: 3px 10px;
-	margin-top: -50px;
+	margin-top: 0px;
 }
 .availability.in-stock span {
 	color: #fff;
@@ -3192,7 +3202,7 @@ button.button.submit:before {
 	margin: auto;
 	position: relative;
 	z-index: 0;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 .product-view .flexslider-thumb {
 	max-width: 420px;
@@ -3288,7 +3298,7 @@ button.button.submit:before {
 	-webkit-transform: translate3d(0, 0, 0)
 }
 .product-essential {
-	background-color: #FFFFFF;
+	background-color: transparent;
 }
 .product-collateral .box-collateral {
 	margin: 0 0 15px;
@@ -3312,6 +3322,7 @@ button.button.submit:before {
 	width: 100%;
 	clear: both;
 }
+
 .more-views li {
 	float: left;
 	margin: 0 12px 0 0;
@@ -3599,7 +3610,7 @@ ul.products-grid {
 	height: 15px;
 	font-size: 0;
 	line-height: 0;
-	background: url(../assets/bkg_rating.png) 0 0 repeat-x;
+	background: url(../images/bkg_rating.png) 0 0 repeat-x;
 	text-indent: -999em;
 	overflow: hidden;
 }
@@ -4049,6 +4060,7 @@ ul.products-grid {
 	color: #333;
 	border-radius: 50px;
 }
+
 .product-flexslider {
 	margin: 40px 0px;
 }
@@ -6580,6 +6592,7 @@ button.button.btn-share:before {
 	margin-left: 8px;
 }
 .my-wishlist .back-link {
+
 	float: left;
 }
 /*--------- 21. Progress Bar --------------*/
@@ -6951,17 +6964,16 @@ button.subscribe:before {
 	font-size: 14px;
 }
 .newsletter-wrap input[type="text"] {
-	background: #FFFFFF;
-	height: auto;
-	display: inline-block;
-	color: #a7a7a7;
-	line-height: 22px;
-	background-color: #fff;
-	border: none;
-	font-size: 13px;
-	font-family: 'Roboto', sans-serif;
-	border: none;
-	padding: 8px 10px;
+    background: #fff none repeat scroll 0 0;
+    border: medium none;
+    color: #a7a7a7;
+    display: inline-block;
+    font-family: "Roboto",sans-serif;
+    font-size: 13px;
+    height: auto;
+    line-height: 22px;
+    padding: 8px 10px;
+    width: 62%;
 }
 footer {
 	padding: 0px 0 0;
@@ -9007,7 +9019,7 @@ select#shipping-address-select {
 
 
 
-@import url(//fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
@@ -9104,10 +9116,159 @@ select#shipping-address-select {
 .login-help{
   font-size: 12px;
 }
+.seacrch-input {
+	height: 40px;
+	margin: 20px 0;
+	padding: 10px;
+	width: 100%;
+}
+.near-by {
+	margin: 20px auto;
+	padding: 10px;
+}
+.near-by .slider.slider-horizontal {
+	width:100%;
+}
+.near-by .tooltip-inner {
+	background-color: #DF1F28;
+	opacity: 100;
+	border-radius: 4px;
+	color: #fff;
+	max-width: 200px;
+	padding: 3px 8px;
+	text-align: center;
+	text-decoration: none;
+}
+.near-by .tooltip.top .tooltip-arrow {
+	border-top-color: #DF1F28;
+}
+.near-by .slider-track-low, .slider-track-high {
+	background: #DF1F28;
+	border-radius: 0px;
+	box-sizing: border-box;
+	position: absolute;
+}
+.near-by .slider-selection {
+	background-image:none;
+	background-color: #ccc;
+}
+.near-by .slider-handle {
+	background-image:none;
+	background-color: #f7af40;
+}
+
+#narrow-by-list {
+    margin: 20px 0;
+}
+.right-bar {
+    border: 1px solid #ccc;
+	padding:10px;
+}
+.right-bar .block-cart .block-content ul li a.product-image {
+    display: inline;
+}
+.right-bar .block-cart .block-content ul li a.product-image img {
+    border: 1px solid #ececec;
+}
+.right-bar .block-cart .block-content ul li .product-details {
+    float: right;
+    width: 115px;
+}
+.right-bar .block-cart ul li.item img {
+    width: 50px;
+}
+.right-bar .block-cart ul li.item {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+.right-bar .product-name{
+	margin:0;
+}
+.right-bar .lead {
+    font-size: 14px;
+	color:
+}
+
+/*checkbox*/
+input[type=checkbox].css-checkbox {
+	position:absolute;
+	z-index:-1000;
+	left:-1000px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height:1px;
+	width:1px;
+	margin:-1px;
+	padding:0;
+	border:0;
+}
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:30px;
+	height:20px;
+	display:inline-block;
+	line-height:20px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	vertical-align:middle;
+	cursor:pointer;
+}
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -20px;
+}
+label.css-label {
+	background-image:url(../images/check-box.png);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+
+/*checkbox end*/
+/*readiobutton */
+#time input[type=radio].css-radio {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						#time input[type=radio].css-radio + label.css-label {
+							padding-left:32px;
+							height:22px; 
+							display:inline-block;
+							line-height:22px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							/*font-size:27px;*/
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						#time input[type=radio].css-radio:checked + label.css-label {
+							background-position: 0 -22px;
+							
+						}
+						#time label.css-label {
+				background-image:url(../images/radio-box.png);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+/*readiobutton end*/
+/*<..........new css add by 18-1-2016..........>*/
 /*-------- 27. Responsive ------- */
- @media (min-width:768px) {
+ @media (width:768px) {
 .footer-navbar .tabBlock {
 	display: block!important
+}
+.sellers-left{
+	display:none;
 }
 
 }
@@ -9119,6 +9280,9 @@ select#shipping-address-select {
 }
 .footer-navbar .container {
 	padding: 0
+}
+.sellers-left{
+	display:none;
 }
 .footer-navbar.dark .icon, .footer-navbar.dark a, .footer-navbar.dark h4 {
 	color: #2b2b2b

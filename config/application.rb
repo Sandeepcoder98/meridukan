@@ -2,7 +2,6 @@ require File.expand_path('../boot', __FILE__)
 require 'yaml'
 require 'rails/all'
 
-$config = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path('../url_config.yml', __FILE__))))
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

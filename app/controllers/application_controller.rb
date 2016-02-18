@@ -18,18 +18,4 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
-
-  def get_ip_info(user) 
-    user_info = get_http_request($config["ip_config"]+"#{params["ip_address"]}")
-    user.set_user_info(user_info)
-  end
-
-  def get_http_request(url,ssl=false)
-    parsed_url = URI.parse(url)
-    http = Net::HTTP.new(parsed_url.host, parsed_url.port)
-    req = Net::HTTP::Get.new(parsed_url.to_s,initheader={})
-    http.use_ssl = ssl
-    response = http.request(req)
-    JSON.parse response.body rescue ""
-  end
 end

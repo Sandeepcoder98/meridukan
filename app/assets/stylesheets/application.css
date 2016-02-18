@@ -28,6 +28,8 @@
  *= require bootstrap_tagsinput
  *= require buyers-css
  *= require font-awesome
+ *= require form-steps/form-elements.css
+ *= require form-steps/form-style.css
  *= require_self
  */
 

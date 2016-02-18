@@ -4,11 +4,18 @@
   <title>Meri Dukan</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
 </head>
 <body class="cms-index-index cms-home-page">
   <%= render "layouts/header"%>
   <%= render "layouts/flash_messages"%>
-  <%= yield %>
+  <div id="page">
+    <%= yield %>
+    <%= render "layouts/footer"%>
+  </div>
+  <%= render "layouts/mobile_menu"%>
+  <%= render "layouts/modal_popups"%>
+  <%= render 'layouts/slider_scripts' %>
 </body>
 </html>

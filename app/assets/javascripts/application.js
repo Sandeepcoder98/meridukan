@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery.chained.min
 //= require twitter/bootstrap
-//= require map
 //= require common
 //= require common_js
 //= require parallax
@@ -28,5 +27,8 @@
 //= require jquery.utilcarousel
 //= require bootstrap-wysihtml5
 //= require bootstrap-tagsinput
+//= require form-steps/retina-1.1.0
+//= require form-steps/jquery.backstretch.min
+//= require form-steps/scripts
 //= require turbolinks
 

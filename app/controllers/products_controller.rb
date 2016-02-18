@@ -70,6 +70,8 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
+              debugger
+
       if @product.update_attributes(product_params)
         @product.update_attributes(:step_path=> params["referrer_action"])
         next_tab = Tabs.next_product_tab(params["referrer_action"])

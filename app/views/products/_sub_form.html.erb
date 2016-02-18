@@ -23,14 +23,16 @@
 </div>
 <div class="row">
   <div class="col-md-12 form-margin-top">
-      <%= f.label(:gallery).upcase.html_safe%><br/>
-      <%#f.object.galleries.build if(f.object.new_record?)%>
+    <%= f.label(:gallery).upcase.html_safe%><br/>
+    <div id="galleries">
       <%= f.fields_for :galleries, required: true do |photo_f| %>
-        <%= link_to "#",:id=>:bg_cover do%>
-          <%= image_tag set_image(@product), width: 200%>
-        <%end%>
-        <%= photo_f.file_field :photo,:class=>"hide bg_cover_field",:onchange=>"readURL(this);"%>
+        <%= photo_f.file_field :photo,:class=>"",:onchange=>"readURL(this);"%>
+        <%= photo_f.link_to_remove "Remove" %>
+        <br/>
+        <br/>
       <%end%>
+    </div>
+    <%= f.link_to_add "Add new image", :galleries, :data => { :target => "#galleries" } %>
   </div>
   </div>
   <div class="row">

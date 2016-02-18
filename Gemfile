@@ -63,3 +63,4 @@ gem 'bootstrap-tagsinput-rails'
 gem 'jquery-turbolinks'
 #gem 's3_direct_upload'
 gem 'geokit'
+gem "nested_form"

@@ -1,7 +1,7 @@
 <section class="product-container">
   <h3>Overview</h3>
   <hr/>
-  <%= form_for(@product) do |f| %>
+  <%= nested_form_for(@product) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>

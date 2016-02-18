@@ -30,5 +30,6 @@
 //= require form-steps/retina-1.1.0
 //= require form-steps/jquery.backstretch.min
 //= require form-steps/scripts
+//= require jquery_nested_form
 //= require turbolinks
 

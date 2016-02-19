@@ -57,4 +57,12 @@ module ApplicationHelper
   def set_offers_option
     [["Offer on product","product_offer"],["Offer on price","price_offer"]]
   end
+
+  def product_offer_class(product_offer, current_offer)
+    product_offer==current_offer ? "" : "hidden"
+  end
+
+  def visiblily_for_image(choice_type, current_choice)
+    choice_type==current_choice ? "display:none;" : ""
+  end
 end

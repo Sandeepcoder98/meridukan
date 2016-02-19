@@ -18,20 +18,20 @@
         <div class="col-md-4 form-margin-top">
           <%= ff.label :free_delivery do %>
              Free Delivery
-            <%= ff.check_box :free_delivery, :checked=> true, class: "check-delivery-event"%>
+            <%= ff.check_box :free_delivery, :checked=> true, class: "check-delivery-event", disabled: true%>
           <% end %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4 form-margin-top">
           <%= ff.label :free_kilometers %>
-          <%= ff.number_field :free_kilometers,:class=>'form-control check-delivery', min: 0, :readonly=>ff.object.free_delivery %>
+          <%= ff.number_field :free_kilometers,:class=>'form-control check-delivery', min: 0 %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4 form-margin-top">
           <%= ff.label :charge_per_kilometer, "Charge per kilometer after free" %>
-          <%= ff.text_field :charge_per_kilometer,:class=>'form-control check-delivery', :readonly=>ff.object.free_delivery %>
+          <%= ff.text_field :charge_per_kilometer,:class=>'form-control check-delivery' %>
         </div>
       </div>
     <%end%>

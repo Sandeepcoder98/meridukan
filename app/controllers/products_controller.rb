@@ -29,9 +29,9 @@ class ProductsController < ApplicationController
   end
 
   def additional_offers
-    product = @product.build_product_offer if @product.product_offer.blank?
+    @product.build_product_offer if @product.product_offer.blank?
     @product.build_price_offer if @product.price_offer.blank?
-    # @product.build_additional_offer(product) if @product.additional_offer.blank?
+    @product.build_additional_offer if @product.additional_offer.blank?
   end 
 
   def shipping_details
@@ -70,8 +70,6 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
-              debugger
-
       if @product.update_attributes(product_params)
         @product.update_attributes(:step_path=> params["referrer_action"])
         next_tab = Tabs.next_product_tab(params["referrer_action"])
@@ -104,8 +102,8 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(
           :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,:status,:approve,:step_path,
-          galleries_attributes:[:id,:photo], 
+          galleries_attributes:[:id, :photo, :_destroy], 
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
-          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offers_attributes:[:offer_type,:offer_id,:product_id],price_offer_attributes:[:amount,:percent,:gift],product_offer_attributes:[:buy,:get,:gift])
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offer_attributes:[:id, :offer_type,:offer_id,:product_id],price_offer_attributes:[:id, :amount,:percent,:gift,:choice_type],product_offer_attributes:[:id, :buy,:get,:gift,:choice_type])
     end
 end

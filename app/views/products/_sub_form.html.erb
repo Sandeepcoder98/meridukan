@@ -1,8 +1,9 @@
-<div class="row">
-  <div class="col-md-12 form-margin-top">
-    <%= f.label(:title).upcase.html_safe %>
-    <%= f.text_area :title,:class=>'form-control',size: "1x1" ,:maxlength=>"80", required: true%> max 80 characters
-  </div>
+<div class="main-custom-div">
+  <div class="row">
+    <div class="col-md-12 form-margin-top">
+      <%= f.label(:title).upcase.html_safe %>
+      <%= f.text_area :title,:class=>'form-control',size: "1x1" ,:maxlength=>"80", required: true%> max 80 characters
+    </div>
   </div>
   <div class="row">
 
@@ -12,35 +13,46 @@
   </div>
   </div>
   <div class="row">
-  <div class="col-md-12 form-margin-top">
-    <div class="col-md-12">
-      <%= f.label(:category).upcase.html_safe%>
+    <div class="col-md-12 form-margin-top">
+      <div class="col-md-12">
+        <%= f.label(:category).upcase.html_safe%>
+      </div>
+      <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""]), required: true,:class=>"col-md-4" %>
+      <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
+      <%= f.select :child_sub_category_id,get_sub_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
     </div>
-    <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""]), required: true,:class=>"col-md-4" %>
-    <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
-    <%= f.select :child_sub_category_id,get_sub_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12 form-margin-top">
-    <%= f.label(:gallery).upcase.html_safe%><br/>
-    <div id="galleries">
-      <%= f.fields_for :galleries, required: true do |photo_f| %>
-        <%= photo_f.file_field :photo,:class=>"",:onchange=>"readURL(this);"%>
-        <%= photo_f.link_to_remove "Remove" %>
-        <br/>
-        <br/>
-      <%end%>
-    </div>
-    <%= f.link_to_add "Add new image", :galleries, :data => { :target => "#galleries" } %>
-  </div>
   </div>
   <div class="row">
-  <div class="field col-md-12 form-margin-top">
-    <div class="col-md-3"><%= f.label(:delivery_time).upcase.html_safe %></div><br/><br />
-    <div class="col-md-6">Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control", required: true %></div>
-     <div class="col-md-3 deliver-text">to deliver</span> 
+    <div class="col-md-12 form-margin-top">
+      <%= f.label(:gallery).upcase.html_safe%><br/>
+      <div id="galleries">
+        <%= f.fields_for :galleries, required: true do |photo_f| %>
+          <div class="realtime-image-div">
+            <div class="realtime-image-show">
+              <img src="<%=photo_f.object.photo%>" style="width:200px;" />
+            </div>
+             <br/>
+            <%= photo_f.file_field :photo,:class=>"inline-block-css realtime-image",:onchange=>"readURL(this);"%>
+             <br/>
+            <%= photo_f.link_to_remove "Remove", class: "btn btn-xs btn-success inline-block-css"  %>
+            <br/>
+            <br/>
+          </div>
+        <%end%>
+      </div>
+      <%= f.link_to_add "Add new image", :galleries, :data => { :target => "#galleries" }, class: "btn btn-xs btn-success" %>
+    </div>
   </div>
+  <div class="row">
+    <div class="field col-md-12 form-margin-top">
+      <div class="">
+        <%= f.label(:delivery_time).upcase.html_safe %>
+      </div><br/><br />
+      <div class="">
+        Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control wdith-control-select", required: true %>
+      </div>
+      <div class="">to deliver</div> 
+    </div>
   </div>
 
   <div class="row">
@@ -51,3 +63,4 @@
   </div>
 
   <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
+</div>

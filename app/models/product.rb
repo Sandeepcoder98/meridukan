@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
 	has_one :price_offer
 	# has_one :product_offer, :through => :additional_offer, :source => :offer, :source_type => "ProductOffer"
 	# has_one :price_offer, :through => :additional_offer, :source => :offer, :source_type => "PriceOffer"
-	accepts_nested_attributes_for :galleries, :reject_if => :all_blank
+	accepts_nested_attributes_for :galleries, :reject_if => :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :product_shipping_detail
 	accepts_nested_attributes_for :pricing
 	accepts_nested_attributes_for :additional_offer
@@ -26,4 +26,14 @@ class Product < ActiveRecord::Base
 		net_mrp = pricing.mrp_per_unit.to_f-pricing.offer_on_mrp.to_f rescue 0
 		(net_mrp>0 ? net_mrp : 0).round(2) 
 	end
+
+	def offer_type
+		additional_offer.offer_type
+	end
+
+	def offer
+		send additional_offer.offer_type rescue nil
+	end
 end
+
+

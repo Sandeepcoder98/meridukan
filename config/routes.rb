@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   resource :home
   resource :dashboard
-  resource :search
+  resource :search, only: :index
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root
   end

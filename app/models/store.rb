@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  after_save :update_lat_long
+  # after_save :update_lat_long
   belongs_to :user
   has_many :products
   

@@ -64,3 +64,5 @@ gem 'jquery-turbolinks'
 #gem 's3_direct_upload'
 gem 'geokit'
 gem "nested_form"
+gem 'sunspot_rails'
+gem 'sunspot_solr'

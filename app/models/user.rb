@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   rolify
-  after_save :update_lat_long
+  # after_save :update_lat_long
   has_one :store
   has_many :products,:through=> :store
   accepts_nested_attributes_for :store, :reject_if => :all_blank

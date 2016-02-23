@@ -37,7 +37,9 @@ Rails.application.routes.draw do
 
   resource :home
   resource :dashboard
-  resource :search, only: :index
+  resources :search, only: :index do 
+    get :stores, on: :collection
+  end
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root
   end

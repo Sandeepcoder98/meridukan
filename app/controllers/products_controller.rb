@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  load_and_authorize_resource
+  # load_and_authorize_resource
   
   before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab]
 

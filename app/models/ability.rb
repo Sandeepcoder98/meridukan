@@ -10,6 +10,7 @@ class Ability
       can :manage, Product
     end
     if user.has_role? :buyer
+      # can :manage, Product
     end
   end
 end

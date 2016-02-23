@@ -5,6 +5,20 @@ class Store < ActiveRecord::Base
   
   include LatLng
 
+  # Setting Up Objects  
+  searchable do
+    text :name
+    text :city
+    text :state
+    text :landmark
+    text :address
+    text :pin_code
+    text :user do
+      user.try(:first_name)
+      user.try(:last_name)
+    end
+  end
+  
   def full_address
     "#{name}, #{address}, #{city}, #{state}, #{pin_code}"
   end

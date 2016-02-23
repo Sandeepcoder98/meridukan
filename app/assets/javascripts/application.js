@@ -16,7 +16,7 @@
 //= require jquery.chained.min
 //= require twitter/bootstrap
 //= require common
-//= require common_js
+//= require custom
 //= require parallax
 //= require revslider
 //= require owl.carousel.min
@@ -31,5 +31,6 @@
 //= require form-steps/jquery.backstretch.min
 //= require form-steps/scripts
 //= require jquery_nested_form
+//= require search
 //= require turbolinks
 

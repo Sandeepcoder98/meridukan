@@ -5,11 +5,7 @@ function initializeGmap() {
 	google.maps.event.addDomListener(document, 'ready', initialize(geocoder)); 
 }
 $(document).ready(function(){
-
-	
-	
-	
-
+  
 	$("#bg_cover").on('click',function(){
 		$(".bg_cover_field").trigger('click')
 	})
@@ -43,7 +39,6 @@ $(document).ready(function(){
     $("."+target+"_choice_type").val(value)
   })
 });
-
 
 function readURL(input) {
   if (input.files && input.files[0]) {

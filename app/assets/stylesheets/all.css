@@ -2,17 +2,17 @@
 .util-carousel {
 	display:none;
 	position:relative;
-	-ms-touch-action:pan-y;
+	-ms-touch-action:pan-y
 }
 .util-carousel .util-wrapper-holder {
 	overflow:hidden;
 	position:relative;
-	width:100%;
+	width:100%
 }
 .util-carousel .util-wrapper {
 *zoom:1;
 	position:relative;
-	display:none;
+	display:none
 }
 .util-carousel .util-wrapper:before, .util-carousel .util-wrapper:after {
 	display:table;
@@ -20,17 +20,17 @@
 	line-height:0
 }
 .util-carousel .util-wrapper:after {
-	clear:both;
+	clear:both
 }
 .util-carousel .util-item {
-	float:left;
+	float:left
 }
 .dragging, .dragging * {
 	cursor:url(https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur), move
 }
 .util-theme-default .util-pagination {
 	text-align:center;
-	margin-top:10px;
+	margin-top:10px
 }
 .util-theme-default .util-page span {
 	display:block;
@@ -48,16 +48,16 @@
 	display:inline-block;
 	cursor:pointer;
 	zoom:1;
-	*display:inline;
+	display:inline;
 }
 .util-theme-default .util-page.active-page span {
-	background-color:#555;
+	background-color:#555
 }
 .util-theme-default .util-page:hover span {
-	background-color:#888;
+	background-color:#888
 }
 .util-theme-default .util-navigation {
-	text-align:center;
+	text-align:center
 }
 .util-theme-default .util-prev, .util-theme-default .util-next {
 	display:inline-block;
@@ -68,23 +68,23 @@
 	border-radius:3px;
 	cursor:pointer;
 	font-size:13px;
-	-webkit-transition:all .2s;
+	line-height:-webkit-transition:all .2s;
 	-moz-transition:all .2s;
 	-o-transition:all .2s;
 	transition:all .2s;
 	-webkit-user-select:none;
 	-moz-user-select:none;
 	-ms-user-select:none;
-	user-select:none;
+	user-select:none
 }
 .util-theme-default .util-prev:hover, .util-theme-default .util-next:hover {
-	background-color:#555;
+	background-color:#555
 }
 .util-theme-default .util-disable, .util-theme-default .util-disable:hover {
 	background-color:#bbb;
 	opacity:.4;
-	cursor:default;
+	cursor:default
 }
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 

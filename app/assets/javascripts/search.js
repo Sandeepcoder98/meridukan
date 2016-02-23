@@ -13,13 +13,18 @@ $(document).ready(function(){
   if ($("[data-object=search_products]").length>0){
     search_objects = JSON.parse($("[data-object=search_products]").attr("data-items"))
     $(search_objects).each(function(){
-      $("[data-object=search_products]").append(search_products_template(this))
+      var source   = $("#search-products").html();
+      var template = Handlebars.compile(source);
+      $("[data-object=search_products]").append(template(this))
+      $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+      $(".starrr").starrr();
+      modal_effects()
     })
 
     var page = 2;
 
     $(window).scroll(function(){
-      if($(window).scrollTop()+700 > $(document).height() - $(window).height())
+      if($(window).scrollTop()+1200 > $(document).height() - $(window).height())
       {
         q = $("[data-object=search_products]").attr("data-q")
         $('div#loadmoreajaxloader').show();
@@ -32,13 +37,18 @@ $(document).ready(function(){
               if(data.length>0)
               {
                 $(data).each(function(){
-                  $("[data-object=search_products]").append(search_products_template(this))
+                  var source   = $("#search-products").html();
+                  var template = Handlebars.compile(source);
+                  $("[data-object=search_products]").append(template(this))
+                  $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+                  $(".starrr").starrr();
+                  modal_effects()
                 })
                 page = page+1
                 $('div#loadmoreajaxloader').hide();
               }else
               {
-                  $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                  $('div#loadmoreajaxloader').html('<center>No more products to show.</center>');
               }
           }
         });
@@ -83,9 +93,9 @@ $(document).ready(function(){
   }
  });
 
-var search_products_template = function(data){
-  return "<div class=\"col-md-3\"><div class=\"advance-box\"> <img src=\""+data.photo_url+"\" width=\"274\" height=\"182\"><div class=\"color-box1\"> <a href=\"/products/"+data.id+"\">"+data.title+"</a><input type=\"text\" class=\"btn btn-danger\" value=\"Buy It\"/><br></div></div><br></div>"
-};
+// var search_products_template = function(data){
+//   return "<div class=\"col-md-3\"><div class=\"advance-box\"> <img src=\""+data.photo_url+"\" width=\"274\" height=\"182\"><div class=\"color-box1\"> <a href=\"/products/"+data.id+"\">"+data.title+"</a><input type=\"text\" class=\"btn btn-danger\" value=\"Buy It\"/><br></div></div><br></div>"
+// };
 
 
 var search_stores_template = function(data){

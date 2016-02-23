@@ -36,7 +36,7 @@ to {
 	position:absolute;
 	z-index:9999;
 	
-	background-image: url(../assets//bg-clouds.png);
+	background-image: url(/assets/bg-clouds.png);
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
 	animation: animatedBackground 60s linear infinite;
@@ -84,7 +84,7 @@ to {
 	z-index:9999;
 	bottom:0;
 	
-	background-image: url(../assets//building-back.png);
+	background-image: url(/assets/building-back.png);
 	background-position: 0px 0px;
 	background-repeat: repeat-x;
 	animation: animatedBackground 60s linear infinite;
@@ -111,7 +111,9 @@ to {
     text-align: center;
     z-index: 99999;
 }
-
+.login-back{
+	background-image:
+}
 body, td, th {
 	font-family: Roboto, sans-serif;
 }
@@ -150,7 +152,7 @@ body{
     line-height: 24px;
     padding: 10px 30px;
 	color:#fff;
-	background-image:url(../assets//red-165.png);
+	background-image:url(/assets/red-165.png);
 	background-position:center center;
 	background-size: 100%;
 	background-repeat:no-repeat;
@@ -158,7 +160,7 @@ body{
 .form_wrapper .btn:hover {
 	color:#fff;
 	background-color:transparent;
-	background-image:url(../assets//green-165.png);
+	background-image:url(/assets/green-165.png);
 }
 .form_wrapper h3 {
 	padding:20px 30px 20px 30px;
@@ -221,7 +223,6 @@ form.forgot_password {
 	margin-top:0px;
 	clear:both;
 	color:#a6a1a1;
-	text-align: center;
 }
 .form_wrapper .bottom a {
 	color:#a6a1a1;
@@ -252,7 +253,7 @@ form.forgot_password {
 	margin:4px 30px;
 }
 .form_wrapper input[type="submit"] {
-	background-image:url(../assets//red-165.png);
+	background-image:url(/assets/red-165.png);
 	background-position: center center;
 	background-repeat:no-repeat;
 	min-width:165px;
@@ -273,7 +274,7 @@ form.forgot_password {
 }
 .form_wrapper input[type="submit"]:hover {
 	background-color:transparent;
-	background-image:url(../assets//green-165.png);
+	background-image:url(/assets/green-165.png);
 	color: #fff;
 }
 .popup-logo {
@@ -286,7 +287,7 @@ form.forgot_password {
 	overflow-y:auto;
 }
 .step1-btn1 {
-	background-image:url(../assets//red-240.png);
+	background-image:url(/assets/red-240.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	color:#fff !important;
@@ -297,11 +298,19 @@ form.forgot_password {
 	display:block;
 	text-shadow:none !important;
 	margin-bottom:10px;
- 	font-size: 17px;
+ 	font-size: 24px;
     line-height: 59px;
 }
+.step1-btn1:hover {
+	background-color:#fff;
+	color:#fff !important;
+}
+.step1-btn2:hover {
+	background-color:#fff;
+	color:#fff !important;
+}
 .step1-btn2 {
-	background-image:url(../assets//red-241.png);
+	background-image:url(/assets/red-241.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	color:#fff !important;
@@ -312,7 +321,7 @@ form.forgot_password {
 	display:block;
 	text-shadow:none !important;
 	margin-bottom:10px;
-	font-size: 17px;
+	font-size: 24px;
     line-height: 59px;
 }
 .login-box {
@@ -339,7 +348,7 @@ form.forgot_password {
 }
 .connect-fb {
 	background-color:transparent;
-	background-image:url(../assets//fb-btn.png);
+	background-image:url(/assets/fb-btn.png);
 	background-position: center center;
 	background-repeat: no-repeat;
     border-radius: 5px;
@@ -364,7 +373,7 @@ form.forgot_password {
 }
 .connect-tw {
 	background-color:transparent;
-	background-image:url(../assets//tw-btn.png);
+	background-image:url(/assets/tw-btn.png);
 	background-position: center center;
 	background-repeat: no-repeat;
     border-radius: 5px;

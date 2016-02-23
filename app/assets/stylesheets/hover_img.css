@@ -29,6 +29,7 @@
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Firefox */
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Safari and Chrome */
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#000000, strength=2);
 }
 .popup2{
 
@@ -44,6 +45,7 @@
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Firefox */
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Safari and Chrome */
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#000000, strength=2);
 }
 .r_board{
 
@@ -59,6 +61,7 @@
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Firefox */
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5); /* Safari and Chrome */
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    filter: progid:DXImageTransform.Microsoft.shadow(direction=120, color=#000000, strength=2);
 }
 .overlayPop{
 
@@ -197,6 +200,7 @@
 	-moz-box-shadow: none; /* Firefox */
     -webkit-box-shadow: none; /* Safari and Chrome */
     box-shadow: none;
+    filter: progid: none;
 
 }
 

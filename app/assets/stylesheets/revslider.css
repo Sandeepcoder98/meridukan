@@ -1,21 +1,4 @@
-/*-----------------------------------------------------------------------------
 
-	-	Revolution Slider 4.1 Captions -
-
-		Screen Stylesheet
-
-version:   	1.4.5
-date:      	17/02/15
-author:		magikcommerce
-email:      support@magikcommerce.com
-website:   	http://www.magikcommerce.com/
------------------------------------------------------------------------------*/
-
-
-
-/*************************
-	-	CAPTIONS	-
-**************************/
 
 #magik-slideshow {
 	border: none;
@@ -200,14 +183,14 @@ website:   	http://www.magikcommerce.com/
 }
  @media only screen and (min-width: 320px) and (max-width: 479px) {
 	 	.tp-leftarrow.default {
-    background: url("../assets/left-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
+    background: url("/assets/left-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
     height: 30px !important;
     left: 5px !important;
     width: 30px !important;
 }
 
 	 	.tp-rightarrow.default {
-    background: url("../assets/right-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
+    background: url("/assets/right-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
     height: 30px !important;
     right: 5px !important;
     width: 30px !important;
@@ -239,14 +222,14 @@ website:   	http://www.magikcommerce.com/
 
  @media only screen and (min-width: 480px) and (max-width: 767px) {
  	.tp-leftarrow.default {
-    background: url("../assets/left-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
+    background: url("/assets/left-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
     height: 30px !important;
     left: 5px !important;
     width: 30px !important;
 }
 
 	 	.tp-rightarrow.default {
-    background: url("../assets/right-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
+    background: url("/assets/right-a.png") no-repeat scroll 9px 4px / 7px auto rgba(0, 0, 0, 0.6) !important;
     height: 30px !important;
     right: 5px !important;
     width: 30px !important;
@@ -397,7 +380,7 @@ tp-bullets.simplebullets.square .bullet.last {
 .tp-leftarrow {
 	cursor: pointer;
 	position: relative;
-	background: url(../assets/left-a.png) no-repeat top left;
+	background: url(/assets/left-a.png) no-repeat top left;
 	width: 40px;
 	height: 40px;
 }
@@ -405,7 +388,7 @@ tp-bullets.simplebullets.square .bullet.last {
 	z-index: 100;
 	cursor: pointer;
 	position: relative;
-	background: url(../assets/right-a.png) no-repeat top left;
+	background: url(/assets/right-a.png) no-repeat top left;
 	width: 40px;
 	height: 40px;
 	display:none;
@@ -422,19 +405,18 @@ tp-bullets.simplebullets.square .bullet.last {
 	display:none;
 	cursor: pointer;
 	position: relative;
-	background: rgba(0, 0, 0, 0.6) url(../assets/left-a.png) no-repeat 20px 6px;
+	background: rgba(0, 0, 0, 0.6) url(/assets/left-a.png) no-repeat 20px 6px;
 	width: 60px;
 	height: 60px;
 	left: 20px !important; border-radius:60px;opacity:0;
 }
 #magik-slideshow:hover .tp-leftarrow.default {opacity:0.9;transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
 }
-#magik-slideshow .tp-rightarrow.default { 
-	opacity:0;
-	z-index: 99;
+#magik-slideshow .tp-rightarrow.default { opacity:0;
+z-index: 99;
 	cursor: pointer;
 	position: relative;
-	background: rgba(0, 0, 0, 0.6) url(../assets/right-a.png) no-repeat 20px 6px;
+	background: rgba(0, 0, 0, 0.6) url(/assets/right-a.png) no-repeat 20px 6px;
 	width: 60px;
 	height: 60px;
 	right: 20px !important;border-radius:50px;
@@ -562,4 +544,4 @@ tp-bullets.simplebullets.square .bullet.last {
 }
 
 .info{ width:500px; float:right}
-.line{background:url(../assets/line.png)no-repeat top center;  width:139px; height:18px}
+.line{background:url(/assets/line.png)no-repeat top center;  width:139px; height:18px}

@@ -5,7 +5,7 @@
 /*-------------------------------------------------*/
 
 .full-bg {
-	background: url("../assets/login-back.jpg") no-repeat scroll center center / cover transparent;
+	background: url("/assets/login-back.jpg") no-repeat scroll center center / cover transparent;
 }
 .full-bg {
 	bottom: 0;

@@ -1,5 +1,5 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * This is a manifest file that'll be compiled into application, which will include all the files
  * listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
@@ -12,25 +12,34 @@
  *
  *= require bootstrap_and_overrides
  *= require bootstrap-wysihtml5
+ *= require bootstrap_tagsinput
+ *= require jquery.tagit
+ *= require buyers-css
+ *= require tagit.ui-zendesk
+ *= require animate
+ *= require revslider
+ *= require owl.carousel
+ *= require owl-theme
+ *= require jquery.mobile-menu
+ *= require jquery.bxslider
+ *= require style
+ *= require all
+ *= require quick-view-css/quick
+ *= require ekko-lightbox
+ *= require bootstrap-slider
+ *= require util.carousel.skins
+ *= require hover_img
+ *= require jquerysctipttop
+ *= require flexslider
  *= require custom
  *= require common_css
  *= require bootstrap-tagsinput
- *= require product
- *= require all
- *= require font-awesome.min
- *= require hover_img
- *= require jquery.bxslider
- *= require jquery.mobile-menu
- *= require style
- *= require util.carousel.skins
- *= require owl.carousel
- *= require revslider
- *= require animate
- *= require bootstrap_tagsinput
- *= require buyers-css
+ *= require fancybox
  *= require font-awesome
- *= require form-steps/form-elements.css
- *= require form-steps/form-style.css
+ *= require font-awesome.min
+ *= require form-steps/form-elements
+ *= require form-steps/form-style
+ *= require product
  *= require_self
  */
 

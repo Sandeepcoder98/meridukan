@@ -406,9 +406,9 @@ jQuery(window).on("load", function() {
 
 $(window).scroll(function() {
     if ($(this).scrollTop() > 1) {
-        $('.header').addClass("sticky");
+        $('header .header').addClass("sticky");
     } else {
-        $('.header').removeClass("sticky");
+        $('header .header').removeClass("sticky");
     }
 });
 
@@ -423,7 +423,7 @@ $(window).scroll(function() {
             outDelay: 400,
             containerID: 'toTop',
             containerHoverID: 'toTopHover',
-            scrollSpeed: 500,
+            scrollSpeed: 1200,
             easingType: 'linear'
         };
 

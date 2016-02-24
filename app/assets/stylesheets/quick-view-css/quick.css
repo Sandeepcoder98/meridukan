@@ -34,11 +34,11 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-modal {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	z-index: 2000;
 	visibility: hidden;
 	-webkit-backface-visibility: hidden;

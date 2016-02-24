@@ -16,22 +16,23 @@ $(document).ready(function(){
       var source   = $("#search-products").html();
       var template = Handlebars.compile(source);
       $("[data-object=search_products]").append(template(this))
-      $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
       $(".starrr").starrr();
-      modal_effects()
+      // modal_effects()
     })
 
     var page = 2;
+    var isActive = false;
 
     $(window).scroll(function(){
-      if($(window).scrollTop()+1200 > $(document).height() - $(window).height())
-      {
+      if(!isActive && $(window).scrollTop()+1200 > $(document).height() - $(window).height())
+      {    
+        isActive = true;
         q = $("[data-object=search_products]").attr("data-q")
         $('div#loadmoreajaxloader').show();
         
         $.ajax({
           url: "/search.json?q="+q+"&page="+page,
-          async: false,
+          async: true,
           success: function(data)
           { 
               if(data.length>0)
@@ -40,12 +41,12 @@ $(document).ready(function(){
                   var source   = $("#search-products").html();
                   var template = Handlebars.compile(source);
                   $("[data-object=search_products]").append(template(this))
-                  $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
                   $(".starrr").starrr();
-                  modal_effects()
+                  // modal_effects()
                 })
                 page = page+1
                 $('div#loadmoreajaxloader').hide();
+                isActive = false;
               }else
               {
                   $('div#loadmoreajaxloader').html('<center>No more products to show.</center>');
@@ -65,14 +66,15 @@ $(document).ready(function(){
     var page = 2;
 
     $(window).scroll(function(){
-      if($(window).scrollTop()+700 > $(document).height() - $(window).height())
+      if(!isActive && $(window).scrollTop()+1200 > $(document).height() - $(window).height())
       {
+        isActive = true;
         q = $("[data-object=search_stores]").attr("data-q")
         $('div#loadmoreajaxloader').show();
         
         $.ajax({
           url: "/search/stores.json?q="+q+"&page="+page,
-          async: false,
+          async: true,
           success: function(data)
           { 
               if(data.length>0)
@@ -82,6 +84,7 @@ $(document).ready(function(){
                 })
                 page = page+1
                 $('div#loadmoreajaxloader').hide();
+                isActive = false;
               }else
               {
                   $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');

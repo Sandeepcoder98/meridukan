@@ -8,9 +8,9 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
+var ModalEffects = (function() {
 
-
-	function modal_effects() {
+	function init() {
 
 		var overlay = document.querySelector( '.md-overlay' );
 
@@ -51,3 +51,7 @@
 		} );
 
 	}
+
+	init();
+
+})();

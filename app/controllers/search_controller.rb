@@ -5,9 +5,16 @@ class SearchController < ApplicationController
       paginate :page => params[:page]
     end
     .results.to_json(
-      only: [:id, :title],
-      methods: :photo_url
+      only: [:id, :title, :description],
+      methods: :photo_url,
+      :include => {
+        store: {
+          only: [:name],
+          methods: [:full_address]
+        }
+      }
     )
+
     respond_to do |format|
       format.html
       format.json { render :json => @search }

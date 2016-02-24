@@ -69,12 +69,6 @@ $(document).ready(function(){
       source: availableTags
     });
   });
-   
-  $("#ex2").slider({});
-
-  // Without JQuery
-  var slider = new Slider('#ex2', {});
-
   // Starrr plugin (https://github.com/dobtco/starrr)
   var __slice = [].slice;
 

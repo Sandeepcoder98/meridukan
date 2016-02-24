@@ -228,6 +228,9 @@ ul, ol {
 	padding:5px;
 }
 /*------------ end new css------------------*/
+.carousel-new ul li{
+	margin-right: 0 !important;
+}
 .main-col {
 	margin: auto;
 	overflow: hidden;

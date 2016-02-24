@@ -27,7 +27,6 @@
 //= require revslider
 //= require owl.carousel.min
 //= require jquery.mobile-menu.min
-//= require bootstrap-slider
 //= require tag-it
 //= require jquery.bxslider.min
 //= require jquery.easing.1.3

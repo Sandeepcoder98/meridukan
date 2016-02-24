@@ -1,3 +1,14 @@
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'bootstrap-slider', 'data-turbolinks-track' => true %>
+  <script>
+    $(document).ready(function(){
+      $("#ex2").slider({});
+      // Without JQuery
+      var slider = new Slider('#ex2', {});
+    })
+  </script>
+<% end %>
+
   <!-- Breadcrumbs -->
   <div class="breadcrumbs">
     <div class="container">
@@ -358,7 +369,7 @@
           <div class="well">
             <div class="media"> <a class="pull-left" href="#"> <img class="media-object" src="/assets/kfc-logo.jpg"> </a>
               <div class="media-body">
-                <h4 class="media-heading">Receta 1</h4>
+                <h4 class="media-heading">{{store.name}}</h4>
                 <div class="lead">
                   <div id="stars" class="starrr"></div>
                 </div>
@@ -366,8 +377,8 @@
               </div>
             </div>
           </div>
-          <p><i class="fa fa-map-marker"></i> Plot No.304, Ground Floor, Malhar Mega Mall, AB Road</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+          <p><i class="fa fa-map-marker"></i>{{store.full_address}}</p>
+          <p>{{description}}</p>
           <a href="sellers_index.html" class="view-shop">View Shop</a> </div>
       </div>
       <div class="clearfix"></div>

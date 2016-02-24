@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield :javascript %>
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

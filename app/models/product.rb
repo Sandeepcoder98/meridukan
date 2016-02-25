@@ -24,7 +24,16 @@ class Product < ActiveRecord::Base
 
   # Setting Up Objects  
   searchable do
+    integer :store_id
     text :title
+    join(:city, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
+    join(:state, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
+    join(:landmark, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
+    join(:address, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
+    join(:pin_code, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
+    # text :store do
+    #   [store.city, store.state, store.landmark, store.address, store.pin_code]
+    # end
     text :category do
       category.title
     end

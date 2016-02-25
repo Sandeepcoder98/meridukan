@@ -5,6 +5,10 @@ $(document).ready(function(){
    $(this).closest("form").submit()
   });
 
+  $("#search_it_now").click(function(){
+   $(this).closest("form").submit()
+  });
+
   $("#search_selection li a").click(function(){
   	action = $(this).attr("data-action")
   	$(this).closest("form").attr("action",action)
@@ -55,6 +59,37 @@ $(document).ready(function(){
         });
       }
     });
+  }
+
+  // Filtering elements
+  $('body').on("keyup change", "[data-product-query]",function(e){    
+      clearTimeout($.data(this, 'timer'));
+      if (e.keyCode == 13)
+        search(true);
+      else
+        $(this).data('timer', setTimeout(search, 500));
+  });
+
+  // Function for filtering the product search data
+  function search(force) {
+      $("[data-object=search_products]").html("")
+      $('div#loadmoreajaxloader').html("<center><img src=\"/assets/loader.gif\" /></center>").show()
+      query = {}
+      $("[data-product-query]").each(function(){
+        attr = $(this).attr("data-product-query")
+        val = $(this).val()
+        query[attr] = val
+      })
+      $.get("/search.json?page=1", query, function(data) {
+        $('div#loadmoreajaxloader').hide();
+        $(data).each(function(){
+          var source   = $("#search-products").html();
+          var template = Handlebars.compile(source);
+          $("[data-object=search_products]").append(template(this))
+          $(".starrr").starrr();
+          // modal_effects()
+        })
+      });
   }
 
   if ($("[data-object=search_stores]").length>0){

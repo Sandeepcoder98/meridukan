@@ -1,3 +1,16 @@
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+      $(".current_lat").val(p.coords.latitude)
+      $(".current_lng").val(p.coords.longitude)
+    });
+} else {
+    alert('Geo Location feature is not supported in this browser.');
+}
+</script>
+
 <% content_for :javascript do %>
   <%= javascript_include_tag 'bootstrap-slider', 'data-turbolinks-track' => true %>
   <script>
@@ -8,6 +21,9 @@
     })
   </script>
 <% end %>
+
+  <input data-product-query="longitude" class="current_lat" type="hidden"/>
+  <input data-product-query="latitude" class="current_lng" type="hidden"/>
 
   <!-- Breadcrumbs -->
   <div class="breadcrumbs">
@@ -29,11 +45,21 @@
         <div class="sidebar col-sm-3 col-lg-3">
           <aside class="col-left">
             <div class="block block-layered-nav">
+              <div class="block-title"> Search by Pincode </div>
+              <div class="block-content">
+                <dl id="narrow-by-list2">
+                  <div class="ui-widget">
+                    <input data-product-query="pin_code" class="seacrch-input">
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <div class="block block-layered-nav">
               <div class="block-title"> Search by location </div>
               <div class="block-content">
                 <dl id="narrow-by-list2">
                   <div class="ui-widget">
-                    <input id="tags" class="seacrch-input">
+                    <input id="product-search-by-location" data-product-query="location" class="seacrch-input">
                   </div>
                 </dl>
               </div>
@@ -42,9 +68,9 @@
               <div class="block-title">Near By</div>
               <div class="block-content">
                 <div class="near-by">
-                  <input id="ex2" type="text" class="span2" value="" data-slider-min="1" data-slider-max="25" data-slider-step="5" data-slider-value="[1,25]"/>
+                  <input data-product-query="slider" id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="[1,50]"/>
                   <br>
-                  <span>1 km</span> <span class="pull-right">25 km</span> </div>
+                  <span>Your Location</span> <span class="pull-right">25 km</span> </div>
               </div>
             </div>
             <div class="block block-layered-nav">
@@ -126,19 +152,21 @@
           </aside>
         </div>
         <div class="col-main col-sm-9">
-          <div class="input-group" id="serch-box">
-            <div class="input-group-btn search-panel">
-              <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Search by</span> <span class="caret"></span> </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#contains">Products</a></li>
-                <li><a href="#its_equal">Shops</a></li>
-              </ul>
-            </div>
-            <input type="hidden" name="search_param" value="all" id="search_param">
-            <input type="text" class="form-control" name="x" placeholder="Search Here...">
-            <span class="input-group-btn">
-            <button class="btn btn-default filter-btn" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span> </div>
+          <%= form_tag search_index_path, method: :get do %>
+            <div class="input-group" id="serch-box">
+              <div class="input-group-btn search-panel">
+                <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Search by</span> <span class="caret"></span> </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#contains">Products</a></li>
+                  <li><a href="#its_equal">Shops</a></li>
+                </ul>
+              </div>
+              <input type="text" data-product-query="q" class="form-control" name="q" value="<%= params[:q] %>" placeholder="Search Here...">
+              <span class="input-group-btn">
+              <button class="btn btn-default filter-btn" id="search_it_now" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span> 
+            <% end %>
+          </div>
           <div class="category-products">
             <ul class="products-grid" data-object="search_products" data-q="<%=params[:q]%>" data-items="<%= @search %>">
             </ul>

@@ -1,8 +1,12 @@
 class SearchController < ApplicationController
   def index
     @search = Product.search do 
-      fulltext params[:q] 
-      paginate :page => params[:page]
+      fulltext params[:q]
+      fulltext params[:pin_code], {fields: :pin_code} 
+      fulltext params[:location], {
+        fields: [:city, :landmark, :address, :state]
+      } 
+      paginate :page => params[:page], per_page: 15
     end
     .results.to_json(
       only: [:id, :title, :description],
@@ -14,7 +18,6 @@ class SearchController < ApplicationController
         }
       }
     )
-
     respond_to do |format|
       format.html
       format.json { render :json => @search }

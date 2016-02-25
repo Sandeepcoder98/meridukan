@@ -7,6 +7,7 @@ class Store < ActiveRecord::Base
 
   # Setting Up Objects  
   searchable do
+    integer :id
     text :name
     text :city
     text :state

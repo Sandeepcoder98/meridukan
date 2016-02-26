@@ -31,9 +31,9 @@ class Product < ActiveRecord::Base
     join(:landmark, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     join(:address, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     join(:pin_code, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
-    # text :store do
-    #   [store.city, store.state, store.landmark, store.address, store.pin_code]
-    # end
+    latlon(:location) { 
+      Sunspot::Util::Coordinates.new(store.lat, store.lng)
+    }
     text :category do
       category.title
     end

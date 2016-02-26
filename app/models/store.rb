@@ -18,6 +18,7 @@ class Store < ActiveRecord::Base
       user.try(:first_name)
       user.try(:last_name)
     end
+    latlon(:location) { Sunspot::Util::Coordinates.new(lat, lng) }
   end
   
   def full_address

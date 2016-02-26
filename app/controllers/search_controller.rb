@@ -3,6 +3,7 @@ class SearchController < ApplicationController
     @search = Product.search do 
       fulltext params[:q]
       fulltext params[:pin_code], {fields: :pin_code} 
+      with(:location).in_radius(params[:latitude], params[:longitude], params[:distance]) if params[:distance]
       fulltext params[:location], {
         fields: [:city, :landmark, :address, :state]
       } 

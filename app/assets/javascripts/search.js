@@ -82,13 +82,18 @@ $(document).ready(function(){
       })
       $.get("/search.json?page=1", query, function(data) {
         $('div#loadmoreajaxloader').hide();
-        $(data).each(function(){
-          var source   = $("#search-products").html();
-          var template = Handlebars.compile(source);
-          $("[data-object=search_products]").append(template(this))
-          $(".starrr").starrr();
-          // modal_effects()
-        })
+          if(data.length>0){
+            $(data).each(function(){
+              var source   = $("#search-products").html();
+              var template = Handlebars.compile(source);
+              $("[data-object=search_products]").append(template(this))
+              $(".starrr").starrr();
+              // modal_effects()
+            })
+          }else
+          {
+            $('div#loadmoreajaxloader').html('<center>No more products to show.</center>').show();
+          }
       });
   }
 

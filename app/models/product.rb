@@ -24,6 +24,7 @@ class Product < ActiveRecord::Base
 
   # Setting Up Objects  
   searchable do
+    integer :id
     integer :store_id
     text :title
     join(:city, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
@@ -34,6 +35,7 @@ class Product < ActiveRecord::Base
     latlon(:location) { 
       Sunspot::Util::Coordinates.new(store.lat, store.lng)
     }
+    join(:mrp_per_unit, :target => Pricing, :type => :float, :join => { :from => :product_id, :to => :id })
     text :category do
       category.title
     end
@@ -47,7 +49,7 @@ class Product < ActiveRecord::Base
       tags.map { |tag| tag.name }
     end
   end
-  
+
   def net_mrp
     net_mrp = pricing.mrp_per_unit.to_f-pricing.offer_on_mrp.to_f rescue 0
     (net_mrp>0 ? net_mrp : 0).round(2) 

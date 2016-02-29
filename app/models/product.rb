@@ -26,7 +26,7 @@ class Product < ActiveRecord::Base
   searchable do
     integer :id
     integer :store_id
-    text :title
+    text :title, :tag_list
     join(:city, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     join(:state, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     join(:landmark, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
@@ -35,7 +35,10 @@ class Product < ActiveRecord::Base
     latlon(:location) { 
       Sunspot::Util::Coordinates.new(store.lat, store.lng)
     }
-    join(:mrp_per_unit, :target => Pricing, :type => :float, :join => { :from => :product_id, :to => :id })
+    float :pricing do
+      pricing.mrp_per_unit
+    end
+    # join(:mrp_per_unit, :target => Pricing, :type => :float, :join => { :from => :product_id, :to => :id })
     text :category do
       category.title
     end
@@ -44,9 +47,6 @@ class Product < ActiveRecord::Base
     end
     text :child_sub_category do
       child_sub_category.title
-    end
-    text :tags do
-      tags.map { |tag| tag.name }
     end
   end
 

@@ -78,8 +78,18 @@ $(document).ready(function(){
       $("[data-product-query]").each(function(){
         attr = $(this).attr("data-product-query")
         val = $(this).val()
-        query[attr] = val
+        if(attr=="pricing"){
+          query[attr] = []
+          $("[data-product-query='pricing']").each(function (){
+            if($(this).prop("checked")){
+              query[attr].push(this.value)
+            }
+          })
+        }else{
+          query[attr] = val
+        }
       })
+
       $.get("/search.json?page=1", query, function(data) {
         $('div#loadmoreajaxloader').hide();
           if(data.length>0){

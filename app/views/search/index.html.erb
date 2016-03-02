@@ -146,7 +146,7 @@ if (navigator.geolocation) {
             <div class="block block-tags">
               <div class="block-title"> Search By Tags</div>
               <div class="block-content">
-                <input data-product-query="tag_list" name="tags" id="singleFieldTags2">
+                <input data-product-query="tags" name="tags" id="singleFieldTags2">
               </div>
             </div>
           </aside>
@@ -168,7 +168,7 @@ if (navigator.geolocation) {
             <% end %>
           </div>
           <div class="category-products">
-            <ul class="products-grid" data-object="search_products" data-q="<%=params[:q]%>" data-items="<%= @search %>">
+            <ul class="products-grid" data-object="search_products">
             </ul>
             <div id="loadmoreajaxloader" style="display:none;"><center><img src="/assets/loader.gif" /></center></div>
           </div>

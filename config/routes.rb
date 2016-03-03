@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resource :dashboard
   resources :search, only: :index do 
     get :stores, on: :collection
-    get :products, on: :collection, format: :json
+    get :products, on: :collection
   end
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root

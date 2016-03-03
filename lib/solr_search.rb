@@ -22,10 +22,14 @@ module Solr
 
     # Search and presenting the json
     def self.fire_query(params)
-      # searching the products
-      search = self.search(params)
-      # products decorator for search response 
+      begin 
+        # searching the products
+        search = self.search(params)
+        # products decorator for search response 
         ProductDecorator.decorate(search).json_format
+      rescue
+       []
+      end
     end
   end
 end

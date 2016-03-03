@@ -1,18 +1,6 @@
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (p) {
-        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-      $(".current_lat").val(p.coords.latitude)
-      $(".current_lng").val(p.coords.longitude)
-    });
-} else {
-    alert('Geo Location feature is not supported in this browser.');
-}
-</script>
-
 <% content_for :javascript do %>
   <%= javascript_include_tag 'bootstrap-slider', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
   <script>
     $(document).ready(function(){
       $("#ex2").slider({});
@@ -22,6 +10,7 @@ if (navigator.geolocation) {
   </script>
 <% end %>
 
+  <!-- Fields for storing lat long informations -->
   <input data-product-query="latitude" class="current_lat" type="hidden"/>
   <input data-product-query="longitude" class="current_lng" type="hidden"/>
 

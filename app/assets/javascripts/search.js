@@ -22,7 +22,7 @@ $(document).ready(function(){
   // Searching products when page load or scrolled
   // If condition is check that it is products search page or not
   if ($("[data-object=search_products]").length>0){
-    SearchProducts();
+    FindLatLongAndSearchProducts();
     $(window).scroll(function(){
       if($(window).scrollTop()+1200 > $(document).height() - $(window).height())
       {  
@@ -101,4 +101,18 @@ var SearchHit = function() {
     window.IsActive = false;
     window.SearchPage = 1;
     SearchProducts();
+}
+
+// Getting lat long from end user side
+var FindLatLongAndSearchProducts = function(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+      $(".current_lat").val(p.coords.latitude)
+      $(".current_lng").val(p.coords.longitude)
+      SearchProducts();
+    });
+  } else {
+      alert('Geo Location feature is not supported in this browser.');
+  }
 }

@@ -58,8 +58,17 @@ class Product < ActiveRecord::Base
     (net_mrp>0 ? net_mrp : 0).round(2) 
   end
 
+  def mrp_per_unit
+    mrp_per_unit = pricing.mrp_per_unit.to_f rescue 0
+    (mrp_per_unit>0 ? mrp_per_unit : 0).round(2) 
+  end
+
   def offer_type
     additional_offer.offer_type
+  end
+
+  def quantitiy
+    pricing.stock_quantity rescue 0
   end
 
   def offer

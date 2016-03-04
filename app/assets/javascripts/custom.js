@@ -217,35 +217,22 @@ $(document).ready(function(){
       $('.input-group #search_param').val(param);
     });
   });
-    $(function () {
-        $(".product-slide").bootstrapNews({
-            newsPerPage: 4,
-            autoplay: true,
-            pauseOnHover:true,
-            direction: 'up',
-            newsTickerInterval: 5000,
-            onToDo: function () {
-                //console.log(this);
-            }
-        });
-    
-    
-       
+  $(function () {
+    $(".product-slide").bootstrapNews({
+        newsPerPage: 4,
+        autoplay: true,
+        pauseOnHover:true,
+        direction: 'up',
+        newsTickerInterval: 5000,
+        onToDo: function () {
+            //console.log(this);
+        }
     });
 
-    $("body").on("click", "[data-popup-modal]", function(e){
-      id = $(this).attr("data-popup-modal")
-      $("#"+id).addClass("md-show").css("overflow-y", "scroll")
-      $("html").css("overflow-y","hidden")
-      e.preventDefault()
-    })
 
-    $("body").on("click", ".md-close", function(){
-      $this = $(this).closest(".md-show")
-      $this.removeClass("md-show").css("overflow-y", "hidden")
-      $("html").css("overflow-y","scroll")
-    })
-
+       
+    });
+    
     $('body').tooltip({
         selector: '[data-toggle]',
         position: 'top'

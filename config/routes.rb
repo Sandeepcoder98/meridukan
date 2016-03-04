@@ -41,6 +41,10 @@ Rails.application.routes.draw do
     get :stores, on: :collection
     get :products, on: :collection
   end
+  resources :orders, only: [] do 
+    get :view_product, on: :collection
+    post :add_to_card, on: :collection
+  end
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root
   end

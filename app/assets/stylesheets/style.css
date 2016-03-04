@@ -978,17 +978,24 @@ a.socialIcon:hover, .socialHoverClass {
 	padding: 10px;
 	color: #333333;
 }
-.top-cart-content {
+.top-cart-content-main {
 	display: none;
 	position: absolute;
+	top: 20px;
+	right: 0px;
+	background: none;
+	padding: 0;
+	text-align: right;
+	z-index: 10;
+}
+.cart-content-fix{ height:12px;}
+.top-cart-content {
 	border-top: 2px solid #df2028;
-	top: 35px;
 	right: 0px;
 	background: #fff;
 	padding: 0;
 	text-align: right;
 	box-shadow: 0 3px 3px 0 #888888;
-	z-index: 10;
 }
 .top-subtotal {
 	color: #333333;

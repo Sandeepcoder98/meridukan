@@ -14,4 +14,18 @@ class ProductDecorator < Draper::Decorator
       }
     )
   end
+
+  # taking json format of product
+  def view_product
+    to_json(
+      only: [:id, :title, :description],
+      methods: [:photo_url, :net_mrp, :mrp_per_unit, :quantitiy],
+      :include => {
+        store: {
+          only: [:name],
+          methods: [:full_address]
+        }
+      }
+    )
+  end
 end

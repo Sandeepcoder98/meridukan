@@ -484,11 +484,11 @@ function deleteCartInCheckoutPage() {
 
 function slideEffectAjax() {
     $('.top-cart-contain').mouseenter(function() {
-        $(this).find(".top-cart-content").stop(true, true).slideDown();
+        $(this).find(".top-cart-content-main").stop(true, true).slideDown();
     });
 
     $('.top-cart-contain').mouseleave(function() {
-        $(this).find(".top-cart-content").stop(true, true).slideUp();
+        $(this).find(".top-cart-content-main").stop(true, true).slideUp();
     });
 }
 

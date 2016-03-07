@@ -1,0 +1,6 @@
+$(".cart-items-count").html("(<%=current_order.order_items.count%>)")
+$("#order-details").html("<%= j render "/shared/order_details" %>")
+$("#cart-sidebar").html("<%= j render "/shared/nested_items" %>")
+<% if  !(current_order.order_items.count > 0) %>
+  $(".top-cart-content-main").remove()
+<% end %>

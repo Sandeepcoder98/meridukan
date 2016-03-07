@@ -6,9 +6,8 @@ $(document).ready(function(){
     product_id = $(that).attr("data-product-id")
     $.ajax({
       async: true,
-      url: "/orders/view_product",
+      url: "/products/"+product_id+"/view_product",
       method: "get",
-      data: {product_id: product_id},
       success: function(data){
         source   = $("#view-product").html();
         template = Handlebars.compile(source);
@@ -46,16 +45,24 @@ $(document).ready(function(){
 
 // Add product to cart
 var productAddToCart = function(e){
-  $.ajax({
-    url: "/orders/add_to_card",
-    method: "post",
-    success: function(data){
-      $this = $("#modal-12")
-      $this.removeClass("md-show").css("overflow-y", "hidden")
-      $("html").css("overflow-y","scroll")
-    },
-    failure: function(){
-
-    }
-  })
+  $that = $(e).closest(".add-to-cart").find("#qty")
+  quantity = $that.val()
+  product_id = $(e).attr("data-product-id")
+  if ($that.val() && parseInt($that.val()) > 0){
+    $.ajax({
+      url: "/order_items",
+      method: "post",
+      data: {order_item: {product_id: product_id, quantity: quantity}},
+      success: function(data){
+        $this = $("#modal-12")
+        $this.removeClass("md-show").css("overflow-y", "hidden")
+        $("html").css("overflow-y","scroll")
+      }
+    })
+  }
+  else
+  {
+    $that.css("border", "1px solid #FF0B0B")
+    setTimeout(function(){ $that.css("border","") }, 200);
+  }
 }

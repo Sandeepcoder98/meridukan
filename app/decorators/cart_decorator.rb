@@ -1,4 +1,4 @@
-class OrderDecorator < Draper::Decorator
+class CartDecorator < Draper::Decorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

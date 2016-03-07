@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # load_and_authorize_resource
   
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
 
   before_filter :check_path_tab, only: [:show,:edit]
   
@@ -89,6 +89,12 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def view_product
+     respond_to do |format|
+      format.json { render json: @product.decorate.view_product}
     end
   end
 

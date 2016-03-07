@@ -1,0 +1,18 @@
+<% if !current_order.latest_items.blank? %>
+  <div class="top-cart-content-main" style="display: none;">
+    <div class="cart-content-fix"></div>
+    <div class="top-cart-content">
+      <div id="order-details" class="block-subtitle">
+        <%= render "/shared/order_details" %>
+      </div>
+      <!--block-subtitle-->
+      <ul class="mini-products-list" id="cart-sidebar">
+        <%= render "/shared/nested_items" %>
+      </ul>
+      <div class="actions">
+        <button class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
+      </div>
+      <!--actions--> 
+    </div>
+  </div>
+<% end %>

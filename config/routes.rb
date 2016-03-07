@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  get 'reports/index'
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   concern :resourcable do
     resources :products do
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         match :publish , via: [:get, :patch]
         match :additional_offers , via: [:get, :patch]
         get :approve
+        get :view_product
       end
     end
   end
@@ -40,10 +41,6 @@ Rails.application.routes.draw do
   resources :search, only: :index do 
     get :stores, on: :collection
     get :products, on: :collection
-  end
-  resources :orders, only: [] do 
-    get :view_product, on: :collection
-    post :add_to_card, on: :collection
   end
   authenticated :user do
     root :to => "dashboard#index", as: :authenticated_root

@@ -44,7 +44,7 @@
 //= require quick-view-js/modalEffects
 //= require handlebars-v3.0.3
 //= require custom
-//= require orders
+//= require order_items
 //= require search
 //= require turbolinks
 

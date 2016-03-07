@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
   belongs_to :store
   has_one :product_offer
   has_one :price_offer
+  has_many :order_items
   # has_one :product_offer, :through => :additional_offer, :source => :offer, :source_type => "ProductOffer"
   # has_one :price_offer, :through => :additional_offer, :source => :offer, :source_type => "PriceOffer"
   accepts_nested_attributes_for :galleries, :reject_if => :all_blank, allow_destroy: true

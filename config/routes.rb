@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resource :cart, only: [:show]
+  resource :cart, only: [:show] do
+    get :checkout, on: :collection
+  end
+
   resources :order_items, only: [:create, :update, :destroy]
 
   concern :resourcable do

@@ -1,3 +1,5 @@
+if ($(".shopping-cart-table-total .price").length>0)
+	$(".shopping-cart-table-total .price").html("<%= current_order.subtotal.to_f %> &#8377")
 $(".cart-items-count").html("(<%=current_order.order_items.count%>)")
 $("#order-details").html("<%= j render "/shared/order_details" %>")
 $("#cart-sidebar").html("<%= j render "/shared/nested_items" %>")

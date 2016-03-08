@@ -40,7 +40,7 @@ class Product < ActiveRecord::Base
       tags.collect(&:name)
     end
     float :pricing do
-      pricing.mrp_per_unit
+      pricing.mrp_per_unit rescue ""
     end
     # join(:mrp_per_unit, :target => Pricing, :type => :float, :join => { :from => :product_id, :to => :id })
     text :category do

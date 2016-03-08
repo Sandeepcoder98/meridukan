@@ -96,7 +96,7 @@ to {
 .buyers-login-right {
     background: #fff;
     height: 100%;
-    min-height: 633px;
+    min-height: 772px;
     padding: 90px 0px 20px;
     position: relative;
     z-index: 1;
@@ -137,7 +137,12 @@ body{
     margin: 10px auto;
     padding: 0 15px;
 }
-
+.login-wrapper .form_wrapper label {
+    display: block;
+    margin: 10px 0 0;
+    padding: 0px 5px 0;
+    font-family: 'Roboto', sans-serif;
+}
 /* Form Style */
 .form_wrapper {
 	margin:0 auto;
@@ -156,6 +161,7 @@ body{
 	background-position:center center;
 	background-size: 100%;
 	background-repeat:no-repeat;
+	text-transform: uppercase;
 }
 .form_wrapper .btn:hover {
 	color:#fff;
@@ -206,8 +212,8 @@ form.forgot_password {
 .form_wrapper input[type="text"], .form_wrapper input[type="password"] {
     background: #ffffff none repeat scroll 0 0;
     border: 1px solid #e2dfdf;
-    border-radius: 5px;
-    box-shadow: 0 3px 1px #e2dfdf;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px #e2dfdf;
     display: block;
     font-size: 14px;
     height: 42px;
@@ -271,7 +277,32 @@ form.forgot_password {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	background-color: transparent;
 }
+.form_wrapper .forgot-btn {
+    background-color: transparent;
+    background-image: url("/assets/red-165.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: medium none;
+    border-radius: 5px;
+    color: #fff !important;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 75px;
+    min-width: 165px;
+    padding: 15px 25px;
+    text-align: center;
+    text-shadow: none;
+}
+.form_wrapper .forgot-btn:hover {
+	background-color:transparent;
+	background-image:url(/assets/green-165.png);
+	color: #fff;
+}
+
 .form_wrapper input[type="submit"]:hover {
 	background-color:transparent;
 	background-image:url(/assets/green-165.png);
@@ -302,11 +333,11 @@ form.forgot_password {
     line-height: 59px;
 }
 .step1-btn1:hover {
-	background-color:#fff;
+	background-color: transparent;
 	color:#fff !important;
 }
 .step1-btn2:hover {
-	background-color:#fff;
+	background-color: transparent;
 	color:#fff !important;
 }
 .step1-btn2 {

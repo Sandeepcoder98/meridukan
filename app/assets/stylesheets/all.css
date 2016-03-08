@@ -30,7 +30,8 @@
 }
 .util-theme-default .util-pagination {
 	text-align:center;
-	margin-top:10px
+	margin-top:10px;
+	display:  none !important;
 }
 .util-theme-default .util-page span {
 	display:block;

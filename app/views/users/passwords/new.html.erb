@@ -9,7 +9,7 @@
         <div>
           <center>
             <a href="/">
-              <img src="/assets/meridookan-big.png" width="144" height="86">
+              <img src="/assets/meridookan-big.png" width="165" height="">
             </a>
           </center>
         </div>
@@ -24,8 +24,9 @@
                 </div>
                 <div class="bottom">
                   <%= f.submit "Reset password" %><br />
+                  <center>
                   <a href="<%=new_session_path(resource_name)%>" rel="login">Suddenly remebered? Log in here</a><br /> 
-                  <a href="<%=new_registration_path(resource_name)%>" rel="register">You don't have an account? Register here</a>
+                  <a href="<%=new_registration_path(resource_name)%>" rel="register">You don't have an account? Register here</a></center>
                   <div class="clear"></div>
                 </div>
               <% end %>

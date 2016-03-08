@@ -9,7 +9,7 @@
         <div>
           <center>
             <a href="/">
-              <img src="../assets/meridookan-big.png" width="144" height="86">
+              <img src="../assets/meridookan-big.png" width="165" height="">
             </a>
           </center>
         </div>
@@ -26,11 +26,12 @@
                    <%= f.password_field :password, autocomplete: "off" %>
                 </div>
                 <div class="bottom">
-                  <%= f.submit "Login" %>
+                  
                   <div class="row">
                     <div class="col-md-6">
+                    <%= f.submit "Login" %>
                     </div>
-                    <div class="col-md-6"><a href="<%=new_password_path(resource_name)%>" rel="forgot_password" class="pull-right">Forgot password?</a></div>
+                    <div class="col-md-6"><a href="<%=new_password_path(resource_name)%>" rel="forgot_password" class="forgot-btn">Forgot password?</a></div>
                   </div>
                   <div class="clear"></div>
                 </div>

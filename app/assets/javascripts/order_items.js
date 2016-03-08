@@ -40,6 +40,15 @@ $(document).ready(function(){
     $("html").css("overflow-y","scroll")
   })
 
+  $(".cart-table .remove-item").click(function(e){
+    order_item_id = $(this).attr("data-order-item-id")
+    $(this).closest("tr").remove()
+    $.ajax({
+      url: "/order_items/"+order_item_id,
+      method: "delete"
+    })
+    e.preventDefault()
+  });
 })
 
 

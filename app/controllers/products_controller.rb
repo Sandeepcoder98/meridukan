@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # load_and_authorize_resource
-  
+ 
+  before_action :no_store, except: :view_product
   before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
 
   before_filter :check_path_tab, only: [:show,:edit]
@@ -111,5 +112,9 @@ class ProductsController < ApplicationController
           galleries_attributes:[:id, :photo, :_destroy], 
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
           pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offer_attributes:[:id, :offer_type,:offer_id,:product_id],price_offer_attributes:[:id, :amount,:percent,:gift,:choice_type],product_offer_attributes:[:id, :buy,:get,:gift,:choice_type])
+    end
+
+    def no_store
+      redirect_to update_information_path if current_user.store.blank?
     end
 end

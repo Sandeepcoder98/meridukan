@@ -1554,9 +1554,9 @@ a.socialIcon:hover, .socialHoverClass {
 	padding: 10px;
 	color: #333333;
 }
-.top-cart-content {
+.top-cart-content {/*
 	display: none;
-	position: absolute;
+	position: absolute;*/
 	border-top: 2px solid #df2028;
 	top: 35px;
 	right: 0px;

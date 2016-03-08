@@ -12,5 +12,6 @@
  *
  *= require bootstrap_and_overrides
  *= require buyers-css
+ *= require sellers-css
  *= require_self
  */

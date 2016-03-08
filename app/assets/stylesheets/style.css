@@ -85,27 +85,6 @@ ul, ol {
 	margin: 0;
 	display:inline-block;
 }
-.sellers-left {
-    bottom: 0;
-    left: 0%;
-    position: absolute;
-    text-align: center;
-    z-index: 99999;
-    width: 62%;
-}
-.sellers-left h1{
-    color:#fff;
-    font-size:42px;
-    margin:0;
-    padding:0;
-     font-family: 'ralewayregular';
-     text-align:right;
-}
-.sellers-left p{
-    color: #fff;
-    font-size: 18px;
-    text-align: right;
-}
 
 .main-menu > ul > li a {
 	text-decoration: none;
@@ -10447,10 +10426,16 @@ select#shipping-address-select {
 	margin: 10px 0;
 	padding: 10px;
 	width: 100%;
+	border:1px solid #ddd;
+	border-radius: 0;
 }
 .near-by {
-	margin: 20px auto 0px;
-	padding: 10px;
+    background-image: url("/assets/home-icon.png"), url("/assets/shop-icon.png");
+    background-position: left 7px, right 5px;
+    background-repeat: no-repeat;
+    background-size: 26px auto;
+    margin: 20px auto 0;
+    padding: 10px 34px 10px 30px;
 }
 .near-by .slider.slider-horizontal {
 	width:100%;
@@ -10469,7 +10454,7 @@ select#shipping-address-select {
 	border-top-color: #DF1F28;
 }
 .near-by .slider-track-low, .slider-track-high {
-	background: url(../images/road.png);
+	background: url(/assets/road.png) !important;
 	background-repeat: repeat-x;
 	border-radius: 0px;
 	box-sizing: border-box;
@@ -10477,12 +10462,13 @@ select#shipping-address-select {
 }
 .near-by .slider-selection {
 	background-image:none;
-	background: url(../images/road-gray.png);
+	background: url(/assets/road-gray.png) !important;
 	background-repeat: repeat-x;
 }
 .near-by .slider-handle {
-	background-image:none;
-	background-color: #f7af40;
+	background-color: #df2028;
+    background-image: none;
+    border: 3px solid #fff;
 }
 #narrow-by-list {
 	margin: 10px 0;

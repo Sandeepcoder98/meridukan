@@ -8,7 +8,7 @@ class ProductDecorator < Draper::Decorator
       methods: :photo_url,
       :include => {
         store: {
-          only: [:name],
+          only: [:name, :id],
           methods: [:full_address]
         }
       }
@@ -22,7 +22,7 @@ class ProductDecorator < Draper::Decorator
       methods: [:photo_url, :net_mrp, :mrp_per_unit, :quantitiy],
       :include => {
         store: {
-          only: [:name],
+          only: [:name, :id],
           methods: [:full_address]
         }
       }

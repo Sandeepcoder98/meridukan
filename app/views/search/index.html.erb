@@ -144,10 +144,10 @@
           <%= form_tag search_index_path, method: :get do %>
             <div class="input-group" id="serch-box">
               <div class="input-group-btn search-panel">
-                <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Search by</span> <span class="caret"></span> </button>
+                <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Products</span> <span class="caret"></span> </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#contains">Products</a></li>
-                  <li><a href="#its_equal">Shops</a></li>
+                  <li><a data-url="<%=search_index_path%>" class="search-main-actions" href="#contains">Products</a></li>
+                  <li><a data-url="<%=stores_search_index_path%>" class="search-main-actions" href="#its_equal">Shops</a></li>
                 </ul>
               </div>
               <input type="text" data-product-query="q" class="form-control" name="q" value="<%= params[:q] %>" placeholder="Search Here...">

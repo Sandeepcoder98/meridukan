@@ -35,9 +35,31 @@ $(document).ready(function(){
   $('body').on("keyup change", "[data-product-query]",function(e){    
       clearTimeout($.data(this, 'timer'));
       if (e.keyCode == 13)
-        SearchHit
+        SearchProductHit
       else
-        $(this).data('timer', setTimeout(SearchHit, 500));
+        $(this).data('timer', setTimeout(SearchProductHit, 500));
+  });
+
+
+  // Searching stores when page load or scrolled
+  // If condition is check that it is stores search page or not
+  if ($("[data-object=search_stores]").length>0){
+    FindLatLongAndSearchStores();
+    $(window).scroll(function(){
+      if($(window).scrollTop()+1200 > $(document).height() - $(window).height())
+      {  
+        SearchStores();
+      }
+    });
+  }
+
+  // Filtering products and call SearchHit
+  $('body').on("keyup change", "[data-store-query]",function(e){    
+      clearTimeout($.data(this, 'timer'));
+      if (e.keyCode == 13)
+        SearchStoreHit
+      else
+        $(this).data('timer', setTimeout(SearchStoreHit, 500));
   });
 });
 
@@ -95,7 +117,7 @@ var SearchProducts = function(){
 }
 
 // Function for filtering the product
-var SearchHit = function() {
+var SearchProductHit = function() {
     $("[data-object=search_products]").html("")
     $('div#loadmoreajaxloader').html("<center><img src=\"/assets/loader.gif\" /></center>").show()
     window.IsActive = false;
@@ -114,5 +136,73 @@ var FindLatLongAndSearchProducts = function(){
     });
   } else {
       alert('Geo Location feature is not supported in this browser.');
+  }
+}
+
+
+// building search query for the stores
+var BuildStoresSearchQuery = function (){
+  query= {}
+  $("[data-store-query]").each(function(){
+    attr = $(this).attr("data-store-query")
+    val = $(this).val()
+    query[attr] = val
+  })
+  return query;
+}
+
+// Search Stores function
+var SearchStores = function(){
+  if (!window.IsActive){
+    window.IsActive = true;
+    query = BuildStoresSearchQuery()
+    $('div#loadmoreajaxloader').show();
+    $.ajax({
+      url: "/search/find_stores.json?page="+window.SearchPage,
+      async: true,
+      data: query,
+      success: function(data)
+      { 
+        if(data.length>0)
+        {
+          $(data).each(function(){
+            var source   = $("#search-stores").html();
+            var template = Handlebars.compile(source);
+            $("[data-object=search_stores]").append(template(this))
+            $(".starrr").starrr();
+            // modal_effects()
+          })
+          window.SearchPage = window.SearchPage+1
+          $('div#loadmoreajaxloader').hide();
+          window.IsActive = false;
+        }else
+        {
+            $('div#loadmoreajaxloader').html('<center>No more stores to show.</center>');
+        }
+      }
+    });
+  }
+}
+
+// Function for filtering the store
+var SearchStoreHit = function() {
+    $("[data-object=search_stores]").html("")
+    $('div#loadmoreajaxloader').html("<center><img src=\"/assets/loader.gif\" /></center>").show()
+    window.IsActive = false;
+    window.SearchPage = 1;
+    SearchStores();
+}
+
+// Getting lat long from end user side
+var FindLatLongAndSearchStores = function(){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+      var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+      $(".current_lat").val(p.coords.latitude)
+      $(".current_lng").val(p.coords.longitude)
+      SearchStores();
+    });
+  } else {
+    alert('Geo Location feature is not supported in this browser.');
   }
 }

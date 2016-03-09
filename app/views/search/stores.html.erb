@@ -62,92 +62,16 @@
                   <span class="" style="color: rgb(153, 153, 153);">----------- up to 50 km -----------</span></div>
               </div>
             </div>
-            <div class="block block-layered-nav">
-              <div class="block-title">Price</div>
-              <div class="block-content">
-                <dl id="narrow-by-list">
-                  <dd class="odd">
-                    <ol>
-                      <li>
-                        <input data-store-query="pricing" value="1..1000"  type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" />
-                        <label for="checkboxG1" class="css-label"><span class="price">Rs.0.00</span> - <span class="price">1000</span></label>
-                      </li>
-                      <li>
-                        <input data-store-query="pricing" value="1001..5000" type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox" />
-                        <label for="checkboxG2" class="css-label"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input data-store-query="pricing" value="5001..10000" type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox" />
-                        <label for="checkboxG3" class="css-label"><span class="price">Rs.5000</span> - <span class="price">10000</span></label>
-                      </li>
-                      <li>
-                        <input data-store-query="pricing" value="10001..20000" type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox" />
-                        <label for="checkboxG4" class="css-label"><span class="price">Rs.10000</span> - <span class="price">20000</span></label>
-                      </li>
-                      <li>
-                        <input data-store-query="pricing" value="20001..30000" type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" />
-                        <label for="checkboxG5" class="css-label"><span class="price">Rs.20000</span> - <span class="price">30000</span></label>
-                      </li>
-                      <li>
-                        <input data-store-query="pricing" value="30000" type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox" />
-                        <label for="checkboxG6" class="css-label"><span class="price">Rs.30000</span> - <span class="price">Above</span></label>
-                      </li>
-                    </ol>
-                  </dd>
-                </dl>
-              </div>
-            </div>
-          <!--   <div class="block block-layered-nav">
-              <div class="block-title">Delivery time</div>
-              <div class="block-content" id="time">
-                <dl id="narrow-by-list">
-                  <dd class="odd">
-                    <ol>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio1" class="css-radio" />
-                        <label for="radio1" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio2" class="css-radio" />
-                        <label for="radio2" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio3" class="css-radio" />
-                        <label for="radio3" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio4" class="css-radio" />
-                        <label for="radio4" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio5" class="css-radio" />
-                        <label for="radio5" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                      <li>
-                        <input type="radio" name="radiog_lite" id="radio6" class="css-radio" />
-                        <label for="radio6" class="css-label radGroup1"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
-                      </li>
-                    </ol>
-                  </dd>
-                </dl>
-              </div>
-            </div> -->
-            <div class="block block-tags">
-              <div class="block-title"> Search By Tags</div>
-              <div class="block-content">
-                <input data-store-query="tags" name="tags" id="singleFieldTags2">
-              </div>
-            </div>
           </aside>
         </div>
         <div class="col-main col-sm-9">
-          <%= form_tag search_index_path, method: :get do %>
+          <%= form_tag stores_search_index_path, method: :get do %>
             <div class="input-group" id="serch-box">
               <div class="input-group-btn search-panel">
-                <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Search by</span> <span class="caret"></span> </button>
+                <button type="button" class="btn btn-default dropdown-toggle filter-btn" data-toggle="dropdown"> <span id="search_concept">Shops</span> <span class="caret"></span> </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#contains">Products</a></li>
-                  <li><a href="#its_equal">Shops</a></li>
+                  <li><a data-url="<%=search_index_path%>" class="search-main-actions" href="#contains">Products</a></li>
+                  <li><a data-url="<%=search_index_path%>" class="search-main-actions" href="#its_equal">Shops</a></li>
                 </ul>
               </div>
               <input type="text" data-store-query="q" class="form-control" name="q" value="<%= params[:q] %>" placeholder="Search Here...">
@@ -157,7 +81,7 @@
             <% end %>
           </div>
           <div class="category-products">
-            <ul class="products-grid" data-object="search_products">
+            <ul class="products-grid" data-object="search_stores">
             </ul>
             <div id="loadmoreajaxloader" style="display:none;"><center><img src="/assets/loader.gif" /></center></div>
           </div>
@@ -184,231 +108,24 @@
     </div>
   </div>
 
-<div id="view-porduct-holder"></div>
-
-<script id="view-product" type="text/x-handlebars-template">
-  <div class="md-modal md-effect-12" id="modal-12">
-    <button class="md-close"><i class="fa fa-times-circle"></i> </button>
-    <div class="md-content">
-      <div>
-        <div class="product-view">
-          <div class="product-essential">
-            <form action="#" method="post" id="product_addtocart_form">
-              <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
-              <div class="product-img-box col-sm-4 col-xs-12 animated">
-                <div class="new-label new-top-left"> New </div>
-                <div class="product-image">
-                  <div class="large-image"> <a href="{{photo_url}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="{{photo_url}}"> </a> </div>
-                  <div class="flexslider flexslider-thumb">
-                    <ul class="previews-list slides">
-                      <li><a href='/assets/p2.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p2.png' "><img src="/assets/p2.png" alt = "Thumbnail 1"/></a></li>
-                      <li><a href='/assets/p3.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p3.png' "><img src="/assets/p3.png" alt = "Thumbnail 2"/></a></li>
-                      <li><a href='/assets/p4.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p4.png' "><img src="/assets/p4.png" alt = "Thumbnail 1"/></a></li>
-                      <li><a href='/assets/p5.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p5.png' "><img src="/assets/p5.png" alt = "Thumbnail 2"/></a></li>
-                      <li><a href='/assets/p6.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p6.png' "><img src="/assets/p6.png" alt = "Thumbnail 2"/></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- end: more-images --> 
-              </div>
-              <div class="product-shop col-sm-5 col-xs-12 animated">
-                <div class="product-name">
-                  <h1>{{title}}</h1>
-                </div>
-                <div class="short-description"> 
-                  <!--<h2>Quick Overview</h2>-->
-                  <p>{{description}}</p>
-                </div>
-                <div class="ratings" id="product-rating">
-                  <div class="rating-box">
-                    <div class="lead">
-                      <div id="stars" class="starrr"></div>
-                    </div>
-                  </div>
-                </div>
-                <p class="availability in-stock pull-right"><span>In Stock</span></p>
-                <div class="price-block">
-                  <div class="price-box"> 
-                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{mrp_per_unit}} /- </span> </p>
-                    <p class="special-price"> <span id="product-price-48" class="price"> {{net_mrp}} /- </span> </p>
-                  </div>
-                </div>
-                <div class="add-to-box">
-                  <p><i>Currently {{quantitiy}} products are available</i></p>
-                  <div class="add-to-cart">
-                    <label for="qty">Qty:</label>
-                    <div class="pull-left">
-                      <div class="custom pull-left">
-                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty<{{quantitiy}} ) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
-                        <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
-                      </div>
-                    </div>
-                    <button data-store-id="{{id}}" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
-                  </div>
-                  <div class="email-addto-box">
-                    <ul class="add-to-links">
-                      <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
-                    </ul>
-                    <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="col-lg-3 col-sm-3 col-xs-12 animated">
-              <div class="category-products">
-                <ul class="products-grid">
-                  <li class="item">
-                    <div id="product-main-section">
-                      <div class="">
-                        <div class=" related-shops">
-                          <div class="well">
-                            <div class="media"> <a class="pull-left" href="#"> <img class="media-object" src="/assets/kfc-logo.jpg"> </a>
-                              <div class="media-body">
-                                <h4 class="media-heading">{{store.name}}</h4>
-                                <div class="lead">
-                                  <div id="stars" class="starrr"></div>
-                                </div>
-                                <p class="rating-links"> <a data-target="#review-modal" data-toggle="modal" href="#">1 Review(s)</a></p>
-                              </div>
-                            </div>
-                          </div>
-                          <p><i class="fa fa-map-marker"></i> {{store.full_address}}</p>
-                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                          <div class="view-btn"> <a href="/store/{{store.id}}" class="view-shop">View Shop</a></div>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                      <div class="product-bootom">
-                        <ul class="list-icons">
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a> </li>
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold"><i class="fa fa-tag"></i></a> </li>
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock"><i class="fa fa-stack-exchange"></i></a> </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="product-sibebar-banner">
-                <div class="block block-cart">
-                  <div class="block-title ">Releted Product</div>
-                  <div class="block-content" id="releted-product">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <ul class="product-slide">
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html">Sample Product</a> </p>
-                                  <strong>1</strong> x <span class="price">$19.99</span> </div>
-                              </li>
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p2.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                  <strong>1</strong> x <span class="price">$8.00</span> 
-                                  <!--access clearfix--> 
-                                </div>
-                              </li>
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p3.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                  <strong>1</strong> x <span class="price">$8.00</span> 
-                                  <!--access clearfix--> 
-                                </div>
-                              </li>
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p4.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                  <strong>1</strong> x <span class="price">$8.00</span> 
-                                  <!--access clearfix--> 
-                                </div>
-                              </li>
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p5.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                  <strong>1</strong> x <span class="price">$8.00</span> 
-                                  <!--access clearfix--> 
-                                </div>
-                              </li>
-                              <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
-                                <div class="product-details">
-                                  <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                  <strong>1</strong> x <span class="price">$8.00</span> 
-                                  <!--access clearfix--> 
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel-footer"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="product-collateral col-sm-12 col-xs-12 animated">
-            <div class="add_info">
-              <h2> Product Description </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-              <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="md-overlay"></div>
-</script>
-
-<script id="search-products" type="text/x-handlebars-template">
-  <li class="item col-lg-6 col-md-6 col-sm-6 col-xs-6">
+<script id="search-stores" type="text/x-handlebars-template">
+  <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
     <div id="product-main-section">
-      <div class="col-md-7">
-        <div class="item-inner">
-          <div class="item-img">
-            <div class="item-img-info product-img"> <a href="#" title="Sample Product" class="product-image"><img src="{{photo_url}}" alt="Sample Product"></a>
-              <div class="item-info">
-                <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a> </h1>
+      <div class="related-shops">
+        <div class="shop-img"> <img class="media-object" src="/assets/Restaurant-KFC.jpg"></div>
+        <div class="well">
+          <div class="media"> <a class="pull-left" href="#"> <img class="media-object" src="/assets/kfc-logo.jpg"> </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{name}}</h4>
+              <div class="lead">
+                <div id="stars" class="starrr"></div>
               </div>
-              <div class="item-box-hover">
-                <div class="box-inner">
-                  <div class="actions">
-                    <div class="product-detail-bnt"><a href="#" data-store-id="{{id}}" data-popup-modal="modal-12">Quick View</a></div>
-                  </div>
-                </div>
-              </div>
+              <p class="rating-links"> <a data-target="#review-modal" data-toggle="modal" href="#">1 Review(s)</a></p>
+              <p><i class="fa fa-map-marker"></i>{{full_address}}</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-5 clear-box">
-        <div class=" related-shops">
-          <div class="well">
-            <div class="media"> <a class="pull-left" href="#"> <img class="media-object" src="/assets/kfc-logo.jpg"> </a>
-              <div class="media-body">
-                <h4 class="media-heading">{{store.name}}</h4>
-                <div class="lead">
-                  <div id="stars" class="starrr"></div>
-                </div>
-                <p class="rating-links"> <a data-target="#review-modal" data-toggle="modal" href="#">1 Review(s)</a></p>
-              </div>
-            </div>
-          </div>
-          <p><i class="fa fa-map-marker"></i>{{store.full_address}}</p>
-          <p>{{description}}</p>
-          <a href="/store/{{store.id}}" class="view-shop">View Shop</a> </div>
-      </div>
-      <div class="clearfix"></div>
-      <div class="product-bootom">
-        <ul class="list-icons">
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a>50 </li>
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold"><i class="fa fa-tag"></i></a> 1100</li>
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock"><i class="fa fa-stack-exchange"></i></a> 88</li>
-        </ul>
+        <div class="view-btn"> <a href="/store/{{id}}" class="view-shop">View Shop</a></div>
       </div>
     </div>
   </li>

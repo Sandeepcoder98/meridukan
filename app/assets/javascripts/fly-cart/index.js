@@ -4,9 +4,10 @@
 	license: http://www.opensource.org/licenses/mit-license.php
 */   
 
-$('.add-to-btn').on('click', function () {
+$(document).ready(function(){
+    $('body').on('click', '.add-to-btn', function () {
         var cart = $('.shopping-cart');
-        var imgtodrag = $(this).parent('.product-img').find("img").eq(0);
+        var imgtodrag = $(this).closest('.item').find(".product-img img").eq(0);
         if (imgtodrag) {
             var imgclone = imgtodrag.clone()
                 .offset({
@@ -42,3 +43,4 @@ $('.add-to-btn').on('click', function () {
             });
         }
     });
+})

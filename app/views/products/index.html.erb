@@ -1,37 +1,48 @@
 <p id="notice"><%= notice %></p>
-
-<h1>My Products</h1>
-<%= link_to 'Add a new Product', new_product_path,:class=>"btn btn-info pull-right" %>
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>Title</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td></td>
-        <td>
-          <%= link_to product_path(product) do %>
+  <section class="main-container col1-layout wow bounceInUp animated">
+    <div class="main container">
+      <div class="col-main">
+        <div class="cart">
+          <div class="page-title">
+            <h2>My Product</h2>
+                  <%= link_to 'Add a new Product', new_product_path,:class=>"btn btn-info pull-right" %>
+          </div>
+    
+          <div class="table-responsive">
+            <table class="data-table cart-table" id="shopping-cart-table">
+              <thead>
+                <tr class="first last">
+                  <th rowspan="1">&nbsp;</th>
+                  <th rowspan="1"><span class="nobr">Product Name</span></th>
+                  <th rowspan="1" class="hidden-phone"><span class="nobr">Description</span></th>
+                  <th rowspan="1" class="hidden-phone"><span class="nobr">Edit</span></th>
+                  <th colspan="1" class="a-center"><span class="nobr">Delete</span></th>
+                </tr>
+              </thead>
+              <tbody>
+               <% @products.each do |product| %>
+                <tr class="first odd">
+                  <td class="image"><%= link_to product_path(product) do %>
             <%= image_tag asset_path(product.galleries.first.photo.url), size: "50x50" %>
-          <% end %>
-        </td>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= link_to edit_product_path(product) do %><i class="fa fa-pencil-square-o"></i>
-        <%end%></td>
-        <td><%= link_to product, method: :delete, data: { confirm: 'Are you sure?' } do%>
-          <i class="fa fa-trash-o"></i>
-        <%end%> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+          <% end %></td>
+                  <td><h2 class="product-name"><%= product.title %></td>
+                  <td class="a-center hidden-table"><%= product.description %></td>
+                  <td class="a-center hidden-table">
+                    <%= link_to edit_product_path(product), :class=>"edit-bnt" do %>
+                    <%end%>
+                  </td>
+                  <td class="a-center hidden-table">
+                    <%= link_to product, method: :delete, :class=>"remove-item", data: { confirm: 'Are you sure?' } do%>
+                    <%end%> 
+                  </td>
+                </tr>
+                  <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 

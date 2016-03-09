@@ -180,6 +180,7 @@ button.btn.btn-default {
 	padding: 0 10px;
 	color: #DF1F28;
 	margin-left: 100px;
+	font-family: 'FontAwesome';
 }
 .mobile-menu .expand:hover {
 	cursor: pointer;

@@ -264,7 +264,7 @@ ul, ol {
     border-bottom: 1px solid #df2028 !important;
     border-top: 1px solid #eee;
     font-size: 16px;
-    margin: 0;
+    margin: 5px 0 0;
     overflow: hidden;
     padding: 10px;
     text-overflow: ellipsis;
@@ -3464,14 +3464,16 @@ margin-right: 10px;
 	border-radius: 0px;
 }
 .add-to-cart .qty {
-	padding: 10px 0 9px;
-	border: 1px #ddd solid;
-	text-align: center;
-	margin-right: -5px;
-	margin-left: -5px;
-	width: 80px;
-	color: #333;
-	font-weight: 700;
+    padding: 0px 0 0px;
+    border: 1px #ddd solid;
+    text-align: center;
+    margin-right: -5px;
+    margin-left: -5px;
+    width: 80px;
+    color: #333;
+    font-weight: 700;
+    margin-top: -1px;
+    height: 41px;
 }
 .product-shop .button-up, .product-shop .button-down {
 	height: 44px;

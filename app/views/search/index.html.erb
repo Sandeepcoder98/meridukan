@@ -15,6 +15,7 @@
   <input data-product-query="longitude" class="current_lng" type="hidden"/>
 
   <!-- Breadcrumbs -->
+  <span><i class="shopping-cart" style=""></i></span>
   <div class="breadcrumbs">
     <div class="container">
       <div class="row">
@@ -279,6 +280,27 @@
                         </div>
                       </div>
                       <div class="clearfix"></div>
+                      <div class="product-price">
+                        <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a> 
+                        </h1>
+                        <div class="col-md-6">
+                          <div class="price-box">
+                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> &#8377;315.99 </span> </p>
+                            <p class="special-price">
+                              <span class="price-label">Special Price
+                              </span>
+                              <span class="price" id="product-price-48"> &#8377;309.99 
+                              </span>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <button class="add-to-btn" title="Add to Cart" type="button">
+                            <span><i class="fa fa-shopping-cart"></i> Add Karo
+                            </span>
+                          </button>
+                        </div>
+                      </div>
                       <div class="product-bootom">
                         <ul class="list-icons">
                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a> </li>
@@ -371,9 +393,6 @@
         <div class="item-inner">
           <div class="item-img">
             <div class="item-img-info product-img"> <a href="#" title="Sample Product" class="product-image"><img src="{{photo_url}}" alt="Sample Product"></a>
-              <div class="item-info">
-                <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a> </h1>
-              </div>
               <div class="item-box-hover">
                 <div class="box-inner">
                   <div class="actions">
@@ -403,6 +422,32 @@
           <a href="/store/{{store.id}}" class="view-shop">View Shop</a> </div>
       </div>
       <div class="clearfix"></div>
+      <div class="product-price">
+        <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a>
+        </h1>
+        <div class="col-md-6">
+          <div class="price-box">
+            <p class="old-price">
+              <span class="price-label">Regular Price:
+              </span>
+              <span class="price"> &#8377;315.99 
+              </span> 
+            </p>
+            <p class="special-price">
+              <span class="price-label">Special Price
+              </span>
+              <span class="price" id="product-price-48"> &#8377;309.99 
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <button class="add-to-btn" title="Add to Cart" type="button">
+            <span><i class="fa fa-shopping-cart"></i> Add Karo
+            </span>
+          </button>
+        </div>
+      </div>
       <div class="product-bootom">
         <ul class="list-icons">
           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a>50 </li>

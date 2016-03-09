@@ -198,6 +198,20 @@ ul, ol {
 .navbar-nav > li > a {
 	padding: 0px !important;
 }
+
+/*-------new css 9-3-2016----------*/
+.form-steps textarea {
+    line-height: normal !important;
+    padding: 5px 10px !important;
+    width: 100% !important;
+}
+.scope-table{
+	margin: 50px 0px 0px;
+}
+.scope-table th, .scope-table td{
+	vertical-align: inherit !important;
+}
+/*----------end---------------*/
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 	background-color: transparent;
 	border-color: #428bca;
@@ -723,6 +737,7 @@ ul, ol {
 .col2-left-layout .col-main {
 }
 .col2-right-layout .col-main {
+	padding-bottom: 30px;
 }
 .col2-right-layout ol.opc .col-md-4 {
 	margin-right: 15px;
@@ -2468,6 +2483,29 @@ ul.level1 {
 	text-transform:uppercase;
 	text-shadow: none;
 	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+}
+.add-new-product {
+	background: url(/assets/red-165.png);
+	background-size: 100%;
+	background-repeat:no-repeat;
+	border: medium none;
+	position:relative;
+	z-index: 3;
+	border-radius: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: normal;
+	float:right;
+	margin-left: 0px;
+	margin-top: 2px;
+	padding: 16px 15px;
+	font-weight:bold;
+	text-transform:uppercase;
+	text-shadow: none;
+	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+}
+.add-new-product:hover {
+	color: #fff;
 }
 /*--------- 6. New & Sale Label --------- */
 .new-box, .sale-box {
@@ -5795,6 +5833,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	text-transform: none;
 	margin-top: 0px;
 	margin-bottom:0;
+	display: inline;
 }
 .login-wrapper .form_wrapper label {
     display: block;
@@ -7363,6 +7402,7 @@ a.button.detail-bnt span {
 	border-bottom: 1px dotted #333;
 	margin: 0px;
 	padding: 0 0 4px;
+	overflow-y: auto;
 }
 
 .cart .page-title h2 {

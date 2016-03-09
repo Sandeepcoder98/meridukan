@@ -1,6 +1,7 @@
-<section class="product-container">
-  <h3>Overview</h3>
-  <hr/>
+<section class="product-container col-main">
+  <div class="page-title">
+            <h2>Product Overview</h2>
+          </div>
   <%= nested_form_for(@product) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">

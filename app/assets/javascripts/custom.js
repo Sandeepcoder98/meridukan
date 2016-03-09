@@ -237,6 +237,10 @@ $(document).ready(function(){
         selector: '[data-toggle]',
         position: 'top'
     });
+
+    $('body').on('click','.search-main-actions', function(){
+      $(this).closest("form").attr("action", $(this).attr("data-url"))
+    })
 });
 
 function readURL(input) {

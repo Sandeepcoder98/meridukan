@@ -10,12 +10,12 @@
             <ol class="shop-list">
               <li class="item first">
                 <div class="product-shop">
-                  <h2 class="product-name">Shop Name</h2>
+                  <h2 class="product-name"><%= @store.name %></h2>
                   <div class="lead">
                     <div id="stars" class="starrr"></div>
                   </div>
                   <div class="desc std">
-                    <p><i class="fa fa-map-marker"></i> Plot No.304, Ground Floor, Malhar Mega Mall, AB Road<a href="#" title="" class="link-learn">Learn More</a> </p>
+                    <p><i class="fa fa-map-marker"></i><%= @store.full_address %><a href="#" title="" class="link-learn">Learn More</a> </p>
                     <ul class="social-network social-circle">
                       <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
                       <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>

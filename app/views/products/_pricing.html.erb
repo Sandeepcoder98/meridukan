@@ -1,6 +1,7 @@
-<section class="product-container">
-  <h3>Scope & Pricing</h3>
-  <hr/>
+<section class="product-container col-main">
+  <div class="page-title">
+            <h2>Scope & Pricing</h2>
+          </div>
   <%= form_for(@product) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
@@ -14,7 +15,8 @@
     <% end %>
      <%= f.fields_for :pricing do |ff| %>
     <div class="table-responsive ">
-    <table class="table table-bordered" style="width: 40%;">
+    <div class="scope-table">
+    <table class="table table-bordered" style="width: 60%;">
       <tr>
         <th>Products in Stock</th>
         <td><%= ff.number_field :stock_quantity, min: 0 %></td> 
@@ -34,6 +36,7 @@
         </td> 
       </tr>
     </table>
+    </div>
     </div>
     <%end%>
       <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>

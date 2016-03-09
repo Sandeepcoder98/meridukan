@@ -22,7 +22,7 @@ $('.add-to-btn').on('click', function () {
             })
                 .appendTo($('body'))
                 .animate({
-                'top': cart.offset().top + 10,
+                'top': cart.offset().top + 98,
                     'left': cart.offset().left + 10,
                     'width': 75,
                     'height': 75

@@ -1,25 +1,34 @@
-<div class="main-custom-div">
+<div class="main-custom-div form-steps">
   <div class="row">
     <div class="col-md-12 form-margin-top">
+    <div class="col-md-6 clear-box">
       <%= f.label(:title).upcase.html_safe %>
       <%= f.text_area :title,:class=>'form-control',size: "1x1" ,:maxlength=>"80", required: true%> max 80 characters
+      </div>
     </div>
   </div>
   <div class="row">
 
   <div class="col-md-12 form-margin-top">
+  <div class="col-md-6 clear-box">
     <%= f.label(:description).upcase.html_safe %>
     <%= f.text_area :description,:class=>'wysihtml5 form-control',size: "5x10",:maxlength=>"1200"%>max 1200 characters
+    </div>
   </div>
   </div>
   <div class="row">
     <div class="col-md-12 form-margin-top">
-      <div class="col-md-12">
         <%= f.label(:category).upcase.html_safe%>
-      </div>
-      <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""]), required: true,:class=>"col-md-4" %>
-      <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
-      <%= f.select :child_sub_category_id,get_sub_child_category.unshift(['-- Select Sub Category --',""]),:class=>"col-md-4" %>
+        <div class="clearfix"></div>
+        <div class="col-md-4">
+          <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""]), required: true %>
+        </div>
+        <div class="col-md-4">
+          <%= f.select :sub_category_id,get_child_category.unshift(['-- Select Sub Category --',""])%>
+        </div>
+        <div class="col-md-4">
+          <%= f.select :child_sub_category_id,get_sub_child_category.unshift(['-- Select Sub Category --',""])%>
+        </div>
     </div>
   </div>
   <div class="row">
@@ -48,9 +57,10 @@
       <div class="">
         <%= f.label(:delivery_time).upcase.html_safe %>
       </div><br/><br />
-      <div class="">
+      <div class="col-md-6 clear-box">
         Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control wdith-control-select", required: true %>
       </div>
+      <div class="clearfix"></div>
       <div class="">to deliver</div> 
     </div>
   </div>

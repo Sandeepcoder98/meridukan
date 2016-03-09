@@ -5,7 +5,7 @@
         <div class="cart">
           <div class="page-title">
             <h2>My Product</h2>
-                  <%= link_to 'Add a new Product', new_product_path,:class=>"btn btn-info pull-right" %>
+                  <%= link_to 'Add a new Product', new_product_path,:class=>"pull-right add-new-product" %>
           </div>
     
           <div class="table-responsive">
@@ -23,7 +23,7 @@
                <% @products.each do |product| %>
                 <tr class="first odd">
                   <td class="image"><%= link_to product_path(product) do %>
-            <%= image_tag asset_path(product.galleries.first.photo.url), size: "50x50" %>
+            <%= image_tag asset_path(product.galleries.first.photo.url), size: "60x60" %>
           <% end %></td>
                   <td><h2 class="product-name"><%= product.title %></td>
                   <td class="a-center hidden-table"><%= product.description %></td>

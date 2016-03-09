@@ -75,3 +75,16 @@ var productAddToCart = function(e){
     setTimeout(function(){ $that.css("border","") }, 200);
   }
 }
+
+
+// Add product to cart
+var oneProductAddToCart = function(e){
+  product_id = $(e).attr("data-product-id")
+    $.ajax({
+      url: "/order_items",
+      method: "post",
+      data: {order_item: {product_id: product_id, quantity: "1"}},
+      success: function(data){
+      }
+    })
+}

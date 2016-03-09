@@ -1,13 +1,18 @@
-<section class="product-container">
-  <h3>Additional Offers</h3>
-  <hr/>
+<section class="product-container col-main">
+  <div class="page-title">
+            <h2>Additional Offers</h2>
+          </div>
   <%= form_for(@product) do |f| %>
-
-
-    <div class="col-md-12">
+  <div class="scope-table">
+    <div class="col-md-12 clear-box">
+    <div class="col-md-6 clear-box">
+    <label for="pass">Category <span class="required">*</span></label>
+                      <br>
       <%= f.fields_for :additional_offer do|ff|%>
         <%= ff.select :offer_type, set_offers_option, :include_blank=>"Select Offer Type" %>
+        </div>
       <% end %>
+    </div>
     </div>
 
 

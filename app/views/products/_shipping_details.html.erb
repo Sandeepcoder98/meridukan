@@ -1,6 +1,7 @@
-<section class="product-container">
-  <h3>Shipping Details</h3>
-  <hr/>
+<section class="product-container col-main">
+  <div class="page-title">
+  <h2>Shipping Details</h2>
+  </div>
   <%= form_for(@product) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
@@ -13,7 +14,6 @@
       </div>
     <% end %>
      <%= f.fields_for :product_shipping_detail do |ff| %>
-
       <div class="row">
         <div class="col-md-4 form-margin-top">
           <%= ff.label :free_delivery do %>

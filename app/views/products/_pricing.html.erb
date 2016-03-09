@@ -14,28 +14,46 @@
       </div>
     <% end %>
      <%= f.fields_for :pricing do |ff| %>
+    <div class="scope-table"> 
     <div class="table-responsive ">
-    <div class="scope-table">
-    <table class="table table-bordered" style="width: 60%;">
-      <tr>
-        <th>Products in Stock</th>
-        <td><%= ff.number_field :stock_quantity, min: 0 %></td> 
-      </tr>
-      <tr>
-        <th>MRP per unit</th>
-        <td><%= ff.text_field :mrp_per_unit %></td> 
-      </tr>
-      <tr>
-        <th>Offer on MRP</th>
-        <td><%= ff.text_field :offer_on_mrp %>
-        </td> 
-      </tr>
-      <tr>
-        <th>Net Price</th>
-        <td><%= text_field_tag :net_mrp, calculate_net_mrp(ff.object),:disabled=>true%>
-        </td> 
-      </tr>
-    </table>
+      <ul class="form-list">
+                <li>
+                  <div class="col-md-12 clear-box">
+                    <div class="col-md-6 clear-box">
+                      <label for="tag"><b>Product in Stcok</b></label>
+                      <br>
+                      <%= ff.number_field :stock_quantity, min: 0 %>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="col-md-12 clear-box">
+                    <div class="col-md-6 clear-box">
+                      <label for="tag"><b>MRP per unit</b></label>
+                      <br>
+                      <%= ff.text_field :mrp_per_unit %>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="col-md-12 clear-box">
+                    <div class="col-md-6 clear-box">
+                      <label for="tag"><b>Offer on MRP</b></label>
+                      <br>
+                      <%= ff.text_field :offer_on_mrp %>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="col-md-12 clear-box">
+                    <div class="col-md-6 clear-box">
+                      <label for="tag"><b>Net Price</b></label>
+                      <br>
+                      <%= text_field_tag :net_mrp, calculate_net_mrp(ff.object),:disabled=>true%>
+                    </div>
+                  </div>
+                </li>
+              </ul>
     </div>
     </div>
     <%end%>

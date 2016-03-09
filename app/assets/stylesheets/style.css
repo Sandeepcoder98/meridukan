@@ -208,8 +208,13 @@ ul, ol {
 .scope-table{
 	margin: 50px 0px 0px;
 }
-.scope-table th, .scope-table td{
-	vertical-align: inherit !important;
+.scope-table input, select{
+	width: 100% !important;
+}
+.scope-table .form-list li {
+	margin: 0 0 10px;
+	overflow-y: auto;
+	position: relative;
 }
 /*----------end---------------*/
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {

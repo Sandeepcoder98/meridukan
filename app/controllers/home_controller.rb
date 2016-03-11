@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def index		
+  	@products = Product.where(:approve=> true)
   end
 end

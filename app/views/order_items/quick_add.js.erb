@@ -1,6 +1,7 @@
 <% if @order_item %>
   $(".cart-items-count").html("(<%=current_order.order_items.count%>)")
   $("#cart-items-update").html("<%= j render "/shared/cart_items" %>")
+  $(".add-to-cart").html("<%= j render "/shared/quick_view_buttons" %>")
 <% else %>
   alert("Product limit is over!")
 <% end %>

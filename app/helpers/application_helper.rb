@@ -65,4 +65,8 @@ module ApplicationHelper
   def visiblily_for_image(choice_type, current_choice)
     choice_type==current_choice ? "display:none;" : ""
   end
+
+  def user_name(name)
+    name.blank? ? "Anonymous" : name
+  end
 end

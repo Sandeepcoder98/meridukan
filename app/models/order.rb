@@ -12,6 +12,16 @@ class Order < ActiveRecord::Base
     order_items.take(2)
   end
 
+  def save_order_item(order_item_params)
+    order_item = order_items.find_or_initialize_by(product_id: order_item_params[:product_id])
+    total_quantity = order_item.quantity.to_i+order_item_params[:quantity].to_i
+    available_quantity = order_item.product.pricing.stock_quantity
+    return false if available_quantity < total_quantity
+    order_item.quantity = order_item.quantity.to_i + order_item_params[:quantity].to_i
+    order_item.save
+    order_item
+  end
+
 private
   def set_order_status
     self.order_status_id = 1

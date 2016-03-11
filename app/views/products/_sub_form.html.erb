@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://cdn.ckeditor.com/4.4.0/standard/ckeditor.js   "></script>
 <div class="main-custom-div form-steps">
   <div class="row">
     <div class="col-md-12 form-margin-top">
@@ -11,8 +12,17 @@
 
   <div class="col-md-12 form-margin-top">
   <div class="col-md-6 clear-box">
+    <%= f.label(:key_information).upcase.html_safe %>
+    <%= f.text_area :key_information,:class=>'form-control',size: "5x10",:maxlength=>"120"%>max 120 characters
+    </div>
+  </div>
+  </div>
+  <div class="row">
+
+  <div class="col-md-12 form-margin-top">
+  <div class="col-md-6 clear-box">
     <%= f.label(:description).upcase.html_safe %>
-    <%= f.text_area :description,:class=>'wysihtml5 form-control',size: "5x10",:maxlength=>"1200"%>max 1200 characters
+    <%= f.text_area :description,:id=>"editor", :class=>'wysihtml5 form-control',size: "5x10",:maxlength=>"1200"%>max 1200 characters
     </div>
   </div>
   </div>

@@ -59,14 +59,9 @@ var productAddToCart = function(e){
   product_id = $(e).attr("data-product-id")
   if ($that.val() && parseInt($that.val()) > 0){
     $.ajax({
-      url: "/order_items",
+      url: "/order_items/quick_add",
       method: "post",
-      data: {order_item: {product_id: product_id, quantity: quantity}},
-      success: function(data){
-        $this = $("#modal-12")
-        $this.removeClass("md-show").css("overflow-y", "hidden")
-        $("html").css("overflow-y","scroll")
-      }
+      data: {order_item: {product_id: product_id, quantity: quantity}}
     })
   }
   else
@@ -83,8 +78,13 @@ var oneProductAddToCart = function(e){
     $.ajax({
       url: "/order_items",
       method: "post",
-      data: {order_item: {product_id: product_id, quantity: "1"}},
-      success: function(data){
-      }
+      data: {order_item: {product_id: product_id, quantity: "1"}}
     })
+}
+
+
+var hideQuickViewPopup = function(e){
+  $this = $("#modal-12")
+  $this.removeClass("md-show").css("overflow-y", "hidden")
+  $("html").css("overflow-y","scroll")
 }

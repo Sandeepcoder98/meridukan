@@ -27,8 +27,16 @@
       </div>
     </div>
     <div style="clear:both;"></div>
-    <div class="text-center">  
-      <%= f.button "Click Here to publish",:class=>"btn btn-success" %>
-    </div>
+      <%if !f.object.status %>
+        <div class="text-center">  
+          <%= f.button "Click Here to publish",:class=>"btn btn-success" %>
+        </div>
+      <% else %>
+        <div class="text-center">  
+          <%= link_to "Published", "#", :class=>"btn btn-success"%>
+        </div>
+      <%end%>
     <br/>
 <% end %>
+
+</div>

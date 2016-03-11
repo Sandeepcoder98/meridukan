@@ -1,24 +1,24 @@
 <div class="stepwizard">
     <div class="stepwizard-row setup-panel">
         <div class="stepwizard-step">
-            <%= link_to "1", edit_product_path(@product), class:"btn #{product_active_tab(@overview_tab)} btn-circle" %>
+            <%= link_to "1", (@product.status || Tabs.tabs_data(params[:referrer_action] || params[:action]).include?("edit")) ?  edit_product_path(@product) : "#", class:"btn #{product_active_tab(@overview_tab)} btn-circle" %>
             <p>Product Overview</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "2", pricing_product_path(@product), class:"btn #{product_active_tab(@pricing_tab)} btn-circle" %>
+            <%= link_to "2", (@product.status || Tabs.tabs_data(params[:referrer_action] || params[:action]).include?("pricing")) ? pricing_product_path(@product) : "#", class:"btn #{product_active_tab(@pricing_tab)} btn-circle" %>
             <p>Scope & Pricing</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "3", additional_offers_product_path(@product), class:"btn #{product_active_tab(@additional_offer_tab)} btn-circle" %>
+            <%= link_to "3", (@product.status || Tabs.tabs_data(params[:referrer_action] || params[:action]).include?("additional_offers")) ?  additional_offers_product_path(@product) : "#", class:"btn #{product_active_tab(@additional_offer_tab)} btn-circle" %>
             <p>Additional Offers</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "4", shipping_details_product_path(@product), class:"btn #{product_active_tab(@shipping_tab)} btn-circle" %>
+            <%= link_to "4", (@product.status || Tabs.tabs_data(params[:referrer_action] || params[:action]).include?("shipping_details")) ? shipping_details_product_path(@product) : "#", class:"btn #{product_active_tab(@shipping_tab)} btn-circle" %>
             <p>Shiping Details</p> 
         </div>
         <div class="stepwizard-step">
-            <%= link_to "5", publish_product_path(@product), class:"btn #{product_active_tab(@publish_tab)} btn-circle" %>
-            <p>Publish</p> 
+            <%= link_to "5", (@product.status || Tabs.tabs_data(params[:referrer_action] || params[:action]).include?("publish")) ? publish_product_path(@product) : "#", class:"btn #{product_active_tab(@publish_tab)} btn-circle" %>
+            <p>Preview/Publish</p> 
         </div>
         
     </div>

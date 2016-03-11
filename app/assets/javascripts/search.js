@@ -16,6 +16,7 @@ $(document).ready(function(){
 
   $("#search_selection li a").click(function(){
   	action = $(this).attr("data-action")
+    $("#search_text").attr("placeholder",$(this).attr("data-text"))
   	$(this).closest("form").attr("action",action)
   });
 

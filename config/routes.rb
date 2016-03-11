@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     get :checkout, on: :collection
   end
 
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy] do
+    post :quick_add, on: :collection
+  end
 
   concern :resourcable do
     resources :products do
@@ -47,9 +49,6 @@ Rails.application.routes.draw do
     get :stores, on: :collection
     get :products, on: :collection    
     get :find_stores, on: :collection
-  end
-  authenticated :user do
-    root :to => "dashboard#index", as: :authenticated_root
   end
   root :to => "home#index"
 

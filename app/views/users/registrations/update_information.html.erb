@@ -27,7 +27,7 @@
                 <fieldset>
                   <div class="form-top">
                     <div class="form-top-left">
-                      <%h1_text= (current_user.has_role? "seller")? "<h3>Personal Information</h3>".html_safe : "<h3>Step 1 / 2 </h3>".html_safe %>     
+                      <%h1_text= (current_user.has_role? "seller")? "<h3>Personal Information</h3>".html_safe : "<h3>Personal Information</h3>".html_safe %>     
                          <%= h1_text%>
                           <p>Tell us who you are:</p>
                     </div>
@@ -61,18 +61,18 @@
                             placeholder: "Mobile",
                             class: "form-about-yourself form-control",:disabled=>true%>
                     </div>
-                    <div class="form-group">
-                      <%= f.phone_field :phone,
+               <!--      <div class="form-group">
+                      <%#= f.phone_field :phone,
                             placeholder: "Phone No.",
                             class: "form-about-yourself form-control"%>
-                    </div>
+                    </div> -->
                     <center><button type="button" class="btn btn-next" onclick="setTimeout(initializeGmap,[1000])">Next</button></center>
                   </div>
                 </fieldset>
                 <fieldset>
                   <div class="form-top">
                     <div class="form-top-left">
-                      <%text = (current_user.has_role? "seller")? "<h3>Store Information</h3>".html_safe : "<h3>Step 2 / 2 </h3>".html_safe %>
+                      <%text = (current_user.has_role? "seller")? "<h3>Store Information</h3>".html_safe : "<h3>Personal Address</h3>".html_safe %>
                       <%= text%>
                       <p>Set up your address:</p>
                     </div>

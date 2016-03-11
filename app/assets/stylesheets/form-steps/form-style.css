@@ -4,10 +4,11 @@
 /***** Top content *****/
 
 .inner-bg {
-    padding: 40px 0 170px 0;
-	background-image:url(/assets/back-2.jpg);
-	background-repeat:no-repeat;
-	
+    background-blend-mode: lighten;
+    background-color: #666;
+    background-image: url("/assets/menupopup.png");
+    background-repeat: repeat;
+    padding: 40px 0 170px;
 }
 
 .top-content .text {
@@ -38,7 +39,7 @@
 
 .form-top {
 	overflow: hidden;
-	padding: 0 25px 15px 25px;
+	padding: 0 25px;
 	background: #fff;
 	text-align: left;
 }

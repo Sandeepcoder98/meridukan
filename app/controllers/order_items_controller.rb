@@ -9,8 +9,7 @@ class OrderItemsController < ApplicationController
 
   def update
     @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_item_params)
+    @order_item = @order.update_order_item(params[:id], order_item_params)
   end
 
   def destroy

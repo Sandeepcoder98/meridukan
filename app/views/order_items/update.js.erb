@@ -1,0 +1,10 @@
+<% if @order_item %>
+  if ($("[data-subtotal-id]").length>0)
+    $("[data-subtotal-id=total_<%=@order_item.id%>]").html("<%=@order_item.total_price.to_f%> &#8377")
+  if ($(".shopping-cart-table-total .price").length>0)
+	$(".shopping-cart-table-total .price").html("<%= current_order.subtotal.to_f %> &#8377")
+  $(".cart-items-count").html("(<%=current_order.order_items.count%>)")
+  $("#cart-items-update").html("<%= j render "/shared/cart_items" %>")
+<% else %>
+  alert("Product limit is over!")
+<% end %>

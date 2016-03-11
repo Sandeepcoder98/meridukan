@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :store, only: [:show] 
 
-  resource :cart, only: [:show] do
+  resource :cart, only: [:show, :destroy] do
     get :checkout, on: :collection
   end
 

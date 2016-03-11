@@ -68,7 +68,7 @@ class Product < ActiveRecord::Base
     additional_offer.offer_type
   end
 
-  def quantitiy
+  def quantity
     pricing.stock_quantity rescue 0
   end
 

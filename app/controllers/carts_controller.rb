@@ -5,4 +5,9 @@ class CartsController < ApplicationController
 
   def checkout
   end
+
+  def destroy
+  	current_order.order_items.destroy_all
+  	redirect_to :back
+  end
 end

@@ -1152,13 +1152,13 @@
               <table id="shopping-table" class="data-table cart-table">
                 <tbody>
                     <% current_order.order_items.each do |order_item| %>
-                      <tr>
+                      <tr class="remove_ids" id="remove_<%=order_item.id%>">
                         <td class="image"><a href="product_detail.html" title="Sample Product" class="product-image"><img width="75" src="<%= order_item.product.photo_url %>" alt="Sample Product"></a></td>
                         <td align="left"><h1><%= order_item.product.title %></h1>
-                          <button onClick="var result = document.getElementById('qty_<%=order_item.id%>'); var qty = result.value; if( (!isNaN( qty )&& qty<<%=order_item.product.quantitiy%> )) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
-                          <input type="text" class="input-text qty" title="Qty" value="<%= order_item.quantity %>" maxlength="<%= order_item.product %>" id="qty_<%=order_item.id%>" name="qty">
-                          <button onClick="var result = document.getElementById('qty_<%=order_item.id%>'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button></td>
-                        <td align="center"><span class="cart-price"> <span class="price"><%= order_item.unit_price.to_f %> &#8377;</span> </span></td>
+                          <button onClick="var result = document.getElementById('qty_<%=order_item.id%>'); var qty = result.value; if( (!isNaN( qty )&& qty<<%=order_item.product.quantity%> )) result.value++;changeItemQuantity(this);return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
+                          <input type="text" class="input-text qty change-qty" title="Qty" value="<%= order_item.quantity %>" data-product-id="<%=order_item.product_id%>" data-id="<%=order_item.id%>" maxlength="12" id="qty_<%=order_item.id%>" name="qty">
+                          <button onClick="var result = document.getElementById('qty_<%=order_item.id%>'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;changeItemQuantity(this);return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button></td>
+                        <td align="center"><span class="cart-price"> <span class="price" data-subtotal-id="total_<%=order_item.id%>"><%= order_item.unit_price.to_f %> &#8377;</span> </span></td>
                         <td class="a-center last" align="right"><a data-order-item-id="<%=order_item.id%>"  href="#" title="Remove item" class="button remove-item"><span><span>Remove item</span></span></a></td>
                       </tr>
                     <% end %>

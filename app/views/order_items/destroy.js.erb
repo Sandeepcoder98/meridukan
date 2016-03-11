@@ -3,6 +3,8 @@ if ($(".shopping-cart-table-total .price").length>0)
 $(".cart-items-count").html("(<%=current_order.order_items.count%>)")
 $("#order-details").html("<%= j render "/shared/order_details" %>")
 $("#cart-sidebar").html("<%= j render "/shared/nested_items" %>")
+if ($(".remove_ids").length>0)
+  $("#remove_<%=@order_item.id%>").remove()
 <% if  !(current_order.order_items.count > 0) %>
   $(".top-cart-content-main").remove()
 <% end %>

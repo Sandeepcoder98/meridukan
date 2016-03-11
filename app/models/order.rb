@@ -22,6 +22,15 @@ class Order < ActiveRecord::Base
     order_item
   end
 
+  def update_order_item(order_item_id, order_item_params)
+    order_item = order_items.find(order_item_id)
+    total_quantity = order_item_params[:quantity].to_i
+    available_quantity = order_item.product.pricing.stock_quantity
+    return false if available_quantity < total_quantity
+    order_item.update_attributes(order_item_params)
+    order_item
+  end
+
 private
   def set_order_status
     self.order_status_id = 1

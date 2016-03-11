@@ -49,6 +49,10 @@ $(document).ready(function(){
     })
     e.preventDefault()
   });
+
+  $("body").on("keyup",".change-qty",function(){
+    changeItemQuantity(this)
+  })
 })
 
 
@@ -87,4 +91,17 @@ var hideQuickViewPopup = function(e){
   $this = $("#modal-12")
   $this.removeClass("md-show").css("overflow-y", "hidden")
   $("html").css("overflow-y","scroll")
+}
+
+// Add product to cart
+var changeItemQuantity = function(e){
+    $this = $(e).parent("td").find(".change-qty")
+    quantity = $this.val()
+    product_id = $this.attr("data-product-id")
+    id = $this.attr("data-id")
+    $.ajax({
+      url: "/order_items/"+id,
+      method: "put",
+      data: {order_item: {product_id: product_id, quantity: quantity}}
+    })
 }

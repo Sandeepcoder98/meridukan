@@ -96,7 +96,7 @@ to {
 .buyers-login-right {
     background: #fff;
     height: 100%;
-    min-height: 772px;
+    min-height: 770px;
     padding: 90px 0px 20px;
     position: relative;
     z-index: 1;
@@ -341,7 +341,7 @@ form.forgot_password {
 	color:#fff !important;
 }
 .step1-btn2 {
-	background-image:url(/assets/red-241.png);
+	background-image:url(/assets/red-242.png);
 	background-repeat:no-repeat;
 	background-position: center center;
 	color:#fff !important;

@@ -229,7 +229,7 @@ ul, ol {
 	background: none repeat scroll 0 0 red;
 }
 .login-categories {
-	margin:30px 0px;
+	margin:45px 0px;
 	text-align:center;
 }
 #login-modal {
@@ -666,7 +666,7 @@ ul, ol {
 	color: #666;
 	line-height: 10px;
 	margin: 0px;
-	padding: 5px;
+	padding: 10px;
 	font-size: 16px;
 }
 .list-icons li a:hover {
@@ -789,7 +789,7 @@ ul, ol {
 	text-align: left;
 	display: inline-block;
 	padding: 0px;
-	margin: 0px 5px;
+	margin: 3px 5px;
 	font-size: 13px;
 	color: #fff;
 }
@@ -1414,7 +1414,7 @@ a.socialIcon:hover, .socialHoverClass {
 	padding: 0px;
 	color: #fff;
 	font-size: 13px;
-	padding: 0px 0px 0px 15px;
+	padding: 5px 0px 0px 15px;
 	text-transform: none;
 	font-family: 'Roboto', sans-serif;
 	text-decoration: none;
@@ -3204,7 +3204,7 @@ margin-right: 10px;
 }
 .product-view .product-shop {
 	margin-top: 0;
-	z-index: -1;
+	z-index: 1;
 }
 .product-additional {
 	display: inline-block;
@@ -5838,7 +5838,7 @@ ul#magicat li .open-close, .block-layered-nav dt .toggleBtn {
 	text-transform: none;
 	margin-top: 0px;
 	margin-bottom:0;
-	display: inline;
+	display: block;
 }
 .login-wrapper .form_wrapper label {
     display: block;
@@ -7412,6 +7412,7 @@ a.button.detail-bnt span {
 
 .cart .page-title h2 {
 	font-size: 28px;
+	display: inline;
 }
 #shopping-cart-table {
 	border: none;
@@ -7420,6 +7421,7 @@ a.button.detail-bnt span {
 	background-color: #FFFFFF;
 	text-align: left;
 	margin-top: 12px;
+	margin-bottom: 30px;
 }
 #shopping-table {
 	border: none;
@@ -7446,7 +7448,7 @@ button.button.btn-continue:before {
 .data-table td {
 	line-height: 20px;
 	padding: 10px;
-	vertical-align: top;
+	vertical-align: inherit;
 }
 #shopping-cart-table tfoot tr td.last {
 	border-top: none;
@@ -9712,7 +9714,7 @@ button.button span span {
 	display: none;
 }
 .add-to-box .add-to-cart, .product-options-bottom .add-to-cart {
-	float: left;
+	float: none;
 	margin: 0;
 }
 .product-view .product-shop .grouped-items-table .price {
@@ -10211,6 +10213,7 @@ select#shipping-address-select {
 	float: left;
 	padding: 0;
 	text-align: center;
+	font-size: 24px;
 	height: 50px;
 	cursor: pointer;
 	outline:none;
@@ -10387,8 +10390,8 @@ select#shipping-address-select {
  @import url(http://fonts.googleapis.com/css?family=Roboto);
 /****** LOGIN MODAL ******/
 .loginmodal-container {
-	padding: 60px 0 30px;
-	max-width: 350px;
+	padding: 70px 0 0px;
+	max-width: 400px;
 	width: 100% !important;
 	background-image: url(/assets/white-back.png);
 	background-repeat: no-repeat;
@@ -10397,6 +10400,7 @@ select#shipping-address-select {
 	overflow: hidden;
 	font-family: roboto;
 	margin-top: 100px;
+	height: 475px;
 }
 .loginmodal-container h1 {
 	text-align: center;

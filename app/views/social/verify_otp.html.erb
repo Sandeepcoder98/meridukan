@@ -10,7 +10,7 @@
         <div>
           <center>
             <a href="/">
-              <img src="../assets/meridookan-big.png" width="144" height="86">
+              <img src="../assets/meridookan-big.png" width="165" height="">
             </a>
           </center>
         </div>
@@ -18,7 +18,7 @@
           <div class="content">
             <div id="form_wrapper" class="form_wrapper"> 
               <%= form_tag verified_otp_social_path, class:"active" do %>
-                <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div>
+           <!--      <div class="popup-logo"><h1 class="main-name"><span class="fn">Meri</span> <span class="ln">Dukan</span></h1></div> -->
                 <%= flash_messages %>
                 <%= hidden_field_tag :ip_address%>
                 <div class="login-box">
@@ -26,7 +26,7 @@
                   <%= text_field_tag :otp %>
                 </div>
                 <div class="bottom">
-                  <%= submit_tag "Verify OTP" %>
+                  <center><%= submit_tag "Verify OTP" %></center>
                   <div class="row">
                     <div class="col-md-6">
                     </div>

@@ -63,6 +63,10 @@
 .signup:hover{
 	color: #fff;
 	opacity:0.6;
+    padding: 0 20px;
+}
+.signup:focus{
+    padding: 0 20px;
 }
 #map{
     height: 250px;

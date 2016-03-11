@@ -20,7 +20,7 @@
     <div class="col-md-12 form-margin-top">
         <%= f.label(:category).upcase.html_safe%>
         <div class="clearfix"></div>
-        <div class="col-md-4">
+        <div class="col-md-4 clear-box">
           <%= f.select :category_id,get_parent_category.unshift(['-- Select Category --',""]), required: true %>
         </div>
         <div class="col-md-4">
@@ -56,7 +56,7 @@
     <div class="field col-md-12 form-margin-top">
       <div class="">
         <%= f.label(:delivery_time).upcase.html_safe %>
-      </div><br/><br />
+      </div><br/>
       <div class="col-md-6 clear-box">
         Maximum <%= f.select :delivery_time,options_for_select(set_delivery_time),{:prompt=>"SELECT"},:class=>"form-control wdith-control-select", required: true %>
       </div>

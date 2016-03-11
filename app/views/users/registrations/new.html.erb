@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../assets/showjs.js"></script>
 <section class="login-back">
   <div id="animate-area"></div>
   <div class="container-fluid">
@@ -24,7 +25,7 @@
                   <%= f.text_field :mobile, :class=>"#{"error-field" if resource.errors["mobile"].present?}", :placeholder=>"8871195825" %>
                 </div>
                 <div class="bottom">
-                  <%= f.submit "Create account" %>
+                  <center><%= f.submit "Create account" %></center>
                   <div class="clear"></div>
                 </div>
               <% end %>

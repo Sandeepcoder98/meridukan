@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="../assets/showjs.js"></script>
 <section class="login-back">
   <div id="animate-area"></div>
   <div class="container-fluid">
@@ -24,7 +24,7 @@
                   <%= f.text_field :mobile, autofocus: true %>
                 </div>
                 <div class="bottom">
-                  <%= f.submit "Reset password" %><br />
+                  <center><%= f.submit "Reset password" %></center><br />
                   <center>
                   <a href="<%=new_session_path(resource_name)%>" rel="login">Suddenly remebered? Log in here</a><br /> 
                   <a href="<%=new_registration_path(resource_name)%>" rel="register">You don't have an account? Register here</a></center>

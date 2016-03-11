@@ -36,10 +36,11 @@ textarea{
 }
 
 .stepwizard {
-	margin-top:30px;
+	   margin-top:0px;
     display: table;
     width: 100%;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .stepwizard-step button[disabled] {
@@ -48,7 +49,7 @@ textarea{
 }
 
 .stepwizard-row:before {
-    top: 14px;
+    top: 22px;
     bottom: 0;
     position: absolute;
     content: " ";
@@ -66,13 +67,14 @@ textarea{
 }
 
 .btn-circle {
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
+  padding: 0;
+  font-size: 18px;
   line-height: 1.428571429;
-  border-radius: 15px;
+  border-radius: 100%;
+  line-height: 45px;
 }
 
 .form-margin-top .btn-warning{

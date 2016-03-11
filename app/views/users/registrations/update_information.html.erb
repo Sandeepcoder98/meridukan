@@ -27,7 +27,7 @@
                 <fieldset>
                   <div class="form-top">
                     <div class="form-top-left">
-                      <%h1_text= (current_user.has_role? "seller")? "<h3>Step 1 / 3</h3>".html_safe : "<h3>Step 1 / 2 </h3>".html_safe %>     
+                      <%h1_text= (current_user.has_role? "seller")? "<h3>Personal Information</h3>".html_safe : "<h3>Step 1 / 2 </h3>".html_safe %>     
                          <%= h1_text%>
                           <p>Tell us who you are:</p>
                     </div>
@@ -66,22 +66,33 @@
                             placeholder: "Phone No.",
                             class: "form-about-yourself form-control"%>
                     </div>
-                    <button type="button" class="btn btn-next" onclick="setTimeout(initializeGmap,[1000])">Next</button>
+                    <center><button type="button" class="btn btn-next" onclick="setTimeout(initializeGmap,[1000])">Next</button></center>
                   </div>
                 </fieldset>
                 <fieldset>
                   <div class="form-top">
                     <div class="form-top-left">
-                      <%text = (current_user.has_role? "seller")? "<h3>Step 2 / 3</h3>".html_safe : "<h3>Step 2 / 2 </h3>".html_safe %>
+                      <%text = (current_user.has_role? "seller")? "<h3>Store Information</h3>".html_safe : "<h3>Step 2 / 2 </h3>".html_safe %>
                       <%= text%>
                       <p>Set up your address:</p>
                     </div>
                     <div class="form-top-right">
-                      <i class="fa fa-key"></i>
+                      <i class="fa fa-info-circle"></i>
+
                     </div>
                   </div>
                   <div class="form-bottom">
-                    
+                    <div class="form-group">
+                        <%= f.select :state,options_for_select(get_states,@resource.state),{},
+                              :class=> "form-address form-control",
+                              id: "form-address"%>
+                      </div>
+                    <div class="form-group">
+                      <%= f.text_field :city,
+                            placeholder: "City",
+                            class: "form-address form-control",
+                            id: "form-address"%>
+                    </div>
                     <div class="form-group">
                         <%= f.text_field :address,
                               placeholder: "Street Address",
@@ -96,27 +107,14 @@
                       </div>
 
                       <div class="form-group">
-                        <%= f.text_field :city,
-                              placeholder: "City",
-                              class: "form-address form-control",
-                              id: "form-address"%>
-                      </div>
-
-                      <div class="form-group">
-                        <%= f.select :state,options_for_select(get_states,@resource.state),{},
-                              :class=> "form-address form-control",
-                              id: "form-address"%>
-                      </div>
-
-                      <div class="form-group">
                         <%= f.number_field :pin_code,
                               placeholder: "Pincode",
                               class: "form-address form-control",
                               id: "form-address"%>
                       </div>
-                    <button type="button" class="btn btn-previous">Previous</button>
+                    <center><button type="button" class="btn btn-previous">Previous</button>
                     <%if current_user.has_role? "seller"%>
-                      <button type="button" class="btn btn-next">Next</button>
+                      <button type="button" class="btn btn-next">Next</button></center>
                       <%else%>
                         <%= f.submit "Submit",class: "btn signup"%>
                       <%end%>
@@ -126,11 +124,12 @@
                   <fieldset>
                     <div class="form-top">
                       <div class="form-top-left">
-                        <h3>Step 3 / 3</h3>
+                        <h3>Shop Address</h3>
                         <p>Your Store Details:</p>
                       </div>
                       <div class="form-top-right">
-                        <i class="fa fa-usd"></i>
+                        <i class="fa fa-map-marker"></i>
+
                       </div>
                     </div>
 
@@ -171,8 +170,9 @@
                                 id: "form-address"%>
                         </div>
                         <%end%>
+                        <center>
                       <button type="button" class="btn btn-previous">Previous</button>
-                      <%= f.submit "Submit",class: "btn signup"%>
+                      <%= f.submit "Submit",class: "btn signup"%></center>
                     </div>
                   </fieldset>
                 <%end%>

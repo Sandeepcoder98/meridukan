@@ -195,67 +195,78 @@
         <div class="product-view">
           <div class="product-essential">
             <form action="#" method="post" id="product_addtocart_form">
-              <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
-              <div class="product-img-box col-sm-4 col-xs-12 animated">
-                <div class="new-label new-top-left"> New </div>
-                <div class="product-image">
-                  <div class="large-image"> <a href="{{photo_url}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="{{photo_url}}"> </a> </div>
-                  <div class="flexslider flexslider-thumb">
-                    <ul class="previews-list slides">
-                      <li><a href='/assets/p2.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p2.png' "><img src="/assets/p2.png" alt = "Thumbnail 1"/></a></li>
-                      <li><a href='/assets/p3.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p3.png' "><img src="/assets/p3.png" alt = "Thumbnail 2"/></a></li>
-                      <li><a href='/assets/p4.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p4.png' "><img src="/assets/p4.png" alt = "Thumbnail 1"/></a></li>
-                      <li><a href='/assets/p5.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p5.png' "><img src="/assets/p5.png" alt = "Thumbnail 2"/></a></li>
-                      <li><a href='/assets/p6.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p6.png' "><img src="/assets/p6.png" alt = "Thumbnail 2"/></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- end: more-images --> 
-              </div>
-              <div class="product-shop col-sm-5 col-xs-12 animated">
-                <div class="product-name">
-                  <h1>{{title}}</h1>
-                </div>
-                <div class="short-description"> 
-                  <!--<h2>Quick Overview</h2>-->
-                  <p>{{description}}</p>
-                </div>
-                <div class="ratings" id="product-rating">
-                  <div class="rating-box">
-                    <div class="lead">
-                      <div id="stars" class="starrr"></div>
+              <div class="col-lg-9">
+                <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
+                <div class="product-img-box col-sm-6 col-xs-12 animated">
+                  <div class="new-label new-top-left"> New </div>
+                  <div class="product-image">
+                    <div class="large-image"> <a href="{{photo_url}}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="{{photo_url}}"> </a> </div>
+                    <div class="flexslider flexslider-thumb">
+                      <ul class="previews-list slides">
+                        <li><a href='/assets/p2.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p2.png' "><img src="/assets/p2.png" alt = "Thumbnail 1"/></a></li>
+                        <li><a href='/assets/p3.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p3.png' "><img src="/assets/p3.png" alt = "Thumbnail 2"/></a></li>
+                        <li><a href='/assets/p4.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p4.png' "><img src="/assets/p4.png" alt = "Thumbnail 1"/></a></li>
+                        <li><a href='/assets/p5.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p5.png' "><img src="/assets/p5.png" alt = "Thumbnail 2"/></a></li>
+                        <li><a href='/assets/p6.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p6.png' "><img src="/assets/p6.png" alt = "Thumbnail 2"/></a></li>
+                      </ul>
                     </div>
                   </div>
+                  <!-- end: more-images --> 
                 </div>
-                <p class="availability in-stock pull-right"><span>In Stock</span></p>
-                <div class="price-block">
-                  <div class="price-box"> 
-                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{mrp_per_unit}} /- </span> </p>
-                    <p class="special-price"> <span id="product-price-48" class="price"> {{net_mrp}} /- </span> </p>
+                <div class="product-shop col-sm-6 col-xs-12 animated">
+                  <div class="product-name">
+                    <h1>{{title}}</h1>
                   </div>
-                </div>
-                <div class="add-to-box">
-                  <p><i>Currently {{quantitiy}} products are available</i></p>
-                  <div class="add-to-cart">
-                    <label for="qty">Qty:</label>
-                    <div class="pull-left">
-                      <div class="custom pull-left">
-                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty<{{quantitiy}} ) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
-                        <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
+                  <div class="short-description"> 
+                    <!--<h2>Quick Overview</h2>-->
+                    <p>{{description}}</p>
+                  </div>
+                  <div class="ratings" id="product-rating">
+                    <div class="rating-box">
+                      <div class="lead">
+                        <div id="stars" class="starrr"></div>
                       </div>
                     </div>
-                    <button data-product-id="{{id}}" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
                   </div>
-                  <div class="email-addto-box">
-                    <ul class="add-to-links">
-                      <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
-                    </ul>
-                    <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
+                  <p class="availability in-stock pull-right"><span>In Stock</span></p>
+                  <div class="price-block">
+                    <div class="price-box"> 
+                      <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {{mrp_per_unit}} /- </span> </p>
+                      <p class="special-price"> <span id="product-price-48" class="price"> {{net_mrp}} /- </span> </p>
+                    </div>
+                  </div>
+                  <div class="add-to-box">
+                    <p><i>Currently {{quantitiy}} products are available</i></p>
+                    <div class="add-to-cart">
+                      <label for="qty">Qty:</label>
+                      <div class="pull-left">
+                        <div class="custom pull-left">
+                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty<{{quantitiy}} ) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
+                          <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
+                        </div>
+                      </div>
+                      <button data-product-id="{{id}}" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                    </div>
+                    <div class="email-addto-box">
+                      <ul class="add-to-links">
+                        <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
+                      </ul>
+                      <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
+                    </div>
                   </div>
                 </div>
+                <div class="clearfix"></div>
+                    <div class="product-collateral col-sm-12 col-xs-12 animated">
+            <div class="add_info">
+              <h2> Product Description </h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
+              <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
+            </div>
+          </div>
               </div>
             </form>
+            </div>
             <div class="col-lg-3 col-sm-3 col-xs-12 animated">
               <div class="category-products">
                 <ul class="products-grid">
@@ -303,9 +314,10 @@
                       </div>
                       <div class="product-bootom">
                         <ul class="list-icons">
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a> </li>
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold"><i class="fa fa-tag"></i></a> </li>
-                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock"><i class="fa fa-stack-exchange"></i></a> </li>
+                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite">Favorite</a>
+                          50 </li>
+                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold">Sold</a> 100</li>
+                          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock">In Stock</a>15 </li>
                         </ul>
                       </div>
                     </div>
@@ -370,13 +382,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="product-collateral col-sm-12 col-xs-12 animated">
-            <div class="add_info">
-              <h2> Product Description </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-              <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
             </div>
           </div>
         </div>
@@ -450,9 +455,9 @@
       </div>
       <div class="product-bootom">
         <ul class="list-icons">
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite"><i class="fa fa-heart-o"></i></a>50 </li>
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold"><i class="fa fa-tag"></i></a> 1100</li>
-          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock"><i class="fa fa-stack-exchange"></i></a> 88</li>
+          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite">Favorite</a>50 </li>
+          <li><a href="#" data-toggle="tooltip" data-placement="top" title="Sold">Sold</a> 1100</li>
+          <li><a href="#" data-toggle="tooltip" data-placement="top" title="In Stock">In Stock</a> 88</li>
         </ul>
       </div>
     </div>

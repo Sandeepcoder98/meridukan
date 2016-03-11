@@ -256,20 +256,22 @@ function readURL(input) {
 }	
 
 $(document).ready(function(){
-  var preview = CKEDITOR.document.getById( 'preview' );
+  if (typeof CKEDITOR != 'undefined'){
+      var preview = CKEDITOR.document.getById( 'preview' );
 
-function syncPreview() {
-    preview.setHtml( editor.getData() );
-}
-
-var editor = CKEDITOR.replace( 'editor', {
-    on: {
-        // Synchronize the preview on user action that changes the content.
-        change: syncPreview,
-        
-        // Synchronize the preview when the new data is set.
-        contentDom: syncPreview
+    function syncPreview() {
+        preview.setHtml( editor.getData() );
     }
-} );
+
+    var editor = CKEDITOR.replace( 'editor', {
+        on: {
+            // Synchronize the preview on user action that changes the content.
+            change: syncPreview,
+            
+            // Synchronize the preview when the new data is set.
+            contentDom: syncPreview
+        }
+    } );
+  }
 })
 

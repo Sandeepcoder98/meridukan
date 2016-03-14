@@ -17,6 +17,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.5;
+    min-height:256px;
 }
 .background-opacity:hover{   
     opacity: 1;
@@ -24,19 +25,23 @@
 }
 
 .buy_and_get_products{
-	background-image: url(/assets/discount1.png);
+	background-image: url(/assets/discount-1.png);
+  margin: 20px 0px;
 }
 
 .gift_on_products{
-	background-image: url(/assets/gift_on_products.jpg);
+	background-image: url(/assets/discount-2.png);
+  margin: 20px 0px;
 }
 
 .percentage_on_amount{
-	background-image: url(/assets/percentage_on_amount.jpg);
+	background-image: url(/assets/discount-3.png);
+  margin: 20px 0px;
 }
 
 .gift_on_amount{
-	background-image: url(/assets/gift_on_amount.jpg);
+	background-image: url(/assets/discount-4.png);
+  margin: 20px 0px;
 }
 .search-link-color {
     background-color: #fff;

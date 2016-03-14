@@ -1,6 +1,6 @@
 <% content_for :javascript do %>
   <%= javascript_include_tag 'bootstrap-slider', 'data-turbolinks-track' => true %>
-  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <%= javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false', 'data-turbolinks-track' => true %>
   <script>
     $(document).ready(function(){
       $("#ex2").slider({});
@@ -219,7 +219,7 @@
                   </div>
                   <div class="short-description"> 
                     <!--<h2>Quick Overview</h2>-->
-                    <p>{{description}}</p>
+                    <p>{{key_information}}</p>
                   </div>
                   <div class="ratings" id="product-rating">
                     <div class="rating-box">
@@ -260,8 +260,7 @@
                     <div class="product-collateral col-sm-12 col-xs-12 animated">
             <div class="add_info">
               <h2> Product Description </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla. Donec a neque libero. Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue.</p>
-              <p> Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis lobortis.</p>
+              {{raw description}}
             </div>
           </div>
               </div>
@@ -423,25 +422,25 @@
             </div>
           </div>
           <p><i class="fa fa-map-marker"></i>{{store.full_address}}</p>
-          <p>{{description}}</p>
+          <p>{{key_information}}</p>
           <a href="/store/{{store.id}}" class="view-shop">View Shop</a> </div>
       </div>
       <div class="clearfix"></div>
       <div class="product-price">
-        <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a>
+        <h1 class="item-title"> <a href="#" title="Sample Product"> {{title}} </a>
         </h1>
         <div class="col-md-6">
           <div class="price-box">
             <p class="old-price">
               <span class="price-label">Regular Price:
               </span>
-              <span class="price"> &#8377;315.99 
+              <span class="price"> &#8377;{{net_mrp}}
               </span> 
             </p>
             <p class="special-price">
               <span class="price-label">Special Price
               </span>
-              <span class="price" id="product-price-48"> &#8377;309.99 
+              <span class="price" id="product-price-48"> &#8377;{{mrp_per_unit}}
               </span>
             </p>
           </div>

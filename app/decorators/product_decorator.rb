@@ -4,8 +4,8 @@ class ProductDecorator < Draper::Decorator
   # taking json format of products
   def json_format
     object.to_json(
-      only: [:id, :title, :description],
-      methods: :photo_url,
+      only: [:id, :title, :key_information, :description],
+      methods: [:photo_url, :net_mrp, :mrp_per_unit],
       :include => {
         store: {
           only: [:name, :id],
@@ -18,7 +18,7 @@ class ProductDecorator < Draper::Decorator
   # taking json format of product
   def view_product
     to_json(
-      only: [:id, :title, :description],
+      only: [:id, :title, :description, :key_information],
       methods: [:photo_url, :net_mrp, :mrp_per_unit, :quantity],
       :include => {
         store: {

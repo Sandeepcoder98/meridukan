@@ -5,7 +5,8 @@ module Solr
       Product.search do 
           fulltext params[:q] if !params[:q].blank?
           order_by_geodist(:location, params[:latitude], params[:longitude])
-          fulltext params[:pin_code], {fields: :pin_code} if !params[:pin_code].blank?
+          fulltext params[:pin_code], {fields: :pin_code} if !params[:pin_code].blank?          
+          with(:store_id, params[:store_id]) if !params[:store_id].blank?
           with(:tags, params[:tags].split(",")) if !params[:tags].blank?
           with(:location).in_radius(params[:latitude], params[:longitude], params[:distance]) if !params[:distance].blank? && params[:distance].to_i > 0
           fulltext params[:location], {

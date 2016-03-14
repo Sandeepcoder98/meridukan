@@ -6,6 +6,11 @@ window.IsActive = false
 
 // Ready function that ready dom elements
 $(document).ready(function(){
+  // html safe text callback using handlebars
+  Handlebars.registerHelper('raw', function(description) {
+    return new Handlebars.SafeString(description);
+  });
+
   $("#search_button").click(function(){
    $(this).closest("form").submit()
   });

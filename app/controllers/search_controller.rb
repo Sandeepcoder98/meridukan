@@ -11,17 +11,7 @@ class SearchController < ApplicationController
   def stores;end
 
   def find_stores;end
-    # @search = Store.search do 
-    #   fulltext params[:q] 
-    #   paginate :page => params[:page]
-    # end
-    # .results.to_json(
-    #   only: [:id, :name]
-    # )
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render :json => @search }
-    # end
+  
   protected
 
   def product_search

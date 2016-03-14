@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email,:first_name, :last_name, :email, :phone, :address, :country, :state, :city,:mobile,:pin_code,:ip_address ,store_attributes:[:id,:name,:address,:state,:country,:city,:pin_code,:landmark,:lat,:lng])
+    params.require(:user).permit(:email,:first_name, :last_name, :email, :phone, :address, :country, :state, :city,:mobile,:pin_code,:ip_address,:avatar,store_attributes:[:id,:name,:address,:state,:country,:city,:pin_code,:landmark,:lat,:lng, :cover, :logo])
   end
 
   def sign_up(resource_name, resource)

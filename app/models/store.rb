@@ -2,7 +2,13 @@ class Store < ActiveRecord::Base
   after_save :update_lat_long
   belongs_to :user
   has_many :products
-  
+  # Logo uploader
+  has_attached_file :logo, :styles => { :small => "150x150>" }, :default_url => 'missing_logo_:style.jpg'
+  validates_attachment_size :logo, :less_than => 5.megabytes
+  validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/png']
+  # Cover uploader
+  has_attached_file :cover, :styles => { :small => "150x150>" }, :default_url => 'missing_cover_:style.jpg'
+  validates_attachment_content_type :cover, :content_type => ['image/jpeg', 'image/png']
   include LatLng
 
   # Setting Up Objects  

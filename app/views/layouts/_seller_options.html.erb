@@ -1,2 +1,3 @@
+<li><%= link_to "My Shop",(store_path(current_user.store) rescue "#")%></li>
 <li><%= link_to "My Products",products_path%></li>
 <li><%= link_to "Update Information", update_information_path%></li>

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :no_store, except: :view_product
   before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
 
-  before_filter :check_path_tab, only: [:show,:edit]
+  #before_filter :check_path_tab, only: [:show,:edit]
   
   # GET /products
   # GET /products.json
@@ -111,7 +111,7 @@ class ProductsController < ApplicationController
           :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,:status,:approve,:step_path,:key_information,
           galleries_attributes:[:id, :photo, :_destroy], 
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
-          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offer_attributes:[:id, :offer_type,:offer_id,:product_id],price_offer_attributes:[:id, :amount,:percent,:gift,:choice_type],product_offer_attributes:[:id, :buy,:get,:gift,:choice_type])
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offer_attributes:[:id, :offer_type,:offer_id,:product_id],price_offer_attributes:[:id, :amount,:percent,:gift,:choice_type, :amount_for_gift],product_offer_attributes:[:id, :buy,:get,:gift,:choice_type, :buy_for_gift])
     end
 
     def no_store

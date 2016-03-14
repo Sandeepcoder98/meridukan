@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-12 form-margin-top">
               <%= ff.label :buy%>
-              <%= ff.text_field :buy,:class=>"form-control"%>
+              <%= ff.text_field :buy_for_gift,:class=>"form-control"%>
             </div>
             <div class="col-md-12 form-margin-top">
               <%= ff.label "Add a gift" %>          
@@ -61,11 +61,11 @@
             <div data-value="1" data-target="price" style="<%= visiblily_for_image(ff.object.choice_type, 1) %>" class="background-opacity percentage_on_amount">
             </div>
             <div class="col-md-12 form-margin-top">
-              <%= ff.label :amount%>
+              <%= ff.label :amount, "Total Amount of products" %>
               <%= ff.text_field :amount,:class=>"form-control"%>
             </div>
             <div class="col-md-12 form-margin-top">
-              <%= ff.label :percent%>
+              <%= ff.label :percent, "Percentage discount on price"%>
               <%= ff.text_field :percent,:class=>"form-control"%>%
             </div>            
             <br/>
@@ -75,8 +75,8 @@
             <div data-value="2" data-target="price" style="<%= visiblily_for_image(ff.object.choice_type, 2) %>" class="background-opacity gift_on_amount">
             </div>  
             <div class="col-md-12 form-margin-top">
-              <%= ff.label :amount%>
-              <%= ff.text_field :amount,:class=>"form-control"%>
+              <%= ff.label :amount, "Total Amount of products" %>
+              <%= ff.text_field :amount_for_gift,:class=>"form-control"%>
             </div>
             <div class="col-md-12 form-margin-top">
               <%= ff.label "Add a gift" %>          

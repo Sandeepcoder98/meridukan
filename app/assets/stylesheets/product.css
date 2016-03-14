@@ -76,6 +76,10 @@ textarea{
   border-radius: 100%;
   line-height: 45px;
 }
+.btn-circle:hover, .btn-circle:focus  {
+  padding: 0;
+
+}
 
 .form-margin-top .btn-warning{
   background: #DF1F28;

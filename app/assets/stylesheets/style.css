@@ -4769,6 +4769,10 @@ ul.products-grid {
 	transition: all 0.3s ease-out;
 	position: relative;
 	overflow: hidden;
+	
+}
+#product-main-section .product-img {
+	height: 180px;
 }
 .products-grid .item .item-inner .item-img .item-img-info a.product-image {
 	display: inline-block;

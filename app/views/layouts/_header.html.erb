@@ -87,10 +87,12 @@
             <!-- End Header Logo --> 
           </div>
           <!-- Navbar -->
-          <%= render "layouts/users_categories" %>
-          
+          <% if params[:controller]=="products" && Tabs.product_tabs.include?(params[:action]) %>
+            <h3><%= @product.id.nil? ? "Add Product" : "Edit Product" %></h3>
+          <% else %>
+            <%= render "layouts/users_categories" %>
+          <% end %>
           <!-- end nav --> 
-          
         </div>
       </div>
     </div>

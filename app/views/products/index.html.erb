@@ -26,7 +26,7 @@
             <%= image_tag asset_path(product.galleries.first.photo.url), size: "60x60" %>
           <% end %></td>
                   <td><h2 class="product-name"><%= product.title %></td>
-                  <td class="a-center hidden-table"><%= product.description %></td>
+                  <td class="a-center hidden-table"><%= product.description.html_safe %></td>
                   <td class="a-center hidden-table">
                     <%= link_to edit_product_path(product), :class=>"edit-bnt" do %>
                     <%end%>

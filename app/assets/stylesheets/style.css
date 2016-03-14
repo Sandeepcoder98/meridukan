@@ -200,8 +200,98 @@ ul, ol {
 }
 
 /*-------new css 14-3-2016----------*/
+.error-list{
+	color: #df2028;
+}
+#selectAreaPopup .modal-dialog {
+    max-width: 400px;
+    padding: 10px;
+    border: 2px solid #ccc;
+}
+#selectAreaPopup .form-control {
+    border: 1px solid #cccccc;
+    border-radius: 0;
+    height: 45px;
+}
+.start-shopping{
+	background-color: #333 !important;
+	color: #fff;
+	border: 1px solid #333;
+}
+
+#selectAreaPopup .modal-header {
+    background: #df2028;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    padding: 10px;
+}
+#selectAreaPopup .modal-header h4 {
+    font-size: 24px;
+    font-weight: normal;
+ }
+#edit_user {
+    box-shadow: 0 0 10px #999;
+    background-color: #fff;
+}
+#error_explanation{
+	padding: 10px 20px;
+	border-bottom: 1px solid #cbcbcb;
+}
+#error_explanation h2{
+	margin-top: 0;
+	color: #df2028;
+}
 .form-margin-top2{
 	margin-top: 50px;
+}
+.file_browse_wrapper {
+    background: url("../assets/browse-image.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 52px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px;
+}
+
+.file_browse_wrapper #form-avatar, .file_browse_wrapper .form-logo, .file_browse_wrapper .form-cover{
+    margin-left:0px;
+	 width: 160px;
+    height: 52px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.file_logo_wrapper {
+    background: url("../assets/browse-logo.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 52px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px;
+}
+
+.file_logo_wrapper .form-logo{
+    margin-left:0px;
+	 width: 160px;
+    height: 52px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.file_cover_wrapper {
+    background: url("../assets/browse-banner.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 52px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px;
+}
+
+.file_cover_wrapper .form-cover{
+    margin-left:0px;
+	 width: 160px;
+    height: 52px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 .form-steps textarea {
     line-height: normal !important;

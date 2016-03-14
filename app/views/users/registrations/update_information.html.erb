@@ -36,7 +36,7 @@
                     </div>
                   </div>
                   <div class="form-bottom">
-                    <div class="form-group">
+                    <div class="form-group file_browse_wrapper">
                        <%= f.file_field :avatar,
                             class: "form-avatar form-control",
                             id: "form-avatar"%>
@@ -140,16 +140,21 @@
 
                     <%= f.fields_for :store do |store_f| %>
                     <div class="form-bottom">
-                        
-                    <div class="form-group">
+                      <div class="row"> 
+                      <div class="col-md-6"> 
+                    <div class="form-group file_logo_wrapper">
                       <%= store_f.file_field :logo,
                             class: "form-logo form-control",
                             id: "form-logo"%>
                     </div>
-                    <div class="form-group">
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group file_cover_wrapper">
                       <%= store_f.file_field :cover,
                             class: "form-cover form-control",
                             id: "form-cover"%>
+                    </div>
+                    </div>
                     </div>
                         <div class="form-group">
                           <%= store_f.text_field :name,

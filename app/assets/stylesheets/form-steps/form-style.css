@@ -5,7 +5,7 @@
 
 .inner-bg {
     background-blend-mode: lighten;
-    background-color: #666;
+    /*background-color: #666;*/
     background-image: url("/assets/menupopup.png");
     background-repeat: repeat;
     padding: 40px 0 170px;
@@ -47,7 +47,7 @@
 .form-top-left {
 	float: left;
 	width: 75%;
-	padding-top: 25px;
+	padding-top: 10px;
 }
 
 .form-top-left h3 { margin-top: 0; }
@@ -58,7 +58,7 @@
 	padding-top: 5px;
 	font-size: 66px;
 	color: #ddd;
-	line-height: 100px;
+	line-height: 66px;
 	text-align: right;
 }
 

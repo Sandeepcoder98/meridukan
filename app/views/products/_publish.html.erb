@@ -22,7 +22,7 @@
         <div class="caption-full">
           <h4 class="pull-right"><%=@product.net_mrp%></h4>
           <h4><%= link_to @product.title, @product %></h4>
-          <p><%=@product.description%></p>
+          <p><%=@product.description.html_safe%></p>
         </div>
       </div>
     </div>

@@ -17,7 +17,6 @@
                     <a href="#" class="dropdown-toggle color-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user_name(current_user.first_name)%> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li></li>
-                      <li><a href="#">Profile</a></li>
                       <%if admin?%>
                         <%= render "layouts/admin_options"%>
                       <%elsif buyer?%>
@@ -87,10 +86,12 @@
             <!-- End Header Logo --> 
           </div>
           <!-- Navbar -->
-          <%= render "layouts/users_categories" %>
-          
+          <% if params[:controller]=="products" && Tabs.product_tabs.include?(params[:action]) %>
+            <h3><%= @product.id.nil? ? "Add Product" : "Edit Product" %></h3>
+          <% else %>
+            <%= render "layouts/users_categories" %>
+          <% end %>
           <!-- end nav --> 
-          
         </div>
       </div>
     </div>

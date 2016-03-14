@@ -9,4 +9,8 @@ class Tabs
 		array.slice(0..array.index(referrer_action))
 	end
 
+	def self.product_tabs
+		["new","edit", "pricing","additional_offers","shipping_details","publish"]
+	end
+
 end

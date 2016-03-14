@@ -128,15 +128,24 @@ var SearchProductHit = function() {
 
 // Getting lat long from end user side
 var FindLatLongAndSearchProducts = function(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (p) {
+  if (sessionStorage["latitude"] && sessionStorage["longitude"]){
+    $(".current_lat").val(sessionStorage["latitude"])
+    $(".current_lng").val(sessionStorage["longitude"])
+    SearchProducts();
+  }
+  else{
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (p) {
         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-      $(".current_lat").val(p.coords.latitude)
-      $(".current_lng").val(p.coords.longitude)
-      SearchProducts();
-    });
-  } else {
-      alert('Geo Location feature is not supported in this browser.');
+        sessionStorage["latitude"] = p.coords.latitude
+        sessionStorage["longitude"] = p.coords.longitude
+        $(".current_lat").val(sessionStorage["latitude"])
+        $(".current_lng").val(sessionStorage["longitude"])
+        SearchProducts();
+      });
+    } else {
+        alert('Geo Location feature is not supported in this browser.');
+    }
   }
 }
 
@@ -195,15 +204,24 @@ var SearchStoreHit = function() {
 }
 
 // Getting lat long from end user side
-var FindLatLongAndSearchStores = function(){
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (p) {
-      var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-      $(".current_lat").val(p.coords.latitude)
-      $(".current_lng").val(p.coords.longitude)
-      SearchStores();
-    });
-  } else {
-    alert('Geo Location feature is not supported in this browser.');
+var FindLatLongAndSearchStores =function(){
+  if (sessionStorage["latitude"] && sessionStorage["longitude"]){
+    $(".current_lat").val(sessionStorage["latitude"])
+    $(".current_lng").val(sessionStorage["longitude"])
+    SearchStores();
+  }
+  else{
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (p) {
+        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+        sessionStorage["latitude"] = p.coords.latitude
+        sessionStorage["longitude"] = p.coords.longitude
+        $(".current_lat").val(sessionStorage["latitude"])
+        $(".current_lng").val(sessionStorage["longitude"])
+        SearchStores();
+      });
+    } else {
+        alert('Geo Location feature is not supported in this browser.');
+    }
   }
 }

@@ -1,4 +1,7 @@
-<script type="text/javascript" src="https://cdn.ckeditor.com/4.4.0/standard/ckeditor.js   "></script>
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'https://cdn.ckeditor.com/4.4.0/standard/ckeditor.js', 'data-turbolinks-track' => true %>
+<% end %>
+
 <div class="main-custom-div form-steps">
   <div class="row">
     <div class="col-md-12 form-margin-top">

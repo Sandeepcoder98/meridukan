@@ -255,23 +255,17 @@ function readURL(input) {
   }
 }	
 
-$(document).ready(function(){
-  if (typeof CKEDITOR != 'undefined'){
-      var preview = CKEDITOR.document.getById( 'preview' );
+var CallCkeditor = function(){
+ if (typeof CKEDITOR != 'undefined'){
+      var preview = CKEDITOR.document.getById( 'editor' );
 
     function syncPreview() {
         preview.setHtml( editor.getData() );
     }
 
-    var editor = CKEDITOR.replace( 'editor', {
-        on: {
-            // Synchronize the preview on user action that changes the content.
-            change: syncPreview,
-            
-            // Synchronize the preview when the new data is set.
-            contentDom: syncPreview
-        }
-    } );
+    var editor = CKEDITOR.replace( 'editor');
   }
-})
+}
 
+$(document).ready(CallCkeditor)
+$(document).on('page:load', CallCkeditor)

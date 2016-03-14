@@ -200,8 +200,27 @@ ul, ol {
 }
 
 /*-------new css 14-3-2016----------*/
+.registration-form {
+    box-shadow: 0 0 10px #999;
+}
 .form-margin-top2{
 	margin-top: 50px;
+}
+.file_browse_wrapper {
+    background: url("../assets/browse-image.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    height: 52px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px;
+}
+
+.file_browse_wrapper #form-avatar, .file_browse_wrapper .form-logo, .file_browse_wrapper .form-cover{
+    margin-left:0px;
+	 width: 160px;
+    height: 52px;
+    opacity:0.0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 .form-steps textarea {
     line-height: normal !important;

@@ -5,7 +5,7 @@
 
 .inner-bg {
     background-blend-mode: lighten;
-    background-color: #666;
+    /*background-color: #666;*/
     background-image: url("/assets/menupopup.png");
     background-repeat: repeat;
     padding: 40px 0 170px;

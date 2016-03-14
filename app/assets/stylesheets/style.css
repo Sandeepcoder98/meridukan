@@ -199,7 +199,10 @@ ul, ol {
 	padding: 0px !important;
 }
 
-/*-------new css 9-3-2016----------*/
+/*-------new css 14-3-2016----------*/
+.form-margin-top2{
+	margin-top: 50px;
+}
 .form-steps textarea {
     line-height: normal !important;
     padding: 5px 10px !important;

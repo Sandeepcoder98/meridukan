@@ -21,7 +21,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller?
+    if (params[:controller]=="registrations" && params[:action]=="update")
+      "application"
+    elsif devise_controller?
       "members"
     else
       "application"

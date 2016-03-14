@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # Avatar uploader
+  has_attached_file :avatar, :styles => { :small => "150x150>" }, :default_url => 'missing_avatar_:style.png'
+  validates_attachment_size :avatar, :less_than => 5.megabytes
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
+  belongs_to :product
   validates_presence_of   :mobile
   validates_uniqueness_of :mobile
   validates     :mobile, numericality: { only_integer: true }

@@ -1,7 +1,7 @@
 namespace :import_dump do
   desc "TODO"
   task app: :environment do
-  	(107..200).each do |number|
+  	(1..50).each do |number|
 	  	user = User.create({  
 		   "email"   =>"seller#{number}@gmail.com",
 		   "mobile"   =>887100000+number,
@@ -67,9 +67,19 @@ namespace :import_dump do
 			product.build_additional_offer({
 				"offer_type"=>"price_offer"
 			})
+			if(number_product%2==0)
 			product.galleries.new({
-				"photo"=> open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTUotJlkOW_UrNgTMK0sgvpN-jcnCTH0l9ZdE_WWTMluwVOmzV8")
+				"photo"=> open("http://www.grazia.fr/var/grazia/storage/images/media/images/beaute/fruits-et-legumes-bons-pour-la-peau/la-papaye-l-hydratation/13024300-1-fre-FR/La-papaye-l-hydratation_exact780x585_l.jpg")
 			})
+			elsif(number_product%3==0)
+			product.galleries.new({
+				"photo"=> open("http://www.spainbymikerandolph.com/wp-content/uploads/2012/10/fruit1.jpg")
+			})
+			else
+			product.galleries.new({
+				"photo"=> open("http://thumbs.dreamstime.com/z/fruit-market-24373697.jpg")
+			})
+
 			product.tag_list = "test#{number_product}, test#{number_product+1}, test#{number_product+2}, test#{number_product+3}"
 			product.save
 			puts "        Product ##{number_product} created" 

@@ -79,6 +79,7 @@ namespace :import_dump do
 			product.galleries.new({
 				"photo"=> open("http://thumbs.dreamstime.com/z/fruit-market-24373697.jpg")
 			})
+			end
 
 			product.tag_list = "test#{number_product}, test#{number_product+1}, test#{number_product+2}, test#{number_product+3}"
 			product.save

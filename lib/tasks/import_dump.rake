@@ -61,6 +61,7 @@ namespace :import_dump do
 			product.build_price_offer({
 				"percent"=>"10.0",
 				"amount"=>"8000.0",
+				"amount_for_gift"=>"",
 				"gift"=>"You will get free watch #{number_product}",
 				"choice_type"=>2
 			})

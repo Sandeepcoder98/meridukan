@@ -199,7 +199,14 @@ ul, ol {
 	padding: 0px !important;
 }
 
-/*-------new css 14-3-2016----------*/
+/*-------new css 16-3-2016----------*/
+.product-img-container{
+	min-height: 215px;
+	max-height: 215px;
+}
+.product-img-container img {
+	max-height: 210px;
+}
 .error-list{
 	color: #df2028;
 }
@@ -2136,7 +2143,7 @@ ul.level1 {
 	padding: 0px;
 }
 #nav .level0-wrapper, #nav.classic ul.level0 {
-	top: 68px;
+	top: 70px;
 }
 #nav > li > a {
 	color: #333;
@@ -2583,7 +2590,7 @@ ul.level1 {
 	float:right;
 	margin-left: 0px;
 	margin-top: 2px;
-	padding: 8px 11px;
+	padding: 14px 11px;
 	font-weight:bold;
 	text-transform:uppercase;
 	text-shadow: none;
@@ -7676,6 +7683,7 @@ button.button#empty_cart_button:before {
 	padding: 6px;
 	width: 45px;
 	text-align: center;
+	height: 35px;
 }
 #shopping-cart-table .edit-bnt {
 	display: inline-block;

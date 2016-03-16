@@ -50,8 +50,21 @@ $(document).ready(function(){
     e.preventDefault()
   });
 
-  $("body").on("keyup",".change-qty",function(){
+  $("body").on("keyup",".change-qty",function(e){
+    var regexp1=new RegExp("[^0-9]");
+    if(!$(this).val() || regexp1.test($(this).val()))
+    {
+      $(this).val(1)
+    }
     changeItemQuantity(this)
+  })
+
+  $("body").on("keyup",".check-number",function(e){
+    var regexp1=new RegExp("[^0-9]");
+    if(!$(this).val() || regexp1.test($(this).val()))
+    {
+      $(this).val(1)
+    }
   })
 })
 

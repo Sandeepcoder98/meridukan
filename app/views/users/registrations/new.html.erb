@@ -1,16 +1,27 @@
-<script type="text/javascript" src="../assets/showjs.js"></script>
+<script type="text/javascript" src="/assets/showjs.js"></script>
 <section class="login-back">
   <div id="animate-area"></div>
   <div class="container-fluid">
+  <% if params[:role] == "seller" %>
+     <div class="sellers-left">
+ <div class="col-md-5">
+ <img src="/assets/Login-buyes-step2.png" ></div>
+  <div class="col-md-7"><h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit
+quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipiscing vitae.</p>
+  </div>
+ </div>
+  <% else %>
     <div class="buyers-left">
-      <img src="../assets/Login-buyes-step.png" >
+      <img src="/assets/Login-buyes-step.png" >
     </div>
+    <% end %>
     <div class="col-md-4 col-md-push-8">
       <div class="buyers-login-right">
         <div>
           <center>
             <a href="/">
-              <img src="../assets/meridookan-big.png" width="165" height="">
+              <img src="<%= asset_path("meridookan-big.png")%>" width="165" height="">
             </a>
           </center>
         </div>

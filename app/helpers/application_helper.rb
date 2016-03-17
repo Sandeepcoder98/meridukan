@@ -69,4 +69,8 @@ module ApplicationHelper
   def user_name(name)
     name.blank? ? "Anonymous" : name
   end
+
+  def main_li_tabs count
+    count <=4 ? "new-menu li_active" : "extra-menu li_inactive" 
+  end
 end

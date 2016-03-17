@@ -43,7 +43,7 @@ quisque tempus ac eget diam et laoreet phasellus ut nisi id leo molestie. adipis
                     <div class="col-md-6">
                     <%= f.submit "Login" %>
                     </div>
-                    <div class="col-md-6"><a href="<%=new_password_path(resource_name)%>" rel="forgot_password" class="forgot-btn">Forgot password?</a></div>
+                    <div class="col-md-6"><a href="<%=new_password_path(resource_name,:role=>params[:role])%>" rel="forgot_password" class="forgot-btn">Forgot password?</a></div>
                   </div>
                   <div class="clear"></div>
                 </div>

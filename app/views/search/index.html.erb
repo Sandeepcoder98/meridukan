@@ -246,13 +246,21 @@
                           <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
                         </div>
                       </div>
-                      <button data-product-id="{{id}}" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                      <button data-product-id="{{id}}" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add Karo</span></button>
                     </div>
                     <div class="email-addto-box">
                       <ul class="add-to-links">
-                        <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
+                        <li>
+                          <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span>
+                          </a>
+                        </li>
+                        <li>
+                          <p class="email-friend">
+                            <a href="#" class=""><span>Email to a Friend</span>
+                            </a>
+                          </p>
+                        </li>
                       </ul>
-                      <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
                     </div>
                   </div>
                 </div>
@@ -290,27 +298,6 @@
                         </div>
                       </div>
                       <div class="clearfix"></div>
-                      <div class="product-price">
-                        <h1 class="item-title"> <a href="product_detail.html" title="Sample Product"> {{title}} </a> 
-                        </h1>
-                        <div class="col-md-6">
-                          <div class="price-box">
-                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> &#8377;315.99 </span> </p>
-                            <p class="special-price">
-                              <span class="price-label">Special Price
-                              </span>
-                              <span class="price" id="product-price-48"> &#8377;309.99 
-                              </span>
-                            </p>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <button class="add-to-btn" title="Add to Cart" type="button">
-                            <span><i class="fa fa-shopping-cart"></i> Add Karo
-                            </span>
-                          </button>
-                        </div>
-                      </div>
                       <div class="product-bootom">
                         <ul class="list-icons">
                           <li><a href="#" data-toggle="tooltip" data-placement="top" title="Favorite">Favorite</a>

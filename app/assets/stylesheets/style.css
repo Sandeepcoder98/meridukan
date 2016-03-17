@@ -200,6 +200,17 @@ ul, ol {
 }
 
 /*-------new css 16-3-2016----------*/
+#selectAreaPopup textarea{
+	padding: 0 10px !important;
+	width: 100% !important;
+}
+#selectAreaPopup .title {
+    font-size: 24px;
+    padding: 5px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666;
+}
 .product-img-container{
 	min-height: 215px;
 	max-height: 215px;
@@ -214,6 +225,8 @@ ul, ol {
     max-width: 400px;
     padding: 10px;
     border: 2px solid #ccc;
+    border-radius: 5px;
+    top: 7%;
 }
 #selectAreaPopup .form-control {
     border: 1px solid #cccccc;
@@ -388,6 +401,7 @@ ul, ol {
     padding: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-transform:capitalize;
 }
 .item-price{
 	color: #ff3334;
@@ -2590,7 +2604,7 @@ ul.level1 {
 	float:right;
 	margin-left: 0px;
 	margin-top: 2px;
-	padding: 14px 11px;
+	padding: 14px 25px;
 	font-weight:bold;
 	text-transform:uppercase;
 	text-shadow: none;
@@ -3458,7 +3472,7 @@ margin-right: 10px;
 	display: block;
 }
 .product-view .product-shop .add-to-links li {
-	display: block;
+	display: inline-block;
 	padding: 0 0px 5px 2px;
 	list-style-type: none;
 }
@@ -4838,14 +4852,14 @@ ul.products-grid {
 }
 #product-main-section .product-detail-bnt {
 	display: inline-block;
-	margin-bottom: 45%;
+	margin-bottom: 40%;
 	margin-right: 8px;
 }
 .products-grid .item .item-inner .item-img .item-box-hover .product-detail-bnt a {
-	color: #000;
+	color: #fff;
 	text-align: center;
 	padding: 10px 12px 10px;
-	background-color: #f8f8f8;
+	background-color: #2a3d4b;
 	border: none;
 	border-radius: 3px;
 }
@@ -5603,7 +5617,7 @@ ul.products-grid {
 .block .block-title {
 	color: #df2028;
 	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	margin: 0;
 	padding: 10px 0 0;
 	text-transform: uppercase;

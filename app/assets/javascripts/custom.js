@@ -243,6 +243,23 @@ $(document).ready(function(){
     })
 });
 
+$(document).ready(function(){
+  
+  $("body").on("click",".change-li",function(e){
+    $("li.new-menu.li_active").addClass("li_inactive").removeClass("li_active")
+    $("li.extra-menu.li_inactive").addClass("li_active").removeClass("li_inactive")
+    $(this).addClass("change-li-new").removeClass("change-li")
+    e.preventDefault()
+  })
+  $("body").on("click",".change-li-new",function(e){
+    $("li.new-menu.li_inactive").addClass("li_active").removeClass("li_inactive")
+    $("li.extra-menu.li_active").addClass("li_inactive").removeClass("li_active")   
+    $(this).addClass("change-li").removeClass("change-li-new")
+    e.preventDefault()
+  })
+
+})
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();

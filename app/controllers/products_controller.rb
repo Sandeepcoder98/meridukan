@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # load_and_authorize_resource
  
-  before_action :no_store, except: :view_product
+  before_action :no_store, except: [:view_product, :show]
   before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
 
   #before_filter :check_path_tab, only: [:show,:edit]
@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
   end
 
   def show    
-    @products = current_user.products
   end
 
   def edit    

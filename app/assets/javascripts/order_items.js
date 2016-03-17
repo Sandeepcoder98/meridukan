@@ -102,6 +102,8 @@ var oneProductAddToCart = function(e){
 
 var hideQuickViewPopup = function(e){
   $this = $("#modal-12")
+  if ($this.length<1)
+    window.location.href = "/"
   $this.removeClass("md-show").css("overflow-y", "hidden")
   $("html").css("overflow-y","scroll")
 }

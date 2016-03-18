@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   rolify
   after_save :update_lat_long
+  before_save :store_state_and_city
   has_one :store
   has_many :products,:through=> :store
   accepts_nested_attributes_for :store, :reject_if => :all_blank
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :mobile
   validates     :mobile, numericality: { only_integer: true }
 
-  include LatLng
+  include UpdateStaticData
 
   def email_required?
   	false

@@ -7720,6 +7720,7 @@ button.button#empty_cart_button:before {
 	width: 45px;
 	text-align: center;
 	height: 35px;
+    line-height: 35px;
 }
 #shopping-cart-table .edit-bnt {
 	display: inline-block;

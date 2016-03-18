@@ -200,9 +200,22 @@ ul, ol {
 }
 
 /*-------new css 16-3-2016----------*/
+.top-right-nav .dropdown-menu {
+    margin-top: 11px !important;
+}
 #selectAreaPopup textarea{
 	padding: 0 10px !important;
 	width: 100% !important;
+}
+.realtime-image-div {
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+.realtime-image{
+	-moz-appearance: treeheadercell;
 }
 #selectAreaPopup .title {
     font-size: 24px;
@@ -1844,7 +1857,7 @@ nav {
 .nav-inner {
 	position: relative;
 	width: 100%;
-	padding-top: 16px
+	padding-top: 0px
 }
 #nav > li > a.active:nth-child(1) {
  color: #df2028;
@@ -1906,13 +1919,22 @@ nav {
 	border-bottom: none;
 	display: inline-block;
 	float: none;
+	margin-left: -3px;
+}
+.logo > span {
+    padding: 0 10px;
+    word-spacing: 0.09em;
+    display: block;
+}
+.sticky .logo > span{
+	display: none;
 }
 #nav > li.last {
 	padding-right: 0;
 }
 #nav > li > a {
 	display: block;
-	padding: 17px 0px 34px;
+	padding: 44px 0px;
 }
 #nav > li > a > span {
 	display: inline-block;
@@ -2157,7 +2179,7 @@ ul.level1 {
 	padding: 0px;
 }
 #nav .level0-wrapper, #nav.classic ul.level0 {
-	top: 70px;
+	top: 66px;
 }
 #nav > li > a {
 	color: #333;
@@ -8332,7 +8354,7 @@ button.button.login:before {
 #toTop {
 	color: #fff;
 	text-align: center;
-	bottom: 60px;
+	bottom: 53px;
 	display: none;
 	height: 40px;
 	line-height: 40px;

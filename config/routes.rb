@@ -49,7 +49,12 @@ Rails.application.routes.draw do
     get :stores, on: :collection
     get :products, on: :collection    
     get :find_stores, on: :collection
+  end  
+
+  authenticated :user, ->(u) { u.has_role?(:seller) }do
+    root to: 'dashboard#index', as: :authenticated_root
   end
+
   root :to => "home#index"
 
   authenticated :user, ->(u) { u.has_role?(:admin) } do

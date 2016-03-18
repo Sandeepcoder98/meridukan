@@ -242,10 +242,16 @@ ul, ol {
     top: 7%;
 }
 #selectAreaPopup .form-control {
-    border: 1px solid #cccccc;
+    border: 1px solid #878787;
     border-radius: 0;
+    background: #fff;
     height: 45px;
+    line-height: 45px;
 }
+#selectAreaPopup .form-control:hover {
+    border: 1px solid #5D6518;
+}
+
 .start-shopping{
 	background-color: #333 !important;
 	color: #fff;

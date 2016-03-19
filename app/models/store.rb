@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   after_save :update_lat_long
+  before_save :store_state_and_city
   belongs_to :user
   has_many :products
   # Logo uploader
@@ -9,7 +10,8 @@ class Store < ActiveRecord::Base
   # Cover uploader
   has_attached_file :cover, :styles => { :small => "150x150>" }, :default_url => 'missing_cover_:style.jpg'
   validates_attachment_content_type :cover, :content_type => ['image/jpeg', 'image/png']
-  include LatLng
+
+  include UpdateStaticData
 
   # Setting Up Objects  
   searchable do
@@ -30,4 +32,5 @@ class Store < ActiveRecord::Base
   def full_address
     "#{name}, #{address}, #{city}, #{state}, #{pin_code}"
   end
+
 end

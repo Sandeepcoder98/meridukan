@@ -1942,6 +1942,10 @@ nav {
 	display: block;
 	padding: 44px 0px;
 }
+.sticky #nav > li > a {
+	display: block;
+	padding: 17px 0px;
+}
 #nav > li > a > span {
 	display: inline-block;
 	padding: 0 5px;

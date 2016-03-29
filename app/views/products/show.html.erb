@@ -13,11 +13,9 @@
                     <div class="large-image"> <a href="<%= @product.photo_url %>" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="<%= @product.photo_url %>"> </a> </div>
                     <div class="flexslider flexslider-thumb">
                       <ul class="previews-list slides">
-                        <li><a href='/assets/p2.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p2.png' "><img src="/assets/p2.png" alt = "Thumbnail 1"/></a></li>
-                        <li><a href='/assets/p3.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p3.png' "><img src="/assets/p3.png" alt = "Thumbnail 2"/></a></li>
-                        <li><a href='/assets/p4.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p4.png' "><img src="/assets/p4.png" alt = "Thumbnail 1"/></a></li>
-                        <li><a href='/assets/p5.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p5.png' "><img src="/assets/p5.png" alt = "Thumbnail 2"/></a></li>
-                        <li><a href='/assets/p6.png' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '/assets/p6.png' "><img src="/assets/p6.png" alt = "Thumbnail 2"/></a></li>
+                        <%@product.galleries.each do |gallery|%>
+                          <li><a href='<%=gallery.photo.url%>' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '<%=gallery.photo.url%>' "><img src="<%=gallery.photo.url%>" /></a></li>
+                        <%end%>
                       </ul>
                     </div>
                   </div>
@@ -147,4 +145,4 @@
       </div>
     </div>
   </div>
-  <!-- Main Container End --> 
+  <!-- Main Container End -->

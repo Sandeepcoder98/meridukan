@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
       else
         format.html { render :update_information }
       end
-    end    
+    end
   end
 
   def update_information
@@ -28,7 +28,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email,:first_name, :last_name, :email, :phone, :address, :country, :state, :city,:mobile,:pin_code,:ip_address,:avatar,store_attributes:[:id,:name,:address,:state,:country,:city,:pin_code,:landmark,:lat,:lng, :cover, :logo])
+    params.require(:user).permit(:email,:first_name, :last_name, :email, :phone, :address, :country, :mobile,:pin_code,:ip_address,:avatar,store_attributes:[:id,:name,:address,:country,:pin_code,:landmark,:lat,:lng, :cover, :logo])
   end
 
   def sign_up(resource_name, resource)

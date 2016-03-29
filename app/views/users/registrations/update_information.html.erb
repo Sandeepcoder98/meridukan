@@ -27,7 +27,7 @@
                 <fieldset>
                   <div class="form-top">
                     <div class="form-top-left">
-                      <%h1_text= (current_user.has_role? "seller")? "<h3>Personal Information</h3>".html_safe : "<h3>Personal Information</h3>".html_safe %>     
+                      <%h1_text= (current_user.has_role? "seller")? "<h3>Personal Information</h3>".html_safe : "<h3>Personal Information</h3>".html_safe %>
                          <%= h1_text%>
                           <p>Tell us who you are:</p>
                     </div>
@@ -83,17 +83,18 @@
                     </div>
                     <div class="form-top-right">
                       <i class="fa fa-info-circle"></i>
-
                     </div>
                   </div>
                   <div class="form-bottom">
                     <div class="form-group">
-                        <%= f.select :state,options_for_select(get_states,@resource.state),{},
+                      <h5>Madhya Pradesh</h5>
+                        <%#= f.select :state,options_for_select(get_states,@resource.state),{},
                               :class=> "form-address form-control",
                               id: "form-address"%>
                       </div>
                     <div class="form-group">
-                      <%= f.text_field :city,
+                      <h5>Indore</h5>
+                      <%#= f.text_field :city,
                             placeholder: "City",
                             class: "form-address form-control",
                             id: "form-address"%>
@@ -171,13 +172,15 @@
                         </div>
 
                         <div class="form-group">
-                          <%= store_f.select :state,options_for_select(get_states,get_states[16]),{},
+                          <h5>Madhya Pradesh</h5>
+                          <%#= store_f.select :state,options_for_select(get_states,get_states[16]),{},
                                 :class=> "form-address form-control",
                                 id: "form-address"%>
                         </div>
 
                         <div class="form-group">
-                          <%= store_f.text_field :city,
+                          <h5>Indore</h5>
+                          <%#= store_f.text_field :city,
                                 placeholder: "City",
                                 class: "form-address form-control",
                                 id: "form-address"%>

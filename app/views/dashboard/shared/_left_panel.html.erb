@@ -1,0 +1,59 @@
+<div class="leftpanel">
+  <div class="logopanel">
+    <h1>  <img alt="" src="/assets/footer-logo.png" class=""></h1>
+  </div>
+  <!-- logopanel -->
+  <div class="leftpanelinner">
+    <!-- This is only visible to small devices -->
+    <div class="visible-xs hidden-sm hidden-md hidden-lg">
+      <div class="media userlogged">
+        <img alt="" src="/assets/loggeduser.png" class="media-object">
+        <div class="media-body">
+          <h4>John Doe</h4>
+          <span>"Life is so..."</span>
+        </div>
+      </div>
+      <h5 class="sidebartitle actitle">Account</h5>
+      <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+        <li><a href="profile.html"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+        <li><a href=""><i class="fa fa-cog"></i> <span>Account Settings</span></a></li>
+        <li><a href=""><i class="fa fa-question-circle"></i> <span>Help</span></a></li>
+        <li><a href="signout.html"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+      </ul>
+    </div>
+    <h5 class="sidebartitle">Navigation</h5>
+    <ul class="nav nav-pills nav-stacked nav-bracket">
+      <li class="active"><%= link_to ('<i class="fa fa-th-large"></i>Dashboard').html_safe,authenticated_root_path%></li>
+      <li class="nav-parent">
+        <a href=""><i class="fa fa-edit"></i> <span>Selling</span></a>
+        <ul class="children">
+          <li><%= link_to ("<i class='fa fa-caret-right'></i> #{t '.Manage Sales'}").html_safe,manage_sales_dashboard_path%></li>
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>Buyer Requets').html_safe,buyer_request_dashboard_path%></li>
+          <li><a href="form-validation.html"><i class="fa fa-caret-right"></i>  Revenues</a></li>
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>Analytics').html_safe,analytics_dashboard_path%></li>
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>My products').html_safe,my_products_dashboard_path%></li>
+          <li><a href="code-editor.html"><i class="fa fa-caret-right"></i>sales search</a></li>
+          <li><a href="x-editable.html"><i class="fa fa-caret-right"></i>Promote Your Business</a></li>
+        </ul>
+      </li>
+      <li class="nav-parent">
+        <a href=""><i class="fa fa-user"></i> <span>Requests</span></a>
+        <ul class="children">
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>Manage Requet').html_safe,manage_request_dashboard_path%></li>
+          <li><a href="form-layouts.html"><i class="fa fa-caret-right"></i>Post a Request</a></li>
+        </ul>
+      </li>
+      <li class="nav-parent">
+        <a href=""><i class="fa fa-edit"></i> <span>Contacts</span></a>
+        <ul class="children">
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>My Buyers').html_safe,my_buyers_dashboard_path%></li>
+          <li><%= link_to ('<i class="fa fa-caret-right"></i>My Sellers').html_safe,my_sellers_dashboard_path%></li>
+        </ul>
+      </li>
+      <li><%= link_to ('<i class="fa fa-inbox"></i>Inbox').html_safe,inbox_dashboard_path%></li>
+      <li><%= link_to ('<i class="fa fa-cog"></i>Settings').html_safe,public_profile_setting_dashboard_path%></li>
+    </ul>
+    <!-- infosummary -->
+  </div>
+  <!-- leftpanelinner -->
+</div>

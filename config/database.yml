@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   host: localhost
-  username: postgres
-  password: 12345678
+  username: root
+  password: root
   database: MeriDukan_development
 
   # The specified database role being used to connect to postgres.

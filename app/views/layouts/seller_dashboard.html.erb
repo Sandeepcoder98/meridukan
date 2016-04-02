@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meri Dookan</title>
+  <%= stylesheet_link_tag    'seller_dashboard', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <%= javascript_include_tag 'seller_dashboard', 'data-turbolinks-track' => true %>
+  <%= yield :javascript %>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900">
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%=render '/dashboard/shared/left_panel'%>
+    <%= yield %>
+  
+</body>
+</html>

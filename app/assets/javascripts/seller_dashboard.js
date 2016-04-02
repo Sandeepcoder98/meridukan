@@ -14,11 +14,13 @@
 //= require jquery-ui
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require turbolinks
-//= require seller_dashboard/jquery-migrate-1.2.1.min    
-//= require seller_dashboard/jquery.sparkline.min
+//= require seller_dashboard/jquery-1.11.1.min
+//= require bootstrap.min
 //= require seller_dashboard/toggles.min
+//= require seller_dashboard/jquery-migrate-1.2.1.min  
+//= require seller_dashboard/jquery.sparkline.min
 //= require seller_dashboard/jquery.cookies
 //= require seller_dashboard/custom
+
+
 

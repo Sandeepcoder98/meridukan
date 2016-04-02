@@ -18,6 +18,23 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  dashboard:
+    inbox:
+      subtitle: 'Subtitle goes here...'
+      all: 'All'
+      unread: 'Unread'
+      started: 'Started'
+      archived: 'Archived'
+      sent: 'Sent'
+      folders: 'Folders'
+      orders: 'Orders'
+      custom: 'Custom Offers'
+      you: 'You are here:'
+      my: 'My Profile'
+      account: 'Account Setting'
+      help: 'Help'
+      log: 'Log Out'
+      search: 'Search here...'
+      manage: 'Manage Sales'
+

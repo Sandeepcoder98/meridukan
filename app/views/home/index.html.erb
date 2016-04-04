@@ -1,3 +1,5 @@
+<%= link_to_unless_current "English", locale: "en" %> |
+<%= link_to_unless_current "Hindi", locale: "hi" %>
 <div class="mm-toggle-wrap">
   <div class="mm-toggle">
     <i class="icon-align-justify"></i>
@@ -5,19 +7,18 @@
   </div>
 </div>
 <div class="span_1_of_1">
-  <h2>Select your Product Categories <br>
-    Find it on here
+  <h2><%=t".select"%>
   </h2>
   <%= form_tag search_index_path, method: :get do %>
     <div class="search">
       <div class="input-group">
           <div class="input-group-btn search-panel">
             <button type="button" class="btn dropdown-toggle select-option" data-toggle="dropdown">
-              <span id="search_concept">Products</span> <span class="caret"></span>
+              <span id="search_concept"><%=t".product"%></span> <span class="caret"></span>
             </button>
             <ul id="search_selection" class="dropdown-menu" role="menu">
-              <li><a data-text="Search for a product" data-action="/search" href="#">Products</a></li>
-              <li><a data-text="Search for a store"  data-action="/search/stores" href="#">Shops</a></li> 
+              <li><a data-text="Search for a product" data-action="/search" href="#"><%=t".product"%></a></li>
+              <li><a data-text="Search for a store"  data-action="/search/stores" href="#"><%=t".shop"%></a></li> 
             </ul>
           </div>
           <input type="text" class="form-control" name="q" placeholder="Search for a product" id="search_text">

@@ -217,6 +217,10 @@ ul, ol {
 .realtime-image{
 	-moz-appearance: treeheadercell;
 }
+
+.word-break{
+	display: block;
+}
 #selectAreaPopup .title {
     font-size: 24px;
     padding: 5px 0;

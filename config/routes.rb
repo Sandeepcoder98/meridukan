@@ -67,4 +67,14 @@ Rails.application.routes.draw do
     end
     get '/admin'=> "admin/dashboards#index"
   end
+
+  # API structure
+  namespace :api do
+    namespace :v1 do
+      devise_for :users
+      resources :users, only: [] do 
+        get :store, on: :collection
+      end
+    end
+  end  
 end

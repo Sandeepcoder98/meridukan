@@ -69,3 +69,5 @@ gem 'sunspot_solr'
 
 gem 'progress_bar'
 gem 'draper'
+
+gem 'simple_token_authentication'

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_one :store
   has_many :products,:through=> :store
   accepts_nested_attributes_for :store, :reject_if => :all_blank
-  
+  acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

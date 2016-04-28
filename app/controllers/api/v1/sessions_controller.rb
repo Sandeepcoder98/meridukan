@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < DeviseController
+  skip_before_filter :verify_authenticity_token, :only => :create
+
   prepend_before_filter :require_no_authentication, :only => [:create ]
   
   before_filter :ensure_params_exist

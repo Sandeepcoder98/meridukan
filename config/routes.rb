@@ -69,12 +69,23 @@ Rails.application.routes.draw do
   end
 
   # API structure
-  namespace :api do
+  namespace :api, defaults: {format: :json} do
     namespace :v1 do
+
       devise_for :users
-      resources :users, only: [] do 
-        get :store, on: :collection
+
+      get "/my_store" => "store#my_store"
+      resources :store do 
+        resources :products, only: :index
       end
+
+      resources :products, except: :index
+
+      resources :search, only: :index do 
+        get :stores, on: :collection
+        get :products, on: :collection    
+      end  
+      
     end
   end  
 end

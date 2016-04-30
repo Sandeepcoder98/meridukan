@@ -28,6 +28,13 @@ development:
   password: 12345678
   database: MeriDukan_development
 
+production:
+  <<: *default
+  host: localhost
+  # username: postgres
+  # password: 12345678
+  database: MeriDukan_production
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

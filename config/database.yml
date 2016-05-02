@@ -17,22 +17,19 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  username: postgres
+  password: 12345678
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
 development:
   <<: *default
-  host: localhost
-  username: postgres
-  password: 12345678
   database: MeriDukan_development
 
 production:
   <<: *default
-  host: localhost
-  username: postgres
-  password: 12345678
   database: MeriDukan_production
 
   # The specified database role being used to connect to postgres.

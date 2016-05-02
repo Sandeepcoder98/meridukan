@@ -200,7 +200,7 @@
 	-moz-box-shadow: none; /* Firefox */
     -webkit-box-shadow: none; /* Safari and Chrome */
     box-shadow: none;
-    filter: progid: none;
+    /*filter: progid: none;*/
 
 }
 

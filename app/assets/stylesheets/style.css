@@ -10362,7 +10362,7 @@ select#shipping-address-select {
  color: #999;
 }
 #search_text:focus {
-	background: rgb(225, 225, 225, 0.5);
+	/*background: rgb(225, 225, 225, 0.5);*/
 }
 #search_button {
 	border: 0 none;
@@ -10710,7 +10710,6 @@ select#shipping-address-select {
 }
 .right-bar .lead {
 	font-size: 14px;
- color:
 }
 /*checkbox*/
 input[type=checkbox].css-checkbox {

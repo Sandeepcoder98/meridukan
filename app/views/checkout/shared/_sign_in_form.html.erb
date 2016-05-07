@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+  <div class="content">
+    <div id="form_wrapper" class="form_wrapper"> 
+      <%= form_for(@user, as: resource_name, url: action_login_checkout_index_path, html:{class:"login active", id: "checkout-user"}, remote: true, method: "post") do |f| %>
+        <div id="error-messages"></div>
+        <div class="login-box">
+          <label><%= params[:mobile] %> <a href="#" onclick="changeEmail()">Change</a></label>
+           <%= f.hidden_field :mobile  %>
+          <label>Enter Password* </label>
+           <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+        <div class="bottom">
+          
+          <div class="row">
+            <div class="col-md-6">
+            <%= f.submit "Login" %><br/>
+            <a href="<%=resend_otp_password_checkout_index_path(mobile: params[:mobile])%>" data-remote="true" rel="forgot_password">Forgot Password?</a>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+  </div>
+</div>

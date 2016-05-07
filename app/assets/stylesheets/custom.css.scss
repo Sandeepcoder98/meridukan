@@ -61,3 +61,26 @@
 .li_inactive{display:none !important;}
 .li_active{display:inline-block !important;}
 .pac-container{z-index: 1999 !important;}
+
+.checkout-process-div .panel{
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+.checkout-process-div .panel-heading{
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.panel-primary .panel-heading {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.panel-body input[type="text"], .panel-body input[type="password"], {
+  width: 250px;
+  line-height: 34px;
+  height: 40px;
+}
+
+

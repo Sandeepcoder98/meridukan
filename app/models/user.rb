@@ -73,4 +73,25 @@ class User < ActiveRecord::Base
   def full_address
     "#{address}, #{city}, #{state}, #{pin_code}"
   end
+
+  def self.find_and_assign_form(mobile)
+    user = find_by_mobile mobile
+    user_checkout_auth(user, mobile)
+  end
+
+  def self.new_user(mobile)
+    user = User.new(mobile: mobile)
+    user.add_role_and_send_otp
+    user
+  end
+
+  def self.user_checkout_auth(user, mobile)
+    user.nil? ? [new_user(mobile), "sign_up_form"] : [user, "sign_in_form"]
+  end
+
+  def add_role_and_send_otp
+    add_user_role "buyer"
+    update_new_password_and_send_otp
+  end
+
 end

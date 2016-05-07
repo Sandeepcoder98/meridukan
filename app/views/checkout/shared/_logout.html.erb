@@ -1,0 +1,16 @@
+<div class="login-wrapper">
+  <div class="content">
+    <div id="form_wrapper" class="form_wrapper"> 
+      <label>Logged in as <%= current_user.mobile %> .</label>
+      <br/>
+      <div class="alert alert-warning fade in">Please note that upon clicking "Sign out" you will lose items in your cart and will be redirected to Meridukan home page.</div>
+      <br/>
+      <%= link_to destroy_user_session_path, :method => :delete do %>
+        <button class="logout-now">SIGN OUT</button> 
+      <% end %>
+      Continue with checkout
+    </div>
+    <div class="clear"></div>
+    <div class="clear"></div>
+  </div>
+</div>

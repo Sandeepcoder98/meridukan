@@ -8,7 +8,9 @@
       <%= link_to destroy_user_session_path, :method => :delete do %>
         <button class="logout-now">SIGN OUT</button> 
       <% end %>
-      Continue with checkout
+      <%= link_to delivery_address_checkout_index_path, remote: true do %>        
+        <button class="branded">Continue with checkout</button>
+      <% end %>
     </div>
     <div class="clear"></div>
     <div class="clear"></div>

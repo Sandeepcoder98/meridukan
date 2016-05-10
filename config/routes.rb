@@ -56,6 +56,15 @@ Rails.application.routes.draw do
       post :get_started
       post :action_login
       get :resend_otp_password
+      get :delivery_address
+      post :add_delivery_address
+      get :payment_method
+      get :cash_on_delivery
+    end
+
+    member do
+      put :deliver_here
+      get :order_response
     end
   end
 

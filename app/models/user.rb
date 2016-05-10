@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_save :store_state_and_city
   has_one :store
   has_many :products,:through=> :store
+  has_many :shipping_addresses
   accepts_nested_attributes_for :store, :reject_if => :all_blank
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
@@ -94,4 +95,18 @@ class User < ActiveRecord::Base
     update_new_password_and_send_otp
   end
 
+  def self.send_information_to_sellers(order)
+    self.all.each do |seller|
+      MessagingService.new(:mobile => seller.mobile, :message => "New order request #{order.id} and amount is #{order.subtotal.to_f}").send_message
+    end
+  end
+
+  def send_information_to_buyer(order)
+    MessagingService.new(:mobile => mobile, :message => "We have received your order #{order.id} and amount is #{order.subtotal.to_f}").send_message
+  end
+
+  def set_default_address shipping_address_id
+    shipping_addresses.update_all(status: false)
+    shipping_addresses.find(shipping_address_id).update(status: true)
+  end
 end

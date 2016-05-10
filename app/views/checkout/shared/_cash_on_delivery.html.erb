@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-3">
+		<%= link_to "#", class: "a_demo_four", style: "padding: 14px 100px;" do  %>₹ COD<% end %>
+	</div>
+	<div class="col-md-6 text-center">
+		<%= link_to order_response_checkout_path(current_order) do %>
+			<button class="branded" style="font-size: 22px;">Confirm Order</button>
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		Rs. <%= current_order.subtotal.to_f %><br/>
+		<hr/>
+		<h4>Amount Payable</h4>
+		<h4 style="color:#DF2027;">Rs. <%= current_order.subtotal.to_f %></h4>
+		<hr/>
+	</div>
+</div>

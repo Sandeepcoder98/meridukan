@@ -4,6 +4,11 @@ class Order < ActiveRecord::Base
   before_create :set_order_status
   before_save :update_subtotal
 
+  def placed(buyer)
+    self.update(order_status_id: 2, user_id: buyer.id)
+    self.send_placed_information(buyer)
+  end
+
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
@@ -31,7 +36,14 @@ class Order < ActiveRecord::Base
     order_item
   end
 
-private
+  def send_placed_information(buyer)
+    sellers = User.joins(:store).joins(:products).where('products.id'=>order_items.map(&:product_id))
+    sellers.send_information_to_sellers(self)
+    buyer.send_information_to_buyer(self)
+  end
+
+  private
+
   def set_order_status
     self.order_status_id = 1
   end

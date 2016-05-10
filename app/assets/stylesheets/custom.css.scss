@@ -82,5 +82,39 @@
   line-height: 34px;
   height: 40px;
 }
-
-
+.add-new-address-container {
+    max-width: 400px;
+    width: 100% !important;
+    background-image: url(/assets/white-back.png);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    font-family: roboto;
+    margin-top: 100px;
+    height: 564px;
+}
+.add-new-address-container input[type=text], input[type=password] {
+    height: 30px;
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    line-height: 30px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+.checkout-process-div{
+  .panel-heading {
+    color: #ffffff;
+    background-color: #35ABD7;
+    border-color: #fff;
+  }
+  .panel-primary {
+    border-color: #fff;
+  }
+}

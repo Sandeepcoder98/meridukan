@@ -1,0 +1,43 @@
+<%= form_for (@seller_document) do |f|%>
+	<div class="form-group">
+		<%= f.label :account_name,"Account Name"%>
+		<%= f.text_field :account_name,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :account_number,"Account Number"%>
+		<%= f.text_field :account_number,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :bank_name,"Bank Name"%>
+		<%= f.text_field :bank_name,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :state,"State"%>
+		<%= f.text_field :state,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :city,"City"%>
+		<%= f.text_field :city,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :bank_branch,"Branch"%>
+		<%= f.text_field :bank_branch,class: "form-control"%>
+	</div>
+	<hr>
+	<h6>KYC Documents</h6>
+	<div class="form-group">
+		<%= f.label :address_proof,"Address Proof"%>
+		<%= f.select :address_proof,SellerDocument::ADDRESS_PROOFS,{prompt: "Select"},class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.file_field :upload_address_proof,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.label :cancelled_cheque,"Cancelled Cheque"%>
+		<%= f.file_field :cancelled_cheque,class: "form-control"%>
+	</div>
+	<div class="form-group">
+		<%= f.submit "Save"%>
+	</div>
+<%end%>
+

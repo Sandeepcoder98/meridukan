@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427181246) do
+ActiveRecord::Schema.define(version: 20160507093237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,6 +146,45 @@ ActiveRecord::Schema.define(version: 20160427181246) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "seller_documents", force: :cascade do |t|
+    t.string   "business_name"
+    t.string   "business_type"
+    t.string   "pan_card_number"
+    t.string   "vat_card_number"
+    t.string   "tan_card_number"
+    t.string   "account_name"
+    t.string   "account_number"
+    t.string   "bank_name"
+    t.string   "state"
+    t.string   "city"
+    t.string   "bank_branch"
+    t.string   "ifsc_code"
+    t.string   "address_proof"
+    t.integer  "user_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "pan_card_file_name"
+    t.string   "pan_card_content_type"
+    t.integer  "pan_card_file_size"
+    t.datetime "pan_card_updated_at"
+    t.string   "vat_card_file_name"
+    t.string   "vat_card_content_type"
+    t.integer  "vat_card_file_size"
+    t.datetime "vat_card_updated_at"
+    t.string   "tan_card_file_name"
+    t.string   "tan_card_content_type"
+    t.integer  "tan_card_file_size"
+    t.datetime "tan_card_updated_at"
+    t.string   "upload_address_proof_file_name"
+    t.string   "upload_address_proof_content_type"
+    t.integer  "upload_address_proof_file_size"
+    t.datetime "upload_address_proof_updated_at"
+    t.string   "cancelled_cheque_file_name"
+    t.string   "cancelled_cheque_content_type"
+    t.integer  "cancelled_cheque_file_size"
+    t.datetime "cancelled_cheque_updated_at"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string   "name"

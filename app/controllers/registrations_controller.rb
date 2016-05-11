@@ -20,6 +20,12 @@ class RegistrationsController < Devise::RegistrationsController
     render :layout=>"layouts/application"
   end
 
+
+  def update_documents
+    current_user.seller_document ? @seller_document = current_user.seller_document : @seller_document = SellerDocument.new
+    render :layout=>"layouts/application"
+  end
+
   protected
 
   def configure_permitted_parameters

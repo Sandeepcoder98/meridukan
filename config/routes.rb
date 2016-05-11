@@ -41,8 +41,10 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'update_information'=> "registrations#update_information"
+    get 'update_documents'=> "registrations#update_documents"
   end
 
+  resources :seller_documents
   resource :home
   resource :dashboard
   resources :search, only: :index do 

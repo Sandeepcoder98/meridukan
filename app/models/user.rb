@@ -3,8 +3,10 @@ class User < ActiveRecord::Base
   after_save :update_lat_long
   before_save :store_state_and_city
   has_one :store
+  has_one :seller_document
   has_many :products,:through=> :store
   accepts_nested_attributes_for :store, :reject_if => :all_blank
+  accepts_nested_attributes_for :seller_document
   acts_as_token_authenticatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

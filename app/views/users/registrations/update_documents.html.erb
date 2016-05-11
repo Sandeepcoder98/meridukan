@@ -1,0 +1,148 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="business-doc">
+    <div class="col-lg-6">
+      <div class="business-details">
+          <%= image_tag "business-icon.png"%>
+          <!-- <div class="ribbon-container"> -->
+                <!-- <span class="ribbon open-ribbon">Pending</span> -->
+          <!-- </div> -->
+        <h1>Business Details</h1>
+        <p>We need your PAN, TIN, TAN details to verify your business details</p>
+        <hr>
+       <center>
+          <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#businessModel">ADD DETAILS</button>
+       </center>
+      </div>
+    </div>
+
+   <div class="col-lg-6">
+     <div class="business-details">
+        <%= image_tag "bank-icon.png"%>
+        <h1>Bank Details</h1>
+        <p>Your bank account details and KYC documents are under verification</p>
+         <hr>
+        <center>
+          <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#bankModel">ADD DETAILS</button>
+        </center>
+    </div>
+  </div>
+ </div>
+</div>
+<div class="clearfix"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="businessModel" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Business Details</h4>
+      </div>
+      <div class="modal-body">
+        <p></p>
+         <%= render 'seller_documents/business_details'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="bankModel" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bank Details</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <p>Form</p> -->
+         <%= render 'seller_documents/bank_details'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<style type="text/css">
+  .business-details{
+    width: 100%;
+    
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+  .business-details img{
+    padding-top: 22px;
+  }
+  .business-doc {
+    margin-left: 15px;
+    margin-bottom: 30px;
+  }
+  .modal-dialog{
+    width: 40%;
+  }
+  .business-details h1{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 21px;
+    color: #717171;
+    padding-top: 20px;
+}
+ .business-details p{
+      font-size: 13px;
+    color: #3F3F3F;
+    padding-top: 9px;
+    margin: 0px;
+  }
+  .business-details hr{
+    border:1px solid #eee;
+    margin: 15px 0px;
+  }
+  .business-details .btn-lg{
+    font-size: 16px;
+  }
+  .ribbon-container {
+    position: relative;
+    overflow: visible;
+    font-size: 14px;
+    line-height: 14px;
+    width: 185px;
+    margin: 10px 0 0 -17px;
+}
+.ribbon-container span {
+    display: block;
+    padding: 9px 0;
+    position: relative;
+    text-align: center;
+    overflow: visible;
+    height: 30px;
+    margin-right: 30px;
+    color: #fff;
+    text-decoration: none;
+    background: #F2575B;
+    font-size: 13px;
+
+}
+.ribbon-container span:before {
+    content: "";
+    height: 30px;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -15px;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+}
+</style>

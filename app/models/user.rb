@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :store
   has_one :seller_document
   has_many :products,:through=> :store
+  has_many :shipping_addresses
   accepts_nested_attributes_for :store, :reject_if => :all_blank
   accepts_nested_attributes_for :seller_document
   acts_as_token_authenticatable
@@ -74,5 +75,40 @@ class User < ActiveRecord::Base
 
   def full_address
     "#{address}, #{city}, #{state}, #{pin_code}"
+  end
+
+  def self.find_and_assign_form(mobile)
+    user = find_by_mobile mobile
+    user_checkout_auth(user, mobile)
+  end
+
+  def self.new_user(mobile)
+    user = User.new(mobile: mobile)
+    user.add_role_and_send_otp
+    user
+  end
+
+  def self.user_checkout_auth(user, mobile)
+    user.nil? ? [new_user(mobile), "sign_up_form"] : [user, "sign_in_form"]
+  end
+
+  def add_role_and_send_otp
+    add_user_role "buyer"
+    update_new_password_and_send_otp
+  end
+
+  def self.send_information_to_sellers(order)
+    self.all.each do |seller|
+      MessagingService.new(:mobile => seller.mobile, :message => "New order request #{order.id} and amount is #{order.subtotal.to_f}").send_message
+    end
+  end
+
+  def send_information_to_buyer(order)
+    MessagingService.new(:mobile => mobile, :message => "We have received your order #{order.id} and amount is #{order.subtotal.to_f}").send_message
+  end
+
+  def set_default_address shipping_address_id
+    shipping_addresses.update_all(status: false)
+    shipping_addresses.find(shipping_address_id).update(status: true)
   end
 end

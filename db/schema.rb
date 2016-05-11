@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507093237) do
+ActiveRecord::Schema.define(version: 20160510072855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160507093237) do
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "user_id"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
@@ -184,6 +185,23 @@ ActiveRecord::Schema.define(version: 20160507093237) do
     t.string   "cancelled_cheque_content_type"
     t.integer  "cancelled_cheque_file_size"
     t.datetime "cancelled_cheque_updated_at"
+  end
+
+  create_table "shipping_addresses", force: :cascade do |t|
+    t.integer  "mobile",     limit: 8
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "pin_code"
+    t.boolean  "status",                                        default: false
+    t.integer  "user_id"
+    t.decimal  "lat",                  precision: 10, scale: 6
+    t.decimal  "lng",                  precision: 10, scale: 6
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   create_table "stores", force: :cascade do |t|

@@ -284,5 +284,9 @@ var CallCkeditor = function(){
   }
 }
 
+var changeEmail = function(){
+  $("#sign-in-form-place").empty()
+  $("#take-user-mobile").show()
+}
 $(document).ready(CallCkeditor)
 $(document).on('page:load', CallCkeditor)

@@ -53,6 +53,23 @@ Rails.application.routes.draw do
     get :find_stores, on: :collection
   end  
 
+  resources :checkout do 
+    collection do
+      post :get_started
+      post :action_login
+      get :resend_otp_password
+      get :delivery_address
+      post :add_delivery_address
+      get :payment_method
+      get :cash_on_delivery
+    end
+
+    member do
+      put :deliver_here
+      get :order_response
+    end
+  end
+
   authenticated :user, ->(u) { u.has_role?(:seller) }do
     root to: 'dashboard#index', as: :authenticated_root
   end

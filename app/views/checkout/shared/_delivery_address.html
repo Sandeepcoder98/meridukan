@@ -1,0 +1,27 @@
+<div class="row">
+	<% @addresses.each do |address| %>
+		<div class="col-md-4">
+
+			<i style="font-size:10px;color:green;"><u><%= address.status ? "Default" : "" %></u></i>
+			<%= address.first_name %> <%= address.last_name %>
+			<hr/>
+			<%= address.address %><br/>
+			<%= address.pin_code %><br/>
+			<%= address.city %><br/>
+			<%= address.state %><br/>
+			<%= address.country %><br/>
+			<hr/>
+			<%= link_to deliver_here_checkout_path(address.id), remote: true, method: :put do %>
+				<button class="branded">Deliver Here</button>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<div class="row">
+	<div class="col-md-12 text-center">
+	<hr/>
+        <%= link_to "#", "data-toggle"=>"modal", "data-target"=>"#new-address-modal", remote: true do %>
+        	<button class="branded">Add New Address</button>
+        <% end %>
+	</div>
+</div>

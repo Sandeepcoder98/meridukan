@@ -1,10 +1,11 @@
-class Admin::DashboardsController < ApplicationController
+class Admin::DashboardController < ApplicationController
   before_action :set_admin_dashboard, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/dashboards
   # GET /admin/dashboards.json
   def index
-    @categories = Category.all
+    # @categories = Category.all
+    @sellers = User.with_role :seller
   end
 
   # GET /admin/dashboards/1

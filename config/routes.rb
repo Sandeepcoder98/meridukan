@@ -44,7 +44,9 @@ Rails.application.routes.draw do
     get 'update_documents'=> "registrations#update_documents"
   end
 
-  resources :seller_documents
+  resources :seller_documents do
+    get :seller_document_approve,on: :collection
+  end
   resource :home
   resource :dashboard
   resources :search, only: :index do 

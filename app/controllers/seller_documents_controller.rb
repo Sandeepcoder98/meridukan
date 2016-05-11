@@ -7,6 +7,14 @@ class SellerDocumentsController < ApplicationController
 
 	def update;end
 
+	# Method for approving the Business or bank Details
+	def seller_document_approve
+		# send params to model
+		SellerDocument.document_approve(params[:user_id],params[:approve_type])
+		# redirect to the same page
+		redirect_to :back
+	end
+
 
 private
 	

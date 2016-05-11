@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510072855) do
+ActiveRecord::Schema.define(version: 20160511105838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,8 +163,8 @@ ActiveRecord::Schema.define(version: 20160510072855) do
     t.string   "ifsc_code"
     t.string   "address_proof"
     t.integer  "user_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "pan_card_file_name"
     t.string   "pan_card_content_type"
     t.integer  "pan_card_file_size"
@@ -185,6 +185,8 @@ ActiveRecord::Schema.define(version: 20160510072855) do
     t.string   "cancelled_cheque_content_type"
     t.integer  "cancelled_cheque_file_size"
     t.datetime "cancelled_cheque_updated_at"
+    t.boolean  "bank_details_approve",              default: false
+    t.boolean  "business_details_approve",          default: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|

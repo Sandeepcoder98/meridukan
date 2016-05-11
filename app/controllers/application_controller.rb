@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
   helper_method :current_order
+  helper_method :current_admin
+
   
   def current_order
     begin
@@ -17,6 +19,10 @@ class ApplicationController < ActionController::Base
     rescue
       Order.new
     end
+  end
+
+  def current_admin
+    ((current_user.nil?) || (!current_user.has_role? :admin))
   end
 
   protected

@@ -1,0 +1,27 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#bank_view_Model_<%= user.id %>" data-backdrop="static" data-keyboard="false">View Details</button>
+<!-- Bank Details Modal -->
+<div class="modal fade" id="bank_view_Model_<%= user.id %>" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bank Details</h4>
+      </div>
+      <div class="modal-body">
+        <% if user.seller_document %>
+          <%= render 'bank_details_list',seller_document: user.seller_document%>
+        <%else%>
+          <h5>No Succuessful Updated</h5>
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <% if (user.seller_document)&&(user.seller_document.bank_details_approve) %>
+          <%= link_to "Approve",seller_document_approve_seller_documents_path(user_id: user.id,approve_type: "Bank"),class: "btn btn-success"%>
+        <%else%>
+          <%= link_to "Approve",seller_document_approve_seller_documents_path(user_id: user.id,approve_type: "Bank"),class: "btn btn-primary"%>
+        <%end%>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

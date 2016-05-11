@@ -31,4 +31,16 @@ class SellerDocument < ActiveRecord::Base
 
   BUSINESS_TYPES = "Proprietor","Company"
   ADDRESS_PROOFS = "Passport","Credit card statement","Electricity bill","Aadhar card","Telephone/mobile bill","Ration card","Bank account/credit card statement","Voter's identity card"
+
+
+  # Method for seller document approve
+  def self.document_approve id,type
+    # find the user
+    user = User.find(id)
+    # update the seller document business details approve button
+    user.seller_document.business_details_approve ? user.seller_document.update(business_details_approve: false) : user.seller_document.update(business_details_approve: true) if (type.eql?("Business")) && (user.seller_document)
+    # update the seller document bank details approve button
+    user.seller_document.bank_details_approve ? user.seller_document.update(bank_details_approve: false) : user.seller_document.update(bank_details_approve: true) if (type.eql?("Bank")) && (user.seller_document)
+  end
+  
 end

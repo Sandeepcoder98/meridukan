@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :mobile
   validates     :mobile, numericality: { only_integer: true }
 
+  default_scope { order(created_at: :desc) }
+
   include UpdateStaticData
 
   def email_required?
@@ -111,4 +113,9 @@ class User < ActiveRecord::Base
     shipping_addresses.update_all(status: false)
     shipping_addresses.find(shipping_address_id).update(status: true)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

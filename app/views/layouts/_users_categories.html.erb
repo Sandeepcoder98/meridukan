@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<% if params[:controller]!="carts"%>
+<% if (params[:controller]!="admin") || (params[:controller]!="carts")%>
   <div class="nav-inner">
     <ul id="nav" class="hidden-xs">
       <% Category.all.each_with_index do |category, index| %>

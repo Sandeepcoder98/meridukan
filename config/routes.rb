@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         match :additional_offers , via: [:get, :patch]
         get :approve
         get :view_product
+        post :product_activities
       end
     end
   end

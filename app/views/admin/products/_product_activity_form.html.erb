@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="product_reject_model_<%= admin_product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Reject Product</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for admin_product.product_activities.new,url:product_activities_admin_product_path(admin_product) do |f| %>
+          <%= hidden_field_tag :type,"Cancel"%>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description,class: "form-control"%>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Submit",data:{confirm: "Are you sure you want to submit this form?"},class: "btn btn-primary" %>
+      </div>
+    <%end%>
+    </div>
+  </div>
+</div>
+<!--- Model End -->
+
+
+<style type="text/css">
+  textarea {
+    width: 560px !important;
+    height: 100px !important;
+}
+</style>

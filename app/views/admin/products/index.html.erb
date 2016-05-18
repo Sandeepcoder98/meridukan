@@ -1,25 +1,35 @@
 <p id="notice"><%= notice %></p>
+<h1>Products</h1>
 
-<h1>Listing Admin Products</h1>
+<span class="admin_product_new"><%= link_to 'New Product', new_admin_product_path,class: "btn btn-success" %></span>
 
 <table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
       <th>Title</th>
+      <th>Product</th>
       <th>Description</th>
+      <th>Approve</th>
+      <th>Reject</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @admin_products.each do |admin_product| %>
       <tr>
-        <td></td>
-        <td><%= image_tag asset_path(admin_product.galleries.first.photo.url), size: "50x50" %></td>
         <td><%= admin_product.title %></td>
-        <td><%= admin_product.description %></td>
-        <td><%= admin_product.approve == false ? (link_to "Approve" , approve_admin_product_path(admin_product), :class=>"btn btn-default") : (link_to "Deny" , approve_admin_product_path(admin_product),:class=>"btn btn-success") %></td>
+        <td><%= image_tag asset_path(admin_product.galleries.first.photo.url), size: "50x50" %></td>
+        <td><%= admin_product.product_description %></td>
+        <td><%= admin_product.approve ? "Accepted" : link_to("Accept",approve_admin_product_path(admin_product,type: "Approve"),class: "btn btn-default")%></td>
+        <td>
+          <% if admin_product.cancelled %>
+            Rejected
+          <%else%>
+           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#product_reject_model_<%= admin_product.id %>">Reject</button>
+           <%= render 'product_activity_form',admin_product: admin_product%>
+          <%end%>
+        </td>
         <td><%= link_to 'Show', admin_product_path(admin_product) %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>
         <td><%= link_to 'Destroy', admin_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,4 +40,11 @@
 
 <br>
 
-<%= link_to 'New Product', new_admin_product_path %>
+
+
+<style type="text/css">
+  .admin_product_new{
+    float: right;
+    margin-left: 2%;
+  }
+</style>

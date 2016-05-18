@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   acts_as_taggable
+  default_scope { order('created_at DESC') }
   has_many :galleries
   has_one :product_shipping_detail  
   has_one :pricing
@@ -11,6 +12,7 @@ class Product < ActiveRecord::Base
   has_one :product_offer
   has_one :price_offer
   has_many :order_items
+  has_many :product_activities
   # has_one :product_offer, :through => :additional_offer, :source => :offer, :source_type => "ProductOffer"
   # has_one :price_offer, :through => :additional_offer, :source => :offer, :source_type => "PriceOffer"
   accepts_nested_attributes_for :galleries, :reject_if => :all_blank, allow_destroy: true
@@ -78,6 +80,20 @@ class Product < ActiveRecord::Base
 
   def photo_url
     galleries.last.photo.url rescue ""
+  end
+
+  def product_description
+    description.remove("<p>").remove("</p>\r\n")
+  end
+
+  # Method for product verification of Approve and Cancelled button
+  def self.product_verification admin_product,type
+    # Approve flag
+    admin_product.approve ? admin_product.update(approve: false) : 
+    admin_product.update(approve: true,cancelled: false) if type.eql?("Approve")
+    # Cancelled flag
+    admin_product.cancelled ? admin_product.update(cancelled: false) : 
+    admin_product.update(cancelled: true,approve: false) if type.eql?("Cancel")
   end
 end
 

@@ -1,10 +1,18 @@
 class Admin::ProductsController < ApplicationController
-  before_action :set_admin_product, only: [:show, :edit, :update, :destroy, :approve]
+  before_action :set_admin_product, only: [:show, :edit, :update, :destroy, :approve,:product_activities]
+  # before action need check to product accepted activites
+  before_action :product_accept_activities,only: [:approve]
+  # before action need check project reject activities
+  before_action :product_reject_activitites,only: [:product_activities]
+  # before action need to check the product verification status
+  before_action :product_verification,only: [:product_activities,:approve]
+
 
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @admin_products = Product.where(:approve=> true)
+    @admin_products = Product.all
+    # @admin_products = Product.where(:approve=> false)
   end
 
   # GET /admin/products/1
@@ -62,13 +70,11 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  def approve
-    (@admin_product.approve == true ? @admin_product.update(:approve=> false) : @admin_product.update(:approve=> true))
-    respond_to do |format|
-      format.html { redirect_to admin_products_url}
-      format.json { head :no_content }
-    end
-  end
+  # Method for verification of the products
+  def approve;end
+
+  # Method for creating product activites for the particualr product
+  def product_activities;end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -84,5 +90,27 @@ class Admin::ProductsController < ApplicationController
           product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
           pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp]
         )
+    end
+
+    # Method for creating the accept activities
+    def product_accept_activities
+      @admin_product.product_activities.create(activity: "Admin is Accepted Your Product")
+    end
+
+    # Method for creating reject activities
+    def product_reject_activitites
+      @admin_product.product_activities.create(description: params[:product_activity][:description],
+        activity: "Admin is Rejected Your Product")
+    end
+
+    # Method for verify the product status
+    def product_verification
+    # product verification status
+      Product.product_verification(@admin_product,params[:type])
+      # render form
+      respond_to do |format|
+        format.html { redirect_to admin_products_url}
+        format.json { head :no_content }
+      end
     end
 end

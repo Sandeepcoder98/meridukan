@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
   helper_method :current_admin
 
+
+
   
   def current_order
     begin
@@ -24,6 +26,7 @@ class ApplicationController < ActionController::Base
   def current_admin
     ((current_user.nil?) || (!current_user.has_role? :admin))
   end
+
 
   protected
 

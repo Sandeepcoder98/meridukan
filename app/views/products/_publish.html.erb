@@ -2,7 +2,7 @@
   <div class="page-title">
     <h2>Preview/Publish</h2>
     </div>
-<%= form_for(@product) do |f| %>
+  <%= form_for(@product) do |f| %>
     <% if @product.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -15,7 +15,6 @@
     <% end %>
     <%= f.hidden_field :status , :value=>true%>
     <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
-
     <div class="col-md-6 col-md-offset-3">
       <div class="thumbnail">
         <%= link_to edit_product_path(@product) do %>
@@ -30,16 +29,47 @@
       </div>
     </div>
     <div style="clear:both;"></div>
+    <div class="text-center">  
       <%if !f.object.status %>
-        <div class="text-center">  
-          <%= f.button "Click Here to publish",:class=>"btn btn-success" %>
-        </div>
+        <% if @product.approve %>
+          <div class="text-center">  
+            <%= f.button "Click Here to publish",:class=>"btn btn-success" %>
+          </div>
+        <%elsif @product.apply_approve %>
+            <%= link_to "Wait For Approval","#",class: "btn btn-success"%>
+        <%elsif (@product.cancelled) && ( !@product.apply_approve)  %>
+            <p>
+              Your product has been reject , please check product and reply apply again
+              <i class="fa fa-comment-o" data-toggle="modal" data-target="#project_activity_list"></i>
+            </p>
+            <%= render 'product_activities_list',product: @product%>
+            <%= link_to "Re-apply For Approval",apply_approve_product_path(@product),class: "btn btn-success"%>
+        <%elsif !@product.apply_approve %>
+            <%= link_to "Apply For Approval",apply_approve_product_path(@product),class: "btn btn-success"%>
+        <%end%>
       <% else %>
         <div class="text-center">  
           <%= link_to "Published", "#", :class=>"btn btn-success"%>
         </div>
       <%end%>
+    </div>
     <br/>
-<% end %>
-
+  <% end %>
 </div>
+
+<style type="text/css">
+  .fa{
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .modal-backdrop.in {
+    opacity: 0;
+  }
+  .modal-backdrop{
+    position: inherit;
+  }
+  .modal{
+    margin-top: 10%;
+  }
+</style>
+

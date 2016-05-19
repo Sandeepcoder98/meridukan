@@ -11,8 +11,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @admin_products = Product.all
-    # @admin_products = Product.where(:approve=> false)
+    @admin_products = Product.where(apply_approve: true,approve: false)
   end
 
   # GET /admin/products/1
@@ -94,13 +93,14 @@ class Admin::ProductsController < ApplicationController
 
     # Method for creating the accept activities
     def product_accept_activities
-      @admin_product.product_activities.create(activity: "Admin is Accepted Your Product")
+      @admin_product.product_activities.create(activity: "Accepted Your Product")
     end
 
     # Method for creating reject activities
     def product_reject_activitites
-      @admin_product.product_activities.create(description: params[:product_activity][:description],
-        activity: "Admin is Rejected Your Product")
+      @admin_product.product_activities.create(
+      description: params[:product_activity][:description],
+      activity: "Rejected Your Product")
     end
 
     # Method for verify the product status

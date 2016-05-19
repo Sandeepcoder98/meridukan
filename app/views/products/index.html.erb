@@ -22,9 +22,11 @@
               <tbody>
                <% @products.each do |product| %>
                 <tr class="first odd">
-                  <td class="image"><%= link_to product_path(product) do %>
-            <%= image_tag asset_path(product.galleries.first.photo.url), size: "60x60" %>
-          <% end %></td>
+                  <td class="image">
+                    <%= link_to product_path(product) do %>
+                      <%= image_tag asset_path(product.galleries.first.photo.url), size: "60x60" %>
+                    <% end %>
+                  </td>
                   <td><h2 class="product-name"><%= product.title %></td>
                   <td class="a-center hidden-table"><%= product.key_information %></td>
                   <td class="a-center hidden-table">

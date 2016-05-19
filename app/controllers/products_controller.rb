@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # load_and_authorize_resource
  
   before_action :no_store, except: [:view_product, :show]
-  before_action :set_product, only: [:show, :edit, :update, :destroy, :pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :apply_approve,:product_activities_list,:pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
 
   #before_filter :check_path_tab, only: [:show,:edit]
   
@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   def shipping_details
     @product.build_product_shipping_detail if  @product.product_shipping_detail.nil?
   end
+
   def publish
     # @product.update_attributes(status: true)
   end
@@ -94,6 +95,16 @@ class ProductsController < ApplicationController
   def view_product
      respond_to do |format|
       format.json { render json: @product.decorate.view_product}
+    end
+  end
+
+  # Method for approving the product
+  def apply_approve
+  	# condition for check the cancelled flag then update flag as false else update only apply approve
+    @product.cancelled ? @product.update(apply_approve: true,cancelled: false) : @product.update(apply_approve: true)
+    respond_to do |format|
+      format.html { redirect_to publish_product_url(@product)}
+      format.json { head :no_content }
     end
   end
 

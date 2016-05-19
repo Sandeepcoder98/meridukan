@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         get :approve
         get :view_product
         post :product_activities
+        get :apply_approve
       end
     end
   end

@@ -49,10 +49,10 @@ class Product < ActiveRecord::Base
       category.title
     end
     text :sub_category do
-      sub_category.title
+      sub_category.try(:title)
     end
     text :child_sub_category do
-      child_sub_category.title
+      child_sub_category.try(:title)
     end
   end
 
@@ -93,7 +93,7 @@ class Product < ActiveRecord::Base
     admin_product.update(approve: true,cancelled: false) if type.eql?("Approve")
     # Cancelled flag
     admin_product.cancelled ? admin_product.update(cancelled: false) : 
-    admin_product.update(cancelled: true,approve: false) if type.eql?("Cancel")
+    admin_product.update(cancelled: true,approve: false,apply_approve: false) if type.eql?("Cancel")
   end
 end
 

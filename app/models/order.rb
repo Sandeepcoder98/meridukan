@@ -23,7 +23,7 @@ class Order < ActiveRecord::Base
     available_quantity = order_item.product.pricing.stock_quantity
     return false if available_quantity < total_quantity
     order_item.quantity = order_item.quantity.to_i + order_item_params[:quantity].to_i
-    order_item.order_status_id = 2
+    # order_item.order_status_id = 2
     order_item.save
     order_item
   end

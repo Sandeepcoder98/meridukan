@@ -402,30 +402,30 @@
                 <center><h4 class="modal-title"><i class="fa fa-map-marker"></i>&nbsp;Select Your Area</h4></center>
             </div>
             <div class="modal-body">
-                <form>
-                            <!-- <div class="form-group">
-                                
-                                <select class="form-control"><option value="0">Select Your State</option><option value="50">Andhra Pradesh</option><option value="36">Delhi</option><option value="49">Gujarat</option><option value="35">Haryana</option><option value="48">Jharkhand</option><option value="44">Karnataka</option><option value="41">Kerala</option><option value="40">Madhya Pradesh</option><option value="38">Maharashtra</option><option value="45">Odisha</option><option value="47">Punjab</option><option value="42">Rajasthan</option><option value="39">Tamil Nadu</option><option value="46">Telangana</option><option value="34">Uttar Pradesh</option><option value="43">Uttarakhand</option><option value="37">West Bengal</option></select>
-                            </div> -->
-                            <div class="title">
-                                Indore
-                            </div>
-                            <div class="form-group">
-                              <input type="text" placeholder="Enter Your Area" id="user_address" class="form-control">
+                <%= form_tag by_address_search_index_path do %>
+                  <div class="title">
+                      Indore
+                  </div>
+                  <div class="form-group">
+                    <input type="text" placeholder="Enter Your Area" id="user_address" class="form-control" name="user_address">
 
-                            </div>
-                            <div class="text-center">
-                                <input type="button" value="Start Shopping" class="btn start-shopping btn-block" id="">
+                  </div>
+                  <div class="text-center">
+                      <input type="submit" value="Start Shopping" class="btn start-shopping btn-block" id="">
 
-                            </div>
-                        </form>
+                  </div>
+              <% end %>
             </div>
         </div>
     </div>
 </div> 
- <script type="text/javascript">
-   $(document).ready(function(){
-$("#selectAreaPopup").modal('show');
+<script type="text/javascript">
+$(document).ready(function(){
+  if (readCookie("latitude") && readCookie("longitude")){
+    $("#selectAreaPopup").modal('hide');
+  }else{
+    $("#selectAreaPopup").modal('show');
+  }
 });
 </script>
 <script type="text/javascript">

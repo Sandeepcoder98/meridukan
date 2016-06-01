@@ -133,20 +133,28 @@ var SearchProductHit = function() {
 
 // Getting lat long from end user side
 var FindLatLongAndSearchProducts = function(){
-  if (sessionStorage["latitude"] && sessionStorage["longitude"]){
-    $(".current_lat").val(sessionStorage["latitude"])
-    $(".current_lng").val(sessionStorage["longitude"])
+  if (readCookie("latitude") && readCookie("longitude")){
+    $(".current_lat").val(readCookie("latitude"))
+    $(".current_lng").val(readCookie("longitude"))
     SearchProducts();
   }
   else{
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (p) {
         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-        sessionStorage["latitude"] = p.coords.latitude
-        sessionStorage["longitude"] = p.coords.longitude
-        $(".current_lat").val(sessionStorage["latitude"])
-        $(".current_lng").val(sessionStorage["longitude"])
+        createCookie("latitude",p.coords.latitude,7) 
+        createCookie("longitude",p.coords.longitude,7) 
+        $(".current_lat").val(readCookie("latitude"))
+        $(".current_lng").val(readCookie("longitude"))
         SearchProducts();
+      }, function(){
+        $.getJSON( "//freegeoip.net/json/", function( data ) {
+          createCookie("latitude",data.latitude,7) 
+          createCookie("longitude",data.longitude,7) 
+          $(".current_lat").val(readCookie("latitude"))
+          $(".current_lng").val(readCookie("longitude"))
+          SearchProducts();
+        });
       });
     } else {
         alert('Geo Location feature is not supported in this browser.');
@@ -210,20 +218,28 @@ var SearchStoreHit = function() {
 
 // Getting lat long from end user side
 var FindLatLongAndSearchStores =function(){
-  if (sessionStorage["latitude"] && sessionStorage["longitude"]){
-    $(".current_lat").val(sessionStorage["latitude"])
-    $(".current_lng").val(sessionStorage["longitude"])
+  if (readCookie("latitude") && readCookie("longitude")){
+    $(".current_lat").val(readCookie("latitude"))
+    $(".current_lng").val(readCookie("longitude"))
     SearchStores();
   }
   else{
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (p) {
         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-        sessionStorage["latitude"] = p.coords.latitude
-        sessionStorage["longitude"] = p.coords.longitude
-        $(".current_lat").val(sessionStorage["latitude"])
-        $(".current_lng").val(sessionStorage["longitude"])
+        createCookie("latitude",p.coords.latitude,7) 
+        createCookie("longitude",p.coords.longitude,7) 
+        $(".current_lat").val(readCookie("latitude"))
+        $(".current_lng").val(readCookie("longitude"))
         SearchStores();
+      }, function(){
+        $.getJSON( "//freegeoip.net/json/", function( data ) {
+          createCookie("latitude",data.latitude,7) 
+          createCookie("longitude",data.longitude,7) 
+          $(".current_lat").val(readCookie("latitude"))
+          $(".current_lng").val(readCookie("longitude"))
+          SearchStores();
+        });
       });
     } else {
         alert('Geo Location feature is not supported in this browser.');

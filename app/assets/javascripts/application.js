@@ -46,5 +46,5 @@
 //= require custom
 //= require order_items
 //= require search
+//= require cookies-override
 //= require turbolinks
-

@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     get :stores, on: :collection
     get :products, on: :collection    
     get :find_stores, on: :collection
+    post :by_address, on: :collection 
   end  
 
   resources :checkout do 

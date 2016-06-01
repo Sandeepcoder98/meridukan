@@ -1,5 +1,5 @@
 class GeocodingService
-  def initialize(params)
+  def initialize(params={})
     @address = params[:address]
   end
 
@@ -14,8 +14,9 @@ class GeocodingService
 
   def lat_lng
     # This will return a Geokit::Geocoders::GoogleGeocoder object
-    lat = geocode.lat rescue 0.0
-    lng = geocode.lng rescue 0.0
+    get_geocode = geocode
+    lat = get_geocode.lat rescue 0.0
+    lng = get_geocode.lng rescue 0.0
     {lat: lat, lng: lng}
   end
 

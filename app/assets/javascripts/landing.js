@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.easing.min
+//= require cookies-override
 //= require turbolinks

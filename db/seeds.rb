@@ -21,7 +21,7 @@ config = YAML::load_file(seed_file)
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Delivered"
-OrderStatus.create! id: 5, name: "Cancelled"
+# OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 3, name: "Delivered"
+OrderStatus.create! id: 4, name: "Cancelled"
 

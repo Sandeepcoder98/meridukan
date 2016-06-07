@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518131447) do
+ActiveRecord::Schema.define(version: 20160606084106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160518131447) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "publish",     default: false
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.text     "channel"
+    t.string   "os"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -295,6 +303,10 @@ ActiveRecord::Schema.define(version: 20160518131447) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "authentication_token",   limit: 30
+    t.decimal  "current_lat",                       precision: 10, scale: 6
+    t.decimal  "current_lng",                       precision: 10, scale: 6
+    t.string   "device_type"
+    t.text     "device_token"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

@@ -71,6 +71,7 @@ $(document).ready(function(){
 
 // building search query for the products
 var BuildProductsSearchQuery = function (){
+  debugger
   query= {}
   $("[data-product-query]").each(function(){
     attr = $(this).attr("data-product-query")
@@ -91,6 +92,7 @@ var BuildProductsSearchQuery = function (){
 
 // Search Products function
 var SearchProducts = function(){
+  debugger
   if (!window.IsActive){
     window.IsActive = true;
     query = BuildProductsSearchQuery()
@@ -156,7 +158,11 @@ var FindLatLongAndSearchProducts = function(){
           SearchProducts();
         });
       });
-    } else {
+    }
+    // else if() {
+
+    // }
+    else {
         alert('Geo Location feature is not supported in this browser.');
     }
   }

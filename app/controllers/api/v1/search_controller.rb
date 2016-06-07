@@ -1,4 +1,4 @@
-class Api::V1::SearchController < ActionController::Base
+class Api::V1::SearchController < Api::BaseController
   before_action :product_search, only: :products
   before_action :store_search, only: :stores
 

@@ -8,11 +8,13 @@ class Api::V1::RegistrationsController < DeviseController
     if user.save && params[:role]
       user.add_user_role(params[:role])
       User.send_otp(params[:user][:password], params[:user][:mobile])
-      render :json=> user.as_json(:auth_token=>user.authentication_token, :mobile=>user.mobile), :status=>201
+      render :json=> { status: true, message: 'registration successfully' }, :status=>201
+      # user.as_json(:auth_token=>user.authentication_token, :mobile=>user.mobile), :status=>201
       return
     else
       warden.custom_failure!
-      render :json=> user.errors, :status=>422
+      render :json=> { status: false, message: user.errors}, :status=>422
+      # render :json=> user.errors, :status=>422
     end
   end
 
@@ -24,7 +26,7 @@ class Api::V1::RegistrationsController < DeviseController
 
   def sign_up_params
   	params[:user][:password]=User.generated_password
-    params.require(:user).permit(:mobile, :password)
+    params.require(:user).permit(:mobile, :password,:current_lat,:current_lng,:device_type,:device_token)
   end
 
 end

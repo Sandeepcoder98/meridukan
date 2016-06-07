@@ -31,6 +31,8 @@ gem 'capistrano-rvm'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
 
+ gem "rails-erd"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -79,3 +81,5 @@ gem 'progress_bar'
 gem 'draper'
 
 gem 'simple_token_authentication'
+
+gem 'active_model_serializers', '~> 0.10.0'

@@ -1,7 +1,6 @@
 <% content_for :javascript do %>
   <%= javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false', 'data-turbolinks-track' => true %>
 <% end %>
-
   <!-- Fields for storing lat long informations -->
   <input data-product-query="latitude" class="current_lat" type="hidden"/>
   <input data-product-query="longitude" class="current_lng" type="hidden"/>

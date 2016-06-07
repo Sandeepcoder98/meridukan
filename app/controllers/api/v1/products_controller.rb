@@ -4,11 +4,11 @@ class Api::V1::ProductsController < Api::AuthenticationController
   respond_to :json
 
   def index
-  	render :json => current_user.store.products
+  	render :json => current_user.store.products, each_serializer: ProductSerializer
   end
 
   def show
-  	render :json => @product
+  	render :json => @product, serializer: ProductSerializer
   end
 
   private

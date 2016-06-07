@@ -103,6 +103,8 @@ Rails.application.routes.draw do
         resources :products, only: :index
       end
 
+      resources :channels
+
       resources :products, except: :index
 
       resources :search, only: :index do 

@@ -36,7 +36,7 @@ class Product < ActiveRecord::Base
     join(:address, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     join(:pin_code, :target => Store, :type => :text, :join => { :from => :id, :to => :store_id })
     latlon(:location) { 
-      Sunspot::Util::Coordinates.new(store.lat, store.lng)
+      Sunspot::Util::Coordinates.new(store.try(:lat), store.try(:lng))
     }
     string :tags, :multiple => true do
       tags.collect(&:name)

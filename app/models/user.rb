@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_one :seller_document
   has_many :products,:through=> :store
   has_many :shipping_addresses
+  has_many :channels
   accepts_nested_attributes_for :store, :reject_if => :all_blank
   accepts_nested_attributes_for :seller_document
   acts_as_token_authenticatable

@@ -101,7 +101,8 @@ class ProductsController < ApplicationController
   # Method for approving the product
   def apply_approve
   	# condition for check the cancelled flag then update flag as false else update only apply approve
-    @product.cancelled ? @product.update(apply_approve: true,cancelled: false) : @product.update(apply_approve: true)
+    # @product.cancelled ? @product.update(apply_approve: true,cancelled: false) : @product.update(apply_approve: true)
+    @product.update(apply_approve: true)
     respond_to do |format|
       format.html { redirect_to publish_product_url(@product)}
       format.json { head :no_content }

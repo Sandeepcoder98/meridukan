@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match 'orders/index', via: [:get, :post]
+
   resources :store, only: [:show] 
 
   resource :cart, only: [:show, :destroy] do

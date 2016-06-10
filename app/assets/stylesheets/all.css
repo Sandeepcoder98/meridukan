@@ -85,6 +85,17 @@
 	opacity:.4;
 	cursor:default
 }
+#search_date{
+	width: 60% !important
+}
+
+.search-btn {
+    background: red;
+    border: medium none;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 20px;
+}
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
 
 

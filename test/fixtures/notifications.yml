@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer_id: 1
+  seller_id: 1
+  order_item: 1
+  order_id: 1
+  is_seller_read: false
+  is_buyer_read: false
+
+two:
+  buyer_id: 1
+  seller_id: 1
+  order_item: 1
+  order_id: 1
+  is_seller_read: false
+  is_buyer_read: false

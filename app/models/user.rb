@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :products,:through=> :store
   has_many :shipping_addresses
   has_many :channels
+  has_many :buyer_notifications, class_name: "Notification", foreign_key: "buyer_id"
+  has_many :seller_notifications, class_name: "Notification", foreign_key: "seller_id"
+
   accepts_nested_attributes_for :store, :reject_if => :all_blank
   accepts_nested_attributes_for :seller_document
   acts_as_token_authenticatable
@@ -117,6 +120,16 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def notifications_present?
+
+    if has_role? "seller"
+      seller_notifications.present?
+    else
+      buyer_notifications.present?
+    end
+
   end
 
 end

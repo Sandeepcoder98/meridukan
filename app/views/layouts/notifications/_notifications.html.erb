@@ -1,0 +1,18 @@
+<% user = get_user( user_id )%>
+<% if (user.has_role? "buyer") || (user.has_role? "seller") %>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle color-white notifications" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="notify">( <%= unread_notifications( user_id ) %> )</span><span class="caret"></span></a>
+    <ul class="dropdown-menu notification-sec">
+      <li></li>
+      <% if user.notifications_present? %>
+        <% if (user.has_role? "buyer") %>
+          <%= render "layouts/notifications/buyer_notifications", user_id: user_id%>
+        <% else %>
+          <%= render "layouts/notifications/seller_notifications", user_id: user_id%>
+        <%end%>
+      <% else %>
+        <li class="message"> No Notification!! </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>

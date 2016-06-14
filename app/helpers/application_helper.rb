@@ -73,4 +73,18 @@ module ApplicationHelper
   def main_li_tabs count
     count <=4 ? "new-menu li_active" : "extra-menu li_inactive" 
   end
+
+  def unread_notifications id
+    user = get_user id
+    if user.has_role? "seller"
+      user.notifications_present? ? user.seller_notifications.seller_unread.count : 0
+    else
+      user.notifications_present? ? user.buyer_notifications.buyer_unread.group_by(&:order_id).count : 0
+    end
+
+  end
+
+  def get_user id
+    User.find(id)
+  end
 end

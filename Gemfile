@@ -83,3 +83,6 @@ gem 'draper'
 gem 'simple_token_authentication'
 
 gem 'active_model_serializers', '~> 0.10.0'
+
+gem "private_pub"
+gem "thin"

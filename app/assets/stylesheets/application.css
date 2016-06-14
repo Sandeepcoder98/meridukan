@@ -75,3 +75,24 @@
 body {
     background-color: #fff;
 }
+.notification-sec{
+    text-align: center;
+}
+
+.message {
+  display:block;
+  position:relative;
+  padding:10px;
+  background-color:white;
+  color:black;
+  text-decoration:none;
+}
+
+.read{
+  background-color: #F1F1F1;
+}
+
+.notification-lists .dropdown{
+  display: inline-block;
+  margin-left: 20px;
+}

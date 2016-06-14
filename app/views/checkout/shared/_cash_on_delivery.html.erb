@@ -3,7 +3,7 @@
 		<%= link_to "#", class: "a_demo_four", style: "padding: 14px 100px;" do  %>₹ COD<% end %>
 	</div>
 	<div class="col-md-6 text-center">
-		<%= link_to order_response_checkout_path(current_order) do %>
+		<%= link_to order_response_checkout_path(current_order), remote: true do %>
 			<button class="branded" style="font-size: 22px;">Confirm Order</button>
 		<% end %>
 	</div>

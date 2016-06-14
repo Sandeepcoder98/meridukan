@@ -1,0 +1,54 @@
+<!-- Preloader -->
+<div id="preloader">
+  <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<section>
+  <!-- leftpanel -->
+  <div class="mainpanel">
+    <div class="pageheader">
+      <h2><i class="fa fa-envelope"></i> My Buyers <span>Subtitle goes here...</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+    <div class="contentpanel panel-email">
+      <div class="table-responsive">
+        <h4>Buyer Contacts List</h4>
+        <table class="table table-info mb30 product_table">
+          <thead>
+            <tr>
+              <th>Buyer</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @sellers.each_with_index do |seller,index|%>
+              <tr class="first odd">
+                <td><%= index +1 %></td>
+                <td><%= User.find(seller).full_name %></td>
+                <td><%= User.find(seller).email %></td>
+                <td ><%= User.find(seller).mobile %></td>
+                <td><%= User.find(seller).city %></td>
+                <td><i class="fa fa-trash-o"></i></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<style type="text/css">
+  .product_table th{
+    color: #000 !important;
+    font-weight: bold;
+  }
+</style>

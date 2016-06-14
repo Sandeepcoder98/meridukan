@@ -4,11 +4,13 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-2 col-xs-6 col-lg-6 hidden-xs"> 
-            
+            <%= link_to_unless_current "English", locale: "en" %> |
+            <%= link_to_unless_current "Hindi", locale: "hi" %>
             <!-- Default Welcome Message -->
             <div class="welcome-msg"> Customer Care +91 - 7415721216</div>
             <!-- End Default Welcome Message --> 
           </div>
+
           <div class="col-sm-9 col-xs-6 col-lg-5">
             <% if user_signed_in? %>
               <div class="toplinks">
@@ -40,10 +42,10 @@
               <div class="toplinks">
                 <div class="links"> 
                   <div class="login">
-                    <a href="#" data-toggle="modal" data-target="#signup-modal"><span class="hidden-xs">Sign Up</span></a>
+                    <a href="#" data-toggle="modal" data-target="#signup-modal"><span class="hidden-xs"><%=t('layouts.header.sign')%></span></a>
                   </div>
                   <div class="login">
-                    <a href="#" data-toggle="modal" data-target="#login-modal"><span class="hidden-xs">Log In</span></a>
+                    <a href="#" data-toggle="modal" data-target="#login-modal"><span class="hidden-xs"><%=t('layouts.header.login')%></span></a>
                   </div>
                 </div>
               </div>

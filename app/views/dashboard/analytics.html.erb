@@ -1,0 +1,122 @@
+<!-- Preloader -->
+<div id="preloader">
+  <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<section>
+  <!-- leftpanel -->
+  <div class="mainpanel">
+    <div class="pageheader">
+      <h2><i class="fa fa-envelope"></i> Sales Analytics <span>Subtitle goes here...</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+    <div class="contentpanel">
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="panel  panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Earned This Month</small>
+                    <h1>&#8377;0</h1>
+                    <div class="form-divi"></div>
+                    <small class="end-label">New Orders</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Orders Created</small>
+                    <h1>0</h1>
+                    <div class="form-divi"></div>
+                    <small class="end-label">Extra Orders</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Avg. Selling Price</small>
+                    <h1>N/A</h1>
+                    <div class="form-divi"></div>
+                    <small class="end-label">Multiple Orders</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="panel panel-stat">
+            <div class="panel-heading">
+              <div class="stat">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <small class="stat-label">Positive Rating</small>
+                    <h1>0</h1>
+                    <div class="form-divi"></div>
+                    <small class="end-label">Delivered Orders</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- contentpanel --> 
+  </div>
+  <!-- mainpanel --> 
+</section>
+<script type="text/javascript">
+  function performClick(elemId) {
+    var elem = document.getElementById(elemId);
+    if(elem && document.createEvent) {
+       var evt = document.createEvent("MouseEvents");
+       evt.initEvent("click", true, false);
+       elem.dispatchEvent(evt);
+    }
+  }
+  
+  function readURL(input) {
+     if (input.files && input.files[0]) {
+         var reader = new FileReader();
+         
+         reader.onload = function (e) {
+             $('#seller-pic').attr('src', e.target.result);
+         }
+         
+         reader.readAsDataURL(input.files[0]);
+     }
+  }
+  
+  $("#profile-imp").change(function(){
+     readURL(this);
+  });
+  $('#seller-pic').click(function(){  $('#profile-imp').click()  });
+  
+  
+  
+  
+</script>
+</body>
+</html>

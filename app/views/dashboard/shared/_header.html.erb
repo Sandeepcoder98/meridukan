@@ -1,0 +1,33 @@
+<div class="headerbar">
+  <a class="menutoggle"><i class="fa fa-bars"></i></a>
+  <div class="header-right">
+    <ul class="headermenu">
+      <li>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag asset_path(current_user.avatar.url) %>
+            <%= current_user.first_name%>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+            <li>
+              <a href="profile.html"><i class="glyphicon glyphicon-user"></i> My Profile</a>
+            </li>
+            <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Account Settings</a></li>
+            <li>
+              <a href="#"><i class="glyphicon glyphicon-question-sign"></i> Help</a></li>
+            <li>
+              <i class="glyphicon glyphicon-home"><%= link_to "My Shop",(store_path(current_user.store) rescue "#")%></i> 
+            </li>
+            <li>
+              <i class="glyphicon glyphicon-list-alt"><%= link_to "My Products",products_path%></i>
+            </li>
+            <li>
+              <i class="glyphicon glyphicon-cog"><%= link_to "Account Settings", update_information_path%></i>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -217,6 +217,10 @@ ul, ol {
 .realtime-image{
 	-moz-appearance: treeheadercell;
 }
+
+.word-break{
+	display: block;
+}
 #selectAreaPopup .title {
     font-size: 24px;
     padding: 5px 0;
@@ -666,7 +670,7 @@ ul, ol {
 }
 #seller-profile .shop-list {
 	background-color: rgba(0, 0, 0, 0.5);
-	bottom: -38px;
+	bottom: -17%;
 	color: #fff;
 	left: 0;
 	margin: 0 auto;
@@ -3357,7 +3361,7 @@ margin-right: 10px;
 }
 .product-view .product-shop {
 	margin-top: 0;
-	z-index: 1;
+	z-index: -1;
 }
 .product-additional {
 	display: inline-block;

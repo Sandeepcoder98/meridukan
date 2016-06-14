@@ -5,19 +5,18 @@
   </div>
 </div>
 <div class="span_1_of_1">
-  <h2>Select your Product Categories <br>
-    Find it on here
+  <h2><%=t('home.index.select')%>
   </h2>
   <%= form_tag search_index_path, method: :get do %>
     <div class="search">
       <div class="input-group">
           <div class="input-group-btn search-panel">
             <button type="button" class="btn dropdown-toggle select-option" data-toggle="dropdown">
-              <span id="search_concept">Products</span> <span class="caret"></span>
+              <span id="search_concept"><%=t('home.index.product')%></span> <span class="caret"></span>
             </button>
             <ul id="search_selection" class="dropdown-menu" role="menu">
-              <li><a data-text="Search for a product" data-action="/search" href="#">Products</a></li>
-              <li><a data-text="Search for a store"  data-action="/search/stores" href="#">Shops</a></li> 
+              <li><a data-text="Search for a product" data-action="/search" href="#"><%=t('home.index.product')%></a></li>
+              <li><a data-text="Search for a store"  data-action="/search/stores" href="#"><%=t('home.index.shop')%></a></li> 
             </ul>
           </div>
           <input type="text" class="form-control" name="q" placeholder="Search for a product" id="search_text">
@@ -77,30 +76,28 @@
 <section class="white-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>ADVANTAGE  FOR <span class="red-title">SELLERS</span></span> </h1>
+      <h1 class="border title--border"><span><%=t('home.index.advantage')%> <span class="red-title"><%=t('home.index.seller')%></span></span> </h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/service-1.jpg" width="274" height="182">
-        <div class="color-box1"> Business </br>
+        <div class="color-box1"><%=t('home.index.business')%> </br>
           24/7 </div>
+
       </div>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/service-2.jpg" width="274" height="182">
-        <div class="color-box2"> BOOST </br>
-          YOUR SALES </div>
+        <div class="color-box2"><span class="word-break"><%=t('home.index.boost')%></span><%=t('home.index.sales')%></div>
       </div>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/service-3.jpg" width="274" height="182">
-        <div class="color-box3"> In TOUCH</br>
-          YOUR CUSTOMERS </div>
+        <div class="color-box3"><span class="word-break"><%=t('home.index.in')%></span><%=t('home.index.your')%></div>
       </div>
     </div>
-    <div class="col-md-3 col-sm-6">
+    <t".business"div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/service-4.png" width="274" height="182">
-        <div class="color-box4"> ONLINE</br>
-          STORE CONTROL </div>
+        <div class="color-box4"><span class="word-break"><%=t('home.index.online')%></span><%=t('home.index.store')%></div>
       </div>
     </div>
   </div>
@@ -108,38 +105,38 @@
 <section class="gray-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>How to <span class="red-title">Sell</span></span> </h1>
+      <h1 class="border title--border"> <span><%=t('home.index.how')%> <span class="red-title"><%=t('home.index.sell')%></span></span></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon1.png" width="140" height="140">
       </center>
-      <h1 class="step-title">Upload product</h1>
+      <h1 class="step-title"><%=t('home.index.upload')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon2.png" width="140" height="140">
       </center>
-      <h1 class="step-title">Get order</h1>
+      <h1 class="step-title"><%=t('home.index.get')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon3.png" width="140" height="140">
       </center>
-      <h1 class="step-title">deliver order</h1>
+      <h1 class="step-title"><%=t('home.index.deliver')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon4.png" width="140" height="140">
       </center>
-      <h1 class="step-title">Receive payment</h1>
+      <h1 class="step-title"><%=t('home.index.receive')%></h1>
     </div>
   </div>
 </section>
 <section class="white-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>trending <span class="red-title">shops</span></span> </h1>
+      <h1 class="border title--border"> <span><%=t('home.index.trend')%> <span class="red-title"><%=t('home.index.shop')%></span></span> </h1>
     </div>
     <div class="team-showcase">
       <div class="col-md-3 col-sm-6">
@@ -172,29 +169,27 @@
 <section class="white-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>ADVANTAGE  FOR <span class="red-title">Buyers</span></span> </h1>
+      <h1 class="border title--border"> <span><%=t('home.index.buyer')%> <span class="red-title"><%=t('home.index.buye')%> </span></span> </h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/img1.jpg" width="274" height="182">
-        <div class="color-box1"> Get Better</br>
-         Offers</div>
+        <div class="color-box1"><span class="word-break"><%=t('home.index.better')%></span><%=t('home.index.offer')%></div>
       </div>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/img2.jpg" width="274" height="182">
-        <div class="color-box2"> Save Your </br>Quailty Time</div>
+        <div class="color-box2"><span class="word-break"><%=t('home.index.save')%></span><%=t('home.index.time')%></div>
       </div>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> <img src="/assets/img3.jpg" width="274" height="182">
-        <div class="color-box3"> Faster </br>Delivery</div>
+        <div class="color-box3"> <span class="word-break"><%=t('home.index.faster')%></span><%=t('home.index.delivery')%></div>
       </div>
     </div>
     <div class="col-md-3 col-sm-6">
       <div class="advance-box"> 
         <img src="/assets/img4.jpg" width="274" height="182">
-        <div class="color-box4"> 
-          Choose Deliver timing </br>per you convince
+        <div class="color-box4"> <span class="word-break"><%=t('home.index.choose')%></span><%=t('home.index.per')%>
         </div>
       </div>
     </div>
@@ -203,38 +198,38 @@
 <section class="gray-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>How to <span class="red-title">Buy</span></span> </h1>
+      <h1 class="border title--border"> <span><%=t('home.index.how')%> <span class="red-title"><%=t('home.index.buy')%> </span></span> </h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon5.png" width="140" height="140">
       </center>
-      <h1 class="step-title">Receive product</h1>
+      <h1 class="step-title"><%=t('home.index.receives')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon2.png" width="140" height="140">
       </center>
-      <h1 class="step-title">Place order</h1>
+      <h1 class="step-title"><%=t('home.index.place')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon3.png" width="140" height="140">
       </center>
-      <h1 class="step-title">collect order</h1>
+      <h1 class="step-title"><%=t('home.index.collect')%></h1>
     </div>
     <div class="col-md-3 col-sm-6">
       <center>
         <img src="/assets/icon4.png" width="140" height="140">
       </center>
-      <h1 class="step-title">do the payment</h1>
+      <h1 class="step-title"><%=t('home.index.do')%></h1>
     </div>
   </div>
 </section>
 <section class="white-bg">
   <div class="container">
     <div class="page-title">
-      <h1 class="border title--border"> <span>trending <span class="red-title">products</span></span> </h1>
+      <h1 class="border title--border"> <span><%=t('home.index.trend')%> <span class="red-title"><%=t('home.index.product')%></span></span> </h1>
     </div>
     <div class="team-showcase">
       <div class="col-md-3 col-sm-6">
@@ -396,32 +391,33 @@
   </div>
 </section>
 <div id="selectAreaPopup" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <center><h4 class="modal-title"><i class="fa fa-map-marker"></i>&nbsp;Select Your Area</h4></center>
-            </div>
-            <div class="modal-body">
-                <%= form_tag by_address_search_index_path do %>
-                  <div class="title">
-                      Indore
-                  </div>
-                  <div class="form-group">
-                    <input type="text" placeholder="Enter Your Area" id="user_address" class="form-control" name="user_address">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <center><h4 class="modal-title"><i class="fa fa-map-marker"></i>&nbsp;Select Your Area</h4></center>
+          </div>
+          <div class="modal-body">
+              <%= form_tag by_address_search_index_path do %>
+                <div class="title">
+                    Indore
+                </div>
+                <div class="form-group">
+                  <input type="text" placeholder="Enter Your Area" id="user_address" class="form-control" name="user_address">
 
-                  </div>
-                  <div class="text-center">
-                      <input type="submit" value="Start Shopping" class="btn start-shopping btn-block" id="">
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Start Shopping" class="btn start-shopping btn-block" id="">
 
-                  </div>
-              <% end %>
-            </div>
-        </div>
-    </div>
+                </div>
+            <% end %>
+          </div>
+      </div>
+  </div>
   </div>
 </div> 
 <script type="text/javascript">
 $(document).ready(function(){
+  debugger 
   if (readCookie("latitude") && readCookie("longitude")){
     $("#selectAreaPopup").modal('hide');
   }else{

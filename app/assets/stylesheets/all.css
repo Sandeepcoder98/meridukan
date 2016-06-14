@@ -1,4 +1,7 @@
-
+.product_table th{
+	color: #000 !important;
+    font-weight: bold;
+}
 .util-carousel {
 	display:none;
 	position:relative;

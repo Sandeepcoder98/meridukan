@@ -9,6 +9,20 @@ class Order < ActiveRecord::Base
     self.send_placed_information(buyer)
   end
 
+  def save_notification
+
+    self.order_items.each do |item|
+      Notification.create(
+        seller_id: item.product.store.user.id,
+        buyer_id: self.user_id,
+        order_item_id: item.id,
+        order_id: self.id,
+        quantity: item.quantity
+      )
+    end
+
+  end
+
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end

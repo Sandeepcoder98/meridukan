@@ -1,0 +1,7 @@
+<% @order.order_items.collect(&:product).collect(&:store).collect(&:user_id).uniq.each do | user_id |%>
+    <% publish_to "/users/#{user_id}" do %>
+      $('.notification-index').html("<%= escape_javascript(render :partial => '/layouts/notifications/notifications', :locals => {:user_id =>user_id}) %>")
+    <% end %>
+<% end %>
+
+window.location.href = "<%= order_response_checkout_path(@order) %>"

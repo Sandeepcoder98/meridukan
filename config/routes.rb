@@ -59,6 +59,9 @@ Rails.application.routes.draw do
     get :seller_document_approve,on: :collection
   end
   resource :home
+  
+  get 'update_notifications/:id'=> "home#update_notifications", as: "update_notifications"
+
   resource :dashboard, controller:"dashboard" do
     get :manage_sales, on: :collection
     get :inbox, on: :collection

@@ -49,3 +49,4 @@
 //= require search
 //= require cookies-override
 //= require turbolinks
+//= require private_pub

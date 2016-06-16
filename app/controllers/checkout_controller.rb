@@ -40,6 +40,7 @@ class CheckoutController < ApplicationController
 
   def order_response
     @order.placed(current_user)
+    @order.save_notification if session[:order_id]
     session[:order_id] = nil
   end
 

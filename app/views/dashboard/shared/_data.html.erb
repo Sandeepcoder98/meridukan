@@ -1,0 +1,32 @@
+<table class="data-table cart-table" id="shopping-cart-table">
+  <thead>
+    <tr class="first last">
+      <th rowspan="1">Order ID</th>
+      <th rowspan="1"><span class="nobr">Product Image</span></th>
+      <th rowspan="1"><span class="nobr">Product Name</span></th>
+      <th rowspan="1"><span class="nobr">Buyer Name</span></th>
+      <th rowspan="1" class="hidden-phone"><span class="nobr">Order Date</span></th>
+      <th rowspan="1" class="hidden-phone"><span class="nobr">Order Time</span></th>
+    </tr>
+  </thead>
+	<tbody>
+  	<% @orders.each do |order|%>
+      <tr class="first odd">
+      	<td><%= order.id %></td>
+        <td class="image">
+          <%= image_tag asset_path(order.product.galleries.first.photo.url), size: "60x60" %>
+        </td>
+        <td><h2 class="product-name"><%= order.product.title %></h2></td>
+        <td class="a-center hidden-table">
+          <%= User.find(order.order.user_id).full_name if order.order.user_id.present? %>
+        </td>
+        <td class="a-center hidden-table">
+          <%= order.created_at.strftime("%d %B %Y")%> 
+        </td>
+        <td class="a-center hidden-table">
+          <%= order.created_at.to_time.strftime("%r")%> 
+        </td>
+      </tr>
+   	<% end %>
+  </tbody>
+</table>

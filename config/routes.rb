@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   match 'orders/index', via: [:get, :post]
-  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  # scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   resources :store, only: [:show] 
 
   resource :cart, only: [:show, :destroy] do
@@ -65,12 +65,14 @@ Rails.application.routes.draw do
     get :manage_request, on: :collection
     get :buyer_request, on: :collection
     get :my_products, on: :collection
+    get :my_shop, on: :collection
     get :analytics, on: :collection
     get :public_profile_setting, on: :collection
     get :account_setting, on: :collection
     get :account_action, on: :collection
     get :my_buyers, on: :collection
     get :my_sellers, on: :collection
+    post :edit_image, on: :collection
   end
 
   resources :search, only: :index do 
@@ -136,7 +138,7 @@ Rails.application.routes.draw do
       
     end
   end  
-end
-get '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
-get '', to: redirect("/#{I18n.default_locale}")
+# end
+# get '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+# get '', to: redirect("/#{I18n.default_locale}")
 end

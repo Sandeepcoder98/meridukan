@@ -200,8 +200,6 @@
   </div>
 </div>
 
-
-
 <script id="search-products" type="text/x-handlebars-template">
   <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
     <div class="item-inner">
@@ -211,23 +209,23 @@
             <a href="#" title="{title}" class="product-image"><img src="{{photo_url}}" alt="Sample Product">
             </a>
           </div>
-        <div class="new-label new-top-left">new</div>
-       <div class="item-info">
-        <h1 class="item-title"> <a href="" title="{{title}}"> {{title}} </a> </h1>
-          <p class="special-price"><span class="price"> &#8377;{{net_mrp}} </span> </p>
-         </div>
-            <button type="button" onclick="oneProductAddToCart(this)" data-product-id="{{id}}" title="Add to Cart" class="add-to-btn"><span><i class="fa fa-shopping-cart"></i> Add Karo</span></button><div class="item-box-hover">
+          <div class="new-label new-top-left">new</div>
+          <div class="item-info">
+            <h1 class="item-title"> <a href="" title="{{title}}"> {{title}} </a> </h1>
+            <p class="special-price"><span class="price"> &#8377;{{net_mrp}} </span> </p>
+          </div>
+          <% if buyer? %>
+            <button type="button" onclick="oneProductAddToCart(this)" data-product-id="{{id}}" title="Add to Cart" class="add-to-btn"><span><i class="fa fa-shopping-cart"></i> Add Karo</span></button>
+          <% end %>
+          <div class="item-box-hover">
             <div class="box-inner">
               <div class="actions">
                 <div class="product-detail-bnt"><a href="{{photo_url}}" data-toggle="lightbox" class="button detail-bnt"><span>Quick View</span></a></div>
               </div>
             </div>
           </div>
-        </div>
-        
-        
-      </div>
-      
+        </div>        
+      </div>      
     </div>
   </li>
 </script>

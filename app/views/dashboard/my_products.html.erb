@@ -19,10 +19,6 @@
       <ul class="nav nav-tabs" id="custom-tabs">
         <li class="active"><a href="#active" data-toggle="tab">Active</a></li>
         <li><a href="#approval" data-toggle="tab">Pending Approval</a></li>
-        <!-- <li><a href="#modification" data-toggle="tab">Requires Modification</a></li> -->
-        <!-- <li><a href="#draft" data-toggle="tab">Draft</a></li> -->
-        <li><a href="#denied" data-toggle="tab">Denied</a></li>
-        <!-- <li><a href="#paused" data-toggle="tab">Paused</a></li> -->
       </ul>
       <!-- Tab panes -->
       <div class="tab-content mb30 custom-tabs-content">
@@ -31,9 +27,6 @@
         </div>
         <div class="tab-pane" id="approval">
           <%= render partial: 'dashboard/shared/product', locals: {product: @products_approved_false} %>
-        </div>
-        <div class="tab-pane" id="denied">
-          <%= render partial: 'dashboard/shared/product', locals: {product: @products_denied} %>
         </div>
       </div>
     </div>

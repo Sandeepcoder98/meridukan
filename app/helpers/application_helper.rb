@@ -33,6 +33,10 @@ module ApplicationHelper
     @resource.build_store unless !@resource.store.blank?    
   end
 
+  def seller?
+    current_user.has_role? :seller
+  end
+
   def buyer?
     current_user.has_role? :buyer
   end

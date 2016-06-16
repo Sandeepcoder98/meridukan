@@ -1,0 +1,276 @@
+<% content_for :javascript do %>
+  <%#= javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false', 'data-turbolinks-track' => true %>
+<% end %>
+<section>
+  <div class="mainpanel">
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Dashboard <span>Subtitle goes here...</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+    <input data-product-query="latitude" class="current_lat" type="hidden"/>
+    <input data-product-query="longitude" class="current_lng" type="hidden"/>
+    <input type="hidden" id="product-search-by-store-id" data-product-query="store_id" value="<%=@store.id%>">  
+    <div class="main-container col2-left-layout bounceInUp animated" id="form-steps">
+      <div class="">
+        <div class="">
+          <div class="card hovercard">
+            <div class=""><a href="#" onclick="performClick1('imgInp1');" class="banner-edit"><i class="fa fa-pencil"></i></a></div>
+            <div class="cardheader">
+              <%= form_tag "#-", class: "edit_store", multipart: true do %>
+                  <%=file_field_tag "banner",:id=>"imgInp1", :style=>"display:none;"%>
+                  <%= image_tag @store.cover, style: "width:100%;height:230px;" ,id: "banner"%>
+                  
+              <% end %>
+              
+            </div>
+            <div class="">
+              <%= form_tag "#-", class: "edit_store", multipart: true do %>
+                <div class="avatar">
+                  <%=file_field_tag "logo",:id=>"imgInp", :style=>"display:none;"%>
+                  <%= image_tag @store.logo,  style: "background:#fff;" ,id: "logo" %>
+                  <div class="edit-box"><a href="#" onclick="performClick('imgInp');" class="edit-icon"><i class="fa fa-pencil"></i></a></div>
+                </div>
+              <% end %>
+              <ol class="shop-list">
+                <li class="item first">
+                  <div class="product-shop">
+                    <h2 class="product-name"><%= @store.name %></h2>
+                    <div class="lead">
+                      <div id="stars" class="starrr"></div>
+                    </div>
+                    <div class="desc std">
+                      <p><i class="fa fa-map-marker"></i><%= @store.full_address %><a href="#" title="" class="link-learn">Learn More</a> </p>
+                      <ul class="social-network social-circle">
+                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="">
+        <div class="">
+          <div class="sidebar col-sm-3 col-lg-3">
+            <aside class="col-left">
+              <div class="side-nav-categories">
+                <div class="block-title"> Categories </div>
+                <div class="box-content box-category">
+                  <ul>
+                    <% Category.joins(:products=>[:store]).where('stores.id'=>@store.id).uniq.each do |category| %>
+                        <li> 
+                          <a class="active" href="#"><%= category.title %></a> <span class="subDropdown minus"></span> 
+                          <ul class="level0_415" style="display:block">
+                            <% products = @store.products.where(category_id: category.id)%>
+                            <% category.sub_categories.where(id: products.map(&:sub_category_id)).uniq.each do |sub_category| %> 
+                              <li> <a class="active" href="#"><%= sub_category.title %></a><span class="subDropdown plus"></span>
+                                  <!-- Start level3-->  
+                                  <ul class="level1" style="display:none">
+                                   <% sub_category.child_categories.where(id: products.where(sub_category_id: sub_category.id).map(&:child_sub_category_id)).uniq.each do |child| %>
+                                    <li> <a href="#"> <%= child.title %> </a> </li>
+                                   <% end %>
+                                  </ul>
+                              </li> 
+                            <% end %>
+                          </ul>
+                        </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="block block-layered-nav">
+                <div class="block-title">Price</div>
+                <div class="block-content">
+                  <dl id="narrow-by-list">
+                    <dd class="odd">
+                      <ol>
+                        <li>
+                          <input data-product-query="pricing" value="1..1000"  type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" />
+                          <label for="checkboxG1" class="css-label"><span class="price">Rs.0.00</span> - <span class="price">1000</span></label>
+                        </li>
+                        <li>
+                          <input data-product-query="pricing" value="1001..5000" type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox" />
+                          <label for="checkboxG2" class="css-label"><span class="price">Rs.1000</span> - <span class="price">5000</span></label>
+                        </li>
+                        <li>
+                          <input data-product-query="pricing" value="5001..10000" type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox" />
+                          <label for="checkboxG3" class="css-label"><span class="price">Rs.5000</span> - <span class="price">10000</span></label>
+                        </li>
+                        <li>
+                          <input data-product-query="pricing" value="10001..20000" type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox" />
+                          <label for="checkboxG4" class="css-label"><span class="price">Rs.10000</span> - <span class="price">20000</span></label>
+                        </li>
+                        <li>
+                          <input data-product-query="pricing" value="20001..30000" type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" />
+                          <label for="checkboxG5" class="css-label"><span class="price">Rs.20000</span> - <span class="price">30000</span></label>
+                        </li>
+                        <li>
+                          <input data-product-query="pricing" value="30000" type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox" />
+                          <label for="checkboxG6" class="css-label"><span class="price">Rs.30000</span> - <span class="price">Above</span></label>
+                        </li>
+                      </ol>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="block block-tags">
+                <div class="block-title"> Search By Tags</div>
+                <div class="block-content">
+                  <input data-product-query="tags" name="tags" id="singleFieldTags2">
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-main col-sm-9">
+            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="..." id="product-list">
+              <div class="btn-group" role="group">
+                <button type="button" id="stars" class="btn tab-active-btn" href="#tab1" data-toggle="tab">
+                <div class="">All</div>
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" id="favorites" class="btn" href="#tab2" data-toggle="tab">
+                <div class="">Best Sellers</div>
+                </button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" id="following" class="btn" href="#tab3" data-toggle="tab">
+                <div class="">favorite</div>
+                </button>
+              </div>
+            </div>
+            <article class="col-main">
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                  <div class="category-products">
+                    <ul class="products-grid" data-object="search_products">
+                    </ul>
+                    <div id="loadmoreajaxloader" style="display:none;"><center><img src="/assets/loader.gif" /></center></div>
+                  </div>
+                </div>
+                <div class="tab-pane fade in" id="tab2">
+                  <h3>This is tab 2</h3>
+                </div>
+                <div class="tab-pane fade in" id="tab3">
+                  <h3>This is tab 3</h3>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script id="search-products" type="text/x-handlebars-template">
+  <li class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+    <div class="item-inner">
+      <div class="item-img">
+        <div class="item-img-info product-img"> 
+          <div class="product-img-container">
+            <a href="#" title="{{title}}" class="product-image"><img src="{{photo_url}}" alt="Sample Product">
+            </a>
+          </div>
+          <div class="new-label new-top-left">new</div>
+          <div class="item-info">
+            <h1 class="item-title"> <a href="" title="{{title}}"> {{title}} </a> </h1>
+            <p class="special-price"><span class="price"> &#8377;{{net_mrp}} </span> </p>
+          </div>
+          <% if seller? %>
+            <a href ="/products/{{id}}/edit" data-product-id="{{id}}" title="Add to Cart" class="add-to-btn"><span><i class="fa fa-shopping-cart"></i>Edit</span></a>
+          <% end %>
+          <div class="item-box-hover">
+            <div class="box-inner">
+              <div class="actions">
+                <div class="product-detail-bnt"><a href="{{photo_url}}" data-toggle="lightbox" class="button detail-bnt"><span>Quick View</span></a></div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>      
+    </div>
+  </li>
+</script>
+<script type="text/javascript">
+  function performClick(elem) {
+    var elem = document.getElementById(elem);
+    if(elem && document.createEvent) {
+       var evt = document.createEvent("MouseEvents");
+       evt.initEvent("click", true, false);
+       elem.dispatchEvent(evt);
+    }
+  }
+  function readURL1(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();  
+      reader.onload = function (e) {
+        $('#logo').attr('src', e.target.result);
+      }     
+      image_data = reader.readAsDataURL(input.files[0]);
+      data =  new FormData( $('.edit_store')[0] );
+      img = $('#imgInp')[0].files[0];
+      data.append("logo", img);
+      $.ajax({
+        method: 'post',
+        url: "/dashboard/edit_image",
+        data: data,
+        processData: false,
+        contentType: false,
+      });
+    }
+  }  
+
+  $("#imgInp").change(function(){
+    readURL1(this);   
+  });
+
+</script>
+<script type="text/javascript">
+  function performClick1(elem) {
+    var elem = document.getElementById(elem);
+    if(elem && document.createEvent) {
+       var evt = document.createEvent("MouseEvents");
+       evt.initEvent("click", true, false);
+       elem.dispatchEvent(evt);
+    }
+  }
+  function readURL2(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();  
+      reader.onload = function (e) {
+        $('#banner').attr('src', e.target.result);
+      }     
+      image_data = reader.readAsDataURL(input.files[0]);
+      data =  new FormData( $('.edit_store')[0] );
+      img = $('#imgInp1')[0].files[0];
+      data.append("banner", img);
+      $.ajax({
+        method: 'post',
+        url: "/dashboard/edit_image",
+        data: data,
+        processData: false,
+        contentType: false,
+      });
+    }
+  }  
+
+  $("#imgInp1").change(function(){
+    readURL2(this);   
+  });
+</script>
+
+
+

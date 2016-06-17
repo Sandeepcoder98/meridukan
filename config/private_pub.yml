@@ -9,13 +9,13 @@
 #   secret_token: "2d5d4c99886b9390c82553b4d2b6f6ad767ad01e7c1426b5b5004ba9230a669f"
 #   signature_expiration: 3600 # one hour
 
-# development:
-#   server: "http://localhost:9292/faye"
-#   secret_token: "secret"
-# test:
-#   server: "http://localhost:9292/faye"
-#   secret_token: "secret"
-# production:
-#   server: "https://whispering-garden-3017.herokuapp.com/faye"
-#   secret_token: "2d5d4c99886b9390c82553b4d2b6f6ad767ad01e7c1426b5b5004ba9230a669f"
-#   signature_expiration: 86400 # one day
+development:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+test:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+production:
+  server: "https://whispering-garden-3017.herokuapp.com/faye"
+  secret_token: "2d5d4c99886b9390c82553b4d2b6f6ad767ad01e7c1426b5b5004ba9230a669f"
+  signature_expiration: 86400 # one day

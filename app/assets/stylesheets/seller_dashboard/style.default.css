@@ -147,8 +147,11 @@ body.notfound, body.signin {
 .search-filter{
 	margin-top: 10px;
 }
-.birthday{ margin:0px;
-padding:0px;}
+.birthday{ 
+	margin:0px;
+	padding:0px;
+}
+
 
 .gender_blog{ padding-top:5px;}
 
@@ -948,7 +951,6 @@ strong {
 }
 .pageheader .fa-file-text {
 	padding: 6px 10px;
-`
 }
 .pageheader .fa-map-marker {
 	padding: 6px 12px;

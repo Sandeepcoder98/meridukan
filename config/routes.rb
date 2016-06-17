@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   get 'update_notifications/:id'=> "home#update_notifications", as: "update_notifications"
 
   resource :dashboard, controller:"dashboard" do
-    get :manage_sales, on: :collection
+    match :manage_sales, on: :collection, via: [:get, :post]
     get :inbox, on: :collection
     get :manage_request, on: :collection
     get :buyer_request, on: :collection
@@ -76,6 +76,8 @@ Rails.application.routes.draw do
     get :my_buyers, on: :collection
     get :my_sellers, on: :collection
     post :edit_image, on: :collection
+    post :edit_seller_iamge, on: :collection
+    patch :update_password, on: :collection
   end
 
   resources :search, only: :index do 

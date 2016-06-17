@@ -44,7 +44,6 @@
 //= require quick-view-js/modalEffects
 //= require handlebars-v3.0.3
 //= require custom
-//= require jquery.remotipart
 //= require order_items
 //= require search
 //= require cookies-override

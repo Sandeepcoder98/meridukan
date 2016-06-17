@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     else
       @notification.update_attributes(is_buyer_read: true)
     end
-    redirect_to orders_index_path
+    redirect_to manage_sales_dashboard_path
   end
 
   private

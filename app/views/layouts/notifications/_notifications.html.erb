@@ -1,7 +1,7 @@
 <% user = get_user( user_id )%>
 <% if (user.has_role? "buyer") || (user.has_role? "seller") %>
   <li class="dropdown">
-    <a href="#" class="dropdown-toggle color-white notifications" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="notify">( <%= unread_notifications( user_id ) %> )</span><span class="caret"></span></a>
+    <a href="#" class="dropdown-toggle color-white notifications" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe" aria-hidden="true"></i> <span class="notify"><%= unread_notifications( user_id ) %></span><span class="caret"></span></a>
     <ul class="dropdown-menu notification-sec">
       <li></li>
       <% if user.notifications_present? %>

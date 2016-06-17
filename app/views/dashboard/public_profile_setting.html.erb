@@ -24,45 +24,19 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
           <div class="well" id="setting-form">
-            <form class="form-horizontal" action="" method="post">
+            <%= form_tag "#-", class: " form-horizontal edit_store", multipart: true do %>
               <fieldset>
-                <!-- Name input-->
                 <div class="form-group">
                   <label class="col-md-3" for="name">Profile Photo</label>
                   <div class="col-md-9">
-                    <input type='file' id="profile-imp" style="display:none;" />
+                    <%=file_field_tag "avatar",:id=>"profile-imp", :style=>"display:none;"%>
                     <div class="product-img-box">
-                      <img id="seller-pic" src="/assets/placeholder-1.svg" alt=""  class="thumbnail img-responsive"/>
+                      <%= image_tag (current_user.avatar.present? ? current_user.avatar : "/assets/placeholder-1.svg"), style: "width:100%;height:230px;" ,id: "seller-pic"  %>
                     </div>
-                    <small>This photo is your identity on Meri Dookan and appears on your profile.</small>
-                  </div>
-                </div>
-                <!-- Email input-->
-                <div class="form-group">
-                  <label class="col-md-3" for="email">Banner Photo</label>
-                  <div class="col-md-9">
-                    <input type='file' id="profile-imp" style="display:none;" />
-                    <div class="product-img-box">
-                      <img id="seller-pic" src="/assets/placeholder-1.svg" alt=""  class="thumbnail img-responsive"/>
-                    </div>
-                    <small>This photo is your profile banner on Meri Dookan and appears on your profile.</small>
-                  </div>
-                </div>
-                <!-- Message body -->
-                <div class="form-group">
-                  <label class="col-md-3" for="message">Somethings About You</label>
-                  <div class="col-md-9">
-                    <textarea class="form-control" id="message" name="message" placeholder="This is where you make your pitch to potential buyers. Describe your background, your passion and your personality...." rows="5"></textarea>
-                  </div>
-                </div>
-                <!-- Form actions -->
-                <div class="form-group">
-                  <div class="col-md-12 text-right">
-                    <button type="submit" class="save-changes">Save Changes</button>
                   </div>
                 </div>
               </fieldset>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>
@@ -83,14 +57,22 @@
   
   function readURL(input) {
      if (input.files && input.files[0]) {
-         var reader = new FileReader();
-         
+         var reader = new FileReader();         
          reader.onload = function (e) {
              $('#seller-pic').attr('src', e.target.result);
-         }
-         
-         reader.readAsDataURL(input.files[0]);
-     }
+         }         
+        reader.readAsDataURL(input.files[0]);
+        data =  new FormData( $('.edit_store')[0] );
+        img = $('#profile-imp')[0].files[0];
+        data.append("avatar", img);
+        $.ajax({
+          method: 'post',
+          url: "/dashboard/edit_seller_iamge",
+          data: data,
+          processData: false,
+          contentType: false,
+        });
+       }
   }
   
   $("#profile-imp").change(function(){

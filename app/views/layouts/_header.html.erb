@@ -15,9 +15,9 @@
             <% if user_signed_in? %>
               <div class="toplinks">
                 <ul class="nav navbar-nav navbar-right top-right-nav">
-                  <span class="notification-lists notification-index">
-                    <%= render "layouts/notifications/notifications",user_id:  current_user.id%>
-                  </span> 
+                 <!--  <span class="notification-lists notification-index">
+                    <%#= render "layouts/notifications/notifications",user_id:  current_user.id%>
+                  </span>  -->
                   <span class="notification-lists"> 
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle color-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user_name(current_user.first_name)%> <span class="caret"></span></a>

@@ -25,6 +25,16 @@
         <li><a href="#completed" data-toggle="tab">Completed</a></li>
         <li><a href="#cancelled" data-toggle="tab">Cancelled</a></li>
       </ul>
+        <div class="row search-filter">
+          <%= form_tag manage_sales_dashboard_path  do %>
+            <div class="col-md-offset-3 col-md-6">            
+              <%= select_tag "search_date", options_for_select([ "Today", "This Week", "1 Month Ago", "2 Month Ago", "3 Month Ago" , "All"], "Select An Option") %>
+            </div>
+            <div>
+              <%= submit_tag "Search" ,class: "search-btn"%>
+            </div>
+          <% end %>
+        </div>
       <!-- Tab panes -->
       <div class="tab-content mb30 custom-tabs-content">
         <div class="tab-pane active" id="priority">

@@ -72,7 +72,61 @@ body {
 body.notfound, body.signin {
 	background: #e4e7ea;
 }
+.notification-sec{
+    text-align: center;
+    min-width: 194px !important;
+}
 
+.message {
+  display:block;
+  position:relative;
+  padding:10px;
+  background-color:white;
+  color:black;
+  text-decoration:none;
+}
+
+.see_notification{
+	background: none repeat scroll 0 0 red;
+  padding: 8px;
+  text-align: center;
+}
+.see_notification a, .see_notification a:hover{
+	color: #fff;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+.read{
+  background-color: #F1F1F1;
+}
+.notifications{
+	line-height: 50px;
+}
+.notifications .fa-globe {
+    color: #6b6b78;
+    font-size: 34px;
+    padding: 0 5px;
+    position: relative;
+    top: 6px;
+}
+.notifications .notify {
+    background: none repeat scroll 0 0 red;
+    border-radius: 100%;
+    color: #fff;
+    line-height: normal;
+    padding: 0 5px;
+    position: absolute;
+    right: 27px;
+    top: 5px;
+}
+.notification-lists .dropdown{
+  display: inline-block;
+  margin-left: 20px;
+}
+#setting-form #edit_user{
+	box-shadow: none;
+}
 .banner-edit {
   background: none repeat scroll 0 0 white;
   border-radius: 100%;
@@ -83,8 +137,16 @@ body.notfound, body.signin {
   right: 0;
   z-index: 1;
 }
-
-
+.search-btn {
+    background: red;
+    border: medium none;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 20px;
+}
+.search-filter{
+	margin-top: 10px;
+}
 .birthday{ margin:0px;
 padding:0px;}
 
@@ -449,7 +511,7 @@ strong {
 	border-right: 6px solid transparent;
 	content: "";
 	display: inline-block;
-	right: 17px;
+	right: 135px;
 	position: absolute;
 	top: -6px;
 }

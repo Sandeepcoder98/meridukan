@@ -1,5 +1,5 @@
 <% get_user( user_id ).seller_notifications.take(10).each do |notification| %>
   <a href= "<%= update_notifications_path( notification.id ) %>" class="message <%= notification.seller_read %>"> <%= notification.quantity %>x <%= notification.order_item.product.title %> sold </a>
 <% end %>
-<li role="separator" class="divider"></li>
-<%= link_to "see all", orders_index_path %>
+<!-- <li role="separator" class="divider"></li> -->
+<div class="see_notification"><%= link_to "see all", manage_sales_dashboard_path %></div>

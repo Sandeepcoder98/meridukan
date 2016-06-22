@@ -1,13 +1,14 @@
-<p id="notice"><%= notice %></p>
-  <section class="main-container col1-layout wow bounceInUp animated">
-    <div class="main container">
+<section class="col1-layout wow bounceInUp animated">
+  <div class="mainpanel">
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> My Products</h2>
+      <div class="">
+        <span class="label"><%= link_to 'Add a new Product', new_product_path,:class=>"pull-right" %></span>
+      </div>
+    </div>
+    <div class="main">
       <div class="col-main">
-        <div class="cart">
-          <div class="page-title">
-            <h2>My Product</h2>
-                  <%= link_to 'Add a new Product', new_product_path,:class=>"pull-right add-new-product" %>
-          </div>
-    
+        <div class="cart">    
           <div class="table-responsive">
             <table class="data-table cart-table" id="shopping-cart-table">
               <thead>
@@ -45,6 +46,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 

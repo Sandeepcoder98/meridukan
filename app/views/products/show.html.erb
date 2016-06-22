@@ -1,141 +1,140 @@
-  <!-- Main Container -->
-  <div class="main-container col1-layout wow bounceInUp animated">
-    <div class="main container">
-      <div class="col-main">
-        <div class="row">
-          <div class="product-view">
-            <div class="product-essential">
-              <form action="#" method="post" id="product_addtocart_form">
-                <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
-                <div class="product-img-box col-sm-4 col-xs-12 bounceInRight animated">
-                  <div class="new-label new-top-left"> New </div>
-                  <div class="product-image">
-                    <div class="large-image"> <a href="<%= @product.photo_url %>" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="<%= @product.photo_url %>"> </a> </div>
-                    <div class="flexslider flexslider-thumb">
-                      <ul class="previews-list slides">
-                        <%@product.galleries.each do |gallery|%>
-                          <li><a href='<%=gallery.photo.url%>' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '<%=gallery.photo.url%>' "><img src="<%=gallery.photo.url%>" /></a></li>
-                        <%end%>
-                      </ul>
-                    </div>
+<!-- Main Container -->
+<div class="main-container col1-layout wow bounceInUp animated">
+  <div class="main container">
+    <div class="col-main">
+      <div class="row">
+        <div class="product-view">
+          <div class="product-essential">
+            <form action="#" method="post" id="product_addtocart_form">
+              <input name="form_key" value="6UbXroakyQlbfQzK" type="hidden">
+              <div class="product-img-box col-sm-4 col-xs-12 bounceInRight animated">
+                <div class="new-label new-top-left"> New </div>
+                <div class="product-image">
+                  <div class="large-image"> <a href="<%= @product.photo_url %>" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20"> <img alt="Thumbnail" src="<%= @product.photo_url %>"> </a> </div>
+                  <div class="flexslider flexslider-thumb">
+                    <ul class="previews-list slides">
+                      <%@product.galleries.each do |gallery|%>
+                        <li><a href='<%=gallery.photo.url%>' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '<%=gallery.photo.url%>' "><img src="<%=gallery.photo.url%>" /></a></li>
+                      <%end%>
+                    </ul>
                   </div>
-                  <!-- end: more-images --> 
                 </div>
-                <div class="product-shop col-sm-5 col-xs-12 bounceInUp animated">
-                  <div class="product-name">
-                    <h1><%= @product.title %></h1>
-                  </div>
-                  <div class="short-description"> 
-                    <!--<h2>Quick Overview</h2>-->
-                    <p><%= @product.key_information %></p>
-                  </div>
-                  <div class="ratings" id="product-rating">
-                    <div class="rating-box">
-                      <div class="lead">
-                        <div id="stars" class="starrr"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="availability in-stock pull-right"><span>In Stock</span></p>
-                   <div class="price-block">
-                    <div class="price-box"> 
-                      <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> <%= @product.mrp_per_unit.to_f %>&#8377; </span> </p>
-                      <p class="special-price"> <span id="product-price-48" class="price">  <%= @product.net_mrp.to_f %>&#8377; </span> </p>
-                    </div>
-                  </div>
-                  <div class="add-to-box">
-                    <p><i>Currently <%= @product.quantity %> products are available</i></p>
-                    <div class="add-to-cart">
-                      <label for="qty">Qty:</label>
-                      <div class="pull-left">
-                        <div class="custom pull-left">
-                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty<<%= @product.quantity %> ) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
-                          <input type="text" class="input-text qty check-number" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                          <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
-                        </div>
-                      </div>
-                      <button data-product-id="<%= @product.id %>" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
-                    </div>
-                    <div class="email-addto-box">
-                      <ul class="add-to-links">
-                        <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
-                      </ul>
-                      <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
+                <!-- end: more-images --> 
+              </div>
+              <div class="product-shop col-sm-5 col-xs-12 bounceInUp animated">
+                <div class="product-name">
+                  <h1><%= @product.title %></h1>
+                </div>
+                <div class="short-description"> 
+                  <!--<h2>Quick Overview</h2>-->
+                  <p><%= @product.key_information %></p>
+                </div>
+                <div class="ratings" id="product-rating">
+                  <div class="rating-box">
+                    <div class="lead">
+                      <div id="stars" class="starrr"></div>
                     </div>
                   </div>
                 </div>
-                <aside class="col-lg-3 col-sm-3 col-xs-12 bounceInLeft animated">
-                  <div class="product-sibebar-banner">
-                    <div class="block block-cart">
-                      <div class="block-title ">Releted Product</div>
-                      <div class="block-content" id="releted-product">
-                        <div class="panel panel-default">
-                          <div class="panel-body">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <ul class="product-slide">
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html">Sample Product</a> </p>
-                                      <strong>1</strong> x <span class="price">$19.99</span> </div>
-                                  </li>
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p2.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                      <strong>1</strong> x <span class="price">$8.00</span> 
-                                      <!--access clearfix--> 
-                                    </div>
-                                  </li>
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p3.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                      <strong>1</strong> x <span class="price">$8.00</span> 
-                                      <!--access clearfix--> 
-                                    </div>
-                                  </li>
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p4.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                      <strong>1</strong> x <span class="price">$8.00</span> 
-                                      <!--access clearfix--> 
-                                    </div>
-                                  </li>
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p5.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                      <strong>1</strong> x <span class="price">$8.00</span> 
-                                      <!--access clearfix--> 
-                                    </div>
-                                  </li>
-                                  <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
-                                    <div class="product-details">
-                                      <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
-                                      <strong>1</strong> x <span class="price">$8.00</span> 
-                                      <!--access clearfix--> 
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
+                <p class="availability in-stock pull-right"><span>In Stock</span></p>
+                 <div class="price-block">
+                  <div class="price-box"> 
+                    <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> <%= @product.mrp_per_unit.to_f %>&#8377; </span> </p>
+                    <p class="special-price"> <span id="product-price-48" class="price">  <%= @product.net_mrp.to_f %>&#8377; </span> </p>
+                  </div>
+                </div>
+                <div class="add-to-box">
+                  <p><i>Currently <%= @product.quantity %> products are available</i></p>
+                  <div class="add-to-cart">
+                    <label for="qty">Qty:</label>
+                    <div class="pull-left">
+                      <div class="custom pull-left">
+                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty<<%= @product.quantity %> ) result.value++;return false;" class="increase items-count" type="button"><i class="fa fa-plus">&nbsp;</i></button>
+                        <input type="text" class="input-text qty check-number" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                        <button onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="fa fa-minus">&nbsp;</i></button>
+                      </div>
+                    </div>
+                    <button data-product-id="<%= @product.id %>" onClick="productAddToCart(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                  </div>
+                  <div class="email-addto-box">
+                    <ul class="add-to-links">
+                      <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
+                    </ul>
+                    <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
+                  </div>
+                </div>
+              </div>
+              <aside class="col-lg-3 col-sm-3 col-xs-12 bounceInLeft animated">
+                <div class="product-sibebar-banner">
+                  <div class="block block-cart">
+                    <div class="block-title ">Releted Product</div>
+                    <div class="block-content" id="releted-product">
+                      <div class="panel panel-default">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <ul class="product-slide">
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html">Sample Product</a> </p>
+                                    <strong>1</strong> x <span class="price">$19.99</span> </div>
+                                </li>
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p2.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
+                                    <strong>1</strong> x <span class="price">$8.00</span> 
+                                    <!--access clearfix--> 
+                                  </div>
+                                </li>
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p3.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
+                                    <strong>1</strong> x <span class="price">$8.00</span> 
+                                    <!--access clearfix--> 
+                                  </div>
+                                </li>
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p4.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
+                                    <strong>1</strong> x <span class="price">$8.00</span> 
+                                    <!--access clearfix--> 
+                                  </div>
+                                </li>
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p5.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
+                                    <strong>1</strong> x <span class="price">$8.00</span> 
+                                    <!--access clearfix--> 
+                                  </div>
+                                </li>
+                                <li class="item"> <a class="product-image" title="Sample Product" href="product_detail.html"><img alt="Sample Product" src="/assets/p1.png"></a>
+                                  <div class="product-details">
+                                    <p class="product-name"> <a href="product_detail.html"> Sample Product </a> </p>
+                                    <strong>1</strong> x <span class="price">$8.00</span> 
+                                    <!--access clearfix--> 
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
                           </div>
-                          <div class="panel-footer"> </div>
                         </div>
+                        <div class="panel-footer"> </div>
                       </div>
                     </div>
                   </div>
-                </aside>
-              </form>
-            </div>
-            <div class="product-collateral col-sm-12 col-xs-12 bounceInUp animated">
-              <div class="add_info">
-                <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                  <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Product Description </a> </li>
-                </ul>
-                <div id="productTabContent" class="tab-content">
-                  <div class="tab-pane fade in active" id="product_tabs_description">
-                    <div class="std">
-                      <%= @product.description.html_safe %>
-                    </div>
+                </div>
+              </aside>
+            </form>
+          </div>
+          <div class="product-collateral col-sm-12 col-xs-12 bounceInUp animated">
+            <div class="add_info">
+              <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+                <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Product Description </a> </li>
+              </ul>
+              <div id="productTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="product_tabs_description">
+                  <div class="std">
+                    <%= @product.description.html_safe %>
                   </div>
                 </div>
               </div>
@@ -145,4 +144,5 @@
       </div>
     </div>
   </div>
-  <!-- Main Container End -->
+</div>
+<!-- Main Container End -->

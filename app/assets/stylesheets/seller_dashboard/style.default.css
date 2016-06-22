@@ -124,6 +124,10 @@ body.notfound, body.signin {
   display: inline-block;
   margin-left: 20px;
 }
+#edit_user .input-text {
+  width:100% !important;
+}
+
 #setting-form #edit_user{
 	box-shadow: none;
 }
@@ -976,7 +980,7 @@ strong {
 }
 .pageheader .breadcrumb-wrapper {
 	position: absolute;
-	top: 23px;
+	top: 10px;
 	right: 25px;
 }
 .pageheader .breadcrumb-wrapper .label {

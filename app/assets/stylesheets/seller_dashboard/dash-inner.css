@@ -211,7 +211,7 @@ div.setting-tab-content {
   overflow: hidden;
 }
 #setting-form .input-text {
-  width:100%;
+  width:100% !important;
 }
 #setting-form .ckbox label::before {
  top:0;

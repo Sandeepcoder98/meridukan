@@ -1,7 +1,12 @@
-<div class="main-container col2-right-layout bounceInUp animated">
-	<div class="main container">
-	  <%= render 'products/shared/header', :@additional_offer_tab=>"btn-success" %>
-	  <p id="notice"></p>
-	  <%= render 'additional_offers'%>
+<div class="col2-right-layout bounceInUp animated">
+	<div class="mainpanel">
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Additional Offers></h2>
+    </div>
+		<div class="main ">
+		  <%= render 'products/shared/header', :@additional_offer_tab=>"btn-success" %>
+		  <p id="notice"></p>
+		  <%= render 'additional_offers'%>
+		</div>
 	</div>
 </div>

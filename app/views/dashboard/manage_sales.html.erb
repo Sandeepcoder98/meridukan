@@ -311,26 +311,5 @@
         </div>
       </div>
     </div>
-    <!-- contentpanel -->
-  </div>
-  <!-- mainpanel -->
-</section>
-
-<section class="main-container col1-layout wow bounceInUp animated">
-  <div class="main container">
-    <div class="page-title">
-      <div class="col-md-3">
-        <h2>My Orders</h2>
-      </div>
-      <div class="col-md-9">  
-        <%= form_tag orders_index_path  do %>
-          <%= select_tag "search_date", options_for_select([ "Today", "This Week", "1 Month Ago", "2 Month Ago", "3 Month Ago" , "All"], "Select An Option") %>
-          <%= submit_tag "Search" ,class: "search-btn"%>
-        <% end %>
-      </div>
-    </div>
-    <div class="table-responsive" id="order_search">
-     <%= render partial: 'dashboard/shared/data' %>
-    </div>
   </div>
 </section>

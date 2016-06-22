@@ -50,70 +50,33 @@
                 </div>
               </div>
               <div class="form-divi"></div>
-              <div class="row">
-                <div class="col-md-4">
-                  <label>Notifications</label>
-                </div>
-                <div class="col-md-4">
-                  <label>Type</label>
-                  <p>Inbox messages</p>
-                  <p>Order messages</p>
-                  <p>Order statuses</p>
-                </div>
-                <div class="col-md-4">
-                  <label>Email</label>
-                  <div class="ckbox ckbox-primary">
-                    <input type="checkbox" id="inbox_messages" value="m" name="int[]"  />
-                    <label for="inbox_messages"></label>
+              <h4>Store Information</h4>
+              <%= f.fields_for :store do |store_f| %>
+                <div class="form-group">
+                  <label class="col-md-3" for="name">Full name/Business name</label>
+                  <div class="col-md-9">
+                    <%= store_f.text_field :name,placeholder: "Store's Name...",class: "input-text",id: "form-address",:required=>true%>
                   </div>
-                  <!-- rdio -->
-                  <div class="ckbox ckbox-primary">
-                    <input type="checkbox" value="f" id="order_messages" name="int[]" />
-                    <label for="order_messages"></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3" for="name">Address</label>
+                  <div class="col-md-9">
+                     <%= store_f.text_field :address,placeholder: "Street Address",class: "input-text",id: "form-address",:required=>true%>
                   </div>
-                  <!-- rdio -->
-                  <div class="ckbox ckbox-primary">
-                    <input type="checkbox" value="f" id="order_statuses" name="int[]" />
-                    <label for="order_statuses"></label>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3" for="name">State</label>
+                  <div class="col-md-9">
+                    <h5>Madhya Pradesh</h5>  
                   </div>
-                  <!-- rdio --> 
                 </div>
-              </div>
-              <div class="form-divi"></div>
-              <h4>Billing Information</h4>
-              <p>Provide the following information to receive invoices on a monthly basis via email:</p>
-              <div class="form-group">
-                <label class="col-md-3" for="name">Full name/Business name</label>
-                <div class="col-md-9">
-                  <input id="name" name="name" type="text" placeholder="" class="input-text">
+                <div class="form-group">
+                  <label class="col-md-3" for="name">Address</label>
+                  <div class="col-md-9">
+                     <%= store_f.number_field :pin_code,placeholder: "Pincode", class: "input-text",id: "form-address"%>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3" for="name">Full address</label>
-                <div class="col-md-9">
-                  <input id="address" name="address" type="text" placeholder="" class="input-text">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3" for="name">Country</label>
-                <div class="col-md-9">
-                  <select name="" class="input-text">
-                    <option>India</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3" for="name">VAT ID number*</label>
-                <div class="col-md-9">
-                  <input id="" name="" type="text" placeholder="" class="input-text">
-                </div>
-              </div>
-              <div class="checkbox">
-                <label>
-                <input type="checkbox">
-                I'm interested in receiving invoices for my payments </label>
-              </div>
-              <!-- Form actions -->
+              <% end %>
               <div class="form-divi"></div>
               <div class="form-group">
                 <div class="col-md-12 text-right">

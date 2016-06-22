@@ -21,7 +21,7 @@
       <%= f.fields_for :product_offer do|ff|%>
         <div id="product_offer" class="<%= product_offer_class(@product.offer_type,"product_offer") %>">
           <%= ff.hidden_field :choice_type,  class: "choice_type product_choice_type" %>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div data-value="1" data-target="product" data-target="product" style="<%= visiblily_for_image(ff.object.choice_type, 1) %>" class="background-opacity buy_and_get_products">
             </div>
             <div class="col-md-12 form-margin-top">
@@ -35,7 +35,8 @@
             <br/>
             <br/>
           </div>
-          <div class="col-md-6">
+          <div class="clearfix"></div>
+          <div class="col-md-12">
             <div data-value="2" data-target="product" style="<%= visiblily_for_image(ff.object.choice_type, 2) %>" class="background-opacity gift_on_products">
             </div>
             <div class="col-md-12 form-margin-top">
@@ -57,7 +58,7 @@
       <%= f.fields_for :price_offer do|ff|%>
         <div id="price_offer" class="<%= product_offer_class(@product.offer_type,"price_offer") %>">
           <%= ff.hidden_field :choice_type,  class: "choice_type price_choice_type" %>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div data-value="1" data-target="price" style="<%= visiblily_for_image(ff.object.choice_type, 1) %>" class="background-opacity percentage_on_amount">
             </div>
             <div class="col-md-12 form-margin-top">
@@ -71,7 +72,8 @@
             <br/>
             <br/>
           </div>
-          <div class="col-md-6">
+          <div class="clearfix"></div>
+          <div class="col-md-12">
             <div data-value="2" data-target="price" style="<%= visiblily_for_image(ff.object.choice_type, 2) %>" class="background-opacity gift_on_amount">
             </div>  
             <div class="col-md-12 form-margin-top">

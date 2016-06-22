@@ -36,7 +36,7 @@ textarea{
 }
 
 .stepwizard {
-	   margin-top:0px;
+	 margin-top:20px;
     display: table;
     width: 100%;
     position: relative;
@@ -72,9 +72,7 @@ textarea{
   text-align: center;
   padding: 0;
   font-size: 18px;
-  line-height: 1.428571429;
-  border-radius: 100%;
-  line-height: 45px;
+  border-radius: 100% !important;
 }
 .btn-circle:hover, .btn-circle:focus  {
   padding: 0;

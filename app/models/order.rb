@@ -1,13 +1,13 @@
 class Order < ActiveRecord::Base
-  belongs_to :order_status
+  # belongs_to :order_status
   has_many :order_items
   before_create :set_order_status
   before_save :update_subtotal
 
-  def placed(buyer)
-    self.update(order_status_id: 2, user_id: buyer.id)
-    self.send_placed_information(buyer)
-  end
+  # def placed(buyer)
+  #   self.update(order_status_id: 2, user_id: buyer.id)
+  #   self.send_placed_information(buyer)
+  # end
 
   def save_notification
 

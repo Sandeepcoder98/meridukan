@@ -214,7 +214,7 @@
             <h1 class="item-title"> <a href="" title="{{title}}"> {{title}} </a> </h1>
             <p class="special-price"><span class="price"> &#8377;{{net_mrp}} </span> </p>
           </div>
-          <% if buyer? %>
+          <% if user_signed_in? && buyer? %>
             <button type="button" onclick="oneProductAddToCart(this)" data-product-id="{{id}}" title="Add to Cart" class="add-to-btn"><span><i class="fa fa-shopping-cart"></i> Add Karo</span></button>
           <% end %>
           <div class="item-box-hover">

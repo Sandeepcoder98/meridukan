@@ -1,52 +1,37 @@
-<section class="col1-layout wow bounceInUp animated">
+<div id="preloader">
+  <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<section>
   <div class="mainpanel">
     <div class="pageheader">
       <h2><i class="fa fa-home"></i> My Products</h2>
-      <div class="">
-        <span class="label"><%= link_to 'Add a new Product', new_product_path,:class=>"pull-right" %></span>
+      <div class="breadcrumb-wrapper">
+      <%= link_to 'Add a new Product', new_product_path,:class=>"pull-right btn add-product-btn" %>
       </div>
     </div>
-    <div class="main">
-      <div class="col-main">
-        <div class="cart">    
-          <div class="table-responsive">
-            <table class="data-table cart-table" id="shopping-cart-table">
-              <thead>
-                <tr class="first last">
-                  <th rowspan="1">&nbsp;</th>
-                  <th rowspan="1"><span class="nobr">Product Name</span></th>
-                  <th rowspan="1" class="hidden-phone"><span class="nobr">Key Information</span></th>
-                  <th rowspan="1" class="hidden-phone"><span class="nobr">Edit</span></th>
-                  <th colspan="1" class="a-center"><span class="nobr">Delete</span></th>
-                </tr>
-              </thead>
-              <tbody>
-               <% @products.each do |product| %>
-                <tr class="first odd">
-                  <td class="image">
-                    <%= link_to product_path(product) do %>
-                      <%= image_tag asset_path(product.galleries.first.photo.url), size: "60x60" %>
-                    <% end %>
-                  </td>
-                  <td><h2 class="product-name"><%= product.title %></td>
-                  <td class="a-center hidden-table"><%= product.key_information %></td>
-                  <td class="a-center hidden-table">
-                    <%= link_to edit_product_path(product), :class=>"edit-bnt" do %>
-                    <%end%>
-                  </td>
-                  <td class="a-center hidden-table">
-                    <%= link_to product, method: :delete, :class=>"remove-item", data: { confirm: 'Are you sure?' } do%>
-                    <%end%> 
-                  </td>
-                </tr>
-                  <% end %>
-              </tbody>
-            </table>
-          </div>
+    <div class="contentpanel panel-email">
+      <ul class="nav nav-tabs" id="custom-tabs">
+        <li class="active"><a href="#all" data-toggle="tab">All</a></li>
+        <li class=""><a href="#active" data-toggle="tab">Active</a></li>
+        <li><a href="#approval" data-toggle="tab">Pending Approval</a></li>
+        <li><a href="#cancel" data-toggle="tab">Cancelled</a></li>
+      </ul>
+      <!-- Tab panes -->      
+      <div class="tab-content mb30 custom-tabs-content">
+        <div class="tab-pane active" id="all">
+          <%= render partial: 'dashboard/shared/product', locals: {product: @products} %>
+        </div>
+        <div class="tab-pane" id="active">
+          <%= render partial: 'dashboard/shared/product', locals: {product: @products_approved} %>
+        </div>
+        <div class="tab-pane" id="approval">
+          <%= render partial: 'dashboard/shared/product', locals: {product: @products_approved_false} %>
+        </div>
+        <div class="tab-pane" id="cancel">
+          <%= render partial: 'dashboard/shared/product', locals: {product: @cancelled} %>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 

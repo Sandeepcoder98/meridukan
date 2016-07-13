@@ -5,7 +5,8 @@ class OrderItem < ActiveRecord::Base
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
   validate :order_present
-
+  belongs_to :order_status
+  before_create :set_order_status
   before_save :finalize
 
   default_scope { order('created_at DESC') }
@@ -22,7 +23,19 @@ class OrderItem < ActiveRecord::Base
     unit_price * quantity
   end
 
+  def placed(buyer)
+    self.update(order_status_id: 2)
+    self.order.update(user_id: buyer.id)
+    # self.send_placed_information(buyer)
+  end
+
 private
+
+  def set_order_status
+    self.order_status_id = 1
+  end
+
+
   def product_present
     if product.nil?
       errors.add(:product, "is not valid or is not active.")

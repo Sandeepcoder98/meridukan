@@ -7732,7 +7732,7 @@ button.button#empty_cart_button:before {
 	margin: 0 !important;
 	outline: medium none;
 	padding: 6px;
-	width: 45px;
+	width: 45px !important; 
 	text-align: center;
 	height: 35px;
     line-height: 35px;

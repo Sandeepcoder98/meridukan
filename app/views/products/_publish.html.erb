@@ -13,7 +13,7 @@
         </ul>
       </div>
     <% end %>
-    <%= f.hidden_field :status , :value=>true%>
+    <%= f.hidden_field :status , :value=>true %>
     <%= hidden_field_tag :referrer_action, (params[:referrer_action] || params[:action]) %>
     <div class="col-md-6 col-md-offset-3">
       <div class="thumbnail">
@@ -39,13 +39,13 @@
 
             <%= link_to "Wait For Approval","#",class: "btn btn-success"%>
 
-        <%#elsif (@product.cancelled) && ( !@product.apply_approve)  %>
-            <!-- <p>
+        <%elsif (@product.cancelled) && ( !@product.apply_approve)  %>
+            <p>
               Your product has been reject , please check product and reply apply again
-              <i class="fa fa-comment-o" data-toggle="modal" data-target="#project_activity_list"></i> -->
-            <!-- </p> -->
-            <%#= render 'product_activities_list',product: @product%>
-            <%#= link_to "Re-apply For Approval",apply_approve_product_path(@product),class: "btn btn-success"%>
+              <i class="fa fa-comment-o" data-toggle="modal" data-target="#project_activity_list"></i>
+            </p>
+            <%= render 'product_activities_list',product: @product%>
+            <%= link_to "Re-apply For Approval",apply_approve_product_path(@product),class: "btn btn-success"%>
         <%elsif !@product.apply_approve %>
             <%= link_to "Apply For Approval",apply_approve_product_path(@product),class: "btn btn-success"%>
         <%end%>

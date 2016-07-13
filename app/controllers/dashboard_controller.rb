@@ -42,20 +42,16 @@ class DashboardController < ApplicationController
 		@user = current_user
 	end
 
-  def update_password
-    @user = User.find(current_user.id)
-    if @user.update(user_params)
-      sign_in @user, :bypass => true
-      redirect_to root_path
-    else
-      render "account_action"
-    end
-  end
-
-	def my_products 
-		@products_approved_false = current_user.products.where(apply_approve: false)
-		@products_approved = current_user.products.where(apply_approve: true)
+	def update_password
+		@user = User.find(current_user.id)
+		if @user.update(user_params)
+		  sign_in @user, :bypass => true
+		  redirect_to root_path
+		else
+		  render "account_action"
+		end
 	end
+
 
 	def analytics
 	end

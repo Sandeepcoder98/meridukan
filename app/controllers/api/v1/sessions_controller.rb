@@ -8,7 +8,6 @@ class Api::V1::SessionsController < DeviseController
   respond_to :json
   
   def create
-    debugger 
     resource = User.find_for_database_authentication(:mobile=>params[:user][:mobile])
     return invalid_login_attempt unless resource
 

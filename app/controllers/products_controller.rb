@@ -9,7 +9,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = current_user.products
+    @products = current_user.products.all
+    @products_approved_false = current_user.products.where(approve: false)
+    @products_approved = current_user.products.where(approve: true)
+    @cancelled = current_user.products.where(cancelled: true)
   end
 
   def show    
@@ -101,7 +104,7 @@ class ProductsController < ApplicationController
   # Method for approving the product
   def apply_approve
   	# condition for check the cancelled flag then update flag as false else update only apply approve
-    # @product.cancelled ? @product.update(apply_approve: true,cancelled: false) : @product.update(apply_approve: true)
+    @product.cancelled ? @product.update(apply_approve: true,cancelled: false) : @product.update(apply_approve: true)
     @product.update(apply_approve: true)
     respond_to do |format|
       format.html { redirect_to publish_product_url(@product)}

@@ -67,7 +67,6 @@ Rails.application.routes.draw do
     get :inbox, on: :collection
     get :manage_request, on: :collection
     get :buyer_request, on: :collection
-    get :my_products, on: :collection
     get :my_shop, on: :collection
     get :analytics, on: :collection
     get :public_profile_setting, on: :collection

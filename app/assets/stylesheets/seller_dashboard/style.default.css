@@ -127,7 +127,10 @@ body.notfound, body.signin {
 #edit_user .input-text {
   width:100% !important;
 }
-
+.add-product-btn{
+    background: #DF2028 !important;
+    color: #fff !important;
+}
 #setting-form #edit_user{
 	box-shadow: none;
 }

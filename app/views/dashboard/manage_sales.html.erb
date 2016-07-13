@@ -17,12 +17,9 @@
     </div>
     <div class="contentpanel panel-email">
       <ul class="nav nav-tabs" id="custom-tabs">
-        <li class="active"><a href="#priority" data-toggle="tab">Priority</a></li>
-        <li><a href="#new" data-toggle="tab">New</a></li>
+        <li class="active"><a href="#priority" data-toggle="tab">New</a></li>
         <li><a href="#active" data-toggle="tab">Active</a></li>
-        <li><a href="#late" data-toggle="tab">Late</a></li>
         <li><a href="#delivered" data-toggle="tab">Delivered</a></li>
-        <li><a href="#completed" data-toggle="tab">Completed</a></li>
         <li><a href="#cancelled" data-toggle="tab">Cancelled</a></li>
       </ul>
         <div class="row search-filter">
@@ -39,7 +36,7 @@
       <div class="tab-content mb30 custom-tabs-content">
         <div class="tab-pane active" id="priority">
           <div class="table-responsive">
-            <h4>Priority Orders</h4>
+            <h4>New Orders</h4>
             <table class="table table-info mb30 product_table">
               <thead>
                 <tr>
@@ -49,6 +46,7 @@
                   <th>Total Price</th>
                   <th>Order Date</th>
                   <th>Order Time</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,47 +67,9 @@
                     <td class="a-center hidden-table">
                       <%= order.created_at.to_time.strftime("%r")%> 
                     </td>
+                    <td><%= link_to "Deliver" , "#-" ,class: "btn add-product-btn"%></td>
                   </tr>
                 <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane" id="new">
-          <div class="table-responsive">
-            <h4>New Orders</h4>
-            <table class="table table-info mb30">
-              <thead>
-                <tr>
-                  <th>Buyer</th>
-                  <th>Product</th>
-                  <th>Delivery time</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                  <td>@mdo</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -117,45 +77,6 @@
         <div class="tab-pane" id="active">
           <div class="table-responsive">
             <h4>Active Orders</h4>
-            <table class="table table-info mb30">
-              <thead>
-                <tr>
-                  <th>Buyer</th>
-                  <th>Product</th>
-                  <th>Delivery time</th>
-                  <th>Total</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                  <td>@mdo</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tab-pane" id="late">
-          <div class="table-responsive">
-            <h4>Late Orders</h4>
             <table class="table table-info mb30">
               <thead>
                 <tr>

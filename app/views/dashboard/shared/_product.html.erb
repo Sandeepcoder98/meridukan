@@ -1,5 +1,5 @@
 <div class="table-responsive">
-	<h4>Denied Orders</h4>
+	<h4>Products</h4>
 	<table class="table table-info mb30 product_table">
 	  <thead>
 	    <tr>
@@ -9,6 +9,7 @@
 	      <th>Create Time</th>
 	      <th>Price</th>
 	      <th>Offer</th>
+	      <th>Actions</th>
 	    </tr>
 	  </thead>
   	<tbody>
@@ -20,6 +21,10 @@
 			    <td><%= product.created_at.strftime("%B %d, %Y at %I %p") %></td>
 			    <td><%= product.pricing.mrp_per_unit %></td>
 			    <td><%= product.pricing.offer_on_mrp %></td>
+			    <td>
+			    	<%= link_to ('<i class="fa fa-edit"></i>').html_safe,edit_product_path(product) %> 
+			    	<%= link_to ('<i class="fa fa-trash"></i>').html_safe, product , :confirm => 'Are you sure?', :method => :delete  %> 
+			    </td>
 			  </tr>
 			<% end %>
 		</tbody>

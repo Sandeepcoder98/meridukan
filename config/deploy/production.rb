@@ -46,7 +46,7 @@ set :environment , 'production'
 set :branch , 'master'
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/deploy/MeriDookan'
+set :deploy_to, '/home/deploy/MeriDookan/current'
 
 # Default value for :scm is :git
 # set :git

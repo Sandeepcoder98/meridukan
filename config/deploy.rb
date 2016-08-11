@@ -7,7 +7,7 @@ set :default_stage, "development"
 set :user, "deploy"
 # set :application, '52.193.116.211'
 set :repo_url, 'git@bitbucket.org:sandy1987/meridukan.git'
-set :deploy_to, "/home/deploy/"
+set :deploy_to, "/home/deploy/MeriDookan"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }

@@ -37,3 +37,36 @@ server '139.59.5.60', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+
+
+set :application, 'MeriDookan'
+set :repo_url, 'git@bitbucket.org:sandy1987/meridukan.git'
+
+set :current_path, '/home/deploy/MeroDookan/current'
+
+set :shared_path, '/home/deploy/MeroDookan/shared'
+
+set :environment , 'development'
+# Default branch is :master
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :branch , 'master'
+
+# Default deploy_to directory is /var/www/my_app
+set :deploy_to, '/home/deploy/MeriDookan'
+
+# Default value for :scm is :git
+# set :git
+
+# Default value for :format is :pretty
+# set :format, :pretty
+
+# Default value for :log_level is :debug
+set :log_level, :debug
+
+# Default value for :pty is false
+# set :pty, true
+
+# Default value for :linked_files is []
+# set :linked_files, %w{config/database.yml}
+
+# Default value for linked_dirs is []

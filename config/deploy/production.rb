@@ -40,7 +40,7 @@ set :current_path, '/home/deploy/MeroDookan/current'
 
 set :shared_path, '/home/deploy/MeroDookan/shared'
 
-set :environment , 'development'
+set :environment , 'production'
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 set :branch , 'master'

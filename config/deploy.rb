@@ -4,10 +4,10 @@
 
 set :stages, %w(development)
 set :default_stage, "development"
-set :user, "dev"
+set :user, "deploy"
 # set :application, '52.193.116.211'
 set :repo_url, 'git@bitbucket.org:sandy1987/meridukan.git'
-set :deploy_to, "/home/dev/"
+set :deploy_to, "/home/deploy/"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -24,10 +24,10 @@ set :format, :pretty
 # Default value for :log_level is :debug
 set :log_level, :debug
 
-set :user, "dev"   
-role :app, "52.193.116.211"
-role :web, "52.193.116.211"
-role :db,  "52.193.116.211",:primary => true
+set :user, "deploy"   
+role :app, "139.59.5.60"
+role :web, "139.59.5.60"
+role :db,  "139.59.5.60",:primary => true
 
 # Default value for :pty is false
 # set :pty, true

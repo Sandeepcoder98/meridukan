@@ -42,9 +42,9 @@ server '139.59.5.60', user: 'deploy', roles: %w{web app}, my_property: :my_value
 set :application, 'MeriDookan'
 set :repo_url, 'git@bitbucket.org:sandy1987/meridukan.git'
 
-set :current_path, '/home/deploy/MeroDookan/current'
+set :current_path, '/home/deploy/MeriDookan/current'
 
-set :shared_path, '/home/deploy/MeroDookan/shared'
+set :shared_path, '/home/deploy/MeriDookan/shared'
 
 set :environment , 'production'
 # Default branch is :master

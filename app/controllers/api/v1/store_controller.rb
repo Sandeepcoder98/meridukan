@@ -4,7 +4,7 @@ class Api::V1::StoreController < Api::AuthenticationController
   respond_to :json
   
   def my_store
-  	render :json => current_user.store, serializer: StoreSerializer
+  	render :json => current_user.store
   end
   
   def show

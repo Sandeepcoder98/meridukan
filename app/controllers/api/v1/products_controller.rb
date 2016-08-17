@@ -11,7 +11,26 @@ class Api::V1::ProductsController < Api::AuthenticationController
   	render :json => @product, serializer: ProductSerializer
   end
 
+  def create
+    debugger 
+    @product = current_user.store.products.build(product_params)
+    if @product.save
+      @product.update_attributes(step_path: params[:referrer_action])
+      render :json => :show, status: :created, location: @product
+    else
+      render json: @product.errors, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def product_params
+      params.require(:product).permit(
+          :title, :description,:category_id,:delivery_time,:sub_category_id,:child_sub_category_id,:tag_list,:status,:approve,:step_path,:key_information,
+          galleries_attributes:[:id, :photo, :_destroy], 
+          product_shipping_detail_attributes:[:id, :free_delivery,:free_kilometers,:charge_per_kilometer],
+          pricing_attributes:[:id, :stock_quantity,:mrp_per_unit,:offer_on_mrp],additional_offer_attributes:[:id, :offer_type,:offer_id,:product_id],price_offer_attributes:[:id, :amount,:percent,:gift,:choice_type, :amount_for_gift],product_offer_attributes:[:id, :buy,:get,:gift,:choice_type, :buy_for_gift])
+    end
 
   def set_product
   	@product = Product.find(params[:id])

@@ -6,6 +6,9 @@ class DashboardController < ApplicationController
 	def manage_sales
 		@orders = OrderItem.joins(:product).where('products.store_id': current_user.store.id)
 		@orders = get_orders_by_time if params[:search_date].present?
+		@active_orders = OrderItem.joins(:product).where('products.store_id': current_user.store.id).where(order_status_id: 2)
+		@delivered_orders = OrderItem.joins(:product).where('products.store_id': current_user.store.id).where(order_status_id: 3)
+		@canceled_orders = OrderItem.joins(:product).where('products.store_id': current_user.store.id).where(order_status_id: 4)
 	end
 
 	def get_orders_by_time

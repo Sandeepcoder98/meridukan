@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <h4>New Orders</h4>
+  <table class="table table-info mb30 product_table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Product Details</th>
+        <th>Buyer Name</th>
+        <th>Total Price</th>
+        <th>Order Date</th>
+        <th>Order Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.each do |order|%>
+        <tr class="first odd">
+          <td><%= order.id %></td>
+          <td class="image">
+            <%= image_tag asset_path(order.product.galleries.first.photo.url), size: "60x60" %>
+            <%= order.product.title %>
+          </td>
+          <td><%= User.find(order.order.user_id).full_name if order.order.user_id.present? %></td>
+          <td class="a-center hidden-table">
+            <%= order.total_price.to_f %>
+          </td>
+          <td class="a-center hidden-table">
+            <%= order.created_at.strftime("%d %B %Y")%> 
+          </td>
+          <td class="a-center hidden-table">
+            <%= order.created_at.to_time.strftime("%r")%> 
+          </td>
+          <td><%= link_to "Deliver" , "#-" ,class: "btn add-product-btn"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

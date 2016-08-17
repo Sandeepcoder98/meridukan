@@ -19,8 +19,8 @@
 			    <td><%= image_tag asset_path(product.galleries.first.photo.url),:size=>"60x60"%></td>
 			    <td><%= product.title %></td>
 			    <td><%= product.created_at.strftime("%B %d, %Y at %I %p") %></td>
-			    <td><%= product.pricing.mrp_per_unit %></td>
-			    <td><%= product.pricing.offer_on_mrp %></td>
+			    <td><%= product.try(:pricing).try(:mrp_per_unit) %></td>
+			    <td><%= product.try(:pricing).try(:offer_on_mrp) %></td>
 			    <td>
 			    	<%= link_to ('<i class="fa fa-edit"></i>').html_safe,edit_product_path(product) %> 
 			    	<%= link_to ('<i class="fa fa-trash"></i>').html_safe, product , :confirm => 'Are you sure?', :method => :delete  %> 

@@ -123,7 +123,7 @@ Rails.application.routes.draw do
   # API structure
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-
+      get  'orders/index'
       devise_for :users
 
       get "/my_store" => "store#my_store"
@@ -132,6 +132,10 @@ Rails.application.routes.draw do
       end
 
       resources :channels
+
+      resources :order_items, only: [:create, :update, :destroy] do
+        post :quick_add, on: :collection
+      end
 
       resources :products, except: :index
 

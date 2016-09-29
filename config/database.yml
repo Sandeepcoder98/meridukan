@@ -26,13 +26,13 @@ default: &default
 
 development:
   <<: *default
-  database: MeriDukan_development
+  database: MeriDukan_production
   password: 12345678
 
 production:
   <<: *default
   database: MeriDukan_production
-  password: Welcome2016
+  password: 12345678
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

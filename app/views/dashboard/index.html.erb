@@ -20,7 +20,7 @@
       <ol class="shop-list">
         <li class="item first">
           <div class="product-shop">
-            <h2 class="product-name"><%= current_user.first_name.camelize  %></h2>
+            <h2 class="product-name"><%= current_user.try(:first_name).try(:camelize)  %></h2>
             <div class="lead">
               <div class="starrr" id="stars"><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span></div>
             </div>
@@ -155,7 +155,7 @@
               <div class="results-list people-item">
                 <div class="media">
                   <a class="pull-left" href="#">
-                  <%= image_tag asset_path(product.galleries.first.photo.url),:class=>"", :size=>"70x70"%>
+                  <%= image_tag asset_path(product.try(:galleries).try(:first).try(:photo).try(:url)),:class=>"", :size=>"70x70"%>
                   </a>
                   <div class="media-body">
                     <h4 class="filename"><%= product.title%></h4>

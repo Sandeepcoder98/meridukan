@@ -14,7 +14,8 @@ class Api::V1::OrderItemsController < Api::AuthenticationController
 	    @order_item = @order.save_order_item(order_item_params)
 	    @order.save
 	    session[:order_id] = @order.id
-	    render :json=> { status: true, message: 'add product to cart successfully' }, :status=>201
+	    # render :json=> { status: true, message: 'add product to cart successfully' }, :status=>201
+	    render :json => @order, serializer: OrderSerializer
 	  end
 
 	  def current_order

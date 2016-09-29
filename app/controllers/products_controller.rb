@@ -55,6 +55,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    debugger 
     @product = current_user.store.products.build(product_params)
     respond_to do |format|
       if @product.save

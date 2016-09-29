@@ -128,7 +128,8 @@ Rails.application.routes.draw do
 
       get "/my_store" => "store#my_store"
       resources :store do 
-        resources :products, only: :index
+        resources :products do
+        end  
       end
 
       resources :channels
@@ -137,7 +138,18 @@ Rails.application.routes.draw do
         post :quick_add, on: :collection
       end
 
-      resources :products, except: :index
+      resources :products do 
+        member do
+          get :pricing
+          get :shipping_details
+          match :publish , via: [:get, :patch]
+          match :additional_offers , via: [:get, :patch]
+          get :approve
+          get :view_product
+          post :product_activities
+          get :apply_approve
+        end
+      end 
 
       resources :search, only: :index do 
         get :stores, on: :collection

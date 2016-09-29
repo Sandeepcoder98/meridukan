@@ -74,11 +74,11 @@ namespace :import_dump do
 			})
 			elsif(number_product%3==0)
 			product.galleries.new({
-				"photo"=> open("http://www.spainbymikerandolph.com/wp-content/uploads/2012/10/fruit1.jpg")
+				"photo"=> open("http://www.grazia.fr/var/grazia/storage/images/media/images/beaute/fruits-et-legumes-bons-pour-la-peau/la-papaye-l-hydratation/13024300-1-fre-FR/La-papaye-l-hydratation_exact780x585_l.jpg")
 			})
 			else
 			product.galleries.new({
-				"photo"=> open("http://thumbs.dreamstime.com/z/fruit-market-24373697.jpg")
+				"photo"=> open("http://www.grazia.fr/var/grazia/storage/images/media/images/beaute/fruits-et-legumes-bons-pour-la-peau/la-papaye-l-hydratation/13024300-1-fre-FR/La-papaye-l-hydratation_exact780x585_l.jpg")
 			})
 			end
 

@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :price_offer, :reject_if => :all_blank
   acts_as_taggable_on :name
 
-  validates :title,:description,:delivery_time,:category_id,:galleries,:presence=>true
+  validates :title,:description,:delivery_time,:category_id,:presence=>true
 
   # Setting Up Objects  
   searchable do

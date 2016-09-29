@@ -16,7 +16,8 @@
 			<% product.each_with_index do |product,index|%>
 			  <tr>
 			    <td><%= index+1 %></td>
-			    <td><%= image_tag asset_path(product.galleries.first.photo.url),:size=>"60x60"%></td>
+			    <td><%= image_tag asset_path(product.try(:galleries).try(:first).try(:photo).try(:url)),:class=>"", :size=>"60x60"%>
+			    </td>
 			    <td><%= product.title %></td>
 			    <td><%= product.created_at.strftime("%B %d, %Y at %I %p") %></td>
 			    <td><%= product.try(:pricing).try(:mrp_per_unit) %></td>

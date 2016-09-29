@@ -1,6 +1,6 @@
 class Api::V1::ProductsController < Api::AuthenticationController  
   before_action :set_product, only: :show
-	
+	before_action :set_product, only: [:show, :edit, :update, :destroy, :apply_approve,:product_activities_list,:pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
   respond_to :json
 
   def index
@@ -15,13 +15,23 @@ class Api::V1::ProductsController < Api::AuthenticationController
     debugger 
     @product = current_user.store.products.build(product_params)
     if @product.save
-      @product.update_attributes(step_path: params[:referrer_action])
-      render :json => :show, status: :created, location: @product
+      @product.update_attributes(step_path: "new")
+      render :json => @product, serializer: ProductSerializer, :status=>201
     else
       render json: @product.errors, status: :unprocessable_entity
     end
   end
 
+  def update
+    respond_to do |format|
+      if @product.update_attributes(product_params)
+        format.json { render :json => @product, serializer: ProductSerializer }
+      else
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   private
 
   def product_params

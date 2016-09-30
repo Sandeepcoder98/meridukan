@@ -6,8 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/config/database.yml
-/config/sunspot.yml
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
@@ -15,3 +13,4 @@
 /public/system
 /public/assets
 /solr/
+database.yml

@@ -5,7 +5,7 @@ class StoreDecorator < Draper::Decorator
   def json_format
     object.to_json(
       only: [:id, :name],
-      methods: [:full_address]
+      methods: [:full_address, :logo_url, :store_rating, :store_distance]
     )
   end
 end

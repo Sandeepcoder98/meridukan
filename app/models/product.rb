@@ -79,7 +79,7 @@ class Product < ActiveRecord::Base
   end
 
   def photo_url
-    galleries.last.photo.url rescue ""
+    galleries.last.photo.path rescue ""
   end
 
   def product_description

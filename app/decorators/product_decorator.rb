@@ -9,7 +9,7 @@ class ProductDecorator < Draper::Decorator
       :include => {
         store: {
           only: [:name, :id],
-          methods: [:full_address]
+          methods: [:full_address, :logo_url, :store_rating, :store_distance]
         }
       }
     )

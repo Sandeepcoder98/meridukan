@@ -33,4 +33,20 @@ class Store < ActiveRecord::Base
     "#{name}, #{address}, #{city}, #{state}, #{pin_code}"
   end
 
+  def logo_url
+    "#{logo.path}" rescue ""
+  end
+
+  def cover_url
+    "#{cover.path}" rescue ""
+  end
+
+  def store_rating
+    rating.blank? ? "2" : "#{rating}"  rescue ""
+  end
+
+   def store_distance
+    distance.blank? ? "2" : "#{distance}" rescue ""
+  end
+
 end

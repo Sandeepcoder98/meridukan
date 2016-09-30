@@ -26,12 +26,12 @@ default: &default
 
 development:
   <<: *default
-  database: MeriDukan_production
+  database: MeriDukan_development_new_1
   password: 12345678
 
 production:
   <<: *default
-  database: MeriDukan_production
+  database: MeriDukan_development_new_1
   password: 12345678
 
   # The specified database role being used to connect to postgres.

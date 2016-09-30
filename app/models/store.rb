@@ -34,11 +34,11 @@ class Store < ActiveRecord::Base
   end
 
   def logo_url
-    "#{logo.path}" rescue ""
+    "#{logo.url}" rescue ""
   end
 
   def cover_url
-    "#{cover.path}" rescue ""
+    "#{cover.url}" rescue ""
   end
 
   def store_rating

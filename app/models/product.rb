@@ -79,7 +79,11 @@ class Product < ActiveRecord::Base
   end
 
   def photo_url
-    galleries.last.photo.path rescue ""
+    galleries.last.photo.url rescue ""
+  end
+
+  def product_rating
+    rating.blank? ? "2" : "#{rating}"  rescue ""
   end
 
   def product_description

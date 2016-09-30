@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="hovercard" id="seller-profile">
-      <div class="cardheader">  <%= image_tag asset_path(current_user.store.cover.url), :width=>"100%", :height=>"175px;"%></div>
+      <div class="cardheader">  <%= image_tag asset_path(current_user.store.cover.url), :width=>"100%", :height=>"175px;" if current_user.store %></div>
       <div class="avatar"> <%= image_tag asset_path(current_user.avatar.url) %></div>
       <ol class="shop-list">
         <li class="item first">

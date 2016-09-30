@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
@@ -13,4 +14,3 @@
 /public/system
 /public/assets
 /solr/
-database.yml

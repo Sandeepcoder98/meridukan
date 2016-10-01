@@ -1,10 +1,14 @@
 class Api::V1::OrderItemsController < Api::AuthenticationController
 	before_action :add_item, only: [:create]
-	before_action :current_order, only: [:create]
+	before_action :current_order, only: [:create, :show]
 	
   respond_to :json
   def create
+  end
 
+  def show
+  	@order_items = current_order.order_items
+  	render :json =>@order_items, each_serializer: Api::OrderItemSerializer
   end
 
   private
@@ -15,13 +19,13 @@ class Api::V1::OrderItemsController < Api::AuthenticationController
 	    @order.save
 	    session[:order_id] = @order.id
 	    # render :json=> { status: true, message: 'add product to cart successfully' }, :status=>201
-	    render :json => @order, serializer: OrderSerializer
+	    render :json => @order, serializer: Api::OrderSerializer
 	  end
 
 	  def current_order
 	    begin
-	      if !session[:order_id].nil?
-	        Order.find(session[:order_id])
+	      if !params[:session][:order_id].nil?
+	        Order.find(params[:session][:order_id])
 	      else
 	        Order.new
 	      end

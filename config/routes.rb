@@ -134,7 +134,7 @@ Rails.application.routes.draw do
 
       resources :channels
 
-      resources :order_items, only: [:create, :update, :destroy] do
+      resources :order_items, only: [:create, :update, :destroy, :show] do
         post :quick_add, on: :collection
       end
 
@@ -155,6 +155,9 @@ Rails.application.routes.draw do
         get :stores, on: :collection
         get :products, on: :collection    
       end  
+
+      resources :categories, only: [:index] do
+      end
       
     end
   end  

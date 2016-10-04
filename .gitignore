@@ -11,6 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-/public/system
 /public/assets
 /solr/

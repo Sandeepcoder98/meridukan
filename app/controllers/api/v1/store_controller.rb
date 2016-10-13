@@ -2,27 +2,32 @@ class Api::V1::StoreController < Api::AuthenticationController
   attr_accessor :image_data
 
   before_action :set_store, only: :show
-	# before_action :decode_image_data , only: :create
+  # before_action :decode_image_data , only: :create
 
   respond_to :json
   
   def my_store
-  	render :json => current_user.store
+    render :json => current_user.store
   end
 
   def create
+    #Modigy params
+    params[:store] = {}
+    %w(name logo city address landmark pin_code country cover).each do |field|
+      params[:store][field.to_sym] = params[field]
+    end
     store = current_user.build_store(store_params)
     store.save
      render :json=> { status: true, message: 'Store created successfully' }, :status=>201
   end  
   def show
-  	render :json => @store, serializer: StoreSerializer
+    render :json => @store, serializer: StoreSerializer
   end
 
   private
 
   def set_store
-  	@store = Store.find(params[:id])
+    @store = Store.find(params[:id])
   end
 
   def store_params

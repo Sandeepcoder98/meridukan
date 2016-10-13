@@ -1,20 +1,30 @@
 class Api::V1::ProductsController < Api::AuthenticationController  
   before_action :set_product, only: :show
-	before_action :set_product, only: [:show, :edit, :update, :destroy, :apply_approve,:product_activities_list,:pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :apply_approve,:product_activities_list,:pricing, :shipping_details, :publish, :additional_offers,:check_path_tab, :view_product]
   respond_to :json
 
   def index
-  	render :json => current_user.store.products, each_serializer: ProductSerializer
+    render :json => current_user.store.products, each_serializer: ProductSerializer
   end
 
   def show
-  	render :json => @product, serializer: ProductSerializer
+    render :json => @product, serializer: ProductSerializer
   end
 
   def create
-    debugger 
+    #Modify params
+    params[:product] = {}
+    params[:product][:pricing_attributes] = {}
+    %w(title description category_id sub_category_id child_sub_category_id tag_list productstep_path delivery_time).each do |field|
+      params[:product][field.to_sym] = params[field]
+    end
+    params[:product][:pricing_attributes][:stock_quantity] = params[:stock_quantity]
+    params[:product][:pricing_attributes][:mrp_per_unit]  = params[:mrp_per_unit]
+    params[:product][:pricing_attributes][:offer_on_mrp]  = params[:offer_on_mrp]
+
     @product = current_user.store.products.build(product_params)
     if @product.save
+      @product.galleries.create(photo: params[:photo])
       @product.update_attributes(step_path: "new")
       render :json => @product, serializer: ProductSerializer, :status=>201
     else
@@ -43,6 +53,6 @@ class Api::V1::ProductsController < Api::AuthenticationController
     end
 
   def set_product
-  	@product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 end
